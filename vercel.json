@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "buildCommand": "pnpm nx build docs --configuration=production",
+  "outputDirectory": "dist/docs/browser",
+  "framework": "angular",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

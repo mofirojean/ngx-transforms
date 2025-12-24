@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/nx/schemas/project-schema.json",
-  "name": "ngx-transforms",
+  "name": "ngx-transforms-project",
   "projectType": "application",
   "generators": {},
   "sourceRoot": "src",
@@ -58,16 +58,24 @@
       "executor": "@angular/build:dev-server",
       "configurations": {
         "production": {
-          "buildTarget": "ngx-transforms:build:production"
+          "buildTarget": "ngx-transforms-project:build:production"
         },
         "development": {
-          "buildTarget": "ngx-transforms:build:development"
+          "buildTarget": "ngx-transforms-project:build:development"
         }
       },
       "defaultConfiguration": "development"
     },
     "test": {
       "executor": "@angular/build:unit-test"
+    },
+    "local-registry": {
+      "executor": "@nx/js:verdaccio",
+      "options": {
+        "port": 4873,
+        "config": ".verdaccio/config.yml",
+        "storage": "tmp/local-registry/storage"
+      }
     }
   }
 }

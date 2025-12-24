@@ -1,59 +1,76 @@
 # NgxTransforms
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.3.
+<p align="center">
+  <img src="https://raw.githubusercontent.com/mofirojean/ngx-transforms/main/apps/docs/src/favicon.ico" alt="NgxTransforms Logo" width="120" height="120">
+</p>
 
-## Development server
+<p align="center">
+  <strong>A comprehensive collection of modern, type-safe, and performant Angular pipes.</strong>
+</p>
 
-To start a local development server, run:
+<p align="center">
+  <a href="https://github.com/mofirojean/ngx-transforms/actions"><img src="https://img.shields.io/github/actions/workflow/status/mofirojean/ngx-transforms/ci.yml?branch=main" alt="Build Status"></a>
+  <a href="https://www.npmjs.com/package/@ngx-transforms/core"><img src="https://img.shields.io/npm/v/@ngx-transforms/core" alt="NPM Version"></a>
+  <a href="https://github.com/mofirojean/ngx-transforms/blob/main/LICENSE"><img src="https://img.shields.io/github/license/mofirojean/ngx-transforms" alt="License"></a>
+</p>
 
-```bash
-ng serve
-```
+---
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🚀 Features
 
-## Code scaffolding
+- **Pure & Performant:** All pipes are pure by default, ensuring optimal change detection performance.
+- **Type-Safe:** Written in TypeScript with strict type checking to catch errors at compile time.
+- **Standalone:** Fully compatible with Angular's standalone components API.
+- **Tree-Shakeable:** Import only what you need, keeping your bundle size small.
+- **Modern:** Built for the latest versions of Angular.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 📦 Installation
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+Install the library via npm:
 
 ```bash
-ng build
+npm install @ngx-transforms/core
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## 🛠️ Usage
 
-## Running unit tests
+Import the pipe you need into your component:
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+```typescript
+import { Component } from '@angular/core';
+import { CountPipe } from '@ngx-transforms/core';
 
-```bash
-ng test
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [CountPipe],
+  template: `
+    <p>Array length: {{ items | count }}</p>
+  `
+})
+export class AppComponent {
+  items = [1, 2, 3, 4, 5];
+}
 ```
 
-## Running end-to-end tests
+## 📚 Documentation
 
-For end-to-end (e2e) testing, run:
+For full documentation and examples, visit our [documentation site](https://ngx-transforms.vercel.app) (coming soon).
 
-```bash
-ng e2e
-```
+## 🤝 Contributing
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests.
 
-## Additional Resources
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👨‍💻 Author
+
+Built with ❤️ by [Mofiro Jean](https://github.com/mofirojean).

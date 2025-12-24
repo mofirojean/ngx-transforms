@@ -1,6 +1,5 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { HlmButtonImports } from '@spartan-ng/helm/button';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
   lucidePipette,
@@ -14,12 +13,13 @@ import {
   lucideBox,
   lucideCopy
 } from '@ng-icons/lucide';
-import { ThemeService } from './service';
+import {Theme} from './reusables/theme/theme';
+import {GithubStars} from './reusables/github/github-stars';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterModule, HlmButtonImports, NgIconComponent],
+  imports: [RouterModule, NgIconComponent, Theme, GithubStars],
   providers: [
     provideIcons({
       lucidePipette,
@@ -31,21 +31,11 @@ import { ThemeService } from './service';
       lucideZap,
       lucideShieldCheck,
       lucideBox,
-      lucideCopy
+      lucideCopy,
     })
   ],
   templateUrl: './app.html',
-  styleUrl: './app.css',
+  styles: ``,
 })
 export class App {
-  protected title = 'docs';
-  private themeService = inject(ThemeService);
-  protected theme = this.themeService.theme;
-
-  toggleTheme() {
-    const current = this.theme();
-    if (current === 'light') this.themeService.setTheme('dark');
-    else if (current === 'dark') this.themeService.setTheme('system');
-    else this.themeService.setTheme('light');
-  }
 }

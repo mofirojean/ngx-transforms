@@ -1,7 +1,7 @@
 {
   "version": 2,
   "buildCommand": "pnpm nx build docs --configuration=production",
-  "outputDirectory": "dist/apps/docs",
+  "outputDirectory": "dist/apps/docs/browser",
   "framework": "angular",
   "rewrites": [
     {

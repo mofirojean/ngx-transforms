@@ -1,9 +1,9 @@
 import { Route } from '@angular/router';
 import { Landing } from './pages/landing';
 import { Introduction } from './pages/introduction';
-import { PipesPageComponent } from './pages/pipes';
-import { Count } from './pages/count';
-import { PipesList } from './pages/pipes-list';
+import { PipesPageComponent } from './pages/pipes/pipes';
+import { Count } from './pages/pipes/count';
+import { PipesList } from './pages/pipes/pipes-list';
 
 export const appRoutes: Route[] = [
   {

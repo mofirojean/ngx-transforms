@@ -38,9 +38,11 @@
     "@ng-icons/lucide": ">=32.0.0 <34.0.0",
     "@spartan-ng/brain": "^0.0.1-alpha.586",
     "@spartan-ng/cli": "^0.0.1-alpha.586",
+    "@types/prismjs": "^1.26.5",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "express": "^5.1.0",
+    "prismjs": "^1.30.0",
     "rxjs": "~7.8.0",
     "tailwind-merge": "^3.3.1",
     "tslib": "^2.3.0"

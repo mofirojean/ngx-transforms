@@ -1,8 +1,10 @@
 import {Component} from '@angular/core';
+import {Footer} from '../reusables/footer';
 
 @Component({
   selector: 'app-introduction-page',
   standalone: true,
+  imports: [Footer],
   template: `
     <div class="container mx-auto py-10 px-4 md:px-8 max-w-4xl">
       <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-6">Introduction</h1>
@@ -29,6 +31,7 @@ import {Component} from '@angular/core';
       <div class="relative rounded-md bg-muted p-4 font-mono text-sm mt-4">
         npm install &#64;ngx-transforms/core
       </div>
+      <app-footer />
     </div>
   `
 })

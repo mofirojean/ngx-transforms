@@ -38,11 +38,20 @@
   --sidebar-accent-foreground: oklch(0.216 0.006 56.043);
   --sidebar-border: oklch(0.923 0.003 48.717);
   --sidebar-ring: oklch(0.709 0.01 56.259);
+
+  --token-comment: #999;
+  --token-punctuation: #ccc;
+  --token-tag: #e2777a;
+  --token-function-name: #6196cc;
+  --token-boolean: #f08d49;
+  --token-property: #f8c555;
+  --token-keyword: #cc99cd;
+  --token-string: #7ec699;
+  --token-operator: #67cdcc;
 }
 
 :root.dark {
   color-scheme: dark;
-
   --background: oklch(0.147 0.004 49.25);
   --foreground: oklch(0.985 0.001 106.423);
   --card: oklch(0.216 0.006 56.043);
@@ -75,6 +84,16 @@
   --sidebar-accent-foreground: oklch(0.985 0.001 106.423);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.553 0.013 58.071);
+
+  --token-comment: #6a737d;
+  --token-punctuation: #d1d5da;
+  --token-tag: #ff7b72;
+  --token-function-name: #79b8ff;
+  --token-boolean: #ffab70;
+  --token-property: #ffea7f;
+  --token-keyword: #f97583;
+  --token-string: #9e FFB3;
+  --token-operator: #79b8ff;
 }
 
 @theme {

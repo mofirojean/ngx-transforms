@@ -19,7 +19,9 @@
             "input": "apps/docs/public"
           }
         ],
-        "styles": ["apps/docs/src/styles.css"]
+        "styles": ["apps/docs/src/styles.css"],
+        "allowedCommonJsDependencies": ["prismjs"]
+
       },
       "configurations": {
         "production": {

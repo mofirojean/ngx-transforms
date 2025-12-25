@@ -40,19 +40,19 @@ import {lucideMenu, lucideX} from '@ng-icons/lucide';
               routerLink="/docs/introduction"
               routerLinkActive="font-medium text-primary bg-primary/10"
               (click)="isSidebarOpen.set(false)"
-              class="group flex w-full items-center rounded-md border border-transparent px-2 py-1.5 hover:underline text-muted-foreground hover:text-foreground transition-colors"
+              class="group flex w-full items-center rounded-md border border-transparent px-2 py-1.5 hover:bg-primary/10 text-muted-foreground hover:text-foreground transition-colors"
             >
               Introduction
             </a>
           </div>
 
-          <h4 class="mb-4 text-sm font-semibold leading-none tracking-tight">Pipes</h4>
+          <h4 routerLink="/docs/pipes" class="mb-4 text-sm font-semibold cursor-pointer leading-none tracking-tight">Pipes</h4>
           <div class="grid grid-flow-row auto-rows-max text-sm">
             <a
               routerLink="/docs/pipes/count"
               routerLinkActive="font-medium text-primary bg-primary/10"
               (click)="isSidebarOpen.set(false)"
-              class="group flex w-full items-center rounded-md border border-transparent px-2 py-1.5 hover:underline text-muted-foreground hover:text-foreground transition-colors"
+              class="group flex w-full items-center rounded-md border border-transparent px-2 py-1.5 hover:bg-primary/10 text-muted-foreground hover:text-foreground transition-colors"
             >
               Count
             </a>

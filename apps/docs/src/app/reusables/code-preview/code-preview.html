@@ -1,0 +1,24 @@
+<div class="code-preview">
+  <div class="tabs">
+    <button (click)="activeTab.set('preview')" [class.active]="activeTab() === 'preview'">Preview</button>
+    <button (click)="activeTab.set('code')" [class.active]="activeTab() === 'code'">Code</button>
+  </div>
+  <div class="content">
+    @if (activeTab() === 'preview') {
+      <div class="preview-content">
+        <ng-content></ng-content>
+      </div>
+    } @else {
+      <div class="code-content">
+        <pre><code [innerHTML]="highlightedCode()"></code></pre>
+        <button (click)="copyToClipboard()">
+          @if (copied()) {
+            <ng-icon name="lucideCheck" class="h-4 w-4 text-green-500"></ng-icon>
+          } @else {
+            <ng-icon name="lucideCopy" class="h-4 w-4"></ng-icon>
+          }
+        </button>
+      </div>
+    }
+  </div>
+</div>

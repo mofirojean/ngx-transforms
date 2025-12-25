@@ -1,0 +1,125 @@
+.code-preview {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.tabs {
+  display: flex;
+  background-color: transparent;
+  border-bottom: 1px solid var(--border);
+}
+
+.tabs button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  color: var(--muted-foreground);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+
+.tabs button.active {
+  color: var(--foreground);
+  border-bottom-color: var(--primary);
+}
+
+.content {
+  position: relative;
+}
+
+.code-content {
+  position: relative;
+  background-color: var(--muted);
+}
+
+.code-content pre {
+  margin: 0;
+  padding: 1rem;
+  color: var(--foreground);
+  line-height: 1.5;
+  overflow-x: auto;
+  font-size: 0.875rem;
+}
+
+.code-content button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.25rem;
+  border: none;
+  border-radius: var(--radius);
+  background-color: transparent;
+  color: var(--muted-foreground);
+  cursor: pointer;
+}
+
+.code-content button:hover {
+  color: var(--foreground);
+}
+
+.preview-content {
+  padding: 1rem;
+}
+
+:host ::ng-deep .token.comment,
+:host ::ng-deep .token.block-comment,
+:host ::ng-deep .token.prolog,
+:host ::ng-deep .token.doctype,
+:host ::ng-deep .token.cdata {
+  color: var(--token-comment);
+}
+
+:host ::ng-deep .token.punctuation {
+  color: var(--token-punctuation);
+}
+
+:host ::ng-deep .token.tag,
+:host ::ng-deep .token.attr-name,
+:host ::ng-deep .token.namespace,
+:host ::ng-deep .token.deleted {
+  color: var(--token-tag);
+}
+
+:host ::ng-deep .token.function-name {
+  color: var(--token-function-name);
+}
+
+:host ::ng-deep .token.boolean,
+:host ::ng-deep .token.number,
+:host ::ng-deep .token.function {
+  color: var(--token-boolean);
+}
+
+:host ::ng-deep .token.property,
+:host ::ng-deep .token.class-name,
+:host ::ng-deep .token.constant,
+:host ::ng-deep .token.symbol {
+  color: var(--token-property);
+}
+
+:host ::ng-deep .token.selector,
+:host ::ng-deep .token.important,
+:host ::ng-deep .token.atrule,
+:host ::ng-deep .token.keyword,
+:host ::ng-deep .token.builtin {
+  color: var(--token-keyword);
+}
+
+:host ::ng-deep .token.string,
+:host ::ng-deep .token.char,
+:host ::ng-deep .token.attr-value,
+:host ::ng-deep .token.regex,
+:host ::ng-deep .token.variable {
+  color: var(--token-string);
+}
+
+:host ::ng-deep .token.operator,
+:host ::ng-deep .token.entity,
+:host ::ng-deep .token.url {
+  color: var(--token-operator);
+}

@@ -1,0 +1,17 @@
+<div
+  class="relative flex items-center justify-between rounded-lg bg-muted p-3 text-foreground"
+>
+  <pre
+    class="m-0 overflow-x-auto text-sm leading-5"
+  ><code>{{ command() }}</code></pre>
+  <button
+    (click)="copyToClipboard()"
+    class="cursor-pointer border-0 bg-transparent p-1 text-muted-foreground hover:text-foreground"
+  >
+    @if (copied()) {
+      <ng-icon name="lucideCheck" class="h-4 w-4 text-green-500"></ng-icon>
+    } @else {
+      <ng-icon name="lucideCopy" class="h-4 w-4"></ng-icon>
+    }
+  </button>
+</div>

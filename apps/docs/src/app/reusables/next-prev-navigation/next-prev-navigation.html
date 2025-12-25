@@ -1,0 +1,28 @@
+<div class="mt-8 grid gap-4 sm:grid-cols-2">
+  @if (previous(); as prev) {
+    <a
+      [routerLink]="prev.link"
+      class="flex items-center justify-start gap-2 rounded-lg border border-border bg-card p-4 text-card-foreground hover:shadow-sm transition-colors hover:bg-accent/5 hover:text-accent-foreground"
+    >
+      <ng-icon name="lucideArrowLeft" class="h-4 w-4"></ng-icon>
+      <div class="flex flex-col">
+        <span class="text-sm text-muted-foreground">Previous</span>
+        <span class="font-medium">{{ prev.label }}</span>
+      </div>
+    </a>
+  } @else {
+    <div></div>
+  }
+  @if (next(); as nxt) {
+    <a
+      [routerLink]="nxt.link"
+      class="flex items-center justify-end gap-2 rounded-lg border border-border bg-card p-4 text-card-foreground hover:shadow-sm transition-colors hover:bg-accent/5 hover:text-accent-foreground sm:col-start-2"
+    >
+      <div class="flex flex-col items-end">
+        <span class="text-sm text-muted-foreground">Next</span>
+        <span class="font-medium">{{ nxt.label }}</span>
+      </div>
+      <ng-icon name="lucideArrowRight" class="h-4 w-4"></ng-icon>
+    </a>
+  }
+</div>

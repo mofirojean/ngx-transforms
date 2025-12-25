@@ -9,16 +9,30 @@
     "importHelpers": true,
     "target": "es2022",
     "module": "esnext",
-    "lib": ["es2020", "dom"],
+    "lib": [
+      "es2020",
+      "dom"
+    ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@spartan-ng/helm/utils": ["components/ui/utils/src/index.ts"],
-      "@spartan-ng/helm/icon": ["components/ui/icon/src/index.ts"],
-      "@spartan-ng/helm/button": ["components/ui/button/src/index.ts"],
-      "@ngx-transforms": ["libs/ngx-transforms/src/index.ts"]
+      "@ngx-transforms": [
+        "libs/ngx-transforms/src/index.ts"
+      ],
+      "@spartan-ng/helm/button": [
+        "libs/components/ui/button/src"
+      ],
+      "@spartan-ng/helm/icon": [
+        "libs/components/ui/icon/src"
+      ],
+      "@spartan-ng/helm/utils": [
+        "libs/components/ui/utils/src"
+      ]
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }

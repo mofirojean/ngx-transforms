@@ -1,7 +1,7 @@
 {
   "name": "button",
-  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/ui/button/src",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/components/ui/button/src",
   "prefix": "hlm",
   "projectType": "library",
   "tags": [],
@@ -12,12 +12,12 @@
         "{workspaceRoot}/dist/{projectRoot}"
       ],
       "options": {
-        "project": "libs/ui/button/ng-package.json",
-        "tsConfig": "libs/ui/button/tsconfig.lib.json"
+        "project": "libs/components/ui/button/ng-package.json",
+        "tsConfig": "libs/components/ui/button/tsconfig.lib.json"
       },
       "configurations": {
         "production": {
-          "tsConfig": "libs/ui/button/tsconfig.lib.prod.json"
+          "tsConfig": "libs/components/ui/button/tsconfig.lib.prod.json"
         },
         "development": {}
       },

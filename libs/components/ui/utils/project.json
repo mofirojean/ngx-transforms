@@ -1,7 +1,7 @@
 {
-  "name": "icon",
-  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/ui/icon/src",
+  "name": "utils",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/components/ui/utils/src",
   "prefix": "hlm",
   "projectType": "library",
   "tags": [],
@@ -12,12 +12,12 @@
         "{workspaceRoot}/dist/{projectRoot}"
       ],
       "options": {
-        "project": "libs/ui/icon/ng-package.json",
-        "tsConfig": "libs/ui/icon/tsconfig.lib.json"
+        "project": "libs/components/ui/utils/ng-package.json",
+        "tsConfig": "libs/components/ui/utils/tsconfig.lib.json"
       },
       "configurations": {
         "production": {
-          "tsConfig": "libs/ui/icon/tsconfig.lib.prod.json"
+          "tsConfig": "libs/components/ui/utils/tsconfig.lib.prod.json"
         },
         "development": {}
       },

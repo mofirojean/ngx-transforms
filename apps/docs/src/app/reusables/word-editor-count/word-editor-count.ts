@@ -85,16 +85,16 @@ import { lucideBold, lucideItalic, lucideUnderline } from '@ng-icons/lucide';
 export class WordEditorCount {
   readonly content = signal('');
   readonly wordCount = computed(() => {
-    const content = this.content();
+    const content = this.content().trim();
     if (!content) {
       return 0;
     }
-    return content.split(' ').filter(w => w !== '').length;
+    return content.split(/\s+/).length;
   });
 
   onContentChange(event: Event) {
     const target = event.target as HTMLElement;
-    this.content.set(target.innerText);
+    this.content.set(target.innerText.trim());
   }
 
   execCommand(command: string) {

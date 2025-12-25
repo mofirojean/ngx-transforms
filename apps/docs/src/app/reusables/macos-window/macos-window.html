@@ -1,0 +1,15 @@
+<div class="relative w-full max-w-5xl mx-auto">
+  <div
+    class="relative rounded-xl border border-border bg-card/50 shadow-xl backdrop-blur-sm overflow-hidden">
+    <div class="flex items-center border-b border-border bg-muted/50 px-4 py-2">
+      <div class="flex space-x-2">
+        <div class="h-3 w-3 rounded-full bg-red-500/80"></div>
+        <div class="h-3 w-3 rounded-full bg-yellow-500/80"></div>
+        <div class="h-3 w-3 rounded-full bg-green-500/80"></div>
+      </div>
+      <div class="mx-auto text-xs font-medium text-muted-foreground">{{ title() }}</div>
+    </div>
+    <ng-content></ng-content>
+  </div>
+</div>
+

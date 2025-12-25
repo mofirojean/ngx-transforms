@@ -15,7 +15,7 @@ export interface NavLink {
   providers: [provideIcons({ lucideArrowLeft, lucideArrowRight })],
   templateUrl: './next-prev-navigation.html',
 })
-export class NextPrevNavigationComponent {
+export class NextPrevNavigation {
   readonly next = input<NavLink>();
   readonly previous = input<NavLink>();
 }

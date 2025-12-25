@@ -1,30 +1,30 @@
-import {Component, signal} from '@angular/core';
+import {Component} from '@angular/core';
 import {CountPipe} from '@ngx-transforms';
-import {NgIconComponent, provideIcons} from '@ng-icons/core';
-import {lucideChevronRight} from '@ng-icons/lucide';
 import {CodePreview} from "../../reusables/code-preview/code-preview";
-import {CommandPreview} from "../../reusables/command-preview/command-preview";
-import {NextPrevNavigationComponent} from "../../reusables/next-prev-navigation/next-prev-navigation";
+import {NextPrevNavigation} from "../../reusables/next-prev-navigation/next-prev-navigation";
+import {MacosWindow} from "../../reusables/macos-window/macos-window";
+import {WordEditorCount} from "../../reusables/word-editor-count/word-editor-count";
 
 @Component({
   selector: 'app-count-pipe-page',
   standalone: true,
-  imports: [CountPipe, NgIconComponent, CodePreview, CommandPreview, NextPrevNavigationComponent],
-  providers: [provideIcons({lucideChevronRight})],
+  imports: [CountPipe, CodePreview, NextPrevNavigation, MacosWindow, WordEditorCount],
   template: `
     <div class="container mx-auto py-10 px-4 md:px-8 max-w-4xl">
       <!-- Breadcrumb -->
       <nav class="flex items-center text-sm text-muted-foreground mb-6">
         <a href="/docs/pipes" class="hover:text-foreground transition-colors">Pipes</a>
-        <ng-icon name="lucideChevronRight" class="h-4 w-4 mx-2"></ng-icon>
+        <span class="h-4 w-4 mx-2">/</span>
         <span class="text-foreground font-medium">Count</span>
       </nav>
 
       <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-2">Count Pipe</h1>
-      <p class="text-lg text-muted-foreground mb-8">Returns the length of an array or string.</p>
+      <p class="text-lg text-muted-foreground mb-8">A simple pipe to count the number of items in an array or characters in a string.</p>
 
-      <h2 class="text-2xl font-bold my-8">Installation</h2>
-      <app-command-preview command="npm install @ngx-transforms/core"></app-command-preview>
+      <h2 class="text-2xl font-bold my-8">Example</h2>
+      <app-macos-window title="Mini Word Editor">
+        <app-word-editor-count />
+      </app-macos-window>
 
       <h2 class="text-2xl font-bold my-8">Usage</h2>
 
@@ -82,7 +82,7 @@ export class Count {
 
   code = `
 import { Component } from '@angular/core';
-import { CountPipe } from '@ngx-transforms/core';
+import { CountPipe } from '@ngx-transforms';
 
 @Component({
   selector: 'app-example',

@@ -1,0 +1,31 @@
+<div class="w-full">
+  <div class="word-editor-toolbar">
+    <button class="toolbar-button" (click)="execCommand('bold')">
+      <ng-icon name="lucideBold" class="h-4 w-4"></ng-icon>
+    </button>
+    <button class="toolbar-button" (click)="execCommand('italic')">
+      <ng-icon name="lucideItalic" class="h-4 w-4"></ng-icon>
+    </button>
+    <button class="toolbar-button" (click)="execCommand('underline')">
+      <ng-icon name="lucideUnderline" class="h-4 w-4"></ng-icon>
+    </button>
+  </div>
+  <div
+    #editor
+    class="word-editor-content"
+    contenteditable="true"
+    (input)="onContentChange($event)"
+  ></div>
+  <div class="word-editor-footer">
+    <div class="flex items-center">
+      <span class="word-count-value">{{ wordCount() }}</span>
+      <span class="word-count-label">Words</span>
+    </div>
+    <div class="divider"></div>
+    <div class="flex items-center">
+      <span class="word-count-value">{{ content() | count }}</span>
+      <span class="word-count-label">Characters</span>
+    </div>
+  </div>
+</div>
+

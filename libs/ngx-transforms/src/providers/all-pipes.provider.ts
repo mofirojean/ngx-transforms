@@ -3,7 +3,6 @@ import { AsciiArtPipe } from '../lib/pipes/ascii-art/ascii-art';
 import { BarcodePipe } from '../lib/pipes/barcode/barcode';
 import { CamelCasePipe } from '../lib/pipes/camel-case/camel-case';
 import { ColorConvertPipe } from '../lib/pipes/color-convert/color-convert';
-import { CountPipe } from '../lib/pipes/count/count';
 import { CreditCardMaskPipe } from '../lib/pipes/credit-card-mask/credit-card-mask';
 import { DeviceTypePipe } from '../lib/pipes/device-type/device-type';
 import { EmailMaskPipe } from '../lib/pipes/email-mask/email-mask';
@@ -23,13 +22,13 @@ import { SnakeCasePipe } from '../lib/pipes/snake-case/snake-case';
 import { TextToSpeechPipe } from '../lib/pipes/text-to-speech/text-to-speech';
 import { TitleCasePipe } from '../lib/pipes/title-case/title-case';
 import { TruncatePipe } from '../lib/pipes/truncate/truncate';
+import { CountPipe } from '../lib/pipes/count/count'
 
 export const ALL_PIPES: Provider[] = [
   AsciiArtPipe,
   BarcodePipe,
   CamelCasePipe,
   ColorConvertPipe,
-  CountPipe,
   CreditCardMaskPipe,
   DeviceTypePipe,
   EmailMaskPipe,
@@ -49,4 +48,5 @@ export const ALL_PIPES: Provider[] = [
   TextToSpeechPipe,
   TitleCasePipe,
   TruncatePipe,
+  CountPipe
 ];

@@ -1,4 +1,4 @@
-import { CountPipe } from './count.pipe';
+import { CountPipe } from './count';
 import { describe, it, expect, beforeEach } from 'vitest';
 
 describe('CountPipe', () => {

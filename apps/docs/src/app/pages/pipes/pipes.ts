@@ -56,6 +56,14 @@ import {lucideMenu, lucideX} from '@ng-icons/lucide';
             >
               Count
             </a>
+            <a
+              routerLink="/docs/pipes/qrcode"
+              routerLinkActive="font-medium text-primary bg-primary/10"
+              (click)="isSidebarOpen.set(false)"
+              class="group flex w-full items-center rounded-md border border-transparent px-2 py-1.5 hover:bg-primary/10 text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Qr Code
+            </a>
             <!-- Add more pipes here -->
           </div>
         </div>

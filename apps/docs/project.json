@@ -20,7 +20,7 @@
           }
         ],
         "styles": ["apps/docs/src/styles.css"],
-        "allowedCommonJsDependencies": ["prismjs"]
+        "allowedCommonJsDependencies": ["prismjs", "jsbarcode", "js-md5", "qrcode"]
 
       },
       "configurations": {

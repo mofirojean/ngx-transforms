@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import * as md5 from 'js-md5';
+import { md5 } from 'js-md5';
 
 /**
  * GravatarPipe: Generates Gravatar URLs from email addresses.
@@ -21,7 +21,7 @@ import * as md5 from 'js-md5';
 export class GravatarPipe implements PipeTransform {
   transform(value: string, size: number = 80): string {
     if (!value) return `https://www.gravatar.com/avatar/?s=${size}`;
-    const hash = md5.default(value.trim().toLowerCase());
+    const hash = md5(value.trim().toLowerCase());
     return `https://www.gravatar.com/avatar/${hash}?s=${size}`;
   }
 }

@@ -3,6 +3,7 @@ import { Landing } from './pages/landing';
 import { Introduction } from './pages/introduction';
 import { PipesPageComponent } from './pages/pipes/pipes';
 import { Count } from './pages/pipes/count';
+import { QrCode } from './pages/pipes/qrcode';
 import { PipesList } from './pages/pipes/pipes-list';
 
 export const appRoutes: Route[] = [
@@ -29,6 +30,10 @@ export const appRoutes: Route[] = [
           {
             path: 'count',
             component: Count,
+          },
+          {
+            path: 'qrcode',
+            component: QrCode,
           },
         ],
       },

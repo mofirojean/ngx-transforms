@@ -15,7 +15,7 @@ import { IpAddressMaskPipe } from '../lib/pipes/ip-address-mask/ip-address-mask'
 import { JsonPrettyPipe } from '../lib/pipes/json-pretty/json-pretty';
 import { KebabCasePipe } from '../lib/pipes/kebab-case/kebab-case';
 import { MorseCodePipe } from '../lib/pipes/morse-code/morse-code';
-import { QRCodePipe } from '../lib/pipes/qr-code/qr-code';
+import { QrCodePipe } from '../lib/pipes/qr-code/qr-code';
 import { ReplacePipe } from '../lib/pipes/replace/replace';
 import { ReversePipe } from '../lib/pipes/reverse/reverse';
 import { SnakeCasePipe } from '../lib/pipes/snake-case/snake-case';
@@ -41,7 +41,7 @@ export const ALL_PIPES: Provider[] = [
   JsonPrettyPipe,
   KebabCasePipe,
   MorseCodePipe,
-  QRCodePipe,
+  QrCodePipe,
   ReplacePipe,
   ReversePipe,
   SnakeCasePipe,

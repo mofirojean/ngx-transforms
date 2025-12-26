@@ -24,6 +24,13 @@ import {lucideArrowRight} from '@ng-icons/lucide';
           <ng-icon name="lucideArrowRight"
                    class="absolute bottom-6 right-6 h-4 w-4 opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0"></ng-icon>
         </a>
+        <a routerLink="/docs/pipes/qrcode"
+           class="group relative rounded-lg border border-border p-6 hover:border-foreground/50 transition-colors">
+          <h3 class="font-semibold leading-none tracking-tight mb-2 group-hover:underline">QR Code</h3>
+          <p class="text-sm text-muted-foreground">Generates a QR code from a string.</p>
+          <ng-icon name="lucideArrowRight"
+                   class="absolute bottom-6 right-6 h-4 w-4 opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0"></ng-icon>
+        </a>
         <!-- Add more pipe cards here as they are implemented -->
       </div>
     </div>

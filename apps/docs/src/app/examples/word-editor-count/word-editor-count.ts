@@ -97,7 +97,10 @@ export class WordEditorCount {
     this.content.set(target.innerText.trim());
   }
 
-  execCommand(command: string) {
+  format(command: string) {
+    // Note: document.execCommand is deprecated. For a production-ready rich-text editor,
+    // consider a library like Tiptap, ProseMirror, or Quill.js.
+    // This is kept for simplicity to demonstrate the functionality.
     document.execCommand(command, false, undefined);
   }
 }

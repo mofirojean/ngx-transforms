@@ -4,7 +4,7 @@ import { CodePreview } from '../../reusables/code-preview/code-preview';
 import { NextPrevNavigation } from '../../reusables/next-prev-navigation/next-prev-navigation';
 import { MacosWindow } from '../../reusables/macos-window/macos-window';
 import {AsyncPipe} from '@angular/common';
-import {QrCodeExample} from '../../examples/qrcode-example';
+import {QrcodeGenerator} from '../../examples/qrcode-generator';
 import {AuthorCredit} from '../../reusables/author-credit/author-credit';
 
 @Component({
@@ -14,7 +14,7 @@ import {AuthorCredit} from '../../reusables/author-credit/author-credit';
     CodePreview,
     NextPrevNavigation,
     MacosWindow,
-    QrCodeExample,
+    QrcodeGenerator,
     QrCodePipe,
     AsyncPipe,
     AuthorCredit

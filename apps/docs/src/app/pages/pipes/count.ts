@@ -3,12 +3,13 @@ import {CountPipe} from '@ngx-transforms';
 import {CodePreview} from "../../reusables/code-preview/code-preview";
 import {NextPrevNavigation} from "../../reusables/next-prev-navigation/next-prev-navigation";
 import {MacosWindow} from "../../reusables/macos-window/macos-window";
-import {WordEditorCount} from "../../reusables/word-editor-count/word-editor-count";
+import {WordEditorCount} from "../../examples/word-editor-count/word-editor-count";
+import {AuthorCredit} from '../../reusables/author-credit/author-credit';
 
 @Component({
   selector: 'app-count-pipe-page',
   standalone: true,
-  imports: [CountPipe, CodePreview, NextPrevNavigation, MacosWindow, WordEditorCount],
+  imports: [CountPipe, CodePreview, NextPrevNavigation, MacosWindow, WordEditorCount, AuthorCredit],
   template: `
     <div class="container mx-auto py-10 px-4 md:px-8 max-w-4xl">
       <!-- Breadcrumb -->
@@ -65,10 +66,7 @@ import {WordEditorCount} from "../../reusables/word-editor-count/word-editor-cou
       </app-code-preview>
 
       <div class="mt-16 pt-8 border-t border-border flex justify-between items-center text-sm text-muted-foreground">
-        <div>
-          Built by <a href="https://github.com/mofirojean" target="_blank"
-                      class="font-medium underline underline-offset-4 hover:text-foreground">Mofiro Jean</a>
-        </div>
+        <app-author-credit author="Mofiro Jean" url="https://github.com/mofirojean" />
         <div class="flex gap-4">
           <app-next-prev-navigation [previous]="{label: 'Pipes', link: '/docs/pipes'}" [next]="{label: 'Debounce', link: '/docs/pipes/debounce'}" />
         </div>

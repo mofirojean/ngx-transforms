@@ -28,6 +28,9 @@
       ],
       "@spartan-ng/helm/utils": [
         "libs/components/ui/utils/src"
+      ],
+      "@spartan-ng/helm/input": [
+        "libs/components/ui/input/src/index.ts"
       ]
     }
   },

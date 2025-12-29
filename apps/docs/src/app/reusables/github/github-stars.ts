@@ -1,7 +1,6 @@
 import {Component, inject, OnInit, signal} from '@angular/core';
 import {HlmButton} from '@spartan-ng/helm/button';
 import {NgIcon, provideIcons} from '@ng-icons/core';
-import { HttpClient } from '@angular/common/http';
 import {
   lucideGithub,
   lucideStar
@@ -41,7 +40,6 @@ import {GithubService} from './service';
   ]
 })
 export class GithubStars implements OnInit {
-  private http = inject(HttpClient);
   protected stars = signal<number | null>(null);
   private githubService = inject(GithubService)
 

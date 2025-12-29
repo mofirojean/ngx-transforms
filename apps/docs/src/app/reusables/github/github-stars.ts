@@ -6,7 +6,6 @@ import {
   lucideGithub,
   lucideStar
 } from '@ng-icons/lucide';
-import { catchError, of } from 'rxjs'
 import {GithubService} from './service';
 
 @Component({

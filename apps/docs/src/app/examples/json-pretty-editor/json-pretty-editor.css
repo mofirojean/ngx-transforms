@@ -1,0 +1,89 @@
+.editor-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.editor-pane,
+.output-pane {
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.output-pane {
+  background-color: #1e1e1e;
+  border: 1px solid #2d2d2d;
+}
+
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #808080;
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 14px;
+}
+
+.copy-button {
+  background: #333;
+  border: 1px solid #444;
+  color: #d4d4d4;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.copy-button:hover {
+  background: #444;
+}
+
+.copy-button ng-icon {
+  transition: transform 0.2s ease-in-out;
+}
+
+:host ::ng-deep .highlight-line {
+  background-color: rgba(255, 255, 0, 0.1);
+}
+
+/* JsonPrettyPipe - Uses VScode color scheme */
+:host ::ng-deep .json-pretty {
+  font-family: 'Consolas', 'Monaco', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+  padding: 16px;
+  border-radius: 12px;
+  white-space: pre-wrap;
+}
+
+:host ::ng-deep .json-key {
+  color: #569cd6; /* Blue for keys */
+}
+
+:host ::ng-deep .json-string {
+  color: #ce9178; /* Orange for strings */
+}
+
+:host ::ng-deep .json-number {
+  color: #b5cea8; /* Green for numbers */
+}
+
+:host ::ng-deep .json-boolean {
+  color: #c586c0; /* Purple for booleans */
+}
+
+:host ::ng-deep .json-null {
+  color: #808080; /* Gray for null */
+}
+
+:host ::ng-deep .json-punctuation {
+  color: #d4d4d4; /* White for punctuation */
+}
+
+:host ::ng-deep .json-error {
+  color: #f44747; /* Red for errors */
+  font-weight: bold;
+}

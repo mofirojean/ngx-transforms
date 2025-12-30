@@ -3,6 +3,7 @@ import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {HlmButton} from '@spartan-ng/helm/button';
 import {NgIconComponent, provideIcons} from '@ng-icons/core';
 import {lucideMenu, lucideX} from '@ng-icons/lucide';
+import {PIPES} from '../model';
 
 @Component({
   selector: 'app-pipes-page',
@@ -48,23 +49,16 @@ import {lucideMenu, lucideX} from '@ng-icons/lucide';
 
           <h4 routerLink="/docs/pipes" class="mb-4 text-sm font-semibold cursor-pointer leading-none tracking-tight">Pipes</h4>
           <div class="grid grid-flow-row auto-rows-max text-sm">
-            <a
-              routerLink="/docs/pipes/count"
-              routerLinkActive="font-medium text-primary bg-primary/10"
-              (click)="isSidebarOpen.set(false)"
-              class="group flex w-full items-center rounded-md border border-transparent px-2 py-1.5 hover:bg-primary/10 text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Count
-            </a>
-            <a
-              routerLink="/docs/pipes/qrcode"
-              routerLinkActive="font-medium text-primary bg-primary/10"
-              (click)="isSidebarOpen.set(false)"
-              class="group flex w-full items-center rounded-md border border-transparent px-2 py-1.5 hover:bg-primary/10 text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Qr Code
-            </a>
-            <!-- Add more pipes here -->
+            @for (pipe of pipes; track pipe.name) {
+              <a
+                [routerLink]="pipe.url"
+                routerLinkActive="font-medium text-primary bg-primary/10"
+                (click)="isSidebarOpen.set(false)"
+                class="group flex w-full items-center rounded-md border border-transparent px-2 py-1.5 hover:bg-primary/10 text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {{ pipe.name }}
+              </a>
+            }
           </div>
         </div>
       </aside>
@@ -82,6 +76,7 @@ import {lucideMenu, lucideX} from '@ng-icons/lucide';
     </div>
   `
 })
-export class PipesPageComponent {
+export class PipesPage {
   isSidebarOpen = signal(false);
+  protected pipes = PIPES;
 }

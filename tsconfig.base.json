@@ -31,6 +31,12 @@
       ],
       "@spartan-ng/helm/input": [
         "libs/components/ui/input/src/index.ts"
+      ],
+      "@spartan-ng/helm/textarea": [
+        "libs/components/ui/textarea/src/index.ts"
+      ],
+      "@spartan-ng/helm/separator": [
+        "libs/components/ui/separator/src/index.ts"
       ]
     }
   },

@@ -1,5 +1,5 @@
-import { inject, Pipe, PipeTransform } from '@angular/core';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import {inject, Pipe, PipeTransform} from '@angular/core';
+import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
 
 /**
  * JsonPrettyPipe: Formats JSON data with indentation and syntax highlighting.
@@ -22,9 +22,9 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 export class JsonPrettyPipe implements PipeTransform {
   private sanitizer = inject(DomSanitizer);
 
-  transform(value: string | object, spaces: number = 2): SafeHtml {
+  transform(value: string | object, spaces: number = 2, highlightProperty?: string | null): SafeHtml {
     let jsonString: string;
-    
+
     try {
       if (typeof value === 'object') {
         jsonString = JSON.stringify(value, null, spaces);
@@ -39,28 +39,38 @@ export class JsonPrettyPipe implements PipeTransform {
       );
     }
 
-    // Escape HTML to prevent injection
     const escapedJson = jsonString
       .replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;');
 
-    const highlightedJson = this.highlightJson(escapedJson);
-    return this.sanitizer.bypassSecurityTrustHtml(`<pre class="json-pretty">${highlightedJson}</pre>`);
+    let finalJson = this.highlightJson(escapedJson);
+    if (highlightProperty) {
+      const lines = finalJson.split('\n');
+      const highlightedLines = lines.map(line => {
+        const searchString = `<span class="json-key">"${highlightProperty}"</span>`;
+        if (line.includes(searchString)) {
+          return `<span class="highlight-line">${line}</span>`;
+        }
+        return line;
+      });
+      finalJson = highlightedLines.join('\n');
+    }
+    return this.sanitizer.bypassSecurityTrustHtml(`<pre class="json-pretty">${finalJson}</pre>`);
   }
 
   private highlightJson(json: string): string {
-    let result = json;
+    let result = json.replace(/"([^"\\]*(?:\\.[^"\\]*)*)"/g, (match, p1, offset) => {
+      const remainingString = json.substring(offset + match.length);
+      const isKey = /^\s*:/.test(remainingString);
 
-    result = result.replace(/"([^"\\]*(?:\\.[^"\\]*)*)"/g, (match, p1) => {
-      const isKey = json[json.indexOf(match) + match.length] === ':';
       return isKey
-        ? `<span class="json-key">"${p1}"</span>` 
-        : `<span class="json-string">"${p1}"</span>`;
+        ? `<span class="json-key">${match}</span>`
+        : `<span class="json-string">${match}</span>`;
     });
 
     // Highlight numbers
-    result = result.replace(/\b-?\d*\.?\d+\b/g, '<span class="json-number">$&</span>');
+    result = result.replace(/\b-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?\b/g, '<span class="json-number">$&</span>');
 
     // Highlight booleans
     result = result.replace(/\b(true|false)\b/g, '<span class="json-boolean">$&</span>');
@@ -69,7 +79,7 @@ export class JsonPrettyPipe implements PipeTransform {
     result = result.replace(/\bnull\b/g, '<span class="json-null">$&</span>');
 
     // Highlight punctuation
-    result = result.replace(/[{}[\]\/]/g, '<span class="json-punctuation">$&</span>');
+    result = result.replace(/[{}[\]]/g, '<span class="json-punctuation">$&</span>');
 
     return result;
   }

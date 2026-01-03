@@ -1,0 +1,33 @@
+<div class="editor-grid grid grid-cols-[1fr_auto_1fr] gap-4 items-stretch">
+  <div class="editor-pane p-4 rounded-md">
+    <h3 class="font-semibold text-lg mb-2">Barcode Input</h3>
+    <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-4">
+      Enter the value to encode as a barcode.
+    </p>
+    <textarea
+      hlmTextarea
+      class="w-full h-24 resize-none"
+      placeholder="Enter value..."
+      [value]="barcodeValue()"
+      (input)="barcodeValue.set($any($event.target).value)"
+    ></textarea>
+    <button hlmBtn class="mt-4 w-full" (click)="generateBarcode()">Generate Barcode</button>
+  </div>
+
+  <hlm-separator orientation="vertical" />
+
+  <div class="output-pane relative p-4 rounded-md bg-[#1e1e1e] border border-[#2d2d2d]">
+    <div class="flex items-center justify-center mb-2">
+      <h3 class="font-semibold text-white dark:text-white text-lg">Generated Barcode</h3>
+    </div>
+    @if (generatedBarcodeValue()) {
+      <div class="output-container flex justify-center items-center group">
+        <div [innerHTML]="generatedBarcodeValue() | barcode | async"></div>
+      </div>
+    } @else {
+      <div class="placeholder flex items-center justify-center h-full text-[#808080] font-mono text-sm">
+        <p>Barcode will appear here.</p>
+      </div>
+    }
+  </div>
+</div>

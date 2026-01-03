@@ -6,6 +6,7 @@ import { Count } from './pages/pipes/count';
 import { JsonPrettyPage } from './pages/pipes/json-pretty';
 import { QrCode } from './pages/pipes/qrcode';
 import { PipesList } from './pages/pipes/pipes-list';
+import { BarcodePage } from './pages/pipes/barcode';
 
 export const appRoutes: Route[] = [
   {
@@ -39,6 +40,10 @@ export const appRoutes: Route[] = [
           {
             path: 'qrcode',
             component: QrCode,
+          },
+          {
+            path: 'barcode',
+            component: BarcodePage,
           },
         ],
       },

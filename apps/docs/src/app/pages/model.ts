@@ -23,5 +23,10 @@ export const PIPES: Pipe[] = [
     name: "QR Code",
     url: "/docs/pipes/qrcode",
     description: "Generates a QR code from a string."
+  },
+  {
+    name: "Barcode",
+    url: "/docs/pipes/barcode",
+    description: "Generates various types of barcodes."
   }
 ];

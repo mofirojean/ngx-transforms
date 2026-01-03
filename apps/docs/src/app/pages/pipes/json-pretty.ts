@@ -61,7 +61,7 @@ import { AuthorCredit } from '../../reusables/author-credit/author-credit';
     </div>
   `,
 })
-export class JsonPrettyPage {
+export class JsonPretty {
   exampleJson = {
     name: 'John Doe',
     age: 30,

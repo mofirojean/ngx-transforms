@@ -8,7 +8,7 @@ import { AuthorCredit } from '../../reusables/author-credit/author-credit';
 import {AsyncPipe} from '@angular/common';
 
 @Component({
-  selector: 'ngx-transforms-barcode-page',
+  selector: 'app-barcode-page',
   standalone: true,
   imports: [
     CodePreview,
@@ -60,7 +60,7 @@ import {AsyncPipe} from '@angular/common';
     </div>
   `,
 })
-export class BarcodePage {
+export class Barcode {
   usageCode = `
 import { Component } from '@angular/core';
 import { BarcodePipe } from '@ngx-transforms';

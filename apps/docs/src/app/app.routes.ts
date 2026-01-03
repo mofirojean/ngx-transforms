@@ -3,10 +3,10 @@ import { Landing } from './pages/landing';
 import { Introduction } from './pages/introduction';
 import { PipesPage } from './pages/pipes/pipes';
 import { Count } from './pages/pipes/count';
-import { JsonPrettyPage } from './pages/pipes/json-pretty';
+import { JsonPretty } from './pages/pipes/json-pretty';
 import { QrCode } from './pages/pipes/qrcode';
 import { PipesList } from './pages/pipes/pipes-list';
-import { BarcodePage } from './pages/pipes/barcode';
+import { Barcode } from './pages/pipes/barcode';
 
 export const appRoutes: Route[] = [
   {
@@ -35,7 +35,7 @@ export const appRoutes: Route[] = [
           },
           {
             path: 'json-pretty',
-            component: JsonPrettyPage,
+            component: JsonPretty,
           },
           {
             path: 'qrcode',
@@ -43,7 +43,7 @@ export const appRoutes: Route[] = [
           },
           {
             path: 'barcode',
-            component: BarcodePage,
+            component: Barcode,
           },
         ],
       },

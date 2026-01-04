@@ -12,7 +12,7 @@ import { HlmButtonImports } from '@spartan-ng/helm/button';
   templateUrl: './barcode-generator.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BarcodeGeneratorComponent {
+export class BarcodeGenerator {
   protected readonly barcodeValue = signal('');
   protected readonly generatedBarcodeValue = signal('');
 

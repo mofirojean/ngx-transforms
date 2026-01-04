@@ -1,19 +1,19 @@
-import { Component } from '@angular/core';
-import { ReplacePipe } from '@ngx-transforms';
-import { CodePreview } from '../../reusables/code-preview/code-preview';
-import { NextPrevNavigation } from '../../reusables/next-prev-navigation/next-prev-navigation';
-import { MacosWindow } from '../../reusables/macos-window/macos-window';
-import { ReplaceTextComponent } from '../../examples/replace-text/replace-text';
-import { AuthorCredit } from '../../reusables/author-credit/author-credit';
+import {Component} from '@angular/core';
+import {ReplacePipe} from '@ngx-transforms';
+import {CodePreview} from '../../reusables/code-preview/code-preview';
+import {NextPrevNavigation} from '../../reusables/next-prev-navigation/next-prev-navigation';
+import {MacosWindow} from '../../reusables/macos-window/macos-window';
+import {ReplaceText} from '../../examples/replace-text/replace-text';
+import {AuthorCredit} from '../../reusables/author-credit/author-credit';
 
 @Component({
-  selector: 'app-replace-page',
+  selector: 'app-replace',
   standalone: true,
   imports: [
     CodePreview,
     NextPrevNavigation,
     MacosWindow,
-    ReplaceTextComponent,
+    ReplaceText,
     ReplacePipe,
     AuthorCredit,
   ],
@@ -35,7 +35,7 @@ import { AuthorCredit } from '../../reusables/author-credit/author-credit';
       <h2 class="text-2xl font-bold my-8">Example</h2>
       <app-macos-window title="Text Editor">
         <div>
-          <app-replace-text />
+          <app-replace-text/>
         </div>
       </app-macos-window>
 
@@ -47,7 +47,7 @@ import { AuthorCredit } from '../../reusables/author-credit/author-credit';
       </app-code-preview>
 
       <div class="mt-16 pt-8 border-t border-border flex justify-between items-center text-sm text-muted-foreground">
-        <app-author-credit author="Mofiro Jean" url="https://github.com/mofirojean" />
+        <app-author-credit author="Mofiro Jean" url="https://github.com/mofirojean"/>
         <div class="flex gap-4">
           <app-next-prev-navigation
             [previous]="{ label: 'Barcode', link: '/docs/pipes/barcode' }"
@@ -58,7 +58,7 @@ import { AuthorCredit } from '../../reusables/author-credit/author-credit';
     </div>
   `,
 })
-export class ReplacePage {
+export class Replace {
   usageCode = `
 import { Component } from '@angular/core';
 import { ReplacePipe } from '@ngx-transforms';

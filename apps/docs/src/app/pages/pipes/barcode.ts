@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
-import { BarcodePipe } from '@ngx-transforms';
-import { CodePreview } from '../../reusables/code-preview/code-preview';
-import { NextPrevNavigation } from '../../reusables/next-prev-navigation/next-prev-navigation';
-import { MacosWindow } from '../../reusables/macos-window/macos-window';
-import { BarcodeGeneratorComponent } from '../../examples/barcode-generator/barcode-generator';
-import { AuthorCredit } from '../../reusables/author-credit/author-credit';
+import {Component} from '@angular/core';
+import {BarcodePipe} from '@ngx-transforms';
+import {CodePreview} from '../../reusables/code-preview/code-preview';
+import {NextPrevNavigation} from '../../reusables/next-prev-navigation/next-prev-navigation';
+import {MacosWindow} from '../../reusables/macos-window/macos-window';
+import {BarcodeGenerator} from '../../examples/barcode-generator/barcode-generator';
+import {AuthorCredit} from '../../reusables/author-credit/author-credit';
 import {AsyncPipe} from '@angular/common';
 
 @Component({
@@ -14,7 +14,7 @@ import {AsyncPipe} from '@angular/common';
     CodePreview,
     NextPrevNavigation,
     MacosWindow,
-    BarcodeGeneratorComponent,
+    BarcodeGenerator,
     BarcodePipe,
     AuthorCredit,
     AsyncPipe
@@ -37,7 +37,7 @@ import {AsyncPipe} from '@angular/common';
       <h2 class="text-2xl font-bold my-8">Example</h2>
       <app-macos-window title="Barcode Generator">
         <div class="p-4 sm:p-6">
-          <app-barcode-generator />
+          <app-barcode-generator/>
         </div>
       </app-macos-window>
 
@@ -49,11 +49,11 @@ import {AsyncPipe} from '@angular/common';
       </app-code-preview>
 
       <div class="mt-16 pt-8 border-t border-border flex justify-between items-center text-sm text-muted-foreground">
-        <app-author-credit author="Mofiro Jean" url="https://github.com/mofirojean" />
+        <app-author-credit author="Mofiro Jean" url="https://github.com/mofirojean"/>
         <div class="flex gap-4">
           <app-next-prev-navigation
             [previous]="{ label: 'QR Code', link: '/docs/pipes/qrcode' }"
-            [next]="{ label: 'Camel Case', link: '/docs/pipes/camel-case' }"
+            [next]="{ label: 'Replace', link: '/docs/pipes/replace' }"
           />
         </div>
       </div>

@@ -9,7 +9,7 @@ import { Clipboard } from '@angular/cdk/clipboard';
 import { HlmInputImports } from '@spartan-ng/helm/input';
 
 @Component({
-  selector: 'ngx-transforms-json-pretty-editor',
+  selector: 'app-json-pretty-editor',
   standalone: true,
   imports: [JsonPrettyPipe, NgIcon, HlmIcon, HlmSeparatorImports, HlmTextareaImports, HlmInputImports],
   providers: [provideIcons({ lucideCopy, lucideCheck })],
@@ -17,7 +17,7 @@ import { HlmInputImports } from '@spartan-ng/helm/input';
   styleUrl: './json-pretty-editor.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class JsonPrettyEditorComponent {
+export class JsonPrettyEditor {
   private readonly clipboard = inject(Clipboard);
   protected readonly copied = signal(false);
   protected readonly propToHighlight = signal('');

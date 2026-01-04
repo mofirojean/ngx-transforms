@@ -47,7 +47,8 @@ import {PIPES} from '../model';
             </a>
           </div>
 
-          <h4 routerLink="/docs/pipes" class="mb-4 text-sm font-semibold cursor-pointer leading-none tracking-tight">Pipes</h4>
+          <h4 routerLink="/docs/pipes" class="mb-4 text-sm font-semibold cursor-pointer leading-none tracking-tight">
+            Pipes</h4>
           <div class="grid grid-flow-row auto-rows-max text-sm">
             @for (pipe of pipes; track pipe.name) {
               <a

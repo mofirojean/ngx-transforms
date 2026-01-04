@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
-import { JsonPrettyPipe } from '@ngx-transforms';
-import { CodePreview } from '../../reusables/code-preview/code-preview';
-import { NextPrevNavigation } from '../../reusables/next-prev-navigation/next-prev-navigation';
-import { MacosWindow } from '../../reusables/macos-window/macos-window';
-import { JsonPrettyEditorComponent } from '../../examples/json-pretty-editor/json-pretty-editor';
-import { AuthorCredit } from '../../reusables/author-credit/author-credit';
+import {Component} from '@angular/core';
+import {JsonPrettyPipe} from '@ngx-transforms';
+import {CodePreview} from '../../reusables/code-preview/code-preview';
+import {NextPrevNavigation} from '../../reusables/next-prev-navigation/next-prev-navigation';
+import {MacosWindow} from '../../reusables/macos-window/macos-window';
+import {JsonPrettyEditor} from '../../examples/json-pretty-editor/json-pretty-editor';
+import {AuthorCredit} from '../../reusables/author-credit/author-credit';
 
 @Component({
   selector: 'ngx-transforms-json-pretty-page',
@@ -13,7 +13,7 @@ import { AuthorCredit } from '../../reusables/author-credit/author-credit';
     CodePreview,
     NextPrevNavigation,
     MacosWindow,
-    JsonPrettyEditorComponent,
+    JsonPrettyEditor,
     JsonPrettyPipe,
     AuthorCredit,
   ],
@@ -35,7 +35,7 @@ import { AuthorCredit } from '../../reusables/author-credit/author-credit';
       <h2 class="text-2xl font-bold my-8">Example</h2>
       <app-macos-window title="JSON Formatter">
         <div class="p-4 sm:p-6">
-          <ngx-transforms-json-pretty-editor />
+          <app-json-pretty-editor/>
         </div>
       </app-macos-window>
 
@@ -50,11 +50,11 @@ import { AuthorCredit } from '../../reusables/author-credit/author-credit';
       </app-code-preview>
 
       <div class="mt-16 pt-8 border-t border-border flex justify-between items-center text-sm text-muted-foreground">
-        <app-author-credit author="Mofiro Jean" url="https://github.com/mofirojean" />
+        <app-author-credit author="Mofiro Jean" url="https://github.com/mofirojean"/>
         <div class="flex gap-4">
           <app-next-prev-navigation
-            [previous]="{ label: 'Initials', link: '/docs/pipes/initials' }"
-            [next]="{ label: 'Kebab Case', link: '/docs/pipes/kebab-case' }"
+            [previous]="{ label: 'Count', link: '/docs/pipes/count' }"
+            [next]="{ label: 'QR Code', link: '/docs/pipes/qrcode' }"
           />
         </div>
       </div>

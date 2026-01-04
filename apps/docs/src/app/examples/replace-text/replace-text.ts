@@ -1,10 +1,8 @@
 import {Component, signal, ViewEncapsulation} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {provideIcons} from '@ng-icons/core';
 import {HlmInputImports} from '@spartan-ng/helm/input';
 import {HlmScrollAreaImports} from '@spartan-ng/helm/scroll-area';
 import {NgScrollbarModule} from 'ngx-scrollbar';
-import {heroBookOpen, heroDocumentText, heroMagnifyingGlass} from '@ng-icons/heroicons/outline';
 import {HlmButtonImports} from '@spartan-ng/helm/button';
 import {ReplacePipe} from '@ngx-transforms';
 
@@ -45,15 +43,9 @@ const longText = `
     `,
   ],
   encapsulation: ViewEncapsulation.None,
-  providers: [
-    provideIcons({
-      heroBookOpen,
-      heroDocumentText,
-      heroMagnifyingGlass
-    })
-  ]
+  providers: []
 })
-export class ReplaceTextComponent {
+export class ReplaceText {
   protected longTextContent: string = longText;
   findText = signal<string>('');
   replace = signal<string>('');

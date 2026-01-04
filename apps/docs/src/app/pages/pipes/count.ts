@@ -20,11 +20,12 @@ import {AuthorCredit} from '../../reusables/author-credit/author-credit';
       </nav>
 
       <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-2">Count Pipe</h1>
-      <p class="text-lg text-muted-foreground mb-8">A simple pipe to count the number of items in an array or characters in a string.</p>
+      <p class="text-lg text-muted-foreground mb-8">A simple pipe to count the number of items in an array or characters
+        in a string.</p>
 
       <h2 class="text-2xl font-bold my-8">Example</h2>
       <app-macos-window title="Mini Word Editor">
-        <app-word-editor-count />
+        <app-word-editor-count/>
       </app-macos-window>
 
       <h2 class="text-2xl font-bold my-8">Usage</h2>
@@ -66,9 +67,10 @@ import {AuthorCredit} from '../../reusables/author-credit/author-credit';
       </app-code-preview>
 
       <div class="mt-16 pt-8 border-t border-border flex justify-between items-center text-sm text-muted-foreground">
-        <app-author-credit author="Mofiro Jean" url="https://github.com/mofirojean" />
+        <app-author-credit author="Mofiro Jean" url="https://github.com/mofirojean"/>
         <div class="flex gap-4">
-          <app-next-prev-navigation [previous]="{label: 'Pipes', link: '/docs/pipes'}" [next]="{label: 'Debounce', link: '/docs/pipes/debounce'}" />
+          <app-next-prev-navigation [previous]="{label: 'Pipes', link: '/docs/pipes'}"
+                                    [next]="{label: 'JSON Pretty', link: '/docs/pipes/json-pretty'}"/>
         </div>
       </div>
     </div>

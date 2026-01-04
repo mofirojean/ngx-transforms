@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-import { QrCodePipe } from '@ngx-transforms';
-import { CodePreview } from '../../reusables/code-preview/code-preview';
-import { NextPrevNavigation } from '../../reusables/next-prev-navigation/next-prev-navigation';
-import { MacosWindow } from '../../reusables/macos-window/macos-window';
+import {Component} from '@angular/core';
+import {QrCodePipe} from '@ngx-transforms';
+import {CodePreview} from '../../reusables/code-preview/code-preview';
+import {NextPrevNavigation} from '../../reusables/next-prev-navigation/next-prev-navigation';
+import {MacosWindow} from '../../reusables/macos-window/macos-window';
 import {AsyncPipe} from '@angular/common';
 import {QrcodeGenerator} from '../../examples/qrcode-generator';
 import {AuthorCredit} from '../../reusables/author-credit/author-credit';
@@ -62,8 +62,8 @@ import {AuthorCredit} from '../../reusables/author-credit/author-credit';
         <app-author-credit author="Mofiro Jean" url="https://github.com/mofirojean" />
         <div class="flex gap-4">
           <app-next-prev-navigation
-            [previous]="{ label: 'Pipes', link: '/docs/pipes' }"
-            [next]="{ label: 'Replace', link: '/docs/pipes/replace' }"
+            [previous]="{ label: 'JSON Pretty', link: '/docs/pipes/json-pretty' }"
+            [next]="{ label: 'Barcode', link: '/docs/pipes/barcode' }"
           />
         </div>
       </div>

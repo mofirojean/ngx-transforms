@@ -7,7 +7,7 @@ import { JsonPretty } from './pages/pipes/json-pretty';
 import { QrCode } from './pages/pipes/qrcode';
 import { PipesList } from './pages/pipes/pipes-list';
 import { Barcode } from './pages/pipes/barcode';
-import { ReplacePage } from './pages/pipes/replace';
+import { Replace } from './pages/pipes/replace';
 
 export const appRoutes: Route[] = [
   {
@@ -48,7 +48,7 @@ export const appRoutes: Route[] = [
           },
           {
             path: 'replace',
-            component: ReplacePage,
+            component: Replace,
           },
         ],
       },

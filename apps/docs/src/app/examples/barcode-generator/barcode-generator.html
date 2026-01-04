@@ -5,16 +5,16 @@
       Enter the value to encode as a barcode.
     </p>
     <textarea
-      hlmTextarea
-      class="w-full h-24 resize-none"
-      placeholder="Enter value..."
-      [value]="barcodeValue()"
       (input)="barcodeValue.set($any($event.target).value)"
+      [value]="barcodeValue()"
+      class="w-full h-24 resize-none"
+      hlmTextarea
+      placeholder="Enter value..."
     ></textarea>
-    <button hlmBtn class="mt-4 w-full" (click)="generateBarcode()">Generate Barcode</button>
+    <button (click)="generateBarcode()" class="mt-4 w-full" hlmBtn>Generate Barcode</button>
   </div>
 
-  <hlm-separator orientation="vertical" />
+  <hlm-separator orientation="vertical"/>
 
   <div class="output-pane relative p-4 rounded-md bg-[#1e1e1e] border border-[#2d2d2d]">
     <div class="flex items-center justify-center mb-2">

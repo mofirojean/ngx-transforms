@@ -1,9 +1,9 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { BarcodePipe } from '@ngx-transforms';
-import { HlmSeparatorImports } from '@spartan-ng/helm/separator';
-import { HlmTextareaImports } from '@spartan-ng/helm/textarea';
-import { AsyncPipe } from '@angular/common';
-import { HlmButtonImports } from '@spartan-ng/helm/button';
+import {ChangeDetectionStrategy, Component, signal} from '@angular/core';
+import {BarcodePipe} from '@ngx-transforms';
+import {HlmSeparatorImports} from '@spartan-ng/helm/separator';
+import {HlmTextareaImports} from '@spartan-ng/helm/textarea';
+import {AsyncPipe} from '@angular/common';
+import {HlmButtonImports} from '@spartan-ng/helm/button';
 
 @Component({
   selector: 'app-barcode-generator',

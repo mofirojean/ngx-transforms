@@ -5,24 +5,24 @@
       Paste your JSON content below. The formatted output will appear on the right.
     </p>
     <textarea
-      hlmTextarea
-      class="w-full h-96 resize-none"
-      placeholder="Paste your JSON here..."
-      [value]="jsonInput()"
       (input)="jsonInput.set($any($event.target).value)"
+      [value]="jsonInput()"
+      class="w-full h-96 resize-none"
+      hlmTextarea
+      placeholder="Paste your JSON here..."
     ></textarea>
     <div class="flex items-center justify-between mt-4">
       <input
-        hlmInput
-        class="w-full h-8 text-sm"
-        placeholder="Highlight property..."
-        [value]="propToHighlight()"
         (input)="propToHighlight.set($any($event.target).value)"
+        [value]="propToHighlight()"
+        class="w-full h-8 text-sm"
+        hlmInput
+        placeholder="Highlight property..."
       />
     </div>
   </div>
 
-  <hlm-separator orientation="vertical" />
+  <hlm-separator orientation="vertical"/>
 
   <div class="output-pane relative">
     <div class="flex items-center justify-between mb-2">
@@ -32,13 +32,13 @@
       <div class="output-container group">
         <button
           (click)="copyToClipboard(jsonInput())"
-          class="copy-button absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
           aria-label="Copy JSON to clipboard"
+          class="copy-button absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
         >
           @if (copied()) {
-            <ng-icon hlm name="lucideCheck" size="sm" class="text-green-500" />
+            <ng-icon class="text-green-500" hlm name="lucideCheck" size="sm"/>
           } @else {
-            <ng-icon hlm name="lucideCopy" size="sm" />
+            <ng-icon hlm name="lucideCopy" size="sm"/>
           }
         </button>
         <div [innerHTML]="jsonInput() | jsonPretty:2:propToHighlight()"></div>

@@ -1,17 +1,17 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
-import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
-import { HlmButtonImports } from '@spartan-ng/helm/button';
-import { HlmInputImports } from '@spartan-ng/helm/input';
-import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import { lucideQrCode } from '@ng-icons/lucide';
-import { QrCodePipe } from '@ngx-transforms';
+import {ChangeDetectionStrategy, Component, inject, signal} from '@angular/core';
+import {FormControl, ReactiveFormsModule, Validators} from '@angular/forms';
+import {HlmButtonImports} from '@spartan-ng/helm/button';
+import {HlmInputImports} from '@spartan-ng/helm/input';
+import {NgIconComponent, provideIcons} from '@ng-icons/core';
+import {lucideQrCode} from '@ng-icons/lucide';
+import {QrCodePipe} from '@ngx-transforms';
 import {AsyncPipe} from '@angular/common';
 
 @Component({
   selector: 'app-qrcode-example',
   standalone: true,
   imports: [ReactiveFormsModule, HlmInputImports, HlmButtonImports, NgIconComponent, QrCodePipe, AsyncPipe],
-  providers: [provideIcons({ lucideQrCode }), QrCodePipe],
+  providers: [provideIcons({lucideQrCode}), QrCodePipe],
   template: `
     <div class="w-full flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 p-4">
       <div class="flex-1 w-full max-w-md flex flex-col items-center lg:items-start">
@@ -64,6 +64,7 @@ import {AsyncPipe} from '@angular/common';
       opacity: 0;
       transform: scale(0.9);
     }
+
     .qr-animation-enter-active {
       transition: all 0.5s ease-out;
     }
@@ -78,8 +79,12 @@ import {AsyncPipe} from '@angular/common';
     }
 
     @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
     }
   `],
   changeDetection: ChangeDetectionStrategy.OnPush,

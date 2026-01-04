@@ -1,20 +1,20 @@
 <div class="w-full">
   <div class="word-editor-toolbar">
-    <button class="toolbar-button" (click)="format('bold')" (mousedown)="$event.preventDefault()">
-      <ng-icon name="lucideBold" class="h-4 w-4"></ng-icon>
+    <button (click)="format('bold')" (mousedown)="$event.preventDefault()" class="toolbar-button">
+      <ng-icon class="h-4 w-4" name="lucideBold"></ng-icon>
     </button>
-    <button class="toolbar-button" (click)="format('italic')" (mousedown)="$event.preventDefault()">
-      <ng-icon name="lucideItalic" class="h-4 w-4"></ng-icon>
+    <button (click)="format('italic')" (mousedown)="$event.preventDefault()" class="toolbar-button">
+      <ng-icon class="h-4 w-4" name="lucideItalic"></ng-icon>
     </button>
-    <button class="toolbar-button" (click)="format('underline')" (mousedown)="$event.preventDefault()">
-      <ng-icon name="lucideUnderline" class="h-4 w-4"></ng-icon>
+    <button (click)="format('underline')" (mousedown)="$event.preventDefault()" class="toolbar-button">
+      <ng-icon class="h-4 w-4" name="lucideUnderline"></ng-icon>
     </button>
   </div>
   <div
     #editor
+    (input)="onContentChange($event)"
     class="word-editor-content"
     contenteditable="true"
-    (input)="onContentChange($event)"
   ></div>
   <div class="word-editor-footer">
     <div class="flex items-center">

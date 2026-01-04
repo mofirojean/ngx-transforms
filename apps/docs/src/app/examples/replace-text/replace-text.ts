@@ -46,10 +46,10 @@ const longText = `
   providers: []
 })
 export class ReplaceText {
-  protected longTextContent: string = longText;
   findText = signal<string>('');
   replace = signal<string>('');
   isReplace = signal<boolean>(false);
+  protected longTextContent: string = longText;
 
   replaceText() {
     this.isReplace.set(true);

@@ -1,13 +1,13 @@
-import { Component, computed, signal } from '@angular/core';
-import { CountPipe } from '@ngx-transforms';
-import { NgIconComponent, provideIcons } from '@ng-icons/core';
-import { lucideBold, lucideItalic, lucideUnderline } from '@ng-icons/lucide';
+import {Component, computed, signal} from '@angular/core';
+import {CountPipe} from '@ngx-transforms';
+import {NgIconComponent, provideIcons} from '@ng-icons/core';
+import {lucideBold, lucideItalic, lucideUnderline} from '@ng-icons/lucide';
 
 @Component({
   selector: 'app-word-editor-count',
   standalone: true,
   imports: [CountPipe, NgIconComponent],
-  providers: [provideIcons({ lucideBold, lucideItalic, lucideUnderline })],
+  providers: [provideIcons({lucideBold, lucideItalic, lucideUnderline})],
   templateUrl: './word-editor-count.html',
   styles: [`
     :host {

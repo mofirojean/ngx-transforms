@@ -28,5 +28,10 @@ export const PIPES: Pipe[] = [
     name: "Barcode",
     url: "/docs/pipes/barcode",
     description: "Generates various types of barcodes."
+  },
+  {
+    name: "Replace",
+    url: "/docs/pipes/replace",
+    description: "A pipe to replace parts of a string."
   }
 ];

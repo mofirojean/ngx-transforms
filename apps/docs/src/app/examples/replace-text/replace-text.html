@@ -1,0 +1,40 @@
+<!-- Editor Header -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-4 p-3 border-b border-border">
+  <div class="flex flex-wrap items-center gap-2">
+    <input
+      class="w-full sm:w-40 rounded-md h-9 text-sm"
+      [(ngModel)]="findText"
+      (input)="isReplace.set(false)"
+      hlmInput
+      placeholder="Find"
+      type="search"
+    />
+    <input
+      class="w-full sm:w-40 rounded-md h-9 text-sm"
+      [(ngModel)]="replace"
+      (input)="isReplace.set(false)"
+      hlmInput
+      placeholder="Replace"
+      type="text"
+    />
+  </div>
+  <button
+    class="w-full sm:w-auto flex-shrink-0"
+    hlmBtn
+    type="button"
+    (click)="replaceText()"
+  >
+    Replace
+  </button>
+</div>
+
+<!-- Editor Content -->
+<ng-scrollbar hlm class="h-72 p-4">
+  <div class="max-w-none p-4 text-foreground">
+    <h2 class="text-xl font-semibold mb-4">Exploring Modern Web Development</h2>
+    <p
+      class="text-sm"
+      [innerHTML]="longTextContent | replace: findText() : replace() : 'rp-highlight' : isReplace()"
+    ></p>
+  </div>
+</ng-scrollbar>

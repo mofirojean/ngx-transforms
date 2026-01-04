@@ -37,6 +37,9 @@
       ],
       "@spartan-ng/helm/separator": [
         "libs/components/ui/separator/src/index.ts"
+      ],
+      "@spartan-ng/helm/scroll-area": [
+        "libs/components/ui/scroll-area/src/index.ts"
       ]
     }
   },

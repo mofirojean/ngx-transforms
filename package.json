@@ -87,6 +87,7 @@
     "jsdom": "^27.1.0",
     "jsonc-eslint-parser": "^2.1.0",
     "ng-packagr": "~21.0.0",
+    "ngx-scrollbar": "^19.1.1",
     "nx": "22.3.3",
     "postcss": "^8.5.3",
     "postcss-url": "~10.1.3",

@@ -51,14 +51,22 @@ export class ReplacePipe implements PipeTransform {
 
     if (!value) return '';
 
+    // handles empty string pattern
+    if (!pattern || (typeof pattern === 'string' && pattern.trim() === '')) {
+      return value;
+    }
+
     const finalPattern = typeof pattern === 'string' ? new RegExp(pattern, 'gi') : pattern;
 
     if (!highlightClass) {
       return isReplace ? value.replace(finalPattern, replacement) : value;
     }
 
+    // Sanitize the replacement to prevent XSS
+    const sanitizedReplacement = replacement.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
     if (isReplace) {
-      const highlightedReplacement = `<span class="${highlightClass}">${replacement}</span>`;
+      const highlightedReplacement = `<span class="${highlightClass}">${sanitizedReplacement}</span>`;
       const replaced = value.replace(finalPattern, highlightedReplacement);
       return this.sanitizer.bypassSecurityTrustHtml(replaced);
     }

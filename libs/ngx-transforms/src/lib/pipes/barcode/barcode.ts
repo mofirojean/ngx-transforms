@@ -71,15 +71,18 @@ export class BarcodePipe implements PipeTransform {
       return '';
     }
 
+    // Sanitize the value to prevent XSS
+    const sanitizedValue = value.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
     try {
       const config = { format, lineColor, width, height, displayValue };
       if (elementType === 'svg') {
         const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-        JsBarcode(svg, value, config);
+        JsBarcode(svg, sanitizedValue, config);
         return this.sanitizer.bypassSecurityTrustHtml(svg.outerHTML);
       } else {
         const canvas = document.createElement('canvas');
-        JsBarcode(canvas, value, config);
+        JsBarcode(canvas, sanitizedValue, config);
         const dataUrl = canvas.toDataURL('image/png');
         return this.sanitizer.bypassSecurityTrustResourceUrl(dataUrl);
       }

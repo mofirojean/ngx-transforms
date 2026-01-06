@@ -2,15 +2,18 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
+  inject,
   signal,
 } from '@angular/core';
 import { HlmInputImports } from '@spartan-ng/helm/input';
 import { HlmLabelImports } from '@spartan-ng/helm/label';
+import { ReversePipe } from '@ngx-transforms';
 
 @Component({
   selector: 'app-reverse-text',
   standalone: true,
   imports: [HlmInputImports, HlmLabelImports],
+  providers: [ReversePipe],
   template: `
     <style>
       @keyframes slide-fade-in {
@@ -26,7 +29,7 @@ import { HlmLabelImports } from '@spartan-ng/helm/label';
 
       .letter-enter {
         animation: slide-fade-in 300ms ease-out both;
-        animation-delay: calc(30ms * var(--index));
+        animation-delay: calc(30ms);
       }
     </style>
 
@@ -82,8 +85,11 @@ import { HlmLabelImports } from '@spartan-ng/helm/label';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ReverseText {
+  private readonly reversePipe: ReversePipe = inject(ReversePipe);
   text = signal('Ambulance');
-  reversedTextAsArray = computed(() => this.text().split('').reverse());
+  reversedTextAsArray = computed(() =>
+    this.reversePipe.transform(this.text()).split('')
+  );
 
   onInput(event: Event): void {
     const target = event.target as HTMLInputElement;

@@ -9,6 +9,7 @@ import { PipesList } from './pages/pipes/pipes-list';
 import { Barcode } from './pages/pipes/barcode';
 import { Replace } from './pages/pipes/replace';
 import { Gravatar } from './pages/pipes/gravatar';
+import { Reverse } from './pages/pipes/reverse';
 
 export const appRoutes: Route[] = [
   {
@@ -54,6 +55,10 @@ export const appRoutes: Route[] = [
           {
             path: 'gravatar',
             component: Gravatar,
+          },
+          {
+            path: 'reverse',
+            component: Reverse,
           },
         ],
       },

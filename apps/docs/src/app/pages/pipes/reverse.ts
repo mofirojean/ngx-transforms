@@ -1,74 +1,74 @@
 import { Component } from '@angular/core';
+import { ReversePipe } from '@ngx-transforms';
 import { CodePreview } from '../../reusables/code-preview/code-preview';
 import { NextPrevNavigation } from '../../reusables/next-prev-navigation/next-prev-navigation';
 import { MacosWindow } from '../../reusables/macos-window/macos-window';
 import { AuthorCredit } from '../../reusables/author-credit/author-credit';
-import { GravatarGenerator } from '../../examples/gravatar-generator/gravatar-generator';
-import {GravatarPipe} from '@ngx-transforms';
+import { ReverseText } from '../../examples/reverse-text/reverse-text';
 
 @Component({
-  selector: 'app-gravatar',
+  selector: 'app-reverse',
   standalone: true,
   imports: [
     CodePreview,
     NextPrevNavigation,
     MacosWindow,
-    GravatarPipe,
+    ReversePipe,
     AuthorCredit,
-    GravatarGenerator,
+    ReverseText,
   ],
   template: `
     <div class="container mx-auto py-10 px-4 md:px-8 max-w-4xl">
       <nav class="flex items-center text-sm text-muted-foreground mb-6">
         <a href="/docs/pipes" class="hover:text-foreground transition-colors">Pipes</a>
         <span class="h-4 w-4 mx-2">/</span>
-        <span class="text-foreground font-medium">Gravatar</span>
+        <span class="text-foreground font-medium">Reverse</span>
       </nav>
 
       <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-2">
-        Gravatar Pipe
+        Reverse Pipe
       </h1>
       <p class="text-lg text-muted-foreground mb-8">
-        A pipe to generate a Gravatar URL from an email address.
+        A pipe to reverse the characters in a string.
       </p>
 
       <h2 class="text-2xl font-bold my-8">Example</h2>
-      <app-macos-window title="Gravatar Generator">
-        <div>
-          <app-gravatar-generator />
+      <app-macos-window title="Reverse Text">
+        <div class="p-4">
+          <app-reverse-text />
         </div>
       </app-macos-window>
 
       <h2 class="text-2xl font-bold my-8">Usage</h2>
       <app-code-preview [code]="usageCode" language="typescript">
-        <div class="rounded-md bg-muted p-6 border border-border flex items-center justify-center">
-          <img [src]="'example@example.com' | gravatar" alt="Gravatar" class="rounded-full h-24 w-24" />
+        <div class="rounded-md bg-muted p-6 border border-border">
+          <p class="text-lg text-center">{{ 'Hello World' | reverse }}</p>
         </div>
       </app-code-preview>
 
       <div class="mt-16 pt-8 border-t border-border flex justify-between items-center text-sm text-muted-foreground">
-        <app-author-credit author="Mofiro Jean" url="https://github.com/mofirojean" />
+        <app-author-credit author="John Doe" url="https://github.com/johndoe" />
         <div class="flex gap-4">
           <app-next-prev-navigation
-            [previous]="{ label: 'Replace', link: '/docs/pipes/replace' }"
-            [next]="{ label: 'Reverse', link: '/docs/pipes/reverse' }"
+            [previous]="{ label: 'Gravatar', link: '/docs/pipes/gravatar' }"
+            [next]="{ label: 'Snake Case', link: '/docs/pipes/snake-case' }"
           />
         </div>
       </div>
     </div>
   `,
 })
-export class Gravatar {
+export class Reverse {
   usageCode = `
 import { Component } from '@angular/core';
-import { GravatarPipe } from '@ngx-transforms/ngx-transforms';
+import { ReversePipe } from '@ngx-transforms/ngx-transforms';
 
 @Component({
   selector: 'app-example',
   standalone: true,
-  imports: [GravatarPipe],
+  imports: [ReversePipe],
   template: \
-    <img [src]="'example@example.com' | gravatar" alt="Gravatar" />
+    <p>{{ 'Hello World' | reverse }}</p>
   \
 })
 export class ExampleComponent {}

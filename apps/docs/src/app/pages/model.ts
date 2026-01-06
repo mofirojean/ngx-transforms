@@ -38,5 +38,10 @@ export const PIPES: Pipe[] = [
     name: "Gravatar",
     url: "/docs/pipes/gravatar",
     description: "Generate a gravatar from an email address."
+  },
+  {
+    name: "Reverse",
+    url: "/docs/pipes/reverse",
+    description: "Reverses the characters in a string."
   }
 ];

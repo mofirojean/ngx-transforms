@@ -1,10 +1,11 @@
 import {Component} from '@angular/core';
 import {Footer} from '../reusables/footer';
+import {NextPrevNavigation} from '../reusables/next-prev-navigation/next-prev-navigation';
 
 @Component({
   selector: 'app-introduction-page',
   standalone: true,
-  imports: [Footer],
+  imports: [Footer, NextPrevNavigation],
   template: `
     <div class="container mx-auto py-10 px-4 md:px-8 max-w-4xl">
       <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-6">Introduction</h1>
@@ -25,11 +26,14 @@ import {Footer} from '../reusables/footer';
         <li><strong>Tree-Shakeable:</strong> Import only what you need, keeping your bundle size small.</li>
       </ul>
 
-      <h2 class="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight mt-10 mb-4">
-        Installation
-      </h2>
-      <div class="relative rounded-md bg-muted p-4 font-mono text-sm mt-4">
-        npm install &#64;ngx-transforms/core
+<!--      <h2 class="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight mt-10 mb-4">-->
+<!--        Installation-->
+<!--      </h2>-->
+<!--      <div class="relative rounded-md bg-muted p-4 font-mono text-sm mt-4">-->
+<!--        npm install &#64;ngx-transforms/core-->
+<!--      </div>-->
+      <div class="flex justify-end items-center py-4">
+        <app-next-prev-navigation [next]="{label: 'Pipes', link: '/docs/pipes'}"/>
       </div>
       <app-footer />
     </div>

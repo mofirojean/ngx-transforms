@@ -47,10 +47,10 @@ import {GravatarPipe} from '@ngx-transforms';
       </app-code-preview>
 
       <div class="mt-16 pt-8 border-t border-border flex justify-between items-center text-sm text-muted-foreground">
-        <app-author-credit author="John Doe" url="https://github.com/johndoe" />
+        <app-author-credit author="Mofiro Jean" url="https://github.com/mofirojean" />
         <div class="flex gap-4">
           <app-next-prev-navigation
-            [previous]="{ label: 'Highlight', link: '/docs/pipes/highlight' }"
+            [previous]="{ label: 'Replace', link: '/docs/pipes/replace' }"
             [next]="{ label: 'HTML Escape', link: '/docs/pipes/html-escape' }"
           />
         </div>

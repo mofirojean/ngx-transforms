@@ -8,6 +8,7 @@ import { QrCode } from './pages/pipes/qrcode';
 import { PipesList } from './pages/pipes/pipes-list';
 import { Barcode } from './pages/pipes/barcode';
 import { Replace } from './pages/pipes/replace';
+import { Gravatar } from './pages/pipes/gravatar';
 
 export const appRoutes: Route[] = [
   {
@@ -49,6 +50,10 @@ export const appRoutes: Route[] = [
           {
             path: 'replace',
             component: Replace,
+          },
+          {
+            path: 'gravatar',
+            component: Gravatar,
           },
         ],
       },

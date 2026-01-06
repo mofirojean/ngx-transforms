@@ -33,5 +33,10 @@ export const PIPES: Pipe[] = [
     name: "Replace",
     url: "/docs/pipes/replace",
     description: "A pipe to replace parts of a string."
+  },
+  {
+    name: "Gravatar",
+    url: "/docs/pipes/gravatar",
+    description: "Generate a gravatar from an email address."
   }
 ];

@@ -51,7 +51,7 @@ import {AuthorCredit} from '../../reusables/author-credit/author-credit';
         <div class="flex gap-4">
           <app-next-prev-navigation
             [previous]="{ label: 'Barcode', link: '/docs/pipes/barcode' }"
-            [next]="{ label: 'Reverse', link: '/docs/pipes/reverse' }"
+            [next]="{ label: 'Gravatar', link: '/docs/pipes/gravatar' }"
           />
         </div>
       </div>
@@ -59,6 +59,7 @@ import {AuthorCredit} from '../../reusables/author-credit/author-credit';
   `,
 })
 export class Replace {
+
   usageCode = `
 import { Component } from '@angular/core';
 import { ReplacePipe } from '@ngx-transforms';

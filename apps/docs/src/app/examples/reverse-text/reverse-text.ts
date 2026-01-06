@@ -6,13 +6,12 @@ import {
   signal,
 } from '@angular/core';
 import { HlmInputImports } from '@spartan-ng/helm/input';
-import { HlmLabelImports } from '@spartan-ng/helm/label';
 import { ReversePipe } from '@ngx-transforms';
 
 @Component({
   selector: 'app-reverse-text',
   standalone: true,
-  imports: [HlmInputImports, HlmLabelImports],
+  imports: [HlmInputImports],
   providers: [ReversePipe],
   template: `
     <style>
@@ -44,7 +43,6 @@ import { ReversePipe } from '@ngx-transforms';
       </div>
 
       <div class="grid w-full max-w-sm items-center gap-1.5">
-        <label hlmLabel for="text-input">Enter Text</label>
         <input
           hlmInput
           id="text-input"
@@ -52,7 +50,7 @@ import { ReversePipe } from '@ngx-transforms';
           class="w-full text-center"
           [value]="text()"
           (input)="onInput($event)"
-          placeholder="Ambulance"
+          placeholder="Enter text here"
         />
       </div>
 

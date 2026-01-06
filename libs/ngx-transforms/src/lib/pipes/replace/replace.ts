@@ -46,7 +46,7 @@ export class ReplacePipe implements PipeTransform {
     pattern: string | RegExp,
     replacement: string,
     highlightClass?: string,
-    isReplace: boolean = false
+    isReplace: boolean = true
   ): string | SafeHtml {
 
     if (!value) return '';

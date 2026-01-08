@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
-import { ReversePipe } from '@ngx-transforms';
-import { CodePreview } from '../../reusables/code-preview/code-preview';
-import { NextPrevNavigation } from '../../reusables/next-prev-navigation/next-prev-navigation';
-import { MacosWindow } from '../../reusables/macos-window/macos-window';
-import { AuthorCredit } from '../../reusables/author-credit/author-credit';
-import { ReverseText } from '../../examples/reverse-text/reverse-text';
+import {Component} from '@angular/core';
+import {ReversePipe} from '@ngx-transforms';
+import {CodePreview} from '../../reusables/code-preview/code-preview';
+import {NextPrevNavigation} from '../../reusables/next-prev-navigation/next-prev-navigation';
+import {MacosWindow} from '../../reusables/macos-window/macos-window';
+import {AuthorCredit} from '../../reusables/author-credit/author-credit';
+import {ReverseText} from '../../examples/reverse-text/reverse-text';
 
 @Component({
   selector: 'app-reverse',

@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { CodePreview } from '../../reusables/code-preview/code-preview';
-import { NextPrevNavigation } from '../../reusables/next-prev-navigation/next-prev-navigation';
-import { MacosWindow } from '../../reusables/macos-window/macos-window';
-import { AuthorCredit } from '../../reusables/author-credit/author-credit';
-import { GravatarGenerator } from '../../examples/gravatar-generator/gravatar-generator';
+import {Component} from '@angular/core';
+import {CodePreview} from '../../reusables/code-preview/code-preview';
+import {NextPrevNavigation} from '../../reusables/next-prev-navigation/next-prev-navigation';
+import {MacosWindow} from '../../reusables/macos-window/macos-window';
+import {AuthorCredit} from '../../reusables/author-credit/author-credit';
+import {GravatarGenerator} from '../../examples/gravatar-generator/gravatar-generator';
 import {GravatarPipe} from '@ngx-transforms';
 
 @Component({

@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
-import { MorseCodePipe } from '@ngx-transforms';
-import { CodePreview } from '../../reusables/code-preview/code-preview';
-import { NextPrevNavigation } from '../../reusables/next-prev-navigation/next-prev-navigation';
-import { MacosWindow } from '../../reusables/macos-window/macos-window';
-import { AuthorCredit } from '../../reusables/author-credit/author-credit';
-import { MorseCodeGenerator } from '../../examples/morse-code-generator/morse-code-generator';
+import {Component} from '@angular/core';
+import {MorseCodePipe} from '@ngx-transforms';
+import {CodePreview} from '../../reusables/code-preview/code-preview';
+import {NextPrevNavigation} from '../../reusables/next-prev-navigation/next-prev-navigation';
+import {MacosWindow} from '../../reusables/macos-window/macos-window';
+import {AuthorCredit} from '../../reusables/author-credit/author-credit';
+import {MorseCodeGenerator} from '../../examples/morse-code-generator/morse-code-generator';
 
 @Component({
   selector: 'app-morse-code',

@@ -110,7 +110,7 @@ export class MorseCodeGenerator implements OnDestroy {
   private readonly morseCodePipe = inject(MorseCodePipe);
 
   // Audio state
-  private audioContext: AudioContext | null = null;
+  private readonly audioContext: AudioContext | null = null;
   private oscillator: OscillatorNode | null = null;
   playingState = signal<'idle' | 'playing'>('idle');
 
@@ -126,7 +126,7 @@ export class MorseCodeGenerator implements OnDestroy {
   ngOnDestroy() {
     this.stopMorseCode();
     if (this.audioContext) {
-      this.audioContext.close();
+      this.audioContext.close().then();
     }
   }
 

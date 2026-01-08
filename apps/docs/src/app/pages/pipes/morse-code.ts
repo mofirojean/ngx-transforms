@@ -1,48 +1,46 @@
 import { Component } from '@angular/core';
-import { ReversePipe } from '@ngx-transforms';
+import { MorseCodePipe } from '@ngx-transforms';
 import { CodePreview } from '../../reusables/code-preview/code-preview';
 import { NextPrevNavigation } from '../../reusables/next-prev-navigation/next-prev-navigation';
 import { MacosWindow } from '../../reusables/macos-window/macos-window';
 import { AuthorCredit } from '../../reusables/author-credit/author-credit';
-import { ReverseText } from '../../examples/reverse-text/reverse-text';
+import { MorseCodeGenerator } from '../../examples/morse-code-generator/morse-code-generator';
 
 @Component({
-  selector: 'app-reverse',
+  selector: 'app-morse-code',
   standalone: true,
   imports: [
     CodePreview,
     NextPrevNavigation,
     MacosWindow,
-    ReversePipe,
+    MorseCodePipe,
     AuthorCredit,
-    ReverseText,
+    MorseCodeGenerator,
   ],
   template: `
     <div class="container mx-auto py-10 px-4 md:px-8 max-w-4xl">
       <nav class="flex items-center text-sm text-muted-foreground mb-6">
         <a href="/docs/pipes" class="hover:text-foreground transition-colors">Pipes</a>
         <span class="h-4 w-4 mx-2">/</span>
-        <span class="text-foreground font-medium">Reverse</span>
+        <span class="text-foreground font-medium">Morse Code</span>
       </nav>
 
       <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-2">
-        Reverse Pipe
+        Morse Code Pipe
       </h1>
       <p class="text-lg text-muted-foreground mb-8">
-        A pipe to reverse the characters in a string.
+        A pipe to convert a string into Morse code.
       </p>
 
       <h2 class="text-2xl font-bold my-8">Example</h2>
-      <app-macos-window title="Reverse Text">
-        <div class="p-4">
-          <app-reverse-text />
-        </div>
+      <app-macos-window title="Morse Code Generator">
+        <app-morse-code-generator />
       </app-macos-window>
 
       <h2 class="text-2xl font-bold my-8">Usage</h2>
       <app-code-preview [code]="usageCode" language="typescript">
         <div class="rounded-md bg-muted p-6 border border-border">
-          <p class="text-lg text-center">{{ 'Hello World' | reverse }}</p>
+          <p class="text-lg text-center font-mono">{{ 'Hello World' | morseCode }}</p>
         </div>
       </app-code-preview>
 
@@ -50,25 +48,25 @@ import { ReverseText } from '../../examples/reverse-text/reverse-text';
         <app-author-credit author="John Doe" url="https://github.com/johndoe" />
         <div class="flex gap-4">
           <app-next-prev-navigation
-            [previous]="{ label: 'Gravatar', link: '/docs/pipes/gravatar' }"
-            [next]="{ label: 'Morse Code', link: '/docs/pipes/morse-code' }"
+            [previous]="{ label: 'Reverse', link: '/docs/pipes/reverse' }"
+            [next]="{ label: 'Snake Case', link: '/docs/pipes/snake-case' }"
           />
         </div>
       </div>
     </div>
   `,
 })
-export class Reverse {
+export class MorseCode {
   usageCode = `
 import { Component } from '@angular/core';
-import { ReversePipe } from '@ngx-transforms/ngx-transforms';
+import { MorseCodePipe } from '@ngx-transforms';
 
 @Component({
   selector: 'app-example',
   standalone: true,
-  imports: [ReversePipe],
+  imports: [MorseCodePipe],
   template: \
-    <p>{{ 'Hello World' | reverse }}</p>
+    <p>{{ 'Hello World' | morseCode }}</p>
   \
 })
 export class ExampleComponent {}

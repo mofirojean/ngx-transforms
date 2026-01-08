@@ -10,6 +10,7 @@ import { Barcode } from './pages/pipes/barcode';
 import { Replace } from './pages/pipes/replace';
 import { Gravatar } from './pages/pipes/gravatar';
 import { Reverse } from './pages/pipes/reverse';
+import { MorseCode } from './pages/pipes/morse-code';
 
 export const appRoutes: Route[] = [
   {
@@ -59,6 +60,10 @@ export const appRoutes: Route[] = [
           {
             path: 'reverse',
             component: Reverse,
+          },
+          {
+            path: 'morse-code',
+            component: MorseCode,
           },
         ],
       },

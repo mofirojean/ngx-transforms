@@ -43,5 +43,10 @@ export const PIPES: Pipe[] = [
     name: "Reverse",
     url: "/docs/pipes/reverse",
     description: "Reverses the characters in a string."
+  },
+  {
+    name: "Morse Code",
+    url: "/docs/pipes/morse-code",
+    description: "Converts a string into Morse code."
   }
 ];

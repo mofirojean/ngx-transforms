@@ -5,19 +5,15 @@ import {NextPrevNavigation} from "../../reusables/next-prev-navigation/next-prev
 import {MacosWindow} from "../../reusables/macos-window/macos-window";
 import {WordEditorCount} from "../../examples/word-editor-count/word-editor-count";
 import {AuthorCredit} from '../../reusables/author-credit/author-credit';
+import {Breadcrumb} from '../../reusables/breadcrumb/breadcrumb';
 
 @Component({
   selector: 'app-count-pipe-page',
   standalone: true,
-  imports: [CountPipe, CodePreview, NextPrevNavigation, MacosWindow, WordEditorCount, AuthorCredit],
+  imports: [CountPipe, CodePreview, NextPrevNavigation, MacosWindow, WordEditorCount, AuthorCredit, Breadcrumb],
   template: `
     <div class="container mx-auto py-10 px-4 md:px-8 max-w-4xl">
-      <!-- Breadcrumb -->
-      <nav class="flex items-center text-sm text-muted-foreground mb-6">
-        <a href="/docs/pipes" class="hover:text-foreground transition-colors">Pipes</a>
-        <span class="h-4 w-4 mx-2">/</span>
-        <span class="text-foreground font-medium">Count</span>
-      </nav>
+      <app-breadcrumb class="mb-6 block" />
 
       <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-2">Count Pipe</h1>
       <p class="text-lg text-muted-foreground mb-8">A simple pipe to count the number of items in an array or characters

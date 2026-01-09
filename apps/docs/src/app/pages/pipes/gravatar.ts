@@ -5,6 +5,7 @@ import {MacosWindow} from '../../reusables/macos-window/macos-window';
 import {AuthorCredit} from '../../reusables/author-credit/author-credit';
 import {GravatarGenerator} from '../../examples/gravatar-generator/gravatar-generator';
 import {GravatarPipe} from '@ngx-transforms';
+import {Breadcrumb} from '../../reusables/breadcrumb/breadcrumb';
 
 @Component({
   selector: 'app-gravatar',
@@ -16,14 +17,11 @@ import {GravatarPipe} from '@ngx-transforms';
     GravatarPipe,
     AuthorCredit,
     GravatarGenerator,
+    Breadcrumb
   ],
   template: `
     <div class="container mx-auto py-10 px-4 md:px-8 max-w-4xl">
-      <nav class="flex items-center text-sm text-muted-foreground mb-6">
-        <a href="/docs/pipes" class="hover:text-foreground transition-colors">Pipes</a>
-        <span class="h-4 w-4 mx-2">/</span>
-        <span class="text-foreground font-medium">Gravatar</span>
-      </nav>
+      <app-breadcrumb class="mb-6 block" />
 
       <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-2">
         Gravatar Pipe

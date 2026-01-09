@@ -1,0 +1,21 @@
+<div class="w-full max-w-lg mx-auto p-4 md:p-8">
+  <div class="flex flex-col items-center space-y-6">
+    <div class="relative flex h-24 w-24 items-center justify-center rounded-full bg-primary/10 text-primary animate-in fade-in zoom-in-50 duration-500">
+      <span class="text-4xl font-bold">{{ name() | initials }}</span>
+      <div class="absolute bottom-0 right-0 h-6 w-6 rounded-full bg-green-500 border-4 border-background animate-in fade-in zoom-in-50 delay-300 duration-500"></div>
+    </div>
+
+    <form class="w-full space-y-4">
+      <div class="grid w-full items-center gap-1.5">
+        <label hlmLabel for="name">Full Name</label>
+        <input hlmInput
+               id="name"
+               class="w-full text-center"
+               placeholder="Enter a full name"
+               [(ngModel)]="name"
+        />
+      </div>
+      <p class="text-xs text-center text-muted-foreground">Enter a name to see the initials generated in real-time.</p>
+    </form>
+  </div>
+</div>

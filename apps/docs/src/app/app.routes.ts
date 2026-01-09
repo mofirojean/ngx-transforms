@@ -11,6 +11,7 @@ import { Replace } from './pages/pipes/replace';
 import { Gravatar } from './pages/pipes/gravatar';
 import { Reverse } from './pages/pipes/reverse';
 import { MorseCode } from './pages/pipes/morse-code';
+import { Initials } from './pages/pipes/initials';
 
 export const appRoutes: Route[] = [
   {
@@ -64,6 +65,10 @@ export const appRoutes: Route[] = [
           {
             path: 'morse-code',
             component: MorseCode,
+          },
+          {
+            path: 'initials',
+            component: Initials,
           },
         ],
       },

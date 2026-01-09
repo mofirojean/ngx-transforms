@@ -48,5 +48,10 @@ export const PIPES: Pipe[] = [
     name: "Morse Code",
     url: "/docs/pipes/morse-code",
     description: "Converts a string into Morse code."
+  },
+  {
+    name: "Initials",
+    url: "/docs/pipes/initials",
+    description: "Extracts initials from a given name."
   }
 ];

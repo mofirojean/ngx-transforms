@@ -21,7 +21,7 @@ import {Breadcrumb} from '../../reusables/breadcrumb/breadcrumb';
   ],
   template: `
     <div class="container mx-auto py-10 px-4 md:px-8 max-w-4xl">
-      <app-breadcrumb class="mb-6 block" />
+      <app-breadcrumb class="mb-6 block"/>
 
       <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-2">
         Replace Pipe

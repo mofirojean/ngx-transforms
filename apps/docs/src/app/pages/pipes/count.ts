@@ -13,7 +13,7 @@ import {Breadcrumb} from '../../reusables/breadcrumb/breadcrumb';
   imports: [CountPipe, CodePreview, NextPrevNavigation, MacosWindow, WordEditorCount, AuthorCredit, Breadcrumb],
   template: `
     <div class="container mx-auto py-10 px-4 md:px-8 max-w-4xl">
-      <app-breadcrumb class="mb-6 block" />
+      <app-breadcrumb class="mb-6 block"/>
 
       <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-2">Count Pipe</h1>
       <p class="text-lg text-muted-foreground mb-8">A simple pipe to count the number of items in an array or characters

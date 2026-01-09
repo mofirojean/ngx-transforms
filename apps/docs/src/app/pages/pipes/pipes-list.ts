@@ -17,7 +17,7 @@ import {PIPES} from '../model';
         documentation.
       </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
         @for (pipe of pipes; track pipe.name) {
           <a [routerLink]="pipe.url"
              class="group relative rounded-lg border border-border p-6 hover:border-foreground/50 transition-colors">

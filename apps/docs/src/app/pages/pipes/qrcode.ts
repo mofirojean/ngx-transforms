@@ -23,7 +23,7 @@ import {Breadcrumb} from '../../reusables/breadcrumb/breadcrumb';
   ],
   template: `
     <div class="container mx-auto py-10 px-4 md:px-8 max-w-4xl">
-      <app-breadcrumb class="mb-6 block" />
+      <app-breadcrumb class="mb-6 block"/>
 
       <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-2">
         QR Code Pipe
@@ -35,7 +35,7 @@ import {Breadcrumb} from '../../reusables/breadcrumb/breadcrumb';
       <h2 class="text-2xl font-bold my-8">Example</h2>
       <app-macos-window title="QR Code Generator">
         <div class="p-4 sm:p-6 flex justify-center">
-          <app-qrcode-example />
+          <app-qrcode-example/>
         </div>
       </app-macos-window>
 
@@ -57,7 +57,7 @@ import {Breadcrumb} from '../../reusables/breadcrumb/breadcrumb';
       </app-code-preview>
 
       <div class="mt-16 pt-8 border-t border-border flex justify-between items-center text-sm text-muted-foreground">
-        <app-author-credit author="Mofiro Jean" url="https://github.com/mofirojean" />
+        <app-author-credit author="Mofiro Jean" url="https://github.com/mofirojean"/>
         <div class="flex gap-4">
           <app-next-prev-navigation
             [previous]="{ label: 'JSON Pretty', link: '/docs/pipes/json-pretty' }"

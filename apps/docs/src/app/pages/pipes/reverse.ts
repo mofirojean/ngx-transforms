@@ -21,7 +21,7 @@ import {Breadcrumb} from '../../reusables/breadcrumb/breadcrumb';
   ],
   template: `
     <div class="container mx-auto py-10 px-4 md:px-8 max-w-4xl">
-      <app-breadcrumb class="mb-6 block" />
+      <app-breadcrumb class="mb-6 block"/>
 
       <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-2">
         Reverse Pipe
@@ -33,7 +33,7 @@ import {Breadcrumb} from '../../reusables/breadcrumb/breadcrumb';
       <h2 class="text-2xl font-bold my-8">Example</h2>
       <app-macos-window title="Reverse Text">
         <div class="p-4">
-          <app-reverse-text />
+          <app-reverse-text/>
         </div>
       </app-macos-window>
 
@@ -45,7 +45,7 @@ import {Breadcrumb} from '../../reusables/breadcrumb/breadcrumb';
       </app-code-preview>
 
       <div class="mt-16 pt-8 border-t border-border flex justify-between items-center text-sm text-muted-foreground">
-        <app-author-credit author="John Doe" url="https://github.com/johndoe" />
+        <app-author-credit author="John Doe" url="https://github.com/johndoe"/>
         <div class="flex gap-4">
           <app-next-prev-navigation
             [previous]="{ label: 'Gravatar', link: '/docs/pipes/gravatar' }"

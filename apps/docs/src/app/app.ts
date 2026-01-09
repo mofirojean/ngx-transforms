@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
+import { HlmButton } from '@spartan-ng/helm/button';
 import {
   lucidePipette,
   lucideGithub,
@@ -11,15 +12,17 @@ import {
   lucideZap,
   lucideShieldCheck,
   lucideBox,
-  lucideCopy
+  lucideCopy,
+  lucideMenu
 } from '@ng-icons/lucide';
 import {Theme} from './reusables/theme/theme';
 import {GithubStars} from './reusables/github/github-stars';
+import { SidebarService } from './reusables/services/sidebar.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterModule, NgIconComponent, Theme, GithubStars],
+  imports: [RouterModule, NgIconComponent, Theme, GithubStars, HlmButton],
   providers: [
     provideIcons({
       lucidePipette,
@@ -32,10 +35,16 @@ import {GithubStars} from './reusables/github/github-stars';
       lucideShieldCheck,
       lucideBox,
       lucideCopy,
+      lucideMenu
     })
   ],
   templateUrl: './app.html',
   styles: ``,
 })
 export class App {
+  private sidebarService = inject(SidebarService);
+
+  toggleSidebar() {
+    this.sidebarService.toggle();
+  }
 }

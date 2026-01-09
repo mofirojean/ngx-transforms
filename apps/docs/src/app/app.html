@@ -27,6 +27,9 @@
         <nav class="flex items-center gap-2">
           <app-github-stars />
           <app-theme />
+          <button hlmBtn variant="ghost" size="icon" class="md:hidden" (click)="toggleSidebar()">
+            <ng-icon name="lucideMenu" class="h-5 w-5"></ng-icon>
+          </button>
         </nav>
       </div>
     </div>

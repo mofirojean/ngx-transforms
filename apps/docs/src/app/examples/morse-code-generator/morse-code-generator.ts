@@ -35,7 +35,6 @@ import { HlmIcon } from '@spartan-ng/helm/icon';
     <div
       class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-6 w-full bg-background p-8"
     >
-      <!-- Left Card: Input -->
       <div
         class="flex flex-col gap-4 bg-card p-6 rounded-xl border shadow-sm h-full"
       >
@@ -66,12 +65,10 @@ import { HlmIcon } from '@spartan-ng/helm/icon';
         ></textarea>
       </div>
 
-      <!-- Center Arrow -->
       <div class="hidden md:flex justify-center">
         <ng-icon name="lucideArrowRight" class="h-8 w-8 text-muted" />
       </div>
 
-      <!-- Right Card: Output -->
       <div
         class="relative flex flex-col gap-4 bg-card p-6 rounded-xl border shadow-sm h-full"
       >

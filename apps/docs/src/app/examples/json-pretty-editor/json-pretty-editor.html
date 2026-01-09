@@ -1,5 +1,5 @@
-<div class="editor-grid">
-  <div class="editor-pane">
+<div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-4 items-stretch">
+  <div class="p-4 rounded-lg">
     <h3 class="font-semibold text-lg mb-2">JSON Input</h3>
     <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-4">
       Paste your JSON content below. The formatted output will appear on the right.
@@ -22,29 +22,30 @@
     </div>
   </div>
 
-  <hlm-separator orientation="vertical"/>
+  <hlm-separator class="hidden md:block" orientation="vertical"/>
+  <hlm-separator class="md:hidden" orientation="horizontal"/>
 
-  <div class="output-pane relative">
+  <div class="p-4 rounded-lg bg-[#1e1e1e] border border-[#2d2d2d] relative">
     <div class="flex items-center justify-between mb-2">
       <h3 class="font-semibold text-white dark:text-white text-lg">Formatted Output</h3>
     </div>
     @if (jsonInput()) {
-      <div class="output-container group">
+      <div class="group">
         <button
           (click)="copyToClipboard(jsonInput())"
           aria-label="Copy JSON to clipboard"
-          class="copy-button absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+          class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity bg-[#333] border border-[#444] text-[#d4d4d4] p-2 rounded cursor-pointer hover:bg-[#444]"
         >
           @if (copied()) {
-            <ng-icon class="text-green-500" hlm name="lucideCheck" size="sm"/>
+            <ng-icon class="text-green-500 transition-transform duration-200 ease-in-out" hlm name="lucideCheck" size="sm"/>
           } @else {
-            <ng-icon hlm name="lucideCopy" size="sm"/>
+            <ng-icon class="transition-transform duration-200 ease-in-out" hlm name="lucideCopy" size="sm"/>
           }
         </button>
         <div [innerHTML]="jsonInput() | jsonPretty:2:propToHighlight()"></div>
       </div>
     } @else {
-      <div class="placeholder">
+      <div class="flex items-center justify-center h-full text-[#808080] font-mono text-sm">
         <p>Formatted JSON will appear here.</p>
       </div>
     }

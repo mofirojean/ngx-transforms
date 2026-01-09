@@ -43,6 +43,9 @@
       ],
       "@spartan-ng/helm/label": [
         "libs/components/ui/label/src/index.ts"
+      ],
+      "@spartan-ng/helm/breadcrumb": [
+        "libs/components/ui/breadcrumb/src/index.ts"
       ]
     }
   },

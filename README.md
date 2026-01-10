@@ -1,24 +1,8 @@
 # NgxTransforms
 
-[//]: # (<p align="center">)
-
-[//]: # (  <img src="https://raw.githubusercontent.com/mofirojean/ngx-transforms/main/apps/docs/src/favicon.ico" alt="NgxTransforms Logo" width="120" height="120">)
-
-[//]: # (</p>)
-
 <p align="center">
   <strong>A comprehensive collection of modern, type-safe, and performant Angular pipes.</strong>
 </p>
-
-[//]: # (<p align="center">)
-
-[//]: # (  <a href="https://github.com/mofirojean/ngx-transforms/actions"><img src="https://img.shields.io/github/actions/workflow/status/mofirojean/ngx-transforms/ci.yml?branch=main" alt="Build Status"></a>)
-
-[//]: # (  <a href="https://www.npmjs.com/package/@ngx-transforms/core"><img src="https://img.shields.io/npm/v/@ngx-transforms/core" alt="NPM Version"></a>)
-
-[//]: # (  <a href="https://github.com/mofirojean/ngx-transforms/blob/main/LICENSE"><img src="https://img.shields.io/github/license/mofirojean/ngx-transforms" alt="License"></a>)
-
-[//]: # (</p>)
 
 ---
 

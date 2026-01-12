@@ -41,7 +41,6 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
         conventions used across programming languages and frameworks.
       </p>
 
-      <!-- Available Pipes Section -->
       <div class="mb-8">
         <h2 class="text-2xl font-bold mb-4">Available Pipes</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -151,7 +150,6 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
         </div>
       </app-code-preview>
 
-      <!-- Use Cases Section -->
       <h2 class="text-2xl font-bold my-8">Common Use Cases</h2>
       <div class="rounded-md border border-border p-6 space-y-4">
         <div class="flex items-start gap-3">

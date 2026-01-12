@@ -13,6 +13,7 @@ import { Reverse } from './pages/pipes/reverse';
 import { MorseCode } from './pages/pipes/morse-code';
 import { Initials } from './pages/pipes/initials';
 import { TextTransform } from './pages/pipes/text-transform';
+import { ColorConvert } from './pages/pipes/color-convert';
 
 export const appRoutes: Route[] = [
   {
@@ -74,6 +75,10 @@ export const appRoutes: Route[] = [
           {
             path: 'text-transform',
             component: TextTransform,
+          },
+          {
+            path: 'color-convert',
+            component: ColorConvert,
           },
         ],
       },

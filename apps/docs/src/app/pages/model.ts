@@ -59,5 +59,11 @@ export const PIPES: Pipe[] = [
     url: "/docs/pipes/text-transform",
     description: "Transform text to camelCase, snake_case, kebab-case, or Title Case.",
     isNew: true
+  },
+  {
+    name: "Color Convert",
+    url: "/docs/pipes/color-convert",
+    description: "Convert colors between HEX, RGB, and RGBA formats.",
+    isNew: true
   }
 ];

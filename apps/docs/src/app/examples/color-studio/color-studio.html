@@ -1,0 +1,162 @@
+<div class="w-full max-w-3xl mx-auto p-4 md:p-6">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <div class="rounded-xl border border-border bg-card overflow-hidden shadow-lg">
+      <!-- Main Color Swatch -->
+      <div
+        [style.backgroundColor]="hexColor()"
+        class="relative h-48 flex items-end p-4 transition-colors duration-300"
+      >
+        <!-- Native Color Picker (Hidden, triggered by button) -->
+        <input
+          (input)="onColorInput($event)"
+          [value]="hexColor()"
+          class="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+          id="color-picker"
+          type="color"
+        />
+        <label
+          [style.color]="getContrastColor(hexColor())"
+          class="absolute top-4 right-4 h-8 w-8 flex items-center justify-center p-2 rounded-full bg-white/20 backdrop-blur-sm cursor-pointer hover:bg-white/30 transition-colors"
+          for="color-picker"
+        >
+          <ng-icon hlm name="lucidePipette" size="sm"/>
+        </label>
+        <span
+          [style.color]="getContrastColor(hexColor())"
+          class="px-3 py-1 rounded-full text-xs font-medium bg-white/20 backdrop-blur-sm"
+        >
+          Primary Color
+        </span>
+      </div>
+
+      <!-- Tints & Shades Strips -->
+      <div class="flex h-8">
+        @for (tint of tints(); track $index) {
+          <div
+            [style.backgroundColor]="tint"
+            class="flex-1 transition-colors duration-300"
+          ></div>
+        }
+      </div>
+      <div class="flex h-8">
+        @for (shade of shades(); track $index) {
+          <div
+            [style.backgroundColor]="shade"
+            class="flex-1 transition-colors duration-300"
+          ></div>
+        }
+      </div>
+
+      <!-- Color Info Footer -->
+      <div class="p-4 bg-muted/30">
+        <div class="flex items-center gap-2 mb-2">
+          <ng-icon class="text-muted-foreground" hlm name="lucideDroplet" size="sm"/>
+          <span class="text-sm font-medium">Color Palette</span>
+        </div>
+        <p class="text-xs text-muted-foreground">
+          Tints (top) and shades (bottom) generated from your base color.
+        </p>
+      </div>
+    </div>
+
+    <div class="space-y-4">
+      <div class="rounded-lg border border-border bg-card p-4">
+        <div class="flex items-center justify-between mb-3">
+          <label class="text-sm font-semibold" for="hex-input" hlmLabel>
+            HEX Color
+          </label>
+          <div
+            [style.backgroundColor]="hexColor()"
+            class="w-6 h-6 rounded-full border border-border shadow-sm"
+          ></div>
+        </div>
+        <div class="flex gap-2">
+          <input
+            (input)="onHexInput($event)"
+            [value]="hexColor()"
+            class="flex-1 font-mono uppercase"
+            hlmInput
+            id="hex-input"
+            maxlength="7"
+            placeholder="#000000"
+            type="text"
+          />
+          <button
+            (click)="copyToClipboard(hexColor().toUpperCase(), 'hex')"
+            class="p-2 h-9 rounded-md border border-border hover:bg-muted transition-colors"
+            type="button"
+          >
+            <ng-icon
+              [class]="copiedFormat() === 'hex' ? 'text-green-500' : 'text-muted-foreground'"
+              [name]="copiedFormat() === 'hex' ? 'lucideCheck' : 'lucideCopy'"
+              hlm
+              size="sm"
+            />
+          </button>
+        </div>
+      </div>
+
+      @for (format of formats(); track format.type) {
+        @if (format.type !== 'hex') {
+          <div
+            class="group rounded-lg border border-border bg-card p-4 transition-all hover:border-primary/50"
+          >
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-sm font-semibold">{{ format.label }}</span>
+              <button
+                (click)="copyToClipboard(format.value, format.type)"
+                class="opacity-0 h-9 w-9 flex items-center justify-center rounded-full group-hover:opacity-100 p-1.5 hover:bg-muted transition-all"
+                type="button"
+              >
+                <ng-icon
+                  [class]="copiedFormat() === format.type ? 'text-green-500' : 'text-muted-foreground'"
+                  [name]="copiedFormat() === format.type ? 'lucideCheck' : 'lucideCopy'"
+                  hlm
+                  size="sm"
+                />
+              </button>
+            </div>
+            <code class="block text-sm font-mono text-muted-foreground bg-muted/50 px-3 py-2 rounded-md">
+              {{ format.value }}
+            </code>
+          </div>
+        }
+      }
+
+      <div class="rounded-lg border border-dashed border-border p-4 space-y-3">
+        <span class="text-sm font-semibold">Live Preview</span>
+
+        <!-- Button Preview -->
+        <button
+          [style.backgroundColor]="hexColor()"
+          [style.color]="getContrastColor(hexColor())"
+          class="w-full py-2 px-4 rounded-md text-sm font-medium transition-colors"
+        >
+          Sample Button
+        </button>
+
+        <!-- Border Preview -->
+        <div
+          [style.borderColor]="hexColor()"
+          [style.color]="hexColor()"
+          class="w-full py-2 px-4 rounded-md text-sm text-center border-2 bg-background"
+        >
+          Bordered Element
+        </div>
+
+        <!-- Text Preview -->
+        <p [style.color]="hexColor()" class="text-sm font-medium">
+          This text uses your selected color.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-6 rounded-lg border border-primary/20 bg-primary/5 p-4">
+    <p class="text-sm text-muted-foreground">
+      <span class="font-semibold text-foreground">Pro tip:</span>
+      Click the pipette icon on the color swatch to open the native color picker.
+      The tints and shades are automatically generated from your base color.
+    </p>
+  </div>
+</div>

@@ -1,0 +1,179 @@
+<div class="w-full max-w-2xl mx-auto p-4 md:p-8">
+  <!-- Input Section -->
+  <div class="space-y-4 mb-8">
+    <div class="grid w-full items-center gap-1.5">
+      <label hlmLabel for="variable-input" class="text-sm font-medium">
+        Enter any text or variable name
+      </label>
+      <input
+        hlmInput
+        id="variable-input"
+        class="w-full text-lg"
+        placeholder="e.g., user profile settings"
+        [(ngModel)]="input"
+      />
+    </div>
+    <p class="text-xs text-muted-foreground text-center">
+      Type any phrase to see it converted to different naming conventions used across programming languages.
+    </p>
+  </div>
+
+  <!-- Output Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <!-- camelCase -->
+    <div
+      class="group relative rounded-lg border border-border bg-card p-4 transition-all hover:border-primary/50 hover:shadow-md"
+    >
+      <div class="flex items-start justify-between mb-3">
+        <div class="flex items-center gap-2">
+          <span
+            class="flex h-8 w-8 items-center justify-center rounded-md bg-yellow-500/10 text-yellow-600 dark:text-yellow-400 text-xs font-bold"
+          >
+            JS
+          </span>
+          <div>
+            <h3 class="font-semibold text-sm">camelCase</h3>
+            <p class="text-xs text-muted-foreground">JavaScript / TypeScript</p>
+          </div>
+        </div>
+        <button
+          type="button"
+          class="opacity-0 group-hover:opacity-100 transition-opacity p-1.5 rounded-md hover:bg-muted"
+          (click)="copyToClipboard(0)"
+        >
+          <ng-icon
+            hlm
+            size="sm"
+            [name]="copiedIndex() === 0 ? 'lucideCheck' : 'lucideCopy'"
+            [class]="copiedIndex() === 0 ? 'text-green-500' : 'text-muted-foreground'"
+          />
+        </button>
+      </div>
+      <div
+        class="rounded-md bg-muted/50 p-3 font-mono text-sm break-all min-h-[2.5rem] flex items-center"
+      >
+        {{ camelCaseValue() }}
+      </div>
+      <p class="text-xs text-muted-foreground mt-2">Variables, functions, methods</p>
+    </div>
+
+    <!-- snake_case -->
+    <div
+      class="group relative rounded-lg border border-border bg-card p-4 transition-all hover:border-primary/50 hover:shadow-md"
+    >
+      <div class="flex items-start justify-between mb-3">
+        <div class="flex items-center gap-2">
+          <span
+            class="flex h-8 w-8 items-center justify-center rounded-md bg-blue-500/10 text-blue-600 dark:text-blue-400 text-xs font-bold"
+          >
+            PY
+          </span>
+          <div>
+            <h3 class="font-semibold text-sm">snake_case</h3>
+            <p class="text-xs text-muted-foreground">Python / Ruby / Rust</p>
+          </div>
+        </div>
+        <button
+          type="button"
+          class="opacity-0 group-hover:opacity-100 transition-opacity p-1.5 rounded-md hover:bg-muted"
+          (click)="copyToClipboard(1)"
+        >
+          <ng-icon
+            hlm
+            size="sm"
+            [name]="copiedIndex() === 1 ? 'lucideCheck' : 'lucideCopy'"
+            [class]="copiedIndex() === 1 ? 'text-green-500' : 'text-muted-foreground'"
+          />
+        </button>
+      </div>
+      <div
+        class="rounded-md bg-muted/50 p-3 font-mono text-sm break-all min-h-[2.5rem] flex items-center"
+      >
+        {{ snakeCaseValue() }}
+      </div>
+      <p class="text-xs text-muted-foreground mt-2">Variables, functions, file names</p>
+    </div>
+
+    <!-- kebab-case -->
+    <div
+      class="group relative rounded-lg border border-border bg-card p-4 transition-all hover:border-primary/50 hover:shadow-md"
+    >
+      <div class="flex items-start justify-between mb-3">
+        <div class="flex items-center gap-2">
+          <span
+            class="flex h-8 w-8 items-center justify-center rounded-md bg-pink-500/10 text-pink-600 dark:text-pink-400 text-xs font-bold"
+          >
+            CSS
+          </span>
+          <div>
+            <h3 class="font-semibold text-sm">kebab-case</h3>
+            <p class="text-xs text-muted-foreground">CSS / HTML / URLs</p>
+          </div>
+        </div>
+        <button
+          type="button"
+          class="opacity-0 group-hover:opacity-100 transition-opacity p-1.5 rounded-md hover:bg-muted"
+          (click)="copyToClipboard(2)"
+        >
+          <ng-icon
+            hlm
+            size="sm"
+            [name]="copiedIndex() === 2 ? 'lucideCheck' : 'lucideCopy'"
+            [class]="copiedIndex() === 2 ? 'text-green-500' : 'text-muted-foreground'"
+          />
+        </button>
+      </div>
+      <div
+        class="rounded-md bg-muted/50 p-3 font-mono text-sm break-all min-h-[2.5rem] flex items-center"
+      >
+        {{ kebabCaseValue() }}
+      </div>
+      <p class="text-xs text-muted-foreground mt-2">Classes, IDs, URL slugs</p>
+    </div>
+
+    <!-- Title Case -->
+    <div
+      class="group relative rounded-lg border border-border bg-card p-4 transition-all hover:border-primary/50 hover:shadow-md"
+    >
+      <div class="flex items-start justify-between mb-3">
+        <div class="flex items-center gap-2">
+          <span
+            class="flex h-8 w-8 items-center justify-center rounded-md bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold"
+          >
+            UI
+          </span>
+          <div>
+            <h3 class="font-semibold text-sm">Title Case</h3>
+            <p class="text-xs text-muted-foreground">Documentation / UI</p>
+          </div>
+        </div>
+        <button
+          type="button"
+          class="opacity-0 group-hover:opacity-100 transition-opacity p-1.5 rounded-md hover:bg-muted"
+          (click)="copyToClipboard(3)"
+        >
+          <ng-icon
+            hlm
+            size="sm"
+            [name]="copiedIndex() === 3 ? 'lucideCheck' : 'lucideCopy'"
+            [class]="copiedIndex() === 3 ? 'text-green-500' : 'text-muted-foreground'"
+          />
+        </button>
+      </div>
+      <div
+        class="rounded-md bg-muted/50 p-3 font-mono text-sm break-all min-h-[2.5rem] flex items-center"
+      >
+        {{ titleCaseValue() }}
+      </div>
+      <p class="text-xs text-muted-foreground mt-2">Headings, labels, display text</p>
+    </div>
+  </div>
+
+  <!-- Pro Tip -->
+  <div class="mt-6 rounded-lg border border-primary/20 bg-primary/5 p-4">
+    <p class="text-sm text-muted-foreground">
+      <span class="font-semibold text-foreground">Pro tip:</span>
+      Hover over any card and click the copy icon to copy the converted text to your clipboard.
+    </p>
+  </div>
+</div>

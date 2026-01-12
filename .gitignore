@@ -15,7 +15,8 @@ npm-debug.log
 yarn-error.log
 
 # AI
-/.gemini
+.gemini
+.claude
 GEMINI.md
 
 # IDEs and editors

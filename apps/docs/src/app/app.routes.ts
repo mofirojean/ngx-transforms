@@ -12,6 +12,7 @@ import { Gravatar } from './pages/pipes/gravatar';
 import { Reverse } from './pages/pipes/reverse';
 import { MorseCode } from './pages/pipes/morse-code';
 import { Initials } from './pages/pipes/initials';
+import { TextTransform } from './pages/pipes/text-transform';
 
 export const appRoutes: Route[] = [
   {
@@ -69,6 +70,10 @@ export const appRoutes: Route[] = [
           {
             path: 'initials',
             component: Initials,
+          },
+          {
+            path: 'text-transform',
+            component: TextTransform,
           },
         ],
       },

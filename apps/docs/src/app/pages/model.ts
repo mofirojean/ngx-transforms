@@ -53,5 +53,11 @@ export const PIPES: Pipe[] = [
     name: "Initials",
     url: "/docs/pipes/initials",
     description: "Extracts initials from a given name."
+  },
+  {
+    name: "Text Transform",
+    url: "/docs/pipes/text-transform",
+    description: "Transform text to camelCase, snake_case, kebab-case, or Title Case.",
+    isNew: true
   }
 ];

@@ -74,6 +74,7 @@ import {Breadcrumb} from '../../reusables/breadcrumb/breadcrumb';
         <div class="flex gap-4">
           <app-next-prev-navigation
             [previous]="{ label: 'Morse Code', link: '/docs/pipes/morse-code' }"
+            [next]="{ label: 'Text Transform', link: '/docs/pipes/text-transform' }"
           />
         </div>
       </div>

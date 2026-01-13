@@ -20,6 +20,7 @@ import { HlmInputImports } from '@spartan-ng/helm/input';
 import { HlmLabelImports } from '@spartan-ng/helm/label';
 import { HlmButtonImports } from '@spartan-ng/helm/button';
 import { HlmSeparatorImports } from '@spartan-ng/helm/separator';
+import {HlmIcon} from '@spartan-ng/helm/icon';
 
 interface IpExample {
   label: string;
@@ -43,6 +44,7 @@ interface IpValidation {
     HlmSeparatorImports,
     NgIcon,
     IpAddressMaskPipe,
+    HlmIcon
   ],
   providers: [
     provideIcons({

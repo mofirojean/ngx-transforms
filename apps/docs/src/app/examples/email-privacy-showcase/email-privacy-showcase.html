@@ -91,11 +91,11 @@
         <div class="space-y-4">
           <div class="flex items-center justify-between text-sm">
             <span class="text-muted-foreground">Username length:</span>
-            <span class="font-mono font-bold">{{ emailParts().local?.length || 0 }} characters</span>
+            <span class="font-mono font-bold">{{ emailParts().local.length || 0 }} characters</span>
           </div>
           <div class="flex items-center justify-between text-sm">
             <span class="text-muted-foreground">Visible characters:</span>
-            <span class="font-mono font-bold">{{ visibleCharsCount() }} of {{ emailParts().local?.length || 0 }}</span>
+            <span class="font-mono font-bold">{{ visibleCharsCount() }} of {{ emailParts().local.length || 0 }}</span>
           </div>
           <div class="flex items-center justify-between text-sm">
             <span class="text-muted-foreground">Hidden characters:</span>
@@ -104,11 +104,11 @@
           <div class="w-full bg-muted rounded-full h-3 overflow-hidden">
             <div
               class="h-full bg-gradient-to-r from-green-500 to-green-600 transition-all duration-300"
-              [style.width.%]="(visibleCharsCount() / (emailParts().local?.length || 1)) * 100"
+              [style.width.%]="(visibleCharsCount() / (emailParts().local.length || 1)) * 100"
             ></div>
           </div>
           <p class="text-xs text-center text-muted-foreground">
-            {{ ((visibleCharsCount() / (emailParts().local?.length || 1)) * 100).toFixed(0) }}% of username visible
+            {{ ((visibleCharsCount() / (emailParts().local.length || 1)) * 100).toFixed(0) }}% of username visible
           </p>
         </div>
       } @else {

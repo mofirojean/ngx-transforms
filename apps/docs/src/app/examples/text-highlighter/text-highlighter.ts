@@ -27,7 +27,6 @@ interface QuickExample {
     HlmSeparatorImports,
     HlmTextareaImports,
     NgIcon,
-    HighlightPipe,
   ],
   providers: [
     provideIcons({ lucideSearch, lucideArrowRight, lucideTextCursor }),

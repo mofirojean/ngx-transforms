@@ -29,7 +29,7 @@ import { Clipboard, ClipboardModule } from '@angular/cdk/clipboard';
         }
       </button>
 
-      <pre class="!my-0 !rounded-lg overflow-x-auto"><code
+      <pre class="my-0! rounded-lg! overflow-x-auto"><code
         class="language-{{ language() }}"
         [innerHTML]="highlightedCode()"></code></pre>
     </div>

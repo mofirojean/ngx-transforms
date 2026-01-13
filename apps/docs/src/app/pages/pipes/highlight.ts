@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HighlightPipe } from '@ngx-transforms';
 import { CodePreview } from '../../reusables/code-preview/code-preview';
+import { CodeBlock } from '../../reusables/code-block/code-block';
 import { NextPrevNavigation } from '../../reusables/next-prev-navigation/next-prev-navigation';
 import { MacosWindow } from '../../reusables/macos-window/macos-window';
 import { TextHighlighter } from '../../examples/text-highlighter/text-highlighter';
@@ -13,6 +14,7 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
   imports: [
     HighlightPipe,
     CodePreview,
+    CodeBlock,
     NextPrevNavigation,
     MacosWindow,
     TextHighlighter,
@@ -117,9 +119,7 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
           The pipe wraps matches with <code class="text-xs px-1.5 py-0.5 rounded bg-muted">&lt;span class="highlight"&gt;</code>.
           Add custom styles to your global stylesheet:
         </p>
-        <app-code-preview [code]="stylesCode" [language]="'css'">
-          <div></div>
-        </app-code-preview>
+        <app-code-block [code]="stylesCode" [language]="'css'" />
       </div>
 
       <h2 class="text-2xl font-bold my-8">Features</h2>

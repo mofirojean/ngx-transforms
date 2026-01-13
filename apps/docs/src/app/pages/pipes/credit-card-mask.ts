@@ -162,7 +162,21 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
             Payment Method Selection
           </h3>
           <app-code-preview [code]="paymentMethodExample" [language]="'typescript'">
-            <div></div>
+            <div class="space-y-3 p-6 bg-muted/30 rounded-lg">
+              <h4 class="font-medium text-sm mb-4">Preview:</h4>
+              @for (card of sampleCards; track card.id) {
+                <div class="flex items-center gap-4 p-4 rounded-lg border border-border bg-background hover:border-primary transition-colors cursor-pointer">
+                  <div class="w-12 h-8 rounded bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center text-white text-xs font-bold">
+                    {{ card.brand }}
+                  </div>
+                  <div class="flex-1">
+                    <div class="font-mono text-sm font-medium">{{ card.number | creditCardMask }}</div>
+                    <div class="text-xs text-muted-foreground">Expires {{ card.expiry }}</div>
+                  </div>
+                  <div class="text-xs text-primary">Select</div>
+                </div>
+              }
+            </div>
           </app-code-preview>
         </div>
 
@@ -172,7 +186,29 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
             Transaction History
           </h3>
           <app-code-preview [code]="transactionExample" [language]="'typescript'">
-            <div></div>
+            <div class="p-6 bg-muted/30 rounded-lg overflow-x-auto">
+              <h4 class="font-medium text-sm mb-4">Preview:</h4>
+              <table class="w-full text-sm">
+                <thead class="border-b border-border">
+                  <tr class="text-left">
+                    <th class="pb-2 font-medium">Date</th>
+                    <th class="pb-2 font-medium">Description</th>
+                    <th class="pb-2 font-medium">Card</th>
+                    <th class="pb-2 font-medium text-right">Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @for (tx of sampleTransactions; track tx.id) {
+                    <tr class="border-b border-border/50 last:border-0">
+                      <td class="py-3 text-muted-foreground">{{ tx.date }}</td>
+                      <td class="py-3">{{ tx.description }}</td>
+                      <td class="py-3 font-mono text-xs">{{ tx.cardNumber | creditCardMask }}</td>
+                      <td class="py-3 text-right font-medium">{{ tx.amount }}</td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            </div>
           </app-code-preview>
         </div>
 
@@ -182,7 +218,31 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
             Conditional Display (Admin View)
           </h3>
           <app-code-preview [code]="adminExample" [language]="'typescript'">
-            <div></div>
+            <div class="space-y-4 p-6 bg-muted/30 rounded-lg">
+              <h4 class="font-medium text-sm mb-4">Preview:</h4>
+              <div class="space-y-4">
+                <div class="p-4 rounded-lg border border-border bg-background">
+                  <div class="flex items-center justify-between mb-3">
+                    <h5 class="font-semibold">Order #12345</h5>
+                    <span class="text-xs px-2 py-1 rounded-full bg-orange-500/10 text-orange-600">Admin View</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="text-sm text-muted-foreground">Payment Card:</span>
+                    <span class="font-mono text-sm font-medium">{{ adminCardMasked }}</span>
+                  </div>
+                </div>
+                <div class="p-4 rounded-lg border border-border bg-background">
+                  <div class="flex items-center justify-between mb-3">
+                    <h5 class="font-semibold">Order #12345</h5>
+                    <span class="text-xs px-2 py-1 rounded-full bg-green-500/10 text-green-600">Customer Service (Full Access)</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="text-sm text-muted-foreground">Payment Card:</span>
+                    <span class="font-mono text-sm font-medium">{{ adminCardFull }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </app-code-preview>
         </div>
       </div>
@@ -232,6 +292,20 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
   `,
 })
 export class CreditCardMask {
+  sampleCards = [
+    { id: 1, number: '4532015112830366', brand: 'VISA', expiry: '12/25' },
+    { id: 2, number: '5425233430109903', brand: 'MC', expiry: '09/26' }
+  ];
+
+  sampleTransactions = [
+    { id: 1, date: 'Jan 10, 2026', description: 'Amazon Purchase', cardNumber: '4532015112830366', amount: '$49.99' },
+    { id: 2, date: 'Jan 12, 2026', description: 'Netflix Subscription', cardNumber: '5425233430109903', amount: '$15.99' },
+    { id: 3, date: 'Jan 13, 2026', description: 'Grocery Store', cardNumber: '4532015112830366', amount: '$127.45' }
+  ];
+
+  adminCardMasked = '**** **** **** 0366';
+  adminCardFull = '4532 0151 1283 0366';
+
   code = `
 import { Component } from '@angular/core';
 import { CreditCardMaskPipe } from '@ngx-transforms';

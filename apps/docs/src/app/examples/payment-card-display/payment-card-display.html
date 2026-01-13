@@ -1,0 +1,149 @@
+<div class="p-6 space-y-6">
+  <div class="space-y-4">
+    <div>
+      <label hlmLabel class="text-sm font-medium mb-2 block">Card Number</label>
+      <input
+        hlmInput
+        type="text"
+        [(ngModel)]="cardNumber"
+        placeholder="Enter card number"
+        maxlength="19"
+        class="w-full font-mono text-lg"
+        (input)="formatCardInput($event)"
+      />
+      @if (cardValidation(); as validation) {
+        <p class="text-xs mt-1.5" [class.text-red-500]="!validation.valid" [class.text-green-600]="validation.valid">
+          {{ validation.message }}
+        </p>
+      }
+    </div>
+
+    <div class="flex items-center justify-between p-4 rounded-lg border border-border bg-muted/30">
+      <div class="flex items-center gap-3">
+        <ng-icon [name]="maskingEnabled() ? 'lucideEyeOff' : 'lucideEye'" class="h-5 w-5 text-muted-foreground"></ng-icon>
+        <div>
+          <p class="text-sm font-medium">Card Protection</p>
+          <p class="text-xs text-muted-foreground">{{ maskingEnabled() ? 'Only last 4 digits visible' : 'Full number visible' }}</p>
+        </div>
+      </div>
+      <button
+        hlmBtn
+        [variant]="maskingEnabled() ? 'default' : 'outline'"
+        size="sm"
+        (click)="toggleMasking()"
+      >
+        {{ maskingEnabled() ? 'Protected' : 'Exposed' }}
+      </button>
+    </div>
+  </div>
+
+  <div hlmSeparator class="my-6"></div>
+
+  <div class="space-y-4">
+    <h3 class="text-lg font-semibold flex items-center gap-2">
+      <ng-icon name="lucideCreditCard" class="h-5 w-5 text-primary"></ng-icon>
+      Virtual Card Display
+    </h3>
+
+    <div class="relative">
+      <!-- Credit Card Design -->
+      <div
+        class="relative rounded-2xl p-6 aspect-[1.586/1] max-w-md mx-auto overflow-hidden shadow-2xl"
+        [class]="getCardBrandClass()"
+      >
+        <!-- Card Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+          <div class="absolute inset-0" style="background: radial-gradient(circle at 20% 50%, white 0%, transparent 50%), radial-gradient(circle at 80% 50%, white 0%, transparent 50%);"></div>
+        </div>
+
+        <!-- Card Content -->
+        <div class="relative h-full flex flex-col justify-between text-white">
+          <!-- Top: Chip and Brand -->
+          <div class="flex items-start justify-between">
+            <div class="w-12 h-10 rounded bg-yellow-200/30 backdrop-blur-sm flex items-center justify-center">
+              <div class="w-8 h-6 rounded bg-gradient-to-br from-yellow-400/80 to-yellow-600/80"></div>
+            </div>
+            <div class="text-right">
+              @if (detectCardBrand(); as brand) {
+                <div class="text-sm font-semibold tracking-wider">{{ brand }}</div>
+              }
+            </div>
+          </div>
+
+          <!-- Middle: Card Number -->
+          <div class="space-y-4">
+            <div class="font-mono text-xl sm:text-2xl tracking-[0.3em] font-medium drop-shadow-lg">
+              @if (cardNumber()) {
+                {{ cardNumber() | creditCardMask: maskingEnabled() }}
+              } @else {
+                <span class="opacity-50">**** **** **** ****</span>
+              }
+            </div>
+
+            <!-- Bottom: Cardholder and Expiry -->
+            <div class="flex items-end justify-between text-xs sm:text-sm">
+              <div>
+                <div class="text-[10px] opacity-70 uppercase tracking-wider mb-1">Card Holder</div>
+                <div class="font-medium tracking-wide">{{ cardHolder() || 'NAME ON CARD' }}</div>
+              </div>
+              <div class="text-right">
+                <div class="text-[10px] opacity-70 uppercase tracking-wider mb-1">Expires</div>
+                <div class="font-medium">{{ cardExpiry() || 'MM/YY' }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Security Badge -->
+        @if (maskingEnabled()) {
+          <div class="absolute top-4 left-4">
+            <div class="flex items-center gap-1.5 bg-black/30 backdrop-blur-md rounded-full px-2.5 py-1 text-[10px] font-medium">
+              <ng-icon name="lucideShieldCheck" class="h-3 w-3"></ng-icon>
+              <span>Secured</span>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+
+  <div hlmSeparator class="my-6"></div>
+
+  <div class="space-y-4">
+    <h3 class="text-lg font-semibold">Test Cards</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      @for (example of cardExamples; track example.label) {
+        <button
+          hlmBtn
+          variant="outline"
+          class="justify-start text-left h-auto py-3"
+          (click)="loadExample(example)"
+        >
+          <div class="flex-1">
+            <div class="flex items-center gap-2 mb-1">
+              <ng-icon [name]="example.icon" class="h-4 w-4"></ng-icon>
+              <span class="font-medium text-sm">{{ example.label }}</span>
+            </div>
+            <div class="font-mono text-xs text-muted-foreground">{{ example.cardNumber }}</div>
+          </div>
+          <ng-icon name="lucideArrowRight" class="h-4 w-4 ml-2 opacity-50"></ng-icon>
+        </button>
+      }
+    </div>
+  </div>
+
+  <div hlmSeparator class="my-6"></div>
+
+  <div class="rounded-lg border border-blue-500/50 bg-blue-500/10 p-4">
+    <div class="flex items-start gap-3">
+      <ng-icon name="lucideInfo" class="h-5 w-5 text-blue-600 dark:text-blue-400 shrink-0 mt-0.5"></ng-icon>
+      <div class="text-sm">
+        <p class="font-medium text-blue-900 dark:text-blue-100 mb-1">PCI DSS Compliance</p>
+        <p class="text-blue-800 dark:text-blue-200">
+          Masking credit card numbers is required by PCI DSS standards. Never store or display full card numbers
+          in application interfaces, logs, or databases. Always show only the last 4 digits for user reference.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

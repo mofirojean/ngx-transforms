@@ -65,5 +65,29 @@ export const PIPES: Pipe[] = [
     url: "/docs/pipes/color-convert",
     description: "Convert colors between HEX, RGB, and RGBA formats.",
     isNew: true
+  },
+  {
+    name: "Highlight",
+    url: "/docs/pipes/highlight",
+    description: "Highlight search terms within text with styled spans.",
+    isNew: true
+  },
+  {
+    name: "IP Address Mask",
+    url: "/docs/pipes/ip-address-mask",
+    description: "Mask the last two octets of IPv4 addresses for privacy.",
+    isNew: true
+  },
+  {
+    name: "Credit Card Mask",
+    url: "/docs/pipes/credit-card-mask",
+    description: "Mask credit card numbers showing only last 4 digits.",
+    isNew: true
+  },
+  {
+    name: "Email Mask",
+    url: "/docs/pipes/email-mask",
+    description: "Mask email addresses while preserving first and last characters.",
+    isNew: true
   }
 ];

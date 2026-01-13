@@ -1,0 +1,117 @@
+<div class="p-6 space-y-6">
+  <div class="space-y-4">
+    <div>
+      <label hlmLabel class="text-sm font-medium mb-2 block">IP Address</label>
+      <input
+        hlmInput
+        type="text"
+        [(ngModel)]="ipAddress"
+        placeholder="Enter IPv4 address (e.g., 192.168.1.1)"
+        class="w-full font-mono"
+      />
+      @if (ipValidation(); as validation) {
+        <p class="text-xs mt-1.5" [class.text-red-500]="!validation.valid" [class.text-green-600]="validation.valid">
+          {{ validation.message }}
+        </p>
+      }
+    </div>
+
+    <div class="flex items-center justify-between p-4 rounded-lg border border-border bg-muted/30">
+      <div class="flex items-center gap-3">
+        <ng-icon [name]="maskingEnabled() ? 'lucideEyeOff' : 'lucideEye'" class="h-5 w-5 text-muted-foreground"></ng-icon>
+        <div>
+          <p class="text-sm font-medium">Privacy Mode</p>
+          <p class="text-xs text-muted-foreground">{{ maskingEnabled() ? 'Last 2 octets hidden' : 'Full IP visible' }}</p>
+        </div>
+      </div>
+      <button
+        hlmBtn
+        [variant]="maskingEnabled() ? 'default' : 'outline'"
+        size="sm"
+        (click)="toggleMasking()"
+      >
+        {{ maskingEnabled() ? 'Enabled' : 'Disabled' }}
+      </button>
+    </div>
+  </div>
+
+  <div hlmSeparator class="my-6"></div>
+
+  <div class="space-y-4">
+    <h3 class="text-lg font-semibold flex items-center gap-2">
+      <ng-icon name="lucideShield" class="h-5 w-5 text-primary"></ng-icon>
+      Display Result
+    </h3>
+
+    <div class="rounded-lg border-2 border-border bg-background p-8 text-center">
+      @if (ipAddress()) {
+        <div class="space-y-3">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted text-xs font-medium text-muted-foreground">
+            <ng-icon name="lucideServer" class="h-3.5 w-3.5"></ng-icon>
+            {{ maskingEnabled() ? 'Protected' : 'Exposed' }} IP Address
+          </div>
+          <div class="font-mono text-3xl font-bold tracking-wider">
+            {{ ipAddress() | ipAddressMask: maskingEnabled() }}
+          </div>
+          <div class="flex items-center justify-center gap-6 text-sm text-muted-foreground">
+            <div class="flex items-center gap-1.5">
+              <div class="h-2 w-2 rounded-full" [class.bg-green-500]="maskingEnabled()" [class.bg-orange-500]="!maskingEnabled()"></div>
+              <span>{{ maskingEnabled() ? 'Masked' : 'Unmasked' }}</span>
+            </div>
+            @if (maskingEnabled()) {
+              <div class="flex items-center gap-1.5">
+                <ng-icon name="lucideLock" class="h-3.5 w-3.5"></ng-icon>
+                <span>50% Hidden</span>
+              </div>
+            }
+          </div>
+        </div>
+      } @else {
+        <div class="text-muted-foreground">
+          <ng-icon name="lucideNetwork" class="h-12 w-12 mx-auto mb-3 opacity-30"></ng-icon>
+          <p class="text-sm">Enter an IP address above</p>
+        </div>
+      }
+    </div>
+  </div>
+
+  <div hlmSeparator class="my-6"></div>
+
+  <div class="space-y-4">
+    <h3 class="text-lg font-semibold">Common IP Addresses</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      @for (example of ipExamples; track example.label) {
+        <button
+          hlmBtn
+          variant="outline"
+          class="justify-start text-left h-auto py-3"
+          (click)="loadExample(example.ip)"
+        >
+          <div class="flex-1">
+            <div class="flex items-center gap-2 mb-1">
+              <ng-icon [name]="example.icon" class="h-4 w-4"></ng-icon>
+              <span class="font-medium text-sm">{{ example.label }}</span>
+            </div>
+            <div class="font-mono text-xs text-muted-foreground">{{ example.ip }}</div>
+          </div>
+          <ng-icon name="lucideArrowRight" class="h-4 w-4 ml-2 opacity-50"></ng-icon>
+        </button>
+      }
+    </div>
+  </div>
+
+  <div hlmSeparator class="my-6"></div>
+
+  <div class="rounded-lg border border-amber-500/50 bg-amber-500/10 p-4">
+    <div class="flex items-start gap-3">
+      <ng-icon name="lucideInfo" class="h-5 w-5 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5"></ng-icon>
+      <div class="text-sm">
+        <p class="font-medium text-amber-900 dark:text-amber-100 mb-1">Privacy Note</p>
+        <p class="text-amber-800 dark:text-amber-200">
+          Masking the last two octets helps protect individual device identification while maintaining network context.
+          This is commonly used in logs, analytics, and public displays.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -14,6 +14,10 @@ import { MorseCode } from './pages/pipes/morse-code';
 import { Initials } from './pages/pipes/initials';
 import { TextTransform } from './pages/pipes/text-transform';
 import { ColorConvert } from './pages/pipes/color-convert';
+import { Highlight } from './pages/pipes/highlight';
+import { IpAddressMask } from './pages/pipes/ip-address-mask';
+import { CreditCardMask } from './pages/pipes/credit-card-mask';
+import { EmailMask } from './pages/pipes/email-mask';
 
 export const appRoutes: Route[] = [
   {
@@ -79,6 +83,22 @@ export const appRoutes: Route[] = [
           {
             path: 'color-convert',
             component: ColorConvert,
+          },
+          {
+            path: 'highlight',
+            component: Highlight,
+          },
+          {
+            path: 'ip-address-mask',
+            component: IpAddressMask,
+          },
+          {
+            path: 'credit-card-mask',
+            component: CreditCardMask,
+          },
+          {
+            path: 'email-mask',
+            component: EmailMask,
           },
         ],
       },

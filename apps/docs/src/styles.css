@@ -173,3 +173,15 @@
     @apply bg-background text-foreground overflow-x-hidden;
   }
 }
+
+/* Highlight pipe styles */
+.highlight {
+  background-color: oklch(0.828 0.189 84.429 / 0.4);
+  padding: 0 2px;
+  border-radius: 2px;
+  font-weight: 500;
+}
+
+:root.dark .highlight {
+  background-color: oklch(0.769 0.188 70.08 / 0.4);
+}

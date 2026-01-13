@@ -1,0 +1,88 @@
+<div class="p-6 space-y-6">
+  <div class="space-y-4">
+    <div>
+      <label hlmLabel class="text-sm font-medium mb-2 block">Search Text</label>
+      <input
+        hlmInput
+        type="text"
+        [(ngModel)]="searchTerm"
+        placeholder="Type to highlight..."
+        class="w-full"
+      />
+    </div>
+
+    <div>
+      <label hlmLabel class="text-sm font-medium mb-2 block">Sample Text</label>
+      <textarea
+        hlmTextarea
+        [(ngModel)]="sampleText"
+        rows="6"
+        class="w-full font-mono text-sm"
+        placeholder="Enter text to search within..."
+      ></textarea>
+    </div>
+  </div>
+
+  <div hlmSeparator class="my-6"></div>
+
+  <div class="space-y-4">
+    <div class="flex items-center justify-between">
+      <h3 class="text-lg font-semibold">Result</h3>
+      <div class="flex items-center gap-2">
+        <span class="text-xs text-muted-foreground">Matches:</span>
+        <span class="text-sm font-bold text-primary">{{ matchCount() }}</span>
+      </div>
+    </div>
+
+    <div
+      class="rounded-lg border border-border bg-muted/30 p-6 min-h-[120px] relative overflow-hidden"
+    >
+      @if (searchTerm()) {
+        <div class="absolute top-2 right-2 z-10">
+          <span
+            class="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary"
+          >
+            <ng-icon name="lucideSearch" class="h-3 w-3"></ng-icon>
+            Searching
+          </span>
+        </div>
+      }
+
+      <div
+        class="prose prose-sm dark:prose-invert max-w-none leading-relaxed"
+        [innerHTML]="highlightedText()"
+      ></div>
+
+      @if (!sampleText()) {
+        <div class="flex items-center justify-center h-20 text-muted-foreground text-sm">
+          <div class="text-center">
+            <ng-icon name="lucideTextCursor" class="h-8 w-8 mx-auto mb-2 opacity-50"></ng-icon>
+            <p>Enter text above to see highlighting in action</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+
+  <div hlmSeparator class="my-6"></div>
+
+  <div class="space-y-4">
+    <h3 class="text-lg font-semibold">Quick Examples</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      @for (example of quickExamples; track example.label) {
+        <button
+          hlmBtn
+          variant="outline"
+          class="justify-start text-left h-auto py-3"
+          (click)="loadExample(example)"
+        >
+          <div class="flex-1">
+            <div class="font-medium text-sm">{{ example.label }}</div>
+            <div class="text-xs text-muted-foreground mt-1">{{ example.description }}</div>
+          </div>
+          <ng-icon name="lucideArrowRight" class="h-4 w-4 ml-2 opacity-50"></ng-icon>
+        </button>
+      }
+    </div>
+  </div>
+</div>

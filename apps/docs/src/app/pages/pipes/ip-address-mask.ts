@@ -134,7 +134,20 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
             Server Access Logs
           </h3>
           <app-code-preview [code]="logsExample" [language]="'typescript'">
-            <div></div>
+            <div class="p-6 bg-muted/30 rounded-lg">
+              <h4 class="font-medium text-sm mb-4">Preview:</h4>
+              <div class="space-y-2 font-mono text-xs">
+                @for (log of sampleLogs; track log.id) {
+                  <div class="flex items-center gap-3 p-2 rounded bg-background border border-border">
+                    <span class="text-muted-foreground">{{ log.timestamp }}</span>
+                    <span class="text-primary font-medium">{{ log.ip | ipAddressMask }}</span>
+                    <span class="text-green-600">{{ log.method }}</span>
+                    <span class="flex-1 text-muted-foreground">{{ log.path }}</span>
+                    <span class="px-2 py-0.5 rounded" [class.bg-green-500/10]="log.status === 200" [class.text-green-600]="log.status === 200" [class.bg-blue-500/10]="log.status === 201" [class.text-blue-600]="log.status === 201">{{ log.status }}</span>
+                  </div>
+                }
+              </div>
+            </div>
           </app-code-preview>
         </div>
 
@@ -144,7 +157,38 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
             User Session Display
           </h3>
           <app-code-preview [code]="sessionExample" [language]="'typescript'">
-            <div></div>
+            <div class="p-6 bg-muted/30 rounded-lg">
+              <h4 class="font-medium text-sm mb-4">Preview:</h4>
+              <div class="max-w-md mx-auto rounded-lg border border-border bg-background p-6 space-y-4">
+                <div class="flex items-center gap-3 pb-4 border-b border-border">
+                  <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-blue-600 flex items-center justify-center text-white font-bold">
+                    JD
+                  </div>
+                  <div>
+                    <h5 class="font-semibold">{{ sessionData.user }}</h5>
+                    <p class="text-xs text-muted-foreground">Active Session</p>
+                  </div>
+                </div>
+                <div class="space-y-3">
+                  <div class="flex items-start justify-between">
+                    <span class="text-sm text-muted-foreground">Location:</span>
+                    <span class="text-sm font-medium">{{ sessionData.location }}</span>
+                  </div>
+                  <div class="flex items-start justify-between">
+                    <span class="text-sm text-muted-foreground">IP Address:</span>
+                    <span class="text-sm font-mono font-medium">{{ sessionData.ip | ipAddressMask }}</span>
+                  </div>
+                  <div class="flex items-start justify-between">
+                    <span class="text-sm text-muted-foreground">Device:</span>
+                    <span class="text-sm font-medium">{{ sessionData.device }}</span>
+                  </div>
+                  <div class="flex items-start justify-between">
+                    <span class="text-sm text-muted-foreground">Last Active:</span>
+                    <span class="text-sm font-medium">{{ sessionData.lastActive }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </app-code-preview>
         </div>
 
@@ -154,7 +198,33 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
             Conditional Masking (Admin View)
           </h3>
           <app-code-preview [code]="conditionalExample" [language]="'typescript'">
-            <div></div>
+            <div class="space-y-4 p-6 bg-muted/30 rounded-lg">
+              <h4 class="font-medium text-sm mb-4">Preview:</h4>
+              <div class="space-y-3">
+                @for (connection of sampleConnections; track connection.id) {
+                  <div class="p-4 rounded-lg border border-border bg-background">
+                    <div class="flex items-center justify-between mb-3">
+                      <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-sm font-bold">
+                          {{ connection.user.substring(0, 2).toUpperCase() }}
+                        </div>
+                        <div>
+                          <div class="font-medium">{{ connection.user }}</div>
+                          <div class="text-xs text-muted-foreground">{{ connection.lastSeen }}</div>
+                        </div>
+                      </div>
+                      <span class="text-xs px-2 py-1 rounded-full" [class.bg-green-500/10]="connection.isAdmin" [class.text-green-600]="connection.isAdmin" [class.bg-orange-500/10]="!connection.isAdmin" [class.text-orange-600]="!connection.isAdmin">
+                        {{ connection.isAdmin ? 'Admin View' : 'Regular View' }}
+                      </span>
+                    </div>
+                    <div class="flex items-center gap-2 font-mono text-sm">
+                      <span class="text-muted-foreground">IP:</span>
+                      <span class="font-medium">{{ connection.ip | ipAddressMask:!connection.isAdmin }}</span>
+                    </div>
+                  </div>
+                }
+              </div>
+            </div>
           </app-code-preview>
         </div>
       </div>
@@ -310,4 +380,27 @@ export class NetworkMonitorComponent {
   ];
 }
   `;
+
+  // Sample data for Server Access Logs preview
+  sampleLogs = [
+    { id: 1, timestamp: '2024-01-15 14:23:45', ip: '192.168.1.45', method: 'GET', path: '/api/users', status: 200 },
+    { id: 2, timestamp: '2024-01-15 14:24:12', ip: '10.0.2.128', method: 'POST', path: '/api/auth/login', status: 201 },
+    { id: 3, timestamp: '2024-01-15 14:25:03', ip: '172.16.0.53', method: 'GET', path: '/api/products', status: 200 },
+  ];
+
+  // Sample data for User Session Display preview
+  sessionData = {
+    user: 'John Doe',
+    location: 'New York, USA',
+    ip: '192.168.1.100',
+    device: 'Chrome on Windows',
+    lastActive: '2 minutes ago'
+  };
+
+  // Sample data for Conditional Masking preview
+  sampleConnections = [
+    { id: 1, user: 'Alice Johnson', ip: '192.168.1.10', lastSeen: '2 minutes ago', isAdmin: true },
+    { id: 2, user: 'Bob Smith', ip: '10.0.5.42', lastSeen: '5 minutes ago', isAdmin: false },
+    { id: 3, user: 'Carol Williams', ip: '172.16.0.89', lastSeen: '10 minutes ago', isAdmin: false }
+  ];
 }

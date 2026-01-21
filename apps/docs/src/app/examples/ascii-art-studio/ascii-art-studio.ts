@@ -2,6 +2,8 @@ import { Component, signal, computed, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { AsciiGenerator, CharsetPreset, AsciiConfig } from 'ts-ascii-engine';
+import { BrnSelectImports } from '@spartan-ng/brain/select';
+import { HlmSelectImports } from '@spartan-ng/helm/select';
 
 interface CharsetOption {
   label: string;
@@ -21,7 +23,7 @@ interface PresetBanner {
 @Component({
   selector: 'app-ascii-art-studio',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, BrnSelectImports, HlmSelectImports],
   template: `
     <div class="max-w-6xl mx-auto p-6 space-y-6">
       <!-- Header -->
@@ -119,15 +121,16 @@ interface PresetBanner {
           <!-- Font Weight -->
           <div class="space-y-2">
             <label class="text-sm font-medium">Font Weight</label>
-            <select
-              [(ngModel)]="fontWeightValue"
-              (ngModelChange)="onConfigChange()"
-              class="w-full px-3 py-2 border border-border rounded-md bg-background"
-            >
-              <option value="normal">Normal</option>
-              <option value="bold">Bold</option>
-              <option value="300">Light</option>
-            </select>
+            <brn-select [(ngModel)]="fontWeightValue" (ngModelChange)="onConfigChange()" class="w-full">
+              <hlm-select-trigger>
+                <hlm-select-value />
+              </hlm-select-trigger>
+              <hlm-select-content>
+                <hlm-option value="normal">Normal</hlm-option>
+                <hlm-option value="bold">Bold</hlm-option>
+                <hlm-option value="300">Light</hlm-option>
+              </hlm-select-content>
+            </brn-select>
           </div>
         </div>
       </div>

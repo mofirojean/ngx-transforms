@@ -236,6 +236,7 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
         <div class="flex gap-4">
           <app-next-prev-navigation
             [previous]="{ label: 'Credit Card Mask', link: '/docs/pipes/credit-card-mask' }"
+            [next]="{ label: 'ASCII Art', link: '/docs/pipes/ascii-art' }"
           />
         </div>
       </div>

@@ -86,7 +86,6 @@ export class AsciiArtPipe implements PipeTransform {
   private generator: AsciiGenerator;
 
   constructor() {
-    // Initialize with sensible defaults
     this.generator = new AsciiGenerator({
       charset: CharsetPreset.STANDARD,
       width: 80,
@@ -95,35 +94,28 @@ export class AsciiArtPipe implements PipeTransform {
   }
 
   transform(value: string, options: AsciiArtOptions = {}): string {
-    // Input validation
     if (!value || typeof value !== 'string') {
       return '';
     }
 
-    // Security: Limit input length to prevent DoS
     const maxLength = 100;
     if (value.length > maxLength) {
       console.warn(`AsciiArtPipe: Input truncated to ${maxLength} characters for security`);
       value = value.substring(0, maxLength);
     }
 
-    // Extract format option
     const format = options.format ?? 'html';
     const textOptions = options.textOptions;
 
-    // Build config excluding non-AsciiConfig options
     const { format: _format, textOptions: _textOptions, ...config } = options;
 
     try {
-      // Update generator configuration if provided
       if (Object.keys(config).length > 0) {
         this.generator.updateConfig(config);
       }
 
-      // Convert text to ASCII art
       const result = this.generator.convertText(value, textOptions);
 
-      // Return based on requested format
       if (format === 'text') {
         return `<pre class="ascii-art">${this.escapeHtml(result.text)}</pre>`;
       }

@@ -46,6 +46,9 @@
       ],
       "@spartan-ng/helm/breadcrumb": [
         "libs/components/ui/breadcrumb/src/index.ts"
+      ],
+      "@spartan-ng/helm/select": [
+        "libs/components/ui/select/src/index.ts"
       ]
     }
   },

@@ -168,7 +168,7 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
           <div class="space-y-2">
             <h4 class="font-semibold text-sm">CharsetPreset.STANDARD</h4>
             <p class="text-xs text-muted-foreground">Classic ASCII characters</p>
-            <code class="text-xs bg-muted px-2 py-1 rounded">@%#*+=-:.</code>
+            <code class="text-xs bg-muted px-2 py-1 rounded">&#64;%#*+=-:.</code>
           </div>
           <div class="space-y-2">
             <h4 class="font-semibold text-sm">CharsetPreset.BLOCK</h4>
@@ -178,12 +178,12 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
           <div class="space-y-2">
             <h4 class="font-semibold text-sm">CharsetPreset.MINIMAL</h4>
             <p class="text-xs text-muted-foreground">Simple, clean look</p>
-            <code class="text-xs bg-muted px-2 py-1 rounded">@+.</code>
+            <code class="text-xs bg-muted px-2 py-1 rounded">&#64;+.</code>
           </div>
           <div class="space-y-2">
             <h4 class="font-semibold text-sm">CharsetPreset.EXTENDED</h4>
             <p class="text-xs text-muted-foreground">Full 70+ character set</p>
-            <code class="text-xs bg-muted px-2 py-1 rounded">$@B%8&WM#...</code>
+            <code class="text-xs bg-muted px-2 py-1 rounded">$&#64;B%8&WM#...</code>
           </div>
         </div>
       </div>
@@ -227,7 +227,7 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
             <tr>
               <td class="border border-border px-4 py-2"><code>textOptions</code></td>
               <td class="border border-border px-4 py-2"><code>TextToAsciiOptions</code></td>
-              <td class="border border-border px-4 py-2"><code>{}</code></td>
+              <td class="border border-border px-4 py-2"><code>&#123;&#125;</code></td>
               <td class="border border-border px-4 py-2">Font rendering options</td>
             </tr>
           </tbody>

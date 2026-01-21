@@ -89,6 +89,9 @@ importers:
       tailwind-merge:
         specifier: ^3.4.0
         version: 3.4.0
+      ts-ascii-engine:
+        specifier: ^0.0.1
+        version: 0.0.1
       tslib:
         specifier: ^2.8.1
         version: 2.8.1
@@ -7685,6 +7688,9 @@ packages:
     engines: {node: '>=18.12'}
     peerDependencies:
       typescript: '>=4.8.4'
+
+  ts-ascii-engine@0.0.1:
+    resolution: {integrity: sha512-Y16NHWAaoy3RIwj5wRGgg1kxQzukDfD4MhShaODI+nc5TNB0VNqdqHAaCNeV5BHwN6D47YCjg6VJnlbJmpmCfQ==}
 
   ts-checker-rspack-plugin@1.2.3:
     resolution: {integrity: sha512-Fq2+/sSILEJKWrqoj/H+ytnBbYrudPfRLxaULA/MuL+/3jswXuiR4MOfL30R9XzVUD2km0pSx6bj8yk95IEOaA==}
@@ -16686,6 +16692,8 @@ snapshots:
   ts-api-utils@2.4.0(typescript@5.9.3):
     dependencies:
       typescript: 5.9.3
+
+  ts-ascii-engine@0.0.1: {}
 
   ts-checker-rspack-plugin@1.2.3(@rspack/core@1.7.1(@swc/helpers@0.5.18))(typescript@5.9.3):
     dependencies:

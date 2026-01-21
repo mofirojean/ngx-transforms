@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+ import {Component} from '@angular/core';
 import {HlmButtonImports} from '@spartan-ng/helm/button';
 import {NgIconComponent, provideIcons} from '@ng-icons/core';
 import {lucideArrowRight, lucideBox, lucideCopy, lucideShieldCheck, lucideZap} from '@ng-icons/lucide';
@@ -62,7 +62,7 @@ import {Footer} from '../reusables/footer';
             variant="outline"
             size="lg"
             class="gap-2 min-w-40"
-            href="https://github.com/your-repo"
+            href="https://github.com/mofirojean/ngx-transforms"
             target="_blank"
           >
             <ng-icon name="lucideGithub" class="h-4 w-4"></ng-icon>

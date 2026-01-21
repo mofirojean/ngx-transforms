@@ -126,7 +126,7 @@ interface PresetBanner {
             >
               <option value="normal">Normal</option>
               <option value="bold">Bold</option>
-              <option value="lighter">Light</option>
+              <option value="300">Light</option>
             </select>
           </div>
         </div>
@@ -237,7 +237,7 @@ export class AsciiArtStudio {
   widthValue = 80;
   fontSizeValue = 48;
   invertedValue = false;
-  fontWeightValue: 'normal' | 'bold' | 'lighter' = 'normal';
+  fontWeightValue: 'normal' | 'bold' | '300' = 'normal';
 
   // Signals for reactive state
   copyButtonText = signal('Copy');

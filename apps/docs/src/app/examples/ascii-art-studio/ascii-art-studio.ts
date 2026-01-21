@@ -1,6 +1,7 @@
-import { Component, signal, computed } from '@angular/core';
+import { Component, signal, computed, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AsciiArtPipe, CharsetPreset } from '@ngx-transforms';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { AsciiGenerator, CharsetPreset, AsciiConfig } from 'ts-ascii-engine';
 
 interface CharsetOption {
   label: string;
@@ -20,7 +21,7 @@ interface PresetBanner {
 @Component({
   selector: 'app-ascii-art-studio',
   standalone: true,
-  imports: [FormsModule, AsciiArtPipe],
+  imports: [FormsModule],
   template: `
     <div class="max-w-6xl mx-auto p-6 space-y-6">
       <!-- Header -->
@@ -36,14 +37,14 @@ interface PresetBanner {
           <label class="text-sm font-medium">Your Text</label>
           <input
             type="text"
-            [(ngModel)]="text"
-            (ngModelChange)="onTextChange()"
+            [(ngModel)]="textValue"
+            (ngModelChange)="onTextChange($event)"
             [maxlength]="maxLength"
             placeholder="Enter text (max {{maxLength}} chars)"
             class="w-full px-3 py-2 border border-border rounded-md bg-background focus:outline-none focus:ring-2 focus:ring-primary"
           />
           <div class="text-xs text-muted-foreground">
-            {{text().length}} / {{maxLength}} characters
+            {{textValue.length}} / {{maxLength}} characters
           </div>
         </div>
 
@@ -52,13 +53,14 @@ interface PresetBanner {
           <label class="text-sm font-medium">Width (characters)</label>
           <input
             type="range"
-            [(ngModel)]="width"
+            [(ngModel)]="widthValue"
+            (ngModelChange)="onConfigChange()"
             min="40"
             max="120"
             step="10"
             class="w-full"
           />
-          <div class="text-xs text-muted-foreground text-center">{{width()}}</div>
+          <div class="text-xs text-muted-foreground text-center">{{widthValue}}</div>
         </div>
       </div>
 
@@ -68,9 +70,9 @@ interface PresetBanner {
         <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
           @for (option of charsetOptions; track option.value) {
             <button
-              (click)="charset.set(option.value)"
-              [class.ring-2]="charset() === option.value"
-              [class.ring-primary]="charset() === option.value"
+              (click)="selectCharset(option.value)"
+              [class.ring-2]="charsetValue === option.value"
+              [class.ring-primary]="charsetValue === option.value"
               class="p-3 border border-border rounded-lg hover:bg-accent transition-colors text-left"
             >
               <div class="font-medium text-sm">{{option.label}}</div>
@@ -90,13 +92,14 @@ interface PresetBanner {
             <label class="text-sm font-medium">Font Size</label>
             <input
               type="range"
-              [(ngModel)]="fontSize"
+              [(ngModel)]="fontSizeValue"
+              (ngModelChange)="onConfigChange()"
               min="24"
               max="96"
               step="12"
               class="w-full"
             />
-            <div class="text-xs text-muted-foreground text-center">{{fontSize()}}px</div>
+            <div class="text-xs text-muted-foreground text-center">{{fontSizeValue}}px</div>
           </div>
 
           <!-- Inverted -->
@@ -105,7 +108,8 @@ interface PresetBanner {
             <label class="flex items-center space-x-2 cursor-pointer">
               <input
                 type="checkbox"
-                [(ngModel)]="inverted"
+                [(ngModel)]="invertedValue"
+                (ngModelChange)="onConfigChange()"
                 class="w-4 h-4 rounded border-border"
               />
               <span class="text-sm">Enable inversion</span>
@@ -116,7 +120,8 @@ interface PresetBanner {
           <div class="space-y-2">
             <label class="text-sm font-medium">Font Weight</label>
             <select
-              [(ngModel)]="fontWeight"
+              [(ngModel)]="fontWeightValue"
+              (ngModelChange)="onConfigChange()"
               class="w-full px-3 py-2 border border-border rounded-md bg-background"
             >
               <option value="normal">Normal</option>
@@ -164,7 +169,7 @@ interface PresetBanner {
         <div class="border border-border rounded-lg p-4 bg-muted/30 overflow-x-auto">
           <div
             class="font-mono text-xs leading-tight"
-            [innerHTML]="asciiOutput()"
+            [innerHTML]="asciiHtml()"
           ></div>
         </div>
         <div class="text-xs text-muted-foreground">
@@ -223,16 +228,22 @@ interface PresetBanner {
   `],
 })
 export class AsciiArtStudio {
+  private sanitizer = inject(DomSanitizer);
+  private generator: AsciiGenerator;
+
+  // Regular properties for form bindings
+  textValue = 'HELLO';
+  charsetValue: CharsetPreset | string = CharsetPreset.STANDARD;
+  widthValue = 80;
+  fontSizeValue = 48;
+  invertedValue = false;
+  fontWeightValue: 'normal' | 'bold' | 'lighter' = 'normal';
+
   // Signals for reactive state
-  text = signal('HELLO');
-  charset = signal<CharsetPreset | string>(CharsetPreset.STANDARD);
-  width = signal(80);
-  fontSize = signal(48);
-  inverted = signal(false);
-  fontWeight = signal<'normal' | 'bold' | 'lighter'>('normal');
   copyButtonText = signal('Copy');
   processingTime = signal(0);
   characterCount = signal(0);
+  private asciiOutput = signal<string>('');
 
   maxLength = 50; // Security: Limit input length
 
@@ -272,69 +283,108 @@ export class AsciiArtStudio {
     { text: 'RETRO', charset: CharsetPreset.EXTENDED, width: 90, fontSize: 54, inverted: false },
   ];
 
-  // Computed ASCII output with performance tracking
-  asciiOutput = computed(() => {
-    const start = performance.now();
-
-    const pipe = new AsciiArtPipe();
-    const result = pipe.transform(this.text(), {
-      charset: this.charset(),
-      width: this.width(),
-      inverted: this.inverted(),
-      textOptions: {
-        fontSize: this.fontSize(),
-        fontWeight: this.fontWeight(),
-      },
+  constructor() {
+    // Initialize generator
+    this.generator = new AsciiGenerator({
+      charset: CharsetPreset.STANDARD,
+      width: 80,
+      optimized: true,
     });
 
-    const end = performance.now();
-    this.processingTime.set(Math.round((end - start) * 100) / 100);
+    // Generate initial output
+    this.generateAscii();
+  }
 
-    // Estimate character count (rough approximation)
-    const textLength = result.replace(/<[^>]*>/g, '').length;
-    this.characterCount.set(textLength);
-
-    return result;
+  asciiHtml = computed(() => {
+    return this.sanitizer.bypassSecurityTrustHtml(this.asciiOutput()) as SafeHtml;
   });
 
   // Generate usage example code
   usageExample = computed(() => {
     const options: string[] = [];
 
-    if (this.charset() !== CharsetPreset.STANDARD) {
-      options.push(`charset: CharsetPreset.${this.charset()}`);
+    if (this.charsetValue !== CharsetPreset.STANDARD) {
+      options.push(`charset: CharsetPreset.${this.charsetValue}`);
     }
-    if (this.width() !== 80) {
-      options.push(`width: ${this.width()}`);
+    if (this.widthValue !== 80) {
+      options.push(`width: ${this.widthValue}`);
     }
-    if (this.inverted()) {
+    if (this.invertedValue) {
       options.push(`inverted: true`);
     }
-    if (this.fontSize() !== 48 || this.fontWeight() !== 'normal') {
+    if (this.fontSizeValue !== 48 || this.fontWeightValue !== 'normal') {
       const textOpts: string[] = [];
-      if (this.fontSize() !== 48) textOpts.push(`fontSize: ${this.fontSize()}`);
-      if (this.fontWeight() !== 'normal') textOpts.push(`fontWeight: '${this.fontWeight()}'`);
+      if (this.fontSizeValue !== 48) textOpts.push(`fontSize: ${this.fontSizeValue}`);
+      if (this.fontWeightValue !== 'normal') textOpts.push(`fontWeight: '${this.fontWeightValue}'`);
       options.push(`textOptions: { ${textOpts.join(', ')} }`);
     }
 
     const optionsStr = options.length > 0 ? `:{ ${options.join(', ')} }` : '';
-    return `{{ '${this.text()}' | asciiArt${optionsStr} }}`;
+    return `{{ '${this.textValue}' | asciiArt${optionsStr} }}`;
   });
 
-  onTextChange() {
+  onTextChange(value: string) {
     // Security: Enforce max length
-    if (this.text().length > this.maxLength) {
-      this.text.set(this.text().substring(0, this.maxLength));
+    if (value.length > this.maxLength) {
+      this.textValue = value.substring(0, this.maxLength);
+    }
+    this.generateAscii();
+  }
+
+  selectCharset(charset: CharsetPreset | string) {
+    this.charsetValue = charset;
+    this.onConfigChange();
+  }
+
+  onConfigChange() {
+    this.generateAscii();
+  }
+
+  generateAscii() {
+    if (!this.textValue) {
+      this.asciiOutput.set('');
+      return;
+    }
+
+    try {
+      const start = performance.now();
+
+      // Update generator config
+      this.generator.updateConfig({
+        charset: this.charsetValue,
+        width: this.widthValue,
+        inverted: this.invertedValue,
+      });
+
+      // Generate ASCII art
+      const result = this.generator.convertText(this.textValue, {
+        fontSize: this.fontSizeValue,
+        fontWeight: this.fontWeightValue,
+      });
+
+      const end = performance.now();
+      this.processingTime.set(Math.round((end - start) * 100) / 100);
+
+      // Count characters
+      const textLength = result.text.length;
+      this.characterCount.set(textLength);
+
+      // Store HTML output
+      this.asciiOutput.set(result.html);
+    } catch (error) {
+      console.error('Error generating ASCII art:', error);
+      this.asciiOutput.set('<pre class="text-red-500">Error generating ASCII art</pre>');
     }
   }
 
   applyPreset(preset: PresetBanner) {
-    this.text.set(preset.text);
-    this.charset.set(preset.charset);
-    this.width.set(preset.width);
-    this.fontSize.set(preset.fontSize);
-    this.inverted.set(preset.inverted);
-    this.fontWeight.set('normal');
+    this.textValue = preset.text;
+    this.charsetValue = preset.charset;
+    this.widthValue = preset.width;
+    this.fontSizeValue = preset.fontSize;
+    this.invertedValue = preset.inverted;
+    this.fontWeightValue = 'normal';
+    this.generateAscii();
   }
 
   copyToClipboard() {
@@ -362,7 +412,7 @@ export class AsciiArtStudio {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `ascii-art-${this.text()}.txt`;
+    a.download = `ascii-art-${this.textValue}.txt`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);

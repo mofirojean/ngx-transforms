@@ -18,6 +18,7 @@ import { Highlight } from './pages/pipes/highlight';
 import { IpAddressMask } from './pages/pipes/ip-address-mask';
 import { CreditCardMask } from './pages/pipes/credit-card-mask';
 import { EmailMask } from './pages/pipes/email-mask';
+import { AsciiArtPage } from './pages/pipes/ascii-art';
 
 export const appRoutes: Route[] = [
   {
@@ -99,6 +100,10 @@ export const appRoutes: Route[] = [
           {
             path: 'email-mask',
             component: EmailMask,
+          },
+          {
+            path: 'ascii-art',
+            component: AsciiArtPage,
           },
         ],
       },

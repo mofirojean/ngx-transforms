@@ -89,5 +89,11 @@ export const PIPES: Pipe[] = [
     url: "/docs/pipes/email-mask",
     description: "Mask email addresses while preserving first and last characters.",
     isNew: true
+  },
+  {
+    name: "ASCII Art",
+    url: "/docs/pipes/ascii-art",
+    description: "Transform text into stunning ASCII art banners with customizable styles.",
+    isNew: true
   }
 ];

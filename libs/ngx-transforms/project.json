@@ -33,6 +33,9 @@
         "packageRoot": "dist/{projectRoot}"
       }
     },
+    "test": {
+      "command": "vitest run --config libs/ngx-transforms/vitest.config.ts --reporter verbose"
+    },
     "lint": {
       "executor": "@nx/eslint:lint"
     }

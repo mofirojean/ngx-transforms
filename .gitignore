@@ -55,3 +55,7 @@ nul
 .nx/cache
 .nx/workspace-data
 .angular
+
+
+# reports
+test_report.md

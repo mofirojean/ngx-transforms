@@ -1,53 +1,80 @@
 import { TextToSpeechPipe } from './text-to-speech';
-import { describe, it, expect, beforeEach, vi } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 
 describe('TextToSpeechPipe', () => {
   let pipe: TextToSpeechPipe;
-  let speakSpy: Mock;
+  let mockSpeak: ReturnType<typeof vi.fn>;
+  const originalSpeechSynthesis = (window as any).speechSynthesis;
+  const originalSpeechSynthesisUtterance = (globalThis as any).SpeechSynthesisUtterance;
 
   beforeEach(() => {
+    mockSpeak = vi.fn();
+
+    // Mock SpeechSynthesisUtterance (not available in jsdom)
+    (globalThis as any).SpeechSynthesisUtterance = class {
+      text = '';
+      lang = '';
+      constructor(text: string) {
+        this.text = text;
+      }
+    };
+
+    // Mock speechSynthesis globally
+    (window as any).speechSynthesis = { speak: mockSpeak };
+
     pipe = new TextToSpeechPipe();
-    // Mock window.speechSynthesis if available
-    if (typeof window !== 'undefined' && window.speechSynthesis) {
-      speakSpy = vi.spyOn(window.speechSynthesis, 'speak').mockImplementation(() => {});
-    }
+  });
+
+  afterEach(() => {
+    (window as any).speechSynthesis = originalSpeechSynthesis;
+    (globalThis as any).SpeechSynthesisUtterance = originalSpeechSynthesisUtterance;
   });
 
   it('should create an instance', () => {
     expect(pipe).toBeTruthy();
   });
 
-  it('should call speechSynthesis.speak with utterance', () => {
-    if (typeof window !== 'undefined' && window.speechSynthesis && speakSpy) {
-      pipe.transform('Hello', 'en-US');
-      expect(speakSpy).toHaveBeenCalledWith(expect.any(SpeechSynthesisUtterance));
-      expect(speakSpy.mock.calls[0][0].text).toBe('Hello');
-      expect(speakSpy.mock.calls[0][0].lang).toBe('en-US');
-    } else {
-      console.warn('SpeechSynthesis API not available, skipping test.');
-    }
+  it('should call speechSynthesis.speak with correct text', () => {
+    pipe.transform('Hello');
+    expect(mockSpeak).toHaveBeenCalledTimes(1);
+    const utterance = mockSpeak.mock.calls[0][0] as SpeechSynthesisUtterance;
+    expect(utterance.text).toBe('Hello');
   });
 
-  it('should do nothing for empty input', () => {
-    if (typeof window !== 'undefined' && window.speechSynthesis && speakSpy) {
-      pipe.transform('');
-      expect(speakSpy).not.toHaveBeenCalled();
-    } else {
-      console.warn('SpeechSynthesis API not available, skipping test.');
-    }
+  it('should use default language en-US', () => {
+    pipe.transform('Hello');
+    const utterance = mockSpeak.mock.calls[0][0] as SpeechSynthesisUtterance;
+    expect(utterance.lang).toBe('en-US');
   });
 
-  it('should do nothing if window.speechSynthesis is not available', () => {
-    // Temporarily mock window.speechSynthesis to be undefined
-    const originalSpeechSynthesis = window.speechSynthesis;
-    Object.defineProperty(window, 'speechSynthesis', { value: undefined, configurable: true });
+  it('should use custom language when provided', () => {
+    pipe.transform('Bonjour', 'fr-FR');
+    const utterance = mockSpeak.mock.calls[0][0] as SpeechSynthesisUtterance;
+    expect(utterance.lang).toBe('fr-FR');
+  });
 
-    const localPipe = new TextToSpeechPipe();
-    const localSpeakSpy = vi.fn();
-    // Restore original window.speechSynthesis
-    Object.defineProperty(window, 'speechSynthesis', { value: originalSpeechSynthesis, configurable: true });
+  it('should not call speak for empty input', () => {
+    pipe.transform('');
+    expect(mockSpeak).not.toHaveBeenCalled();
+  });
 
-    localPipe.transform('Test', 'en-US');
-    expect(localSpeakSpy).not.toHaveBeenCalled();
+  it('should not call speak for null input', () => {
+    pipe.transform(null as any);
+    expect(mockSpeak).not.toHaveBeenCalled();
+  });
+
+  it('should not call speak for undefined input', () => {
+    pipe.transform(undefined as any);
+    expect(mockSpeak).not.toHaveBeenCalled();
+  });
+
+  it('should return void', () => {
+    const result = pipe.transform('Hello');
+    expect(result).toBeUndefined();
+  });
+
+  it('should not throw when speechSynthesis is unavailable', () => {
+    (window as any).speechSynthesis = undefined;
+    expect(() => pipe.transform('Hello')).not.toThrow();
   });
 });

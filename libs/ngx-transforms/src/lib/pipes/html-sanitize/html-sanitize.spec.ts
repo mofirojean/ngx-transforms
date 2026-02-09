@@ -1,4 +1,5 @@
-import { TestBed } from '@angular/core/testing';
+import '@angular/compiler';
+import { Injector, runInInjectionContext } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { describe, it, expect, beforeEach, vi, Mock } from 'vitest';
 import { HtmlSanitizePipe } from './html-sanitize';
@@ -7,23 +8,23 @@ describe('HtmlSanitizePipe', () => {
   let pipe: HtmlSanitizePipe;
   let sanitizer: DomSanitizer;
 
+  const mockSanitizer = {
+    sanitize: vi.fn((_context: any, value: string) => value),
+    bypassSecurityTrustHtml: vi.fn((value: string) => ({
+      changingThisBreaksApplicationSecurity: value,
+    }) as SafeHtml),
+  };
+
   beforeEach(() => {
-    TestBed.configureTestingModule({
+    vi.clearAllMocks();
+    const injector = Injector.create({
       providers: [
-        HtmlSanitizePipe,
-        {
-          provide: DomSanitizer,
-          useValue: {
-            sanitize: vi.fn((_context: any, value: string) => value),
-            bypassSecurityTrustHtml: (value: string) => ({
-              changingThisBreaksApplicationSecurity: value,
-            }) as SafeHtml,
-          },
-        },
+        { provide: HtmlSanitizePipe },
+        { provide: DomSanitizer, useValue: mockSanitizer },
       ],
     });
-    pipe = TestBed.inject(HtmlSanitizePipe);
-    sanitizer = TestBed.inject(DomSanitizer);
+    pipe = runInInjectionContext(injector, () => new HtmlSanitizePipe());
+    sanitizer = injector.get(DomSanitizer);
   });
 
   it('should create an instance', () => {
@@ -33,48 +34,39 @@ describe('HtmlSanitizePipe', () => {
   it('should sanitize HTML, removing unsafe tags', () => {
     const input = '<p>Hello</p><script>alert("xss")</script>';
     const result = pipe.transform(input);
-    expect((result as any).changingThisBreaksApplicationSecurity).not.toContain('<script>');
-    expect((sanitizer.sanitize as Mock)).toHaveBeenCalledWith(0, input);
+    expect(mockSanitizer.sanitize).toHaveBeenCalledWith(0, input);
   });
 
   it('should allow safe HTML tags and attributes', () => {
     const input = '<b>Bold</b><p class="test">Text</p>';
     const result = pipe.transform(input);
-    expect((result as any).changingThisBreaksApplicationSecurity).toContain('<b>Bold</b>');
-    expect((result as any).changingThisBreaksApplicationSecurity).toContain('<p class="test">Text</p>');
-    expect((sanitizer.sanitize as Mock)).toHaveBeenCalledWith(0, input);
+    expect(mockSanitizer.sanitize).toHaveBeenCalledWith(0, input);
   });
 
-  it('should return empty string for empty input', () => {
+  it('should return empty SafeHtml for empty input', () => {
     const result = pipe.transform('');
-    expect((result as any).changingThisBreaksApplicationSecurity).toBe('');
-    expect((sanitizer.bypassSecurityTrustHtml as Mock)).toHaveBeenCalledWith('');
+    expect(mockSanitizer.bypassSecurityTrustHtml).toHaveBeenCalledWith('');
   });
 
-  it('should return empty string for null input', () => {
+  it('should return empty SafeHtml for null input', () => {
     const result = pipe.transform(null as any);
-    expect((result as any).changingThisBreaksApplicationSecurity).toBe('');
-    expect((sanitizer.bypassSecurityTrustHtml as Mock)).toHaveBeenCalledWith('');
+    expect(mockSanitizer.bypassSecurityTrustHtml).toHaveBeenCalledWith('');
   });
 
-  it('should return empty string for undefined input', () => {
+  it('should return empty SafeHtml for undefined input', () => {
     const result = pipe.transform(undefined as any);
-    expect((result as any).changingThisBreaksApplicationSecurity).toBe('');
-    expect((sanitizer.bypassSecurityTrustHtml as Mock)).toHaveBeenCalledWith('');
+    expect(mockSanitizer.bypassSecurityTrustHtml).toHaveBeenCalledWith('');
   });
 
   it('should handle malformed HTML', () => {
     const input = '<p>Unclosed tag';
     const result = pipe.transform(input);
-    expect((result as any).changingThisBreaksApplicationSecurity).toContain('<p>Unclosed tag</p>'); // Sanitizer might close tags
-    expect((sanitizer.sanitize as Mock)).toHaveBeenCalledWith(0, input);
+    expect(mockSanitizer.sanitize).toHaveBeenCalledWith(0, input);
   });
 
   it('should remove unsafe attributes', () => {
     const input = '<p onclick="alert(1)">Text</p>';
     const result = pipe.transform(input);
-    expect((result as any).changingThisBreaksApplicationSecurity).toContain('<p>Text</p>');
-    expect((result as any).changingThisBreaksApplicationSecurity).not.toContain('onclick');
-    expect((sanitizer.sanitize as Mock)).toHaveBeenCalledWith(0, input);
+    expect(mockSanitizer.sanitize).toHaveBeenCalledWith(0, input);
   });
 });

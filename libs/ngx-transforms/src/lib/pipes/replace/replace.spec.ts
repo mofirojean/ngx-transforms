@@ -1,28 +1,27 @@
-import { TestBed } from '@angular/core/testing';
+import '@angular/compiler';
+import { Injector, runInInjectionContext } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { describe, it, expect, beforeEach, vi, Mock } from 'vitest';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { ReplacePipe } from './replace';
 
 describe('ReplacePipe', () => {
   let pipe: ReplacePipe;
-  let sanitizer: DomSanitizer;
+
+  const mockSanitizer = {
+    bypassSecurityTrustHtml: vi.fn((value: string) => ({
+      changingThisBreaksApplicationSecurity: value,
+    }) as SafeHtml),
+  };
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
+    vi.clearAllMocks();
+    const injector = Injector.create({
       providers: [
-        ReplacePipe,
-        {
-          provide: DomSanitizer,
-          useValue: {
-            bypassSecurityTrustHtml: (value: string) => ({
-              changingThisBreaksApplicationSecurity: value,
-            }) as SafeHtml,
-          },
-        },
+        { provide: ReplacePipe },
+        { provide: DomSanitizer, useValue: mockSanitizer },
       ],
     });
-    pipe = TestBed.inject(ReplacePipe);
-    sanitizer = TestBed.inject(DomSanitizer);
+    pipe = runInInjectionContext(injector, () => new ReplacePipe());
   });
 
   it('should create an instance', () => {
@@ -62,7 +61,11 @@ describe('ReplacePipe', () => {
   });
 
   it('should return input as-is when highlightClass is not provided and isReplace is false', () => {
-    expect(pipe.transform('Keep it', 'Keep', 'Hold')).toBe('Keep it');
+    expect(pipe.transform('Keep it', 'Keep', 'Hold', undefined, false)).toBe('Keep it');
+  });
+
+  it('should replace by default when highlightClass is not provided', () => {
+    expect(pipe.transform('Keep it', 'Keep', 'Hold')).toBe('Hold it');
   });
 
   it('should return empty string for empty input', () => {

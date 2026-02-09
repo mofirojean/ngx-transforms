@@ -1,19 +1,18 @@
 import { GravatarPipe } from './gravatar';
-import { describe, it, expect, beforeEach, vi, Mock } from 'vitest';
-import * as md5 from 'js-md5';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 
-// Mock the entire js-md5 module
 vi.mock('js-md5', () => ({
-  default: vi.fn((value: string) => `mocked_hash_of_${value}`),
+  md5: vi.fn((value: string) => `mocked_hash_of_${value}`),
 }));
+
+import { md5 } from 'js-md5';
 
 describe('GravatarPipe', () => {
   let pipe: GravatarPipe;
 
   beforeEach(() => {
     pipe = new GravatarPipe();
-    // Ensure md5 mock is reset before each test
-    (md5.default as Mock).mockClear();
+    vi.clearAllMocks();
   });
 
   it('should create an instance', () => {
@@ -32,18 +31,22 @@ describe('GravatarPipe', () => {
 
   it('should trim and lowercase the email before hashing', () => {
     const email = '  Test.User@EXAMPLE.COM  ';
-    const processedEmail = 'test.user@example.com';
     pipe.transform(email);
-    expect(md5.default).toHaveBeenCalledWith(processedEmail);
+    expect(md5).toHaveBeenCalledWith('test.user@example.com');
   });
 
   it('should return a default Gravatar URL if email is null', () => {
     expect(pipe.transform(null as any)).toBe('https://www.gravatar.com/avatar/?s=80');
-    expect(md5.default).not.toHaveBeenCalled();
+    expect(md5).not.toHaveBeenCalled();
   });
 
   it('should return a default Gravatar URL if email is undefined', () => {
     expect(pipe.transform(undefined as any)).toBe('https://www.gravatar.com/avatar/?s=80');
-    expect(md5.default).not.toHaveBeenCalled();
+    expect(md5).not.toHaveBeenCalled();
+  });
+
+  it('should use default size of 80', () => {
+    const result = pipe.transform('user@example.com');
+    expect(result).toContain('s=80');
   });
 });

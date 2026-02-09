@@ -1,28 +1,27 @@
-import { TestBed } from '@angular/core/testing';
+import '@angular/compiler';
+import { Injector, runInInjectionContext } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { HighlightPipe } from './highlight';
 
 describe('HighlightPipe', () => {
   let pipe: HighlightPipe;
-  let sanitizer: DomSanitizer;
+
+  const mockSanitizer = {
+    bypassSecurityTrustHtml: vi.fn((value: string) => ({
+      changingThisBreaksApplicationSecurity: value,
+    }) as SafeHtml),
+  };
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
+    vi.clearAllMocks();
+    const injector = Injector.create({
       providers: [
-        HighlightPipe,
-        {
-          provide: DomSanitizer,
-          useValue: {
-            bypassSecurityTrustHtml: (value: string) => ({
-              changingThisBreaksApplicationSecurity: value,
-            }) as SafeHtml,
-          },
-        },
+        { provide: HighlightPipe },
+        { provide: DomSanitizer, useValue: mockSanitizer },
       ],
     });
-    pipe = TestBed.inject(HighlightPipe);
-    sanitizer = TestBed.inject(DomSanitizer);
+    pipe = runInInjectionContext(injector, () => new HighlightPipe());
   });
 
   it('should create an instance', () => {

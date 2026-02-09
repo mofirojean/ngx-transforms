@@ -22,5 +22,4 @@ export * from './lib/pipes/snake-case/snake-case';
 export * from './lib/pipes/text-to-speech/text-to-speech';
 export * from './lib/pipes/title-case/title-case';
 export * from './lib/pipes/truncate/truncate';
-export * from './lib/pipes/count/count';
 export * from './providers/all-pipes.provider';

@@ -271,6 +271,7 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
         <div class="flex gap-4">
           <app-next-prev-navigation
             [previous]="{ label: 'Email Mask', link: '/docs/pipes/email-mask' }"
+            [next]="{ label: 'Truncate', link: '/docs/pipes/truncate' }"
           />
         </div>
       </div>

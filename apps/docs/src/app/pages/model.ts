@@ -88,5 +88,30 @@ export const PIPES: Pipe[] = [
     name: "ASCII Art",
     url: "/docs/pipes/ascii-art",
     description: "Transform text into stunning ASCII art banners with customizable styles.",
+  },
+  {
+    name: "Truncate",
+    url: "/docs/pipes/truncate",
+    description: "Truncates strings to a specified length with configurable ellipsis and word preservation.",
+  },
+  {
+    name: "HTML Escape",
+    url: "/docs/pipes/html-escape",
+    description: "Escapes special HTML characters to their entity equivalents for safe display.",
+  },
+  {
+    name: "HTML Sanitize",
+    url: "/docs/pipes/html-sanitize",
+    description: "Sanitizes HTML input to remove unsafe elements while preserving safe content.",
+  },
+  {
+    name: "Text to Speech",
+    url: "/docs/pipes/text-to-speech",
+    description: "Converts text to speech using the Web Speech API with configurable language.",
+  },
+  {
+    name: "Device Type",
+    url: "/docs/pipes/device-type",
+    description: "Detects device type (mobile, tablet, desktop) from user agent strings.",
   }
 ];

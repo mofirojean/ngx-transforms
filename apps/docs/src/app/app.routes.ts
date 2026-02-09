@@ -19,6 +19,11 @@ import { IpAddressMask } from './pages/pipes/ip-address-mask';
 import { CreditCardMask } from './pages/pipes/credit-card-mask';
 import { EmailMask } from './pages/pipes/email-mask';
 import { AsciiArtPage } from './pages/pipes/ascii-art';
+import { TruncatePage } from './pages/pipes/truncate';
+import { HtmlEscapePage } from './pages/pipes/html-escape';
+import { HtmlSanitizePage } from './pages/pipes/html-sanitize';
+import { TextToSpeechPage } from './pages/pipes/text-to-speech';
+import { DeviceTypePage } from './pages/pipes/device-type';
 
 export const appRoutes: Route[] = [
   {
@@ -104,6 +109,26 @@ export const appRoutes: Route[] = [
           {
             path: 'ascii-art',
             component: AsciiArtPage,
+          },
+          {
+            path: 'truncate',
+            component: TruncatePage,
+          },
+          {
+            path: 'html-escape',
+            component: HtmlEscapePage,
+          },
+          {
+            path: 'html-sanitize',
+            component: HtmlSanitizePage,
+          },
+          {
+            path: 'text-to-speech',
+            component: TextToSpeechPage,
+          },
+          {
+            path: 'device-type',
+            component: DeviceTypePage,
           },
         ],
       },

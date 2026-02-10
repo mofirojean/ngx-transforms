@@ -48,7 +48,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Version bump
-        run: pnpm nx release --skip-publish --first-release --yes version ${{ inputs.version }}
+        run: pnpm nx release version ${{ inputs.version }} --first-release --yes
 
       - name: Build library
         run: pnpm nx build ngx-transforms

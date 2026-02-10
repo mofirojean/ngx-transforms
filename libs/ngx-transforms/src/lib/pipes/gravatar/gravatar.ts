@@ -19,7 +19,7 @@ import { md5 } from 'js-md5';
   standalone: true
 })
 export class GravatarPipe implements PipeTransform {
-  transform(value: string, size: number = 80): string {
+  transform(value: string, size = 80): string {
     if (!value) return `https://www.gravatar.com/avatar/?s=${size}`;
     const hash = md5(value.trim().toLowerCase());
     return `https://www.gravatar.com/avatar/${hash}?s=${size}`;

@@ -29,7 +29,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class TruncatePipe implements PipeTransform {
 
-  transform(value: string, maxLength: number = 10, ellipsis: string = '...', preserveWords: boolean = false): string {
+  transform(value: string, maxLength = 10, ellipsis = '...', preserveWords = false): string {
     if (!value || typeof value !== 'string') {
       return '';
     }

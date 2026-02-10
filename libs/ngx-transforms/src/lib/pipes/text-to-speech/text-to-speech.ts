@@ -19,7 +19,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   standalone: true
 })
 export class TextToSpeechPipe implements PipeTransform {
-  transform(value: string, lang: string = 'en-US'): void {
+  transform(value: string, lang = 'en-US'): void {
     if (!value || typeof window === 'undefined' || !window.speechSynthesis) return;
     const uttrance = new SpeechSynthesisUtterance(value);
     uttrance.lang = lang;

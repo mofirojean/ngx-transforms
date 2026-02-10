@@ -20,7 +20,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class IpAddressMaskPipe implements PipeTransform {
 
-  transform(value: string, shouldMask: boolean = true): string {
+  transform(value: string, shouldMask = true): string {
     if (!value || !/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/.test(value)) {
       return value;
     }

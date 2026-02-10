@@ -42,7 +42,7 @@ describe('BarcodePipe', () => {
   });
 
   it('should handle invalid value gracefully', async () => {
-    const spy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const spy = vi.spyOn(console, 'error').mockImplementation(() => { /* noop */ });
     const result = await pipe.transform('invalid', { format: 'EAN13' as any });
     expect(result).toBe('');
     expect(spy).toHaveBeenCalled();
@@ -51,7 +51,7 @@ describe('BarcodePipe', () => {
 
   it('should catch errors from barcode generation and return empty string', async () => {
     // jsdom does not support canvas getContext(), so JsBarcode fails for SVG rendering
-    const spy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const spy = vi.spyOn(console, 'error').mockImplementation(() => { /* noop */ });
     const result = await pipe.transform('123456789', { elementType: 'svg' as BarcodeElementType });
     // In jsdom, this returns '' due to canvas limitations; in a real browser it would return SVG
     expect(typeof result === 'string' || typeof result === 'object').toBe(true);
@@ -59,7 +59,7 @@ describe('BarcodePipe', () => {
   });
 
   it('should catch errors for canvas/img element types in jsdom', async () => {
-    const spy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const spy = vi.spyOn(console, 'error').mockImplementation(() => { /* noop */ });
     const result = await pipe.transform('123456789', { elementType: 'img' as BarcodeElementType });
     expect(typeof result === 'string' || typeof result === 'object').toBe(true);
     spy.mockRestore();

@@ -22,7 +22,7 @@ import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
 export class JsonPrettyPipe implements PipeTransform {
   private sanitizer = inject(DomSanitizer);
 
-  transform(value: string | object, spaces: number = 2, highlightProperty?: string | null): SafeHtml {
+  transform(value: string | object, spaces = 2, highlightProperty?: string | null): SafeHtml {
     let jsonString: string;
 
     try {

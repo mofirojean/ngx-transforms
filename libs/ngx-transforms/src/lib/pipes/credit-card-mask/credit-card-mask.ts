@@ -21,7 +21,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   standalone: true,
 })
 export class CreditCardMaskPipe implements PipeTransform {
-  transform(value: string | null | undefined, shouldMask: boolean = true): string | null | undefined {
+  transform(value: string | null | undefined, shouldMask = true): string | null | undefined {
     if (!value) {
       return value;
     }

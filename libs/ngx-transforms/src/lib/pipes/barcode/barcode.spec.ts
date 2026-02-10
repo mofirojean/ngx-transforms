@@ -68,7 +68,6 @@ describe('BarcodePipe', () => {
   it('should call bypassSecurityTrustHtml for SVG when generation succeeds', async () => {
     // Mock document.createElementNS to return an SVG with outerHTML
     const mockSvg = { outerHTML: '<svg><rect/></svg>' };
-    const origCreateElementNS = document.createElementNS;
     vi.spyOn(document, 'createElementNS').mockReturnValue(mockSvg as any);
 
     // Mock canvas for JsBarcode text measurement

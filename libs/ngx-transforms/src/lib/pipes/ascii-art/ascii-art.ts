@@ -104,10 +104,7 @@ export class AsciiArtPipe implements PipeTransform {
       value = value.substring(0, maxLength);
     }
 
-    const format = options.format ?? 'html';
-    const textOptions = options.textOptions;
-
-    const { format: _format, textOptions: _textOptions, ...config } = options;
+    const { format = 'html', textOptions, ...config } = options;
 
     try {
       if (Object.keys(config).length > 0) {

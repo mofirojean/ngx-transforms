@@ -48,10 +48,13 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Version bump
-        run: pnpm nx release version ${{ inputs.version }} --first-release --git-commit --git-tag
+        id: version
+        run: |
+          pnpm nx release version ${{ inputs.version }} --first-release --git-commit --git-tag
+          echo "new_version=$(node -p "require('./libs/ngx-transforms/package.json').version")" >> $GITHUB_OUTPUT
 
       - name: Generate changelog
-        run: pnpm nx release changelog --first-release --git-commit
+        run: pnpm nx release changelog ${{ steps.version.outputs.new_version }} --first-release --git-commit
 
       - name: Build library
         run: pnpm nx build ngx-transforms

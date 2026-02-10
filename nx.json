@@ -94,10 +94,7 @@
     }
   },
   "release": {
-    "projects": ["ngx-transforms"],
-    "version": {
-      "preVersionCommand": "pnpm dlx nx run-many -t build"
-    }
+    "projects": ["ngx-transforms"]
   },
   "plugins": [
     {

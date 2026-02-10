@@ -1,6 +1,13 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../dist/libs/ngx-transforms",
+  "allowedNonPeerDependencies": [
+    "qrcode",
+    "jsbarcode",
+    "js-md5",
+    "ts-ascii-engine",
+    "tslib"
+  ],
   "lib": {
     "entryFile": "src/index.ts"
   }

@@ -1,8 +1,42 @@
 {
-  "name": "@ngx-transforms",
+  "name": "ngx-transforms",
   "version": "0.0.1",
+  "description": "A collection of 24 standalone Angular pipes for common data transformations — text, masking, encoding, sanitization, and more.",
+  "keywords": [
+    "angular",
+    "pipes",
+    "transforms",
+    "utilities",
+    "standalone",
+    "angular-pipes",
+    "text-transform",
+    "data-masking",
+    "qr-code",
+    "barcode",
+    "gravatar",
+    "morse-code",
+    "sanitize"
+  ],
+  "license": "MIT",
+  "author": "Mofiro Jean <mofirojean@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mofirojean/ngx-transforms"
+  },
+  "homepage": "https://github.com/mofirojean/ngx-transforms#readme",
+  "bugs": {
+    "url": "https://github.com/mofirojean/ngx-transforms/issues"
+  },
   "peerDependencies": {
-    "@angular/core": "^21.0.0"
+    "@angular/core": "^21.0.0",
+    "@angular/platform-browser": "^21.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0",
+    "qrcode": "^1.5.4",
+    "jsbarcode": "^3.12.1",
+    "js-md5": "^0.8.3",
+    "ts-ascii-engine": "^0.0.3"
   },
   "sideEffects": false
 }

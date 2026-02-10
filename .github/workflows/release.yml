@@ -14,6 +14,7 @@ on:
 
 permissions:
   contents: write
+  packages: write
   id-token: write
 
 jobs:
@@ -63,6 +64,19 @@ jobs:
         run: npm publish dist/libs/ngx-transforms --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish to GitHub Packages
+        run: |
+          cd dist/libs/ngx-transforms
+          node -e "
+            const pkg = require('./package.json');
+            pkg.name = '@mofirojean/ngx-transforms';
+            pkg.publishConfig = { registry: 'https://npm.pkg.github.com' };
+            require('fs').writeFileSync('package.json', JSON.stringify(pkg, null, 2));
+          "
+          npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Push version commit and tags
         run: git push --follow-tags

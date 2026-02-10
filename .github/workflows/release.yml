@@ -58,7 +58,7 @@ jobs:
         run: pnpm nx release changelog ${{ steps.version.outputs.new_version }} --first-release --git-commit
 
       - name: Build library
-        run: pnpm nx build ngx-transforms
+        run: pnpm nx build ngx-transforms --skip-nx-cache
 
       - name: Publish to npm
         run: npm publish dist/libs/ngx-transforms --access public

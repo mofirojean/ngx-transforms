@@ -172,7 +172,7 @@ import {Footer} from '../reusables/footer';
               <h3 class="text-2xl font-semibold leading-none tracking-tight mb-4">Quick Install</h3>
               <div class="relative rounded-md bg-muted p-4 font-mono text-sm">
                 <div class="flex justify-between items-center">
-                  <span class="text-foreground">npm install &#64;ngx-transforms/core</span>
+                  <span class="text-foreground">npm i ngx-transforms</span>
                   <button hlmBtn variant="ghost" size="icon"
                           class="h-6 w-6 text-muted-foreground hover:text-foreground">
                     <ng-icon name="lucideCopy" class="h-3 w-3"></ng-icon>
@@ -184,7 +184,7 @@ import {Footer} from '../reusables/footer';
               <div class="relative rounded-md bg-muted p-4 font-mono text-sm overflow-x-auto">
                 <div class="text-blue-400">import <span class="text-foreground">&#123;</span> <span
                   class="text-yellow-400">CountPipe</span> <span class="text-foreground">&#125;</span> from <span
-                  class="text-green-400">'&#64;ngx-transforms/core'</span>;
+                  class="text-green-400">'&#64;ngx-transforms'</span>;
                 </div>
                 <br>
                 <div class="text-blue-400">&#64;Component<span class="text-foreground">(&#123;</span></div>

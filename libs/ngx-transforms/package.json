@@ -1,6 +1,6 @@
 {
   "name": "ngx-transforms",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A collection of 24 standalone Angular pipes for common data transformations — text, masking, encoding, sanitization, and more.",
   "keywords": [
     "angular",

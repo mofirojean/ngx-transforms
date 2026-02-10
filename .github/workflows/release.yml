@@ -50,6 +50,9 @@ jobs:
       - name: Version bump
         run: pnpm nx release version ${{ inputs.version }} --first-release --git-commit --git-tag
 
+      - name: Generate changelog
+        run: pnpm nx release changelog --first-release --git-commit
+
       - name: Build library
         run: pnpm nx build ngx-transforms
 

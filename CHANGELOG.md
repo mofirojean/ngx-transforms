@@ -1,3 +1,14 @@
+## 0.0.5 (2026-02-11)
+
+### 🩹 Fixes
+
+- correct import paths in docs and add @types/qrcode dependency ([db3ec17](https://github.com/mofirojean/ngx-transforms/commit/db3ec17))
+- correct import paths in docs and define local QrCodeOptions type ([70e41c2](https://github.com/mofirojean/ngx-transforms/commit/70e41c2))
+
+### ❤️ Thank You
+
+- mofirojean
+
 ## 0.0.4 (2026-02-10)
 
 ### 🚀 Features

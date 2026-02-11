@@ -169,7 +169,7 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
 export class Highlight {
   code = `
 import { Component } from '@angular/core';
-import { HighlightPipe } from '@ngx-transforms';
+import { HighlightPipe } from 'ngx-transforms';
 
 @Component({
   selector: 'app-example',

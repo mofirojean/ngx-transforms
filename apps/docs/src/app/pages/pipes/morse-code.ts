@@ -57,7 +57,7 @@ import {Breadcrumb} from '../../reusables/breadcrumb/breadcrumb';
 export class MorseCode {
   usageCode = `
 import { Component } from '@angular/core';
-import { MorseCodePipe } from '@ngx-transforms';
+import { MorseCodePipe } from 'ngx-transforms';
 
 @Component({
   selector: 'app-example',

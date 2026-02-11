@@ -71,7 +71,7 @@ import {Breadcrumb} from '../../reusables/breadcrumb/breadcrumb';
 export class QrCode {
   code = `
 import { Component } from '@angular/core';
-import { QrCodePipe } from '@ngx-transforms';
+import { QrCodePipe } from 'ngx-transforms';
 import { AsyncPipe } from '@angular/common';
 
 @Component({

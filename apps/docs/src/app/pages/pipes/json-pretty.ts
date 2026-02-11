@@ -67,7 +67,7 @@ export class JsonPretty {
 
   usageCode = `
 import { Component } from '@angular/core';
-import { JsonPrettyPipe } from '@ngx-transforms';
+import { JsonPrettyPipe } from 'ngx-transforms';
 
 @Component({
   selector: 'app-example',

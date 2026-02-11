@@ -78,7 +78,7 @@ export class Count {
 
   code = `
 import { Component } from '@angular/core';
-import { CountPipe } from '@ngx-transforms';
+import { CountPipe } from 'ngx-transforms';
 
 @Component({
   selector: 'app-example',

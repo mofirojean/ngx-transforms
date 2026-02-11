@@ -191,7 +191,7 @@ export class DeviceTypePage {
 
   code = `
 import { Component } from '@angular/core';
-import { DeviceTypePipe } from '@ngx-transforms';
+import { DeviceTypePipe } from 'ngx-transforms';
 
 @Component({
   selector: 'app-example',

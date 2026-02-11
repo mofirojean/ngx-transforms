@@ -61,7 +61,7 @@ import {Breadcrumb} from '../../reusables/breadcrumb/breadcrumb';
 export class Barcode {
   usageCode = `
 import { Component } from '@angular/core';
-import { BarcodePipe } from '@ngx-transforms';
+import { BarcodePipe } from 'ngx-transforms';
 import { AsyncPipe } from '@angular/common';
 
 @Component({

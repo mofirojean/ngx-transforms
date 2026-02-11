@@ -59,7 +59,7 @@ import {Breadcrumb} from '../../reusables/breadcrumb/breadcrumb';
 export class Gravatar {
   usageCode = `
 import { Component } from '@angular/core';
-import { GravatarPipe } from '@ngx-transforms/ngx-transforms';
+import { GravatarPipe } from 'ngx-transforms';
 
 @Component({
   selector: 'app-example',

@@ -188,7 +188,7 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
 export class TruncatePage {
   code = `
 import { Component } from '@angular/core';
-import { TruncatePipe } from '@ngx-transforms';
+import { TruncatePipe } from 'ngx-transforms';
 
 @Component({
   selector: 'app-example',

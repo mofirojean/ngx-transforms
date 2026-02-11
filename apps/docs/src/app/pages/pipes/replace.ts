@@ -60,7 +60,7 @@ export class Replace {
 
   usageCode = `
 import { Component } from '@angular/core';
-import { ReplacePipe } from '@ngx-transforms';
+import { ReplacePipe } from 'ngx-transforms';
 
 @Component({
   selector: 'app-example',

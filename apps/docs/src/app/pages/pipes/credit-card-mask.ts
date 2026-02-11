@@ -308,7 +308,7 @@ export class CreditCardMask {
 
   code = `
 import { Component } from '@angular/core';
-import { CreditCardMaskPipe } from '@ngx-transforms';
+import { CreditCardMaskPipe } from 'ngx-transforms';
 
 @Component({
   selector: 'app-example',

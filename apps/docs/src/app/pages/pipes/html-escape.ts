@@ -196,7 +196,7 @@ export class HtmlEscapePage {
 
   code = `
 import { Component } from '@angular/core';
-import { HtmlEscapePipe } from '@ngx-transforms';
+import { HtmlEscapePipe } from 'ngx-transforms';
 
 @Component({
   selector: 'app-example',

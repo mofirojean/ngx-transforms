@@ -26,12 +26,12 @@ import {NextPrevNavigation} from '../reusables/next-prev-navigation/next-prev-na
         <li><strong>Tree-Shakeable:</strong> Import only what you need, keeping your bundle size small.</li>
       </ul>
 
-<!--      <h2 class="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight mt-10 mb-4">-->
-<!--        Installation-->
-<!--      </h2>-->
-<!--      <div class="relative rounded-md bg-muted p-4 font-mono text-sm mt-4">-->
-<!--        npm install &#64;ngx-transforms/core-->
-<!--      </div>-->
+      <h2 class="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight mt-10 mb-4">
+        Installation
+      </h2>
+      <div class="relative rounded-md bg-muted p-4 font-mono text-sm mt-4">
+        npm install ngx-transforms
+      </div>
       <div class="flex justify-end items-center py-4">
         <app-next-prev-navigation [next]="{label: 'Pipes', link: '/docs/pipes'}"/>
       </div>

@@ -59,7 +59,7 @@ import {Breadcrumb} from '../../reusables/breadcrumb/breadcrumb';
 export class Reverse {
   usageCode = `
 import { Component } from '@angular/core';
-import { ReversePipe } from '@ngx-transforms/ngx-transforms';
+import { ReversePipe } from 'ngx-transforms';
 
 @Component({
   selector: 'app-example',

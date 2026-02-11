@@ -283,7 +283,7 @@ export class AsciiArtPage {
 
   basicCode = `
 import { Component } from '@angular/core';
-import { AsciiArtPipe, CharsetPreset } from '@ngx-transforms';
+import { AsciiArtPipe, CharsetPreset } from 'ngx-transforms';
 
 @Component({
   selector: 'app-example',

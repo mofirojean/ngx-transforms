@@ -86,7 +86,7 @@ export class Initials {
 
   code = `
 import { Component } from '@angular/core';
-import { InitialsPipe } from '@ngx-transforms';
+import { InitialsPipe } from 'ngx-transforms';
 
 @Component({
   selector: 'app-example',

@@ -276,7 +276,7 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
 export class IpAddressMask {
   code = `
 import { Component } from '@angular/core';
-import { IpAddressMaskPipe } from '@ngx-transforms';
+import { IpAddressMaskPipe } from 'ngx-transforms';
 
 @Component({
   selector: 'app-example',

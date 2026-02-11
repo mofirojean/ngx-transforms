@@ -177,7 +177,7 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
 export class TextToSpeechPage {
   code = `
 import { Component } from '@angular/core';
-import { TextToSpeechPipe } from '@ngx-transforms';
+import { TextToSpeechPipe } from 'ngx-transforms';
 
 @Component({
   selector: 'app-example',

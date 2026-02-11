@@ -231,7 +231,7 @@ import {
   KebabCasePipe,
   SnakeCasePipe,
   TitleCasePipe
-} from '@ngx-transforms';
+} from 'ngx-transforms';
 
 @Component({
   selector: 'app-example',

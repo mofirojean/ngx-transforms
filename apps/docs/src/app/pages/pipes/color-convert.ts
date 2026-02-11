@@ -247,7 +247,7 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
 export class ColorConvert {
   code = `
 import { Component } from '@angular/core';
-import { ColorConvertPipe } from '@ngx-transforms';
+import { ColorConvertPipe } from 'ngx-transforms';
 
 @Component({
   selector: 'app-example',

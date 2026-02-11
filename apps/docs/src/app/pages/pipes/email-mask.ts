@@ -246,7 +246,7 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
 export class EmailMask {
   code = `
 import { Component } from '@angular/core';
-import { EmailMaskPipe } from '@ngx-transforms';
+import { EmailMaskPipe } from 'ngx-transforms';
 
 @Component({
   selector: 'app-example',

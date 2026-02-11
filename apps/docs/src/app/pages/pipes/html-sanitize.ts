@@ -182,7 +182,7 @@ export class HtmlSanitizePage {
 
   code = `
 import { Component } from '@angular/core';
-import { HtmlSanitizePipe } from '@ngx-transforms';
+import { HtmlSanitizePipe } from 'ngx-transforms';
 
 @Component({
   selector: 'app-example',

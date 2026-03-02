@@ -10,8 +10,6 @@ import { Pipe, PipeTransform } from '@angular/core';
  * @example
  * {{ 'John Doe' | initials }} // Outputs: JD
  * {{ 'Mary Jane Watson' | initials }} // Outputs: MJW
- *
- * @author Mofiro Jean
  */
 @Pipe({
   name: 'initials',

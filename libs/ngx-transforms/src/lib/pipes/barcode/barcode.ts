@@ -47,8 +47,6 @@ export interface BarcodeOptions {
  * @example
  * <div [innerHTML]="'123456789' | barcode:{elementType:'svg',format:'CODE128'} | async"></div>
  * <img [src]="'123456789' | barcode:{elementType:'img'} | async" />
- *
- * @author Mofiro Jean
  */
 @Pipe({
   name: 'barcode',

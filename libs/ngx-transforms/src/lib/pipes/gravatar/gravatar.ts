@@ -11,8 +11,6 @@ import { md5 } from 'js-md5';
  *
  * @example
  * <img [src]="'user@example.com' | gravatar:100" />
- *
- * @author Mofiro Jean
  */
 @Pipe({
   name: 'gravatar',

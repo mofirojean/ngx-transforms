@@ -10,8 +10,6 @@ import { Pipe, PipeTransform } from '@angular/core';
  * ```html
  * {{ 'hello world' | snakeCase }} <!-- Outputs: hello_world -->
  * ```
- *
- * @author Mofiro Jean
  */
 @Pipe({
   name: 'snakeCase',

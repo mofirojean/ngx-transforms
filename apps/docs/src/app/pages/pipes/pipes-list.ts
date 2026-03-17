@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {RouterLink} from '@angular/router';
 import {NgIconComponent, provideIcons} from '@ng-icons/core';
 import {lucideArrowRight} from '@ng-icons/lucide';
-import {PIPES} from '../model';
+import {PIPES, isNewPipe} from '../model';
 
 @Component({
   selector: 'app-pipes-list-page',
@@ -21,7 +21,12 @@ import {PIPES} from '../model';
         @for (pipe of pipes; track pipe.name) {
           <a [routerLink]="pipe.url"
              class="group relative rounded-lg border border-border p-6 hover:border-foreground/50 transition-colors">
-            <h3 class="font-semibold leading-none tracking-tight mb-2 group-hover:bg-forground/5">{{ pipe.name }}</h3>
+            <h3 class="font-semibold leading-none tracking-tight mb-2 group-hover:bg-forground/5">
+              {{ pipe.name }}
+              @if (isNew(pipe)) {
+                <span class="ml-2 inline-flex items-center rounded-full bg-green-500/10 px-2 py-0.5 text-xs font-medium text-green-600 dark:text-green-400 ring-1 ring-inset ring-green-500/20">New</span>
+              }
+            </h3>
             <p class="text-sm text-muted-foreground line-clamp-2">{{ pipe.description }}</p>
             <ng-icon name="lucideArrowRight"
                      class="absolute bottom-6 right-6 h-4 w-4 opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0"></ng-icon>
@@ -33,6 +38,7 @@ import {PIPES} from '../model';
 })
 export class PipesList {
   protected pipes = PIPES;
+  protected isNew = isNewPipe;
 }
 
 

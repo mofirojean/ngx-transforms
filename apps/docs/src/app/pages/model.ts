@@ -5,7 +5,17 @@ export interface Pipe {
   name: string;
   url: string;
   description: string;
-  isNew?: boolean;
+  /** ISO date string (YYYY-MM-DD) when the pipe was added. Used to show a "New" badge for 2 weeks. */
+  addedOn?: string;
+}
+
+const TWO_WEEKS_MS = 14 * 24 * 60 * 60 * 1000;
+
+/** Returns true if the pipe was added within the last 2 weeks. */
+export function isNewPipe(pipe: Pipe): boolean {
+  if (!pipe.addedOn) return false;
+  const addedDate = new Date(pipe.addedOn).getTime();
+  return Date.now() - addedDate < TWO_WEEKS_MS;
 }
 
 export const PIPES: Pipe[] = [
@@ -118,6 +128,6 @@ export const PIPES: Pipe[] = [
     name: "Time Ago",
     url: "/docs/pipes/time-ago",
     description: "Converts dates into localized relative time strings using Intl.RelativeTimeFormat.",
-    isNew: true,
+    addedOn: "2026-03-17",
   }
 ];

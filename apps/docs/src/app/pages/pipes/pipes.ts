@@ -3,7 +3,7 @@ import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {HlmButton} from '@spartan-ng/helm/button';
 import {NgIcon, provideIcons} from '@ng-icons/core';
 import {lucideMenu, lucideX, lucidePipette} from '@ng-icons/lucide';
-import {PIPES} from '../model';
+import {PIPES, isNewPipe} from '../model';
 import {SidebarService} from '../../reusables/services/sidebar.service';
 import {HlmIcon} from '@spartan-ng/helm/icon';
 
@@ -60,6 +60,9 @@ import {HlmIcon} from '@spartan-ng/helm/icon';
                 class="group flex w-full items-center rounded-md border border-transparent px-2 py-1.5 hover:bg-primary/10 text-muted-foreground hover:text-foreground transition-colors"
               >
                 {{ pipe.name }}
+                @if (isNew(pipe)) {
+                  <span class="ml-auto inline-flex items-center rounded-full bg-green-500/10 px-1.5 py-0.5 text-[10px] font-medium text-green-600 dark:text-green-400 ring-1 ring-inset ring-green-500/20">New</span>
+                }
               </a>
             }
           </div>
@@ -83,6 +86,7 @@ export class PipesPage {
   private sidebarService = inject(SidebarService);
   isSidebarOpen = this.sidebarService.isOpen;
   protected pipes = PIPES;
+  protected isNew = isNewPipe;
 
   closeSidebar() {
     this.sidebarService.close();

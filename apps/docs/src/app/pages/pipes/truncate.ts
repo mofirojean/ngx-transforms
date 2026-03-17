@@ -177,8 +177,7 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
         <app-author-credit author="Mofiro Jean" url="https://github.com/mofirojean" />
         <div class="flex gap-4">
           <app-next-prev-navigation
-            [previous]="{ label: 'ASCII Art', link: '/docs/pipes/ascii-art' }"
-            [next]="{ label: 'HTML Escape', link: '/docs/pipes/html-escape' }"
+            [previous]="{ label: 'Time Ago', link: '/docs/pipes/time-ago' }"
           />
         </div>
       </div>

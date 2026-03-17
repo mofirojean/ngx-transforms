@@ -179,8 +179,8 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
         <app-author-credit author="Mofiro Jean" url="https://github.com/mofirojean" />
         <div class="flex gap-4">
           <app-next-prev-navigation
-            [previous]="{ label: 'Text to Speech', link: '/docs/pipes/text-to-speech' }"
-            [next]="{ label: 'Time Ago', link: '/docs/pipes/time-ago' }"
+            [previous]="{ label: 'Credit Card Mask', link: '/docs/pipes/credit-card-mask' }"
+            [next]="{ label: 'Email Mask', link: '/docs/pipes/email-mask' }"
           />
         </div>
       </div>

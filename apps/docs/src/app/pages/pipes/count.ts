@@ -65,8 +65,10 @@ import {Breadcrumb} from '../../reusables/breadcrumb/breadcrumb';
       <div class="mt-16 pt-8 border-t border-border flex justify-between items-center text-sm text-muted-foreground">
         <app-author-credit author="Mofiro Jean" url="https://github.com/mofirojean"/>
         <div class="flex gap-4">
-          <app-next-prev-navigation [previous]="{label: 'Pipes', link: '/docs/pipes'}"
-                                    [next]="{label: 'JSON Pretty', link: '/docs/pipes/json-pretty'}"/>
+          <app-next-prev-navigation
+            [previous]="{ label: 'Color Convert', link: '/docs/pipes/color-convert' }"
+            [next]="{ label: 'Credit Card Mask', link: '/docs/pipes/credit-card-mask' }"
+          />
         </div>
       </div>
     </div>

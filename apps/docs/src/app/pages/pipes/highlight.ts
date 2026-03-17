@@ -158,8 +158,8 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
         <app-author-credit author="Mofiro Jean" url="https://github.com/mofirojean" />
         <div class="flex gap-4">
           <app-next-prev-navigation
-            [previous]="{ label: 'Color Convert', link: '/docs/pipes/color-convert' }"
-            [next]="{ label: 'IP Address Mask', link: '/docs/pipes/ip-address-mask' }"
+            [previous]="{ label: 'Gravatar', link: '/docs/pipes/gravatar' }"
+            [next]="{ label: 'HTML Escape', link: '/docs/pipes/html-escape' }"
           />
         </div>
       </div>

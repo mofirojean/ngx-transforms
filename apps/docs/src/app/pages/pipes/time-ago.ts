@@ -78,8 +78,9 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
         <div class="p-6 space-y-6">
           <div class="space-y-3">
             <div class="flex items-center gap-3">
-              <label class="text-sm font-medium w-20">Locale</label>
+              <label for="locale-select" class="text-sm font-medium w-20">Locale</label>
               <select
+                id="locale-select"
                 class="rounded-md border border-border bg-background px-3 py-2 text-sm"
                 (change)="onLocaleChange($event)">
                 <option value="en">English (en)</option>
@@ -232,7 +233,8 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
         <app-author-credit author="Mofiro Jean" url="https://github.com/mofirojean" />
         <div class="flex gap-4">
           <app-next-prev-navigation
-            [previous]="{ label: 'Device Type', link: '/docs/pipes/device-type' }"
+            [previous]="{ label: 'Text Transform', link: '/docs/pipes/text-transform' }"
+            [next]="{ label: 'Truncate', link: '/docs/pipes/truncate' }"
           />
         </div>
       </div>

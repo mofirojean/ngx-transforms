@@ -28,8 +28,6 @@ export interface QrCodeOptions {
  *
  * @example
  * <img [src]="'Hello, World!' | qrCode | async" />
- *
- * @author Mofiro Jean
  */
 @Pipe({
   name: 'qrCode',

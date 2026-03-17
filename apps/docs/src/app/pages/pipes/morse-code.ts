@@ -46,8 +46,8 @@ import {Breadcrumb} from '../../reusables/breadcrumb/breadcrumb';
         <app-author-credit author="John Doe" url="https://github.com/johndoe"/>
         <div class="flex gap-4">
           <app-next-prev-navigation
-            [previous]="{ label: 'Reverse', link: '/docs/pipes/reverse' }"
-            [next]="{ label: 'Snake Case', link: '/docs/pipes/snake-case' }"
+            [previous]="{ label: 'JSON Pretty', link: '/docs/pipes/json-pretty' }"
+            [next]="{ label: 'QR Code', link: '/docs/pipes/qrcode' }"
           />
         </div>
       </div>

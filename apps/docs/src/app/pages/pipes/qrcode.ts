@@ -60,8 +60,8 @@ import {Breadcrumb} from '../../reusables/breadcrumb/breadcrumb';
         <app-author-credit author="Mofiro Jean" url="https://github.com/mofirojean"/>
         <div class="flex gap-4">
           <app-next-prev-navigation
-            [previous]="{ label: 'JSON Pretty', link: '/docs/pipes/json-pretty' }"
-            [next]="{ label: 'Barcode', link: '/docs/pipes/barcode' }"
+            [previous]="{ label: 'Morse Code', link: '/docs/pipes/morse-code' }"
+            [next]="{ label: 'Replace', link: '/docs/pipes/replace' }"
           />
         </div>
       </div>

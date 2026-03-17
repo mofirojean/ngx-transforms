@@ -170,7 +170,7 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
         <div class="flex gap-4">
           <app-next-prev-navigation
             [previous]="{ label: 'HTML Escape', link: '/docs/pipes/html-escape' }"
-            [next]="{ label: 'Text to Speech', link: '/docs/pipes/text-to-speech' }"
+            [next]="{ label: 'Initials', link: '/docs/pipes/initials' }"
           />
         </div>
       </div>

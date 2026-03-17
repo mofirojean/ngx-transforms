@@ -13,8 +13,6 @@ import { Pipe, PipeTransform } from '@angular/core';
  * {{ '1234-5678-9012-3456' | creditCardMask }} // Outputs: **** **** **** 3456
  * {{ '1234567890123456' | creditCardMask: true }} // Outputs: **** **** **** 3456
  * {{ '1234567890123456' | creditCardMask: false }} // Outputs: 1234567890123456
- *
- * @author Mofiro Jean
  */
 @Pipe({
   name: 'creditCardMask',

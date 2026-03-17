@@ -51,8 +51,8 @@ import {Breadcrumb} from '../../reusables/breadcrumb/breadcrumb';
         <app-author-credit author="Mofiro Jean" url="https://github.com/mofirojean"/>
         <div class="flex gap-4">
           <app-next-prev-navigation
-            [previous]="{ label: 'Count', link: '/docs/pipes/count' }"
-            [next]="{ label: 'QR Code', link: '/docs/pipes/qrcode' }"
+            [previous]="{ label: 'IP Address Mask', link: '/docs/pipes/ip-address-mask' }"
+            [next]="{ label: 'Morse Code', link: '/docs/pipes/morse-code' }"
           />
         </div>
       </div>

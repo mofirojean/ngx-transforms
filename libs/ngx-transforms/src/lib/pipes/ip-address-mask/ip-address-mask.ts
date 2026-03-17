@@ -11,8 +11,6 @@ import { Pipe, PipeTransform } from '@angular/core';
  * @example
  * {{ '192.168.1.1' | ipAddressMask }} // Outputs: 192.168.*.*
  * {{ '10.0.0.255' | ipAddressMask }} // Outputs: 10.0.*.*
- *
- * @author Mofiro Jean
  */
 @Pipe({
   name: 'ipAddressMask',

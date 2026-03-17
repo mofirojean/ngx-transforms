@@ -11,8 +11,6 @@ import { Pipe, PipeTransform } from '@angular/core';
  * {{ 'hello' | reverse }} // Outputs: 'olleh'
  * {{ '12345' | reverse }} // Outputs: '54321'
  * <p>{{ userInput | reverse }}</p>
- *
- * @author Mofiro Jean
  */
 @Pipe({
   name: 'reverse',

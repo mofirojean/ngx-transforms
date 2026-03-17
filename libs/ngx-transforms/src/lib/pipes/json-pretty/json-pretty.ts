@@ -12,8 +12,6 @@ import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
  * @example
  * {{ '{"name": "John", "age": 30}' | jsonPretty }} // Outputs: Colorful, indented JSON
  * <pre [innerHTML]="data | jsonPretty:4"></pre> // 4-space indentation
- *
- * @author Mofiro Jean
  */
 @Pipe({
   name: 'jsonPretty',

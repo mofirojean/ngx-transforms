@@ -23,6 +23,7 @@ import { TextToSpeechPipe } from '../lib/pipes/text-to-speech/text-to-speech';
 import { TitleCasePipe } from '../lib/pipes/title-case/title-case';
 import { TruncatePipe } from '../lib/pipes/truncate/truncate';
 import { CountPipe } from '../lib/pipes/count/count'
+import {TimeAgoPipePipe} from '../lib/pipes/time-ago/time-ago';
 
 export const ALL_PIPES: Provider[] = [
   AsciiArtPipe,
@@ -48,5 +49,6 @@ export const ALL_PIPES: Provider[] = [
   TextToSpeechPipe,
   TitleCasePipe,
   TruncatePipe,
-  CountPipe
+  CountPipe,
+  TimeAgoPipePipe
 ];

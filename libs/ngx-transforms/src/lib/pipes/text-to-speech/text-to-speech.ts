@@ -11,8 +11,6 @@ import { Pipe, PipeTransform } from '@angular/core';
  * @example
  * <div>{{ Hello World' | textToSpeech }}</div>
  * <div>{{ 'Bonjour' | textToSpeech:'fr-FR' }}h</div>
- *
- * @author Mofiro Jean
  */
 @Pipe({
   name: 'textToSpeech',

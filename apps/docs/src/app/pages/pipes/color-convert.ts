@@ -234,10 +234,8 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
         />
         <div class="flex gap-4">
           <app-next-prev-navigation
-            [previous]="{
-              label: 'Text Transform',
-              link: '/docs/pipes/text-transform'
-            }"
+            [previous]="{ label: 'Barcode', link: '/docs/pipes/barcode' }"
+            [next]="{ label: 'Count', link: '/docs/pipes/count' }"
           />
         </div>
       </div>

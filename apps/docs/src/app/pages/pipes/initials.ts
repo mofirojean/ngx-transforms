@@ -73,8 +73,8 @@ import {Breadcrumb} from '../../reusables/breadcrumb/breadcrumb';
         />
         <div class="flex gap-4">
           <app-next-prev-navigation
-            [previous]="{ label: 'Morse Code', link: '/docs/pipes/morse-code' }"
-            [next]="{ label: 'Text Transform', link: '/docs/pipes/text-transform' }"
+            [previous]="{ label: 'HTML Sanitize', link: '/docs/pipes/html-sanitize' }"
+            [next]="{ label: 'IP Address Mask', link: '/docs/pipes/ip-address-mask' }"
           />
         </div>
       </div>

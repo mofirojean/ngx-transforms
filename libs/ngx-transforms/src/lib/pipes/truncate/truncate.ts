@@ -20,8 +20,6 @@ import { Pipe, PipeTransform } from '@angular/core';
  * {{ 'This is a long sentence' | truncate: 20: '...' : true }} // Returns 'This is a long...'
  * {{ null | truncate }} // Returns ''
  * {{ undefined | truncate }} // Returns ''
- *
- * @author Mofiro Jean
  */
 @Pipe({
   name: 'truncate',

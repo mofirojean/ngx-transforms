@@ -16,8 +16,6 @@ import { Pipe, PipeTransform } from '@angular/core';
  * {{ 'example.com' | emailMask }} // Returns 'example.com'
  * {{ null | emailMask }} // Returns ''
  * {{ undefined | emailMask }} // Returns ''
- *
- * @author Mofiro Jean
  */
 @Pipe({
   name: 'emailMask',

@@ -75,8 +75,6 @@ export interface AsciiArtOptions extends Partial<AsciiConfig> {
  * @example
  * // With inverted colors
  * {{ 'DARK' | asciiArt:{ inverted: true, charset: CharsetPreset.MINIMAL } }}
- *
- * @author Mofiro Jean
  */
 @Pipe({
   name: 'asciiArt',

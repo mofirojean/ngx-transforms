@@ -50,8 +50,8 @@ import {Breadcrumb} from '../../reusables/breadcrumb/breadcrumb';
         <app-author-credit author="Mofiro Jean" url="https://github.com/mofirojean"/>
         <div class="flex gap-4">
           <app-next-prev-navigation
-            [previous]="{ label: 'QR Code', link: '/docs/pipes/qrcode' }"
-            [next]="{ label: 'Replace', link: '/docs/pipes/replace' }"
+            [previous]="{ label: 'ASCII Art', link: '/docs/pipes/ascii-art' }"
+            [next]="{ label: 'Color Convert', link: '/docs/pipes/color-convert' }"
           />
         </div>
       </div>

@@ -185,8 +185,6 @@ function parseColor(value: string): ParsedColor | null {
  * // Alpha channel support
  * {{ '#FF000080' | colorConvert:'rgba' }}   // rgba(255, 0, 0, 0.5)
  * {{ 'rgba(255, 0, 0, 0.5)' | colorConvert:'hex' }} // #FF000080
- *
- * @author Mofiro Jean
  */
 @Pipe({
   name: 'colorConvert',

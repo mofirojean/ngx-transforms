@@ -11,8 +11,6 @@ import { Pipe, PipeTransform } from '@angular/core';
  * {{ 'SOS' | morseCode }} // Outputs: '... --- ...'
  * {{ 'HELP' | morseCode }} // Outputs: '.... . .-.. .--.'
  * <p>{{ userInput | morseCode }}</p>
- *
- * @author Mofiro Jean
  */
 @Pipe({
   name: 'morseCode',

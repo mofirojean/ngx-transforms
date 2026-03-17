@@ -48,8 +48,8 @@ import {Breadcrumb} from '../../reusables/breadcrumb/breadcrumb';
         <app-author-credit author="John Doe" url="https://github.com/johndoe"/>
         <div class="flex gap-4">
           <app-next-prev-navigation
-            [previous]="{ label: 'Gravatar', link: '/docs/pipes/gravatar' }"
-            [next]="{ label: 'Morse Code', link: '/docs/pipes/morse-code' }"
+            [previous]="{ label: 'Replace', link: '/docs/pipes/replace' }"
+            [next]="{ label: 'Text to Speech', link: '/docs/pipes/text-to-speech' }"
           />
         </div>
       </div>

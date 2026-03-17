@@ -265,8 +265,8 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
         <app-author-credit author="Mofiro Jean" url="https://github.com/mofirojean" />
         <div class="flex gap-4">
           <app-next-prev-navigation
-            [previous]="{ label: 'Highlight', link: '/docs/pipes/highlight' }"
-            [next]="{ label: 'Credit Card Mask', link: '/docs/pipes/credit-card-mask' }"
+            [previous]="{ label: 'Initials', link: '/docs/pipes/initials' }"
+            [next]="{ label: 'JSON Pretty', link: '/docs/pipes/json-pretty' }"
           />
         </div>
       </div>

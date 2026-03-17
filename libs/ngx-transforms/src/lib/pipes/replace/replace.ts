@@ -30,8 +30,6 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
  *
  * <div [innerHTML]="'Angular is great' | replace:'great':'awesome':'highlight':false"></div>
  * // Renders: Angular is <span class="highlight">great</span>
- *
- * @author Mofiro Jean
  */
 
 @Pipe({

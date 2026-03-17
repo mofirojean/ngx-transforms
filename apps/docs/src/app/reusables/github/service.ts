@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {catchError, Observable, of} from 'rxjs';
 
@@ -6,7 +6,7 @@ import {catchError, Observable, of} from 'rxjs';
   providedIn: 'root',
 })
 export class GithubService {
-  constructor(private http: HttpClient) {}
+  private http = inject(HttpClient);
 
   getGithubStars(): Observable<Github> {
     return this.http.get<Github>('https://api.github.com/repos/mofirojean/ngx-transforms')

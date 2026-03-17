@@ -38,7 +38,7 @@ export class TimeAgoPipePipe implements PipeTransform {
   private cacheLocal = '';
   private rtf!: Intl.RelativeTimeFormat;
 
-  transform(value: Date | number | string, local: string = 'en'): string {
+  transform(value: Date | number | string, local = 'en'): string {
     if (value === null || value === undefined || value === "") {
       return "";
     }

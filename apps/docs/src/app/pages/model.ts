@@ -113,5 +113,11 @@ export const PIPES: Pipe[] = [
     name: "Device Type",
     url: "/docs/pipes/device-type",
     description: "Detects device type (mobile, tablet, desktop) from user agent strings.",
+  },
+  {
+    name: "Time Ago",
+    url: "/docs/pipes/time-ago",
+    description: "Converts dates into localized relative time strings using Intl.RelativeTimeFormat.",
+    isNew: true,
   }
 ];

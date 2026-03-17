@@ -180,6 +180,7 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
         <div class="flex gap-4">
           <app-next-prev-navigation
             [previous]="{ label: 'Text to Speech', link: '/docs/pipes/text-to-speech' }"
+            [next]="{ label: 'Time Ago', link: '/docs/pipes/time-ago' }"
           />
         </div>
       </div>

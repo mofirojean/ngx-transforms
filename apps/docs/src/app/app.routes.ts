@@ -24,6 +24,7 @@ import { HtmlEscapePage } from './pages/pipes/html-escape';
 import { HtmlSanitizePage } from './pages/pipes/html-sanitize';
 import { TextToSpeechPage } from './pages/pipes/text-to-speech';
 import { DeviceTypePage } from './pages/pipes/device-type';
+import { TimeAgoPage } from './pages/pipes/time-ago';
 
 export const appRoutes: Route[] = [
   {
@@ -129,6 +130,10 @@ export const appRoutes: Route[] = [
           {
             path: 'device-type',
             component: DeviceTypePage,
+          },
+          {
+            path: 'time-ago',
+            component: TimeAgoPage,
           },
         ],
       },

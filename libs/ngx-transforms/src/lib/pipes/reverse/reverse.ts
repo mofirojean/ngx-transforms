@@ -18,12 +18,16 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ReversePipe implements PipeTransform {
 
-  transform(value: string): string {
-    if (!value || typeof value !== 'string') {
-      return '';
+  transform(value: string | unknown[]): string | unknown[] {
+    if (Array.isArray(value)) {
+      return [...value].reverse();
     }
 
-    return value.split('').reverse().join('');
+    if (typeof value === 'string') {
+      return value.split('').reverse().join('');
+    }
+
+    return ''
   }
 
 }

@@ -107,7 +107,8 @@ export const PIPES: Pipe[] = [
   {
     name: "Reverse",
     url: "/docs/pipes/reverse",
-    description: "Reverses the characters in a string.",
+    description: "Reverses the characters in a string or the elements in an array.",
+    addedOn: "2026-03-18",
   },
   {
     name: "Text to Speech",

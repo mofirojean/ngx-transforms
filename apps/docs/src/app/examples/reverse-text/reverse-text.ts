@@ -86,7 +86,7 @@ export class ReverseText {
   private readonly reversePipe: ReversePipe = inject(ReversePipe);
   text = signal('Ambulance');
   reversedTextAsArray = computed(() =>
-    this.reversePipe.transform(this.text()).split('')
+    (this.reversePipe.transform(this.text()) as string).split('')
   );
 
   onInput(event: Event): void {

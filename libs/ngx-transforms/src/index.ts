@@ -6,6 +6,7 @@ export * from './lib/pipes/count/count';
 export * from './lib/pipes/credit-card-mask/credit-card-mask';
 export * from './lib/pipes/device-type/device-type';
 export * from './lib/pipes/email-mask/email-mask';
+export * from './lib/pipes/flatten/flatten';
 export * from './lib/pipes/gravatar/gravatar';
 export * from './lib/pipes/highlight/highlight';
 export * from './lib/pipes/html-escape/html-escape';

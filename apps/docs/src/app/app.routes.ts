@@ -25,6 +25,7 @@ import { HtmlSanitizePage } from './pages/pipes/html-sanitize';
 import { TextToSpeechPage } from './pages/pipes/text-to-speech';
 import { DeviceTypePage } from './pages/pipes/device-type';
 import { TimeAgoPage } from './pages/pipes/time-ago';
+import { FlattenPage } from './pages/pipes/flatten';
 
 export const appRoutes: Route[] = [
   {
@@ -134,6 +135,10 @@ export const appRoutes: Route[] = [
           {
             path: 'time-ago',
             component: TimeAgoPage,
+          },
+          {
+            path: 'flatten',
+            component: FlattenPage,
           },
         ],
       },

@@ -55,6 +55,12 @@ export const PIPES: Pipe[] = [
     description: "Mask email addresses while preserving first and last characters.",
   },
   {
+    name: "Flatten",
+    url: "/docs/pipes/flatten",
+    description: "Flattens nested arrays to a specified depth.",
+    addedOn: "2026-03-19",
+  },
+  {
     name: "Gravatar",
     url: "/docs/pipes/gravatar",
     description: "Generate a gravatar from an email address.",

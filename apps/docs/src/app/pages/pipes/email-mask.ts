@@ -89,7 +89,7 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
               <div class="flex items-center justify-between">
                 <div>
                   <div class="text-xs text-muted-foreground mb-1">Original</div>
-                  <code class="text-sm">john.doe@example.com</code>
+                  <code class="text-sm">john.doe&#64;example.com</code>
                 </div>
                 <div class="h-px flex-1 mx-4 bg-border"></div>
                 <div>
@@ -101,7 +101,7 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
               <div class="flex items-center justify-between">
                 <div>
                   <div class="text-xs text-muted-foreground mb-1">Short (2 chars)</div>
-                  <code class="text-sm">ab@test.com</code>
+                  <code class="text-sm">ab&#64;test.com</code>
                 </div>
                 <div class="h-px flex-1 mx-4 bg-border"></div>
                 <div>
@@ -113,7 +113,7 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
               <div class="flex items-center justify-between">
                 <div>
                   <div class="text-xs text-muted-foreground mb-1">Single char</div>
-                  <code class="text-sm">a@domain.org</code>
+                  <code class="text-sm">a&#64;domain.org</code>
                 </div>
                 <div class="h-px flex-1 mx-4 bg-border"></div>
                 <div>
@@ -125,7 +125,7 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
               <div class="flex items-center justify-between">
                 <div>
                   <div class="text-xs text-muted-foreground mb-1">Long username</div>
-                  <code class="text-sm">very.long.username@mail.io</code>
+                  <code class="text-sm">very.long.username&#64;mail.io</code>
                 </div>
                 <div class="h-px flex-1 mx-4 bg-border"></div>
                 <div>
@@ -161,7 +161,7 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
           <div>
             <h4 class="font-semibold mb-1">Domain preservation</h4>
             <p class="text-sm text-muted-foreground mb-2">The domain part (&#64;example.com) remains fully visible</p>
-            <code class="text-xs bg-muted px-2 py-1 rounded">user@company.com → u***r@company.com</code>
+            <code class="text-xs bg-muted px-2 py-1 rounded">user&#64;company.com → u***r&#64;company.com</code>
           </div>
         </div>
       </div>
@@ -219,7 +219,7 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
           <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 text-xs font-bold">✓</span>
           <div>
             <h4 class="font-semibold">Validation</h4>
-            <p class="text-sm text-muted-foreground">Checks for @ symbol before masking. Invalid emails are returned unchanged.</p>
+            <p class="text-sm text-muted-foreground">Checks for &#64; symbol before masking. Invalid emails are returned unchanged.</p>
           </div>
         </div>
         <div class="flex items-start gap-3">
@@ -236,7 +236,7 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
         <div class="flex gap-4">
           <app-next-prev-navigation
             [previous]="{ label: 'Device Type', link: '/docs/pipes/device-type' }"
-            [next]="{ label: 'Gravatar', link: '/docs/pipes/gravatar' }"
+            [next]="{ label: 'Flatten', link: '/docs/pipes/flatten' }"
           />
         </div>
       </div>

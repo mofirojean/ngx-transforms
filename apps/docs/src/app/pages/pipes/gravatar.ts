@@ -48,7 +48,7 @@ import {Breadcrumb} from '../../reusables/breadcrumb/breadcrumb';
         <app-author-credit author="Mofiro Jean" url="https://github.com/mofirojean"/>
         <div class="flex gap-4">
           <app-next-prev-navigation
-            [previous]="{ label: 'Email Mask', link: '/docs/pipes/email-mask' }"
+            [previous]="{ label: 'Flatten', link: '/docs/pipes/flatten' }"
             [next]="{ label: 'Highlight', link: '/docs/pipes/highlight' }"
           />
         </div>

@@ -137,4 +137,10 @@ export const PIPES: Pipe[] = [
     url: "/docs/pipes/truncate",
     description: "Truncates strings to a specified length with configurable ellipsis and word preservation.",
   },
+  {
+    name: "Unique",
+    url: "/docs/pipes/unique",
+    description: "Removes duplicates from arrays with support for nested object keys.",
+    addedOn: "2026-03-20",
+  },
 ];

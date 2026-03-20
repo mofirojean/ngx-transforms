@@ -24,4 +24,5 @@ export * from './lib/pipes/text-to-speech/text-to-speech';
 export * from './lib/pipes/title-case/title-case';
 export * from './lib/pipes/truncate/truncate';
 export * from './lib/pipes/time-ago/time-ago';
+export * from './lib/pipes/unique/unique';
 export * from './providers/all-pipes.provider';

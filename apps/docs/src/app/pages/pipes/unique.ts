@@ -1,34 +1,37 @@
-import { Component } from '@angular/core';
-import { TruncatePipe } from '@ngx-transforms';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { JsonPipe } from '@angular/common';
+import { UniquePipe } from '@ngx-transforms';
 import { CodePreview } from '../../reusables/code-preview/code-preview';
 import { NextPrevNavigation } from '../../reusables/next-prev-navigation/next-prev-navigation';
 import { MacosWindow } from '../../reusables/macos-window/macos-window';
-import { ContentPreviewManager } from '../../examples/content-preview-manager/content-preview-manager';
 import { AuthorCredit } from '../../reusables/author-credit/author-credit';
 import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
+import { UniquePlayground } from '../../examples/unique-playground/unique-playground';
 
 @Component({
-  selector: 'app-truncate-page',
+  selector: 'app-unique-page',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    TruncatePipe,
+    UniquePipe,
+    JsonPipe,
     CodePreview,
     NextPrevNavigation,
     MacosWindow,
-    ContentPreviewManager,
     AuthorCredit,
     Breadcrumb,
+    UniquePlayground,
   ],
   template: `
     <div class="container mx-auto py-10 px-4 md:px-8 max-w-4xl">
       <app-breadcrumb class="mb-6 block" />
 
       <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-2">
-        Truncate Pipe
+        Unique Pipe
       </h1>
       <p class="text-lg text-muted-foreground mb-8">
-        Truncates strings to a specified maximum length with configurable ellipsis and optional word
-        boundary preservation. Perfect for content previews, notification text, and card descriptions.
+        Removes duplicate values from arrays. Supports primitives, objects by property key,
+        and deep nested properties via dot notation.
       </p>
 
       <!-- Use Cases -->
@@ -39,8 +42,8 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-sm font-bold mt-0.5">1</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Blog Post Excerpts</h4>
-                <p class="text-sm text-muted-foreground">Show article previews in content cards without overflowing the layout.</p>
+                <h4 class="font-semibold mb-1">CRM Data Deduplication</h4>
+                <p class="text-sm text-muted-foreground">Merge contacts from Salesforce, HubSpot, and Mailchimp — remove duplicates by email.</p>
               </div>
             </div>
           </div>
@@ -48,8 +51,8 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 text-sm font-bold mt-0.5">2</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Notification Messages</h4>
-                <p class="text-sm text-muted-foreground">Truncate push notification content to fit within platform character limits.</p>
+                <h4 class="font-semibold mb-1">Dropdown Options</h4>
+                <p class="text-sm text-muted-foreground">Generate unique filter options from raw API data without manual deduplication.</p>
               </div>
             </div>
           </div>
@@ -57,8 +60,8 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-sm font-bold mt-0.5">3</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Data Table Cells</h4>
-                <p class="text-sm text-muted-foreground">Keep table columns compact by truncating long descriptions or URLs.</p>
+                <h4 class="font-semibold mb-1">Tag Aggregation</h4>
+                <p class="text-sm text-muted-foreground">Collect tags from multiple posts or products into a single unique list.</p>
               </div>
             </div>
           </div>
@@ -66,8 +69,8 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 text-sm font-bold mt-0.5">4</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Social Feed Cards</h4>
-                <p class="text-sm text-muted-foreground">Display post previews in feeds with consistent card heights.</p>
+                <h4 class="font-semibold mb-1">Search Result Merging</h4>
+                <p class="text-sm text-muted-foreground">Combine results from multiple API endpoints and remove duplicate entries by ID.</p>
               </div>
             </div>
           </div>
@@ -75,38 +78,32 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
       </div>
 
       <h2 class="text-2xl font-bold my-8">Interactive Example</h2>
-      <app-macos-window title="Content Preview Manager">
-        <app-content-preview-manager />
+      <app-macos-window title="Contact Deduplicator">
+        <app-unique-playground />
       </app-macos-window>
 
       <h2 class="text-2xl font-bold my-8">Usage</h2>
       <app-code-preview [code]="code" [language]="'typescript'">
         <div class="space-y-6">
           <div>
-            <h3 class="text-xl font-semibold mb-4">Truncation Examples</h3>
+            <h3 class="text-xl font-semibold mb-4">Unique Examples</h3>
             <div class="rounded-md bg-muted p-6 border border-border space-y-4">
               <div>
-                <div class="text-xs text-muted-foreground mb-2">Default (10 chars)</div>
+                <div class="text-xs text-muted-foreground mb-2">Primitive numbers</div>
                 <div class="rounded-md bg-background p-4">
-                  <p class="text-sm font-mono">{{ 'This is a long sentence' | truncate }}</p>
+                  <p class="text-sm font-mono">{{ numbers | unique | json }}</p>
                 </div>
               </div>
               <div>
-                <div class="text-xs text-muted-foreground mb-2">Custom Length (20 chars)</div>
+                <div class="text-xs text-muted-foreground mb-2">Primitive strings</div>
                 <div class="rounded-md bg-background p-4">
-                  <p class="text-sm font-mono">{{ 'This is a long sentence' | truncate: 20 }}</p>
+                  <p class="text-sm font-mono">{{ tags | unique | json }}</p>
                 </div>
               </div>
               <div>
-                <div class="text-xs text-muted-foreground mb-2">Custom Ellipsis</div>
+                <div class="text-xs text-muted-foreground mb-2">Objects by 'id'</div>
                 <div class="rounded-md bg-background p-4">
-                  <p class="text-sm font-mono">{{ 'This is a long sentence' | truncate: 18: ' [more]' }}</p>
-                </div>
-              </div>
-              <div>
-                <div class="text-xs text-muted-foreground mb-2">Preserve Words</div>
-                <div class="rounded-md bg-background p-4">
-                  <p class="text-sm font-mono">{{ 'This is a long sentence' | truncate: 20: '...': true }}</p>
+                  <p class="text-sm font-mono">{{ users | unique:'id' | json }}</p>
                 </div>
               </div>
             </div>
@@ -127,22 +124,16 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
           </thead>
           <tbody>
             <tr class="border-b border-border">
-              <td class="px-4 py-3 font-mono text-xs">maxLength</td>
-              <td class="px-4 py-3 text-muted-foreground">number</td>
-              <td class="px-4 py-3 font-mono text-xs">10</td>
-              <td class="px-4 py-3 text-muted-foreground">Maximum length including ellipsis</td>
-            </tr>
-            <tr class="border-b border-border">
-              <td class="px-4 py-3 font-mono text-xs">ellipsis</td>
-              <td class="px-4 py-3 text-muted-foreground">string</td>
-              <td class="px-4 py-3 font-mono text-xs">'...'</td>
-              <td class="px-4 py-3 text-muted-foreground">String appended to truncated text</td>
+              <td class="px-4 py-3 font-mono text-xs">value</td>
+              <td class="px-4 py-3 text-muted-foreground">unknown[]</td>
+              <td class="px-4 py-3 font-mono text-xs">-</td>
+              <td class="px-4 py-3 text-muted-foreground">The array to deduplicate</td>
             </tr>
             <tr>
-              <td class="px-4 py-3 font-mono text-xs">preserveWords</td>
-              <td class="px-4 py-3 text-muted-foreground">boolean</td>
-              <td class="px-4 py-3 font-mono text-xs">false</td>
-              <td class="px-4 py-3 text-muted-foreground">Truncate at word boundary instead of mid-word</td>
+              <td class="px-4 py-3 font-mono text-xs">key</td>
+              <td class="px-4 py-3 text-muted-foreground">string</td>
+              <td class="px-4 py-3 font-mono text-xs">undefined</td>
+              <td class="px-4 py-3 text-muted-foreground">Property path for object comparison (supports dot notation, e.g. 'user.email')</td>
             </tr>
           </tbody>
         </table>
@@ -153,22 +144,29 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
         <div class="flex items-start gap-3">
           <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
           <div>
-            <h4 class="font-semibold">Smart Word Boundary</h4>
-            <p class="text-sm text-muted-foreground">Optionally avoids cutting words mid-syllable for cleaner previews.</p>
+            <h4 class="font-semibold">Primitive & Object Support</h4>
+            <p class="text-sm text-muted-foreground">Works with numbers, strings, and objects — use Set for primitives, property key for objects.</p>
           </div>
         </div>
         <div class="flex items-start gap-3">
           <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
           <div>
-            <h4 class="font-semibold">Customizable Ellipsis</h4>
-            <p class="text-sm text-muted-foreground">Use any suffix like '...', ' [more]', or ' →' to indicate truncation.</p>
+            <h4 class="font-semibold">Deep Nested Keys</h4>
+            <p class="text-sm text-muted-foreground">Use dot notation to deduplicate by deeply nested properties like 'customer.address.city'.</p>
           </div>
         </div>
         <div class="flex items-start gap-3">
           <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
           <div>
-            <h4 class="font-semibold">Null Safe</h4>
-            <p class="text-sm text-muted-foreground">Gracefully handles null, undefined, and non-string inputs by returning an empty string.</p>
+            <h4 class="font-semibold">First Occurrence Wins</h4>
+            <p class="text-sm text-muted-foreground">Always keeps the first occurrence of a duplicate — predictable, stable ordering.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
+          <div>
+            <h4 class="font-semibold">Immutable</h4>
+            <p class="text-sm text-muted-foreground">Always returns a new array — the original data is never modified.</p>
           </div>
         </div>
       </div>
@@ -177,41 +175,54 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
         <app-author-credit author="Mofiro Jean" url="https://github.com/mofirojean" />
         <div class="flex gap-4">
           <app-next-prev-navigation
-            [previous]="{ label: 'Time Ago', link: '/docs/pipes/time-ago' }"
-            [next]="{ label: 'Unique', link: '/docs/pipes/unique' }"
+            [previous]="{ label: 'Truncate', link: '/docs/pipes/truncate' }"
           />
         </div>
       </div>
     </div>
   `,
 })
-export class TruncatePage {
+export class UniquePage {
+  numbers = [1, 2, 2, 3, 3, 3, 4];
+  tags = ['angular', 'typescript', 'angular', 'rxjs', 'typescript'];
+  users = [
+    { id: 1, name: 'Alice' },
+    { id: 2, name: 'Bob' },
+    { id: 1, name: 'Alice (dup)' },
+  ];
+
   code = `
 import { Component } from '@angular/core';
-import { TruncatePipe } from 'ngx-transforms';
+import { UniquePipe } from 'ngx-transforms';
 
 @Component({
   selector: 'app-example',
   standalone: true,
-  imports: [TruncatePipe],
+  imports: [UniquePipe],
   template: \`
-    <!-- Default: 10 chars with '...' -->
-    <p>{{ 'This is a long sentence' | truncate }}</p>
+    <!-- Primitives -->
+    <p>{{ [1, 2, 2, 3, 3] | unique }}</p>
+    <!-- [1, 2, 3] -->
 
-    <!-- Custom max length -->
-    <p>{{ article.description | truncate: 80 }}</p>
+    <!-- Objects by property -->
+    <p>{{ users | unique:'email' }}</p>
 
-    <!-- Custom ellipsis -->
-    <p>{{ title | truncate: 30: ' [more]' }}</p>
-
-    <!-- Preserve word boundaries -->
-    <p>{{ content | truncate: 50: '...': true }}</p>
+    <!-- Deep nested key -->
+    <p>{{ orders | unique:'customer.email' }}</p>
   \`
 })
 export class ExampleComponent {
-  article = { description: 'A very long description...' };
-  title = 'An extremely long article title';
-  content = 'Words are preserved at boundaries';
+  users = [
+    { email: 'alice@test.com', name: 'Alice' },
+    { email: 'bob@test.com', name: 'Bob' },
+    { email: 'alice@test.com', name: 'Alice (dup)' },
+  ];
+
+  orders = [
+    { id: 1, customer: { email: 'alice@test.com' } },
+    { id: 2, customer: { email: 'bob@test.com' } },
+    { id: 3, customer: { email: 'alice@test.com' } },
+  ];
 }
   `;
 }

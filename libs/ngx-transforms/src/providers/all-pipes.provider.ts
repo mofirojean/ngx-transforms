@@ -25,6 +25,7 @@ import { TitleCasePipe } from '../lib/pipes/title-case/title-case';
 import { TruncatePipe } from '../lib/pipes/truncate/truncate';
 import { CountPipe } from '../lib/pipes/count/count'
 import {TimeAgoPipePipe} from '../lib/pipes/time-ago/time-ago';
+import {UniquePipe} from '../lib/pipes/unique/unique';
 
 export const ALL_PIPES: Provider[] = [
   AsciiArtPipe,
@@ -52,5 +53,6 @@ export const ALL_PIPES: Provider[] = [
   TitleCasePipe,
   TruncatePipe,
   CountPipe,
-  TimeAgoPipePipe
+  TimeAgoPipePipe,
+  UniquePipe
 ];

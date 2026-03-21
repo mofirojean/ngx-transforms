@@ -178,7 +178,7 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
         <div class="flex gap-4">
           <app-next-prev-navigation
             [previous]="{ label: 'Time Ago', link: '/docs/pipes/time-ago' }"
-            [next]="{ label: 'Unique', link: '/docs/pipes/unique' }"
+            [next]="{ label: 'Truthify', link: '/docs/pipes/truthify' }"
           />
         </div>
       </div>

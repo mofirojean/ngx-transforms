@@ -138,6 +138,12 @@ export const PIPES: Pipe[] = [
     description: "Truncates strings to a specified length with configurable ellipsis and word preservation.",
   },
   {
+    name: "Truthify",
+    url: "/docs/pipes/truthify",
+    description: "Removes all falsy values from arrays.",
+    addedOn: "2026-03-21",
+  },
+  {
     name: "Unique",
     url: "/docs/pipes/unique",
     description: "Removes duplicates from arrays with support for nested object keys.",

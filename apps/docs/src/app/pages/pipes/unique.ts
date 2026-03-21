@@ -175,7 +175,7 @@ import { UniquePlayground } from '../../examples/unique-playground/unique-playgr
         <app-author-credit author="Mofiro Jean" url="https://github.com/mofirojean" />
         <div class="flex gap-4">
           <app-next-prev-navigation
-            [previous]="{ label: 'Truncate', link: '/docs/pipes/truncate' }"
+            [previous]="{ label: 'Truthify', link: '/docs/pipes/truthify' }"
           />
         </div>
       </div>

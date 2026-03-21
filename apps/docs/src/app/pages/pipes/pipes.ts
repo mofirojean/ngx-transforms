@@ -3,7 +3,7 @@ import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {HlmButton} from '@spartan-ng/helm/button';
 import {NgIcon, provideIcons} from '@ng-icons/core';
 import {lucideMenu, lucideX, lucidePipette} from '@ng-icons/lucide';
-import {PIPES, isNewPipe} from '../model';
+import {PIPE_CATEGORIES, isNewPipe} from '../model';
 import {SidebarService} from '../../reusables/services/sidebar.service';
 import {HlmIcon} from '@spartan-ng/helm/icon';
 
@@ -49,23 +49,26 @@ import {HlmIcon} from '@spartan-ng/helm/icon';
             </a>
           </div>
 
-          <h4 routerLink="/docs/pipes" class="mb-4 text-sm font-semibold cursor-pointer leading-none tracking-tight">
-            Pipes</h4>
-          <div class="grid grid-flow-row auto-rows-max text-sm">
-            @for (pipe of pipes; track pipe.name) {
-              <a
-                [routerLink]="pipe.url"
-                routerLinkActive="font-medium text-primary bg-primary/10"
-                (click)="closeSidebar()"
-                class="group flex w-full items-center rounded-md border border-transparent px-2 py-1.5 hover:bg-primary/10 text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {{ pipe.name }}
-                @if (isNew(pipe)) {
-                  <span class="ml-auto inline-flex items-center rounded-full bg-green-500/10 px-1.5 py-0.5 text-[10px] font-medium text-green-600 dark:text-green-400 ring-1 ring-inset ring-green-500/20">New</span>
-                }
-              </a>
-            }
-          </div>
+          @for (category of categories; track category.name) {
+            <h4 class="mb-2 mt-6 first:mt-0 text-xs font-semibold uppercase tracking-wider text-muted-foreground/70">
+              {{ category.name }}
+            </h4>
+            <div class="grid grid-flow-row auto-rows-max text-sm mb-2">
+              @for (pipe of category.pipes; track pipe.name) {
+                <a
+                  [routerLink]="pipe.url"
+                  routerLinkActive="font-medium text-primary bg-primary/10"
+                  (click)="closeSidebar()"
+                  class="group flex w-full items-center rounded-md border border-transparent px-2 py-1.5 hover:bg-primary/10 text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {{ pipe.name }}
+                  @if (isNew(pipe)) {
+                    <span class="ml-auto inline-flex items-center rounded-full bg-green-500/10 px-1.5 py-0.5 text-[10px] font-medium text-green-600 dark:text-green-400 ring-1 ring-inset ring-green-500/20">New</span>
+                  }
+                </a>
+              }
+            </div>
+          }
         </div>
       </aside>
 
@@ -85,7 +88,7 @@ import {HlmIcon} from '@spartan-ng/helm/icon';
 export class PipesPage {
   private sidebarService = inject(SidebarService);
   isSidebarOpen = this.sidebarService.isOpen;
-  protected pipes = PIPES;
+  protected categories = PIPE_CATEGORIES;
   protected isNew = isNewPipe;
 
   closeSidebar() {

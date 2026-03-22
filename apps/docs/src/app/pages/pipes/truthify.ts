@@ -200,7 +200,8 @@ import { TruthifyPlayground } from '../../examples/truthify-playground/truthify-
         <app-author-credit author="Mofiro Jean" url="https://github.com/mofirojean" />
         <div class="flex gap-4">
           <app-next-prev-navigation
-            [previous]="{ label: 'Unique', link: '/docs/pipes/unique' }"
+            [previous]="{ label: 'Shuffle', link: '/docs/pipes/shuffle' }"
+            [next]="{ label: 'Unique', link: '/docs/pipes/unique' }"
           />
         </div>
       </div>

@@ -26,6 +26,7 @@ import { TextToSpeechPage } from './pages/pipes/text-to-speech';
 import { DeviceTypePage } from './pages/pipes/device-type';
 import { TimeAgoPage } from './pages/pipes/time-ago';
 import { FlattenPage } from './pages/pipes/flatten';
+import { ShufflePage } from './pages/pipes/shuffle';
 import { TruthifyPage } from './pages/pipes/truthify';
 import { UniquePage } from './pages/pipes/unique';
 
@@ -141,6 +142,10 @@ export const appRoutes: Route[] = [
           {
             path: 'flatten',
             component: FlattenPage,
+          },
+          {
+            path: 'shuffle',
+            component: ShufflePage,
           },
           {
             path: 'truthify',

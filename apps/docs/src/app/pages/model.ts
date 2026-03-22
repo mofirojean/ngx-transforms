@@ -70,6 +70,7 @@ export const PIPE_CATEGORIES: PipeCategory[] = [
     pipes: [
       { name: "Flatten", url: "/docs/pipes/flatten", description: "Flattens nested arrays to a specified depth.", addedOn: "2026-03-19" },
       { name: "Reverse", url: "/docs/pipes/reverse", description: "Reverses the characters in a string or the elements in an array.", addedOn: "2026-03-18" },
+      { name: "Shuffle", url: "/docs/pipes/shuffle", description: "Randomly reorders array elements using the Fisher-Yates algorithm.", addedOn: "2026-03-22" },
       { name: "Truthify", url: "/docs/pipes/truthify", description: "Removes all falsy values from arrays.", addedOn: "2026-03-21" },
       { name: "Unique", url: "/docs/pipes/unique", description: "Removes duplicates from arrays with support for nested object keys.", addedOn: "2026-03-20" },
     ],

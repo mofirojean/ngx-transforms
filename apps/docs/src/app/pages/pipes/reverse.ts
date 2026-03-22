@@ -71,8 +71,8 @@ import {Breadcrumb} from '../../reusables/breadcrumb/breadcrumb';
         <app-author-credit author="John Doe" url="https://github.com/johndoe"/>
         <div class="flex gap-4">
           <app-next-prev-navigation
-            [previous]="{ label: 'Replace', link: '/docs/pipes/replace' }"
-            [next]="{ label: 'Text to Speech', link: '/docs/pipes/text-to-speech' }"
+            [previous]="{ label: 'Flatten', link: '/docs/pipes/flatten' }"
+            [next]="{ label: 'Shuffle', link: '/docs/pipes/shuffle' }"
           />
         </div>
       </div>

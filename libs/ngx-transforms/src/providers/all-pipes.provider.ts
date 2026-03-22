@@ -27,6 +27,7 @@ import { CountPipe } from '../lib/pipes/count/count'
 import {TimeAgoPipePipe} from '../lib/pipes/time-ago/time-ago';
 import {TruthifyPipe} from '../lib/pipes/truthify/truthify';
 import {UniquePipe} from '../lib/pipes/unique/unique';
+import {ShufflePipe} from '../lib/pipes/shuffle/shuffle';
 
 export const ALL_PIPES: Provider[] = [
   AsciiArtPipe,
@@ -55,6 +56,7 @@ export const ALL_PIPES: Provider[] = [
   TruncatePipe,
   CountPipe,
   TimeAgoPipePipe,
+  ShufflePipe,
   TruthifyPipe,
   UniquePipe
 ];

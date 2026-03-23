@@ -7,6 +7,7 @@ import { CreditCardMaskPipe } from '../lib/pipes/credit-card-mask/credit-card-ma
 import { DeviceTypePipe } from '../lib/pipes/device-type/device-type';
 import { EmailMaskPipe } from '../lib/pipes/email-mask/email-mask';
 import { Flatten } from '../lib/pipes/flatten/flatten';
+import { InitialPipe } from '../lib/pipes/initial/initial';
 import { GravatarPipe } from '../lib/pipes/gravatar/gravatar';
 import { HighlightPipe } from '../lib/pipes/highlight/highlight';
 import { HtmlEscapePipe } from '../lib/pipes/html-escape/html-escape';
@@ -38,6 +39,7 @@ export const ALL_PIPES: Provider[] = [
   DeviceTypePipe,
   EmailMaskPipe,
   Flatten,
+  InitialPipe,
   GravatarPipe,
   HighlightPipe,
   HtmlEscapePipe,

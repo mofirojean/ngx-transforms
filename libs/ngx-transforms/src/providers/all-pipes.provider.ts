@@ -1,66 +1,85 @@
 import { Provider } from '@angular/core';
-import { AsciiArtPipe } from '../lib/pipes/ascii-art/ascii-art';
-import { BarcodePipe } from '../lib/pipes/barcode/barcode';
-import { CamelCasePipe } from '../lib/pipes/camel-case/camel-case';
-import { ColorConvertPipe } from '../lib/pipes/color-convert/color-convert';
-import { CreditCardMaskPipe } from '../lib/pipes/credit-card-mask/credit-card-mask';
-import { DeviceTypePipe } from '../lib/pipes/device-type/device-type';
-import { EmailMaskPipe } from '../lib/pipes/email-mask/email-mask';
-import { Flatten } from '../lib/pipes/flatten/flatten';
-import { InitialPipe } from '../lib/pipes/initial/initial';
-import { GravatarPipe } from '../lib/pipes/gravatar/gravatar';
-import { HighlightPipe } from '../lib/pipes/highlight/highlight';
-import { HtmlEscapePipe } from '../lib/pipes/html-escape/html-escape';
-import { HtmlSanitizePipe } from '../lib/pipes/html-sanitize/html-sanitize';
-import { InitialsPipe } from '../lib/pipes/initials/initials';
-import { IpAddressMaskPipe } from '../lib/pipes/ip-address-mask/ip-address-mask';
-import { JsonPrettyPipe } from '../lib/pipes/json-pretty/json-pretty';
-import { KebabCasePipe } from '../lib/pipes/kebab-case/kebab-case';
-import { MorseCodePipe } from '../lib/pipes/morse-code/morse-code';
-import { QrCodePipe } from '../lib/pipes/qr-code/qr-code';
-import { ReplacePipe } from '../lib/pipes/replace/replace';
-import { ReversePipe } from '../lib/pipes/reverse/reverse';
-import { SnakeCasePipe } from '../lib/pipes/snake-case/snake-case';
-import { TailPipe } from '../lib/pipes/tail/tail';
-import { TextToSpeechPipe } from '../lib/pipes/text-to-speech/text-to-speech';
-import { TitleCasePipe } from '../lib/pipes/title-case/title-case';
-import { TruncatePipe } from '../lib/pipes/truncate/truncate';
-import { CountPipe } from '../lib/pipes/count/count'
-import {TimeAgoPipePipe} from '../lib/pipes/time-ago/time-ago';
-import {TruthifyPipe} from '../lib/pipes/truthify/truthify';
-import {UniquePipe} from '../lib/pipes/unique/unique';
-import {ShufflePipe} from '../lib/pipes/shuffle/shuffle';
+
+// Text
+import { AsciiArtPipe } from '../lib/pipes/text/ascii-art/ascii-art';
+import { CamelCasePipe } from '../lib/pipes/text/camel-case/camel-case';
+import { HighlightPipe } from '../lib/pipes/text/highlight/highlight';
+import { InitialsPipe } from '../lib/pipes/text/initials/initials';
+import { KebabCasePipe } from '../lib/pipes/text/kebab-case/kebab-case';
+import { MorseCodePipe } from '../lib/pipes/text/morse-code/morse-code';
+import { ReplacePipe } from '../lib/pipes/text/replace/replace';
+import { SnakeCasePipe } from '../lib/pipes/text/snake-case/snake-case';
+import { TitleCasePipe } from '../lib/pipes/text/title-case/title-case';
+import { TruncatePipe } from '../lib/pipes/text/truncate/truncate';
+
+// Security & Privacy
+import { CreditCardMaskPipe } from '../lib/pipes/security/credit-card-mask/credit-card-mask';
+import { EmailMaskPipe } from '../lib/pipes/security/email-mask/email-mask';
+import { HtmlEscapePipe } from '../lib/pipes/security/html-escape/html-escape';
+import { HtmlSanitizePipe } from '../lib/pipes/security/html-sanitize/html-sanitize';
+import { IpAddressMaskPipe } from '../lib/pipes/security/ip-address-mask/ip-address-mask';
+
+// Media & Visual
+import { BarcodePipe } from '../lib/pipes/media/barcode/barcode';
+import { ColorConvertPipe } from '../lib/pipes/media/color-convert/color-convert';
+import { GravatarPipe } from '../lib/pipes/media/gravatar/gravatar';
+import { QrCodePipe } from '../lib/pipes/media/qr-code/qr-code';
+
+// Data & Utility
+import { CountPipe } from '../lib/pipes/data/count/count';
+import { DeviceTypePipe } from '../lib/pipes/data/device-type/device-type';
+import { JsonPrettyPipe } from '../lib/pipes/data/json-pretty/json-pretty';
+import { TextToSpeechPipe } from '../lib/pipes/data/text-to-speech/text-to-speech';
+import { TimeAgoPipePipe } from '../lib/pipes/data/time-ago/time-ago';
+
+// Array
+import { Flatten } from '../lib/pipes/array/flatten/flatten';
+import { InitialPipe } from '../lib/pipes/array/initial/initial';
+import { ReversePipe } from '../lib/pipes/array/reverse/reverse';
+import { ShufflePipe } from '../lib/pipes/array/shuffle/shuffle';
+import { TailPipe } from '../lib/pipes/array/tail/tail';
+import { TruthifyPipe } from '../lib/pipes/array/truthify/truthify';
+import { UniquePipe } from '../lib/pipes/array/unique/unique';
 
 export const ALL_PIPES: Provider[] = [
+  // Text
   AsciiArtPipe,
-  BarcodePipe,
   CamelCasePipe,
-  ColorConvertPipe,
-  CreditCardMaskPipe,
-  DeviceTypePipe,
-  EmailMaskPipe,
-  Flatten,
-  InitialPipe,
-  GravatarPipe,
   HighlightPipe,
-  HtmlEscapePipe,
-  HtmlSanitizePipe,
   InitialsPipe,
-  IpAddressMaskPipe,
-  JsonPrettyPipe,
   KebabCasePipe,
   MorseCodePipe,
-  QrCodePipe,
   ReplacePipe,
-  ReversePipe,
   SnakeCasePipe,
-  TailPipe,
-  TextToSpeechPipe,
   TitleCasePipe,
   TruncatePipe,
+
+  // Security & Privacy
+  CreditCardMaskPipe,
+  EmailMaskPipe,
+  HtmlEscapePipe,
+  HtmlSanitizePipe,
+  IpAddressMaskPipe,
+
+  // Media & Visual
+  BarcodePipe,
+  ColorConvertPipe,
+  GravatarPipe,
+  QrCodePipe,
+
+  // Data & Utility
   CountPipe,
+  DeviceTypePipe,
+  JsonPrettyPipe,
+  TextToSpeechPipe,
   TimeAgoPipePipe,
+
+  // Array
+  Flatten,
+  InitialPipe,
+  ReversePipe,
   ShufflePipe,
+  TailPipe,
   TruthifyPipe,
-  UniquePipe
+  UniquePipe,
 ];

@@ -1,32 +1,43 @@
-export * from './lib/pipes/ascii-art/ascii-art';
-export * from './lib/pipes/barcode/barcode';
-export * from './lib/pipes/camel-case/camel-case';
-export * from './lib/pipes/color-convert/color-convert';
-export * from './lib/pipes/count/count';
-export * from './lib/pipes/credit-card-mask/credit-card-mask';
-export * from './lib/pipes/device-type/device-type';
-export * from './lib/pipes/email-mask/email-mask';
-export * from './lib/pipes/flatten/flatten';
-export * from './lib/pipes/initial/initial';
-export * from './lib/pipes/gravatar/gravatar';
-export * from './lib/pipes/highlight/highlight';
-export * from './lib/pipes/html-escape/html-escape';
-export * from './lib/pipes/html-sanitize/html-sanitize';
-export * from './lib/pipes/initials/initials';
-export * from './lib/pipes/ip-address-mask/ip-address-mask';
-export * from './lib/pipes/json-pretty/json-pretty';
-export * from './lib/pipes/kebab-case/kebab-case';
-export * from './lib/pipes/morse-code/morse-code';
-export * from './lib/pipes/qr-code/qr-code';
-export * from './lib/pipes/replace/replace';
-export * from './lib/pipes/reverse/reverse';
-export * from './lib/pipes/snake-case/snake-case';
-export * from './lib/pipes/shuffle/shuffle';
-export * from './lib/pipes/tail/tail';
-export * from './lib/pipes/text-to-speech/text-to-speech';
-export * from './lib/pipes/title-case/title-case';
-export * from './lib/pipes/truncate/truncate';
-export * from './lib/pipes/time-ago/time-ago';
-export * from './lib/pipes/truthify/truthify';
-export * from './lib/pipes/unique/unique';
+// Text
+export * from './lib/pipes/text/ascii-art/ascii-art';
+export * from './lib/pipes/text/camel-case/camel-case';
+export * from './lib/pipes/text/highlight/highlight';
+export * from './lib/pipes/text/initials/initials';
+export * from './lib/pipes/text/kebab-case/kebab-case';
+export * from './lib/pipes/text/morse-code/morse-code';
+export * from './lib/pipes/text/replace/replace';
+export * from './lib/pipes/text/snake-case/snake-case';
+export * from './lib/pipes/text/title-case/title-case';
+export * from './lib/pipes/text/truncate/truncate';
+
+// Security & Privacy
+export * from './lib/pipes/security/credit-card-mask/credit-card-mask';
+export * from './lib/pipes/security/email-mask/email-mask';
+export * from './lib/pipes/security/html-escape/html-escape';
+export * from './lib/pipes/security/html-sanitize/html-sanitize';
+export * from './lib/pipes/security/ip-address-mask/ip-address-mask';
+
+// Media & Visual
+export * from './lib/pipes/media/barcode/barcode';
+export * from './lib/pipes/media/color-convert/color-convert';
+export * from './lib/pipes/media/gravatar/gravatar';
+export * from './lib/pipes/media/qr-code/qr-code';
+
+// Data & Utility
+export * from './lib/pipes/data/count/count';
+export * from './lib/pipes/data/device-type/device-type';
+export * from './lib/pipes/data/json-pretty/json-pretty';
+export * from './lib/pipes/data/text-to-speech/text-to-speech';
+export * from './lib/pipes/data/time-ago/time-ago';
+
+// Array
+export * from './lib/pipes/array/flatten/flatten';
+export * from './lib/pipes/array/initial/initial';
+export * from './lib/pipes/array/reverse/reverse';
+export * from './lib/pipes/array/shuffle/shuffle';
+export * from './lib/pipes/array/tail/tail';
+export * from './lib/pipes/array/truthify/truthify';
+export * from './lib/pipes/array/unique/unique';
+
+// Providers
 export * from './providers/all-pipes.provider';

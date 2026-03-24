@@ -72,6 +72,7 @@ export const PIPE_CATEGORIES: PipeCategory[] = [
       { name: "Initial", url: "/docs/pipes/initial", description: "Returns all elements except the last n.", addedOn: "2026-03-23" },
       { name: "Reverse", url: "/docs/pipes/reverse", description: "Reverses the characters in a string or the elements in an array.", addedOn: "2026-03-18" },
       { name: "Shuffle", url: "/docs/pipes/shuffle", description: "Randomly reorders array elements using the Fisher-Yates algorithm.", addedOn: "2026-03-22" },
+      { name: "Tail", url: "/docs/pipes/tail", description: "Returns all elements except the first n.", addedOn: "2026-03-24" },
       { name: "Truthify", url: "/docs/pipes/truthify", description: "Removes all falsy values from arrays.", addedOn: "2026-03-21" },
       { name: "Unique", url: "/docs/pipes/unique", description: "Removes duplicates from arrays with support for nested object keys.", addedOn: "2026-03-20" },
     ],

@@ -28,6 +28,7 @@ import { TimeAgoPage } from './pages/pipes/time-ago';
 import { FlattenPage } from './pages/pipes/flatten';
 import { InitialPage } from './pages/pipes/initial';
 import { ShufflePage } from './pages/pipes/shuffle';
+import { TailPage } from './pages/pipes/tail';
 import { TruthifyPage } from './pages/pipes/truthify';
 import { UniquePage } from './pages/pipes/unique';
 
@@ -151,6 +152,10 @@ export const appRoutes: Route[] = [
           {
             path: 'shuffle',
             component: ShufflePage,
+          },
+          {
+            path: 'tail',
+            component: TailPage,
           },
           {
             path: 'truthify',

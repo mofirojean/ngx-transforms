@@ -22,6 +22,7 @@ export * from './lib/pipes/replace/replace';
 export * from './lib/pipes/reverse/reverse';
 export * from './lib/pipes/snake-case/snake-case';
 export * from './lib/pipes/shuffle/shuffle';
+export * from './lib/pipes/tail/tail';
 export * from './lib/pipes/text-to-speech/text-to-speech';
 export * from './lib/pipes/title-case/title-case';
 export * from './lib/pipes/truncate/truncate';

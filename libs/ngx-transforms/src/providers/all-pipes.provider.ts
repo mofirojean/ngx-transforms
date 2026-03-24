@@ -21,6 +21,7 @@ import { QrCodePipe } from '../lib/pipes/qr-code/qr-code';
 import { ReplacePipe } from '../lib/pipes/replace/replace';
 import { ReversePipe } from '../lib/pipes/reverse/reverse';
 import { SnakeCasePipe } from '../lib/pipes/snake-case/snake-case';
+import { TailPipe } from '../lib/pipes/tail/tail';
 import { TextToSpeechPipe } from '../lib/pipes/text-to-speech/text-to-speech';
 import { TitleCasePipe } from '../lib/pipes/title-case/title-case';
 import { TruncatePipe } from '../lib/pipes/truncate/truncate';
@@ -53,6 +54,7 @@ export const ALL_PIPES: Provider[] = [
   ReplacePipe,
   ReversePipe,
   SnakeCasePipe,
+  TailPipe,
   TextToSpeechPipe,
   TitleCasePipe,
   TruncatePipe,

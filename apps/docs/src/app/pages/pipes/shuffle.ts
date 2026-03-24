@@ -155,7 +155,7 @@ import { ShufflePlayground } from '../../examples/shuffle-playground/shuffle-pla
         <div class="flex gap-4">
           <app-next-prev-navigation
             [previous]="{ label: 'Reverse', link: '/docs/pipes/reverse' }"
-            [next]="{ label: 'Truthify', link: '/docs/pipes/truthify' }"
+            [next]="{ label: 'Tail', link: '/docs/pipes/tail' }"
           />
         </div>
       </div>

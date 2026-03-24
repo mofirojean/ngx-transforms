@@ -14,13 +14,13 @@ export interface PipeCategory {
   pipes: Pipe[];
 }
 
-const TWO_WEEKS_MS = 14 * 24 * 60 * 60 * 1000;
+const ONE_WEEK_MS = 7 * 24 * 60 * 60 * 1000;
 
 /** Returns true if the pipe was added within the last 2 weeks. */
 export function isNewPipe(pipe: Pipe): boolean {
   if (!pipe.addedOn) return false;
   const addedDate = new Date(pipe.addedOn).getTime();
-  return Date.now() - addedDate < TWO_WEEKS_MS;
+  return Date.now() - addedDate < ONE_WEEK_MS;
 }
 
 export const PIPE_CATEGORIES: PipeCategory[] = [

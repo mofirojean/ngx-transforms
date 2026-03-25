@@ -1,3 +1,33 @@
+## 0.1.0 (2026-03-25)
+
+### 🚀 Features
+
+- add time-ago pipe ([2bcad6f](https://github.com/mofirojean/ngx-transforms/commit/2bcad6f))
+- implement time-ago pipe and test ([f85ba2b](https://github.com/mofirojean/ngx-transforms/commit/f85ba2b))
+- implement time-ago example ([34da918](https://github.com/mofirojean/ngx-transforms/commit/34da918))
+- implement isNew pipe feature ([68d076f](https://github.com/mofirojean/ngx-transforms/commit/68d076f))
+- Implement time-ago pipe and examples ([f502168](https://github.com/mofirojean/ngx-transforms/commit/f502168))
+- implement reverse array pipe ([4f7b5a6](https://github.com/mofirojean/ngx-transforms/commit/4f7b5a6))
+- implement ngx-transform new landing page ([32fab00](https://github.com/mofirojean/ngx-transforms/commit/32fab00))
+- implement ngx-transform new landing page ([b3e0b50](https://github.com/mofirojean/ngx-transforms/commit/b3e0b50))
+- implement flatten pipe and examples ([aacfef0](https://github.com/mofirojean/ngx-transforms/commit/aacfef0))
+- implement unique pipe and examples ([e606a56](https://github.com/mofirojean/ngx-transforms/commit/e606a56))
+- implement unique pipe and examples use case ([aa4d833](https://github.com/mofirojean/ngx-transforms/commit/aa4d833))
+- implement truthify pipe and examples ([ae2a43b](https://github.com/mofirojean/ngx-transforms/commit/ae2a43b))
+- add categories to pipe documentation ([3e857ec](https://github.com/mofirojean/ngx-transforms/commit/3e857ec))
+- implement truthify pipe and doc example ([6b45812](https://github.com/mofirojean/ngx-transforms/commit/6b45812))
+- implement shuffle pipe and examples ([b1b3d77](https://github.com/mofirojean/ngx-transforms/commit/b1b3d77))
+- implement shuffle pipe and examples ([ad56c28](https://github.com/mofirojean/ngx-transforms/commit/ad56c28))
+- implement initial pipe and examples ([a479872](https://github.com/mofirojean/ngx-transforms/commit/a479872))
+- implement initial pipe and examples ([cf9f436](https://github.com/mofirojean/ngx-transforms/commit/cf9f436))
+- implement tail pipe and examples ([6ebe790](https://github.com/mofirojean/ngx-transforms/commit/6ebe790))
+- implement sample pipe and examples ([c596abb](https://github.com/mofirojean/ngx-transforms/commit/c596abb))
+
+### ❤️ Thank You
+
+- Mofiro Jean @mofirojean
+- mofirojean
+
 ## 0.0.5 (2026-02-11)
 
 ### 🩹 Fixes

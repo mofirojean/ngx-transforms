@@ -1,7 +1,7 @@
 {
   "name": "ngx-transforms",
   "version": "0.0.5",
-  "description": "A collection of 24 standalone Angular pipes for common data transformations — text, masking, encoding, sanitization, and more.",
+  "description": "A collection of 31+ standalone Angular pipes for text, security, media, data, and array transformations.",
   "keywords": [
     "angular",
     "pipes",
@@ -15,7 +15,12 @@
     "barcode",
     "gravatar",
     "morse-code",
-    "sanitize"
+    "sanitize",
+    "array",
+    "shuffle",
+    "unique",
+    "flatten",
+    "time-ago"
   ],
   "license": "MIT",
   "author": "Mofiro Jean <mofirojean@gmail.com>",

@@ -27,6 +27,7 @@ import { DeviceTypePage } from './pages/pipes/device-type';
 import { TimeAgoPage } from './pages/pipes/time-ago';
 import { FlattenPage } from './pages/pipes/flatten';
 import { InitialPage } from './pages/pipes/initial';
+import { SamplePage } from './pages/pipes/sample';
 import { ShufflePage } from './pages/pipes/shuffle';
 import { TailPage } from './pages/pipes/tail';
 import { TruthifyPage } from './pages/pipes/truthify';
@@ -148,6 +149,10 @@ export const appRoutes: Route[] = [
           {
             path: 'initial',
             component: InitialPage,
+          },
+          {
+            path: 'sample',
+            component: SamplePage,
           },
           {
             path: 'shuffle',

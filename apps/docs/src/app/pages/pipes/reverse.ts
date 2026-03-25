@@ -72,7 +72,7 @@ import {Breadcrumb} from '../../reusables/breadcrumb/breadcrumb';
         <div class="flex gap-4">
           <app-next-prev-navigation
             [previous]="{ label: 'Initial', link: '/docs/pipes/initial' }"
-            [next]="{ label: 'Shuffle', link: '/docs/pipes/shuffle' }"
+            [next]="{ label: 'Sample', link: '/docs/pipes/sample' }"
           />
         </div>
       </div>

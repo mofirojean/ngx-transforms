@@ -71,6 +71,7 @@ export const PIPE_CATEGORIES: PipeCategory[] = [
       { name: "Flatten", url: "/docs/pipes/flatten", description: "Flattens nested arrays to a specified depth.", addedOn: "2026-03-19" },
       { name: "Initial", url: "/docs/pipes/initial", description: "Returns all elements except the last n.", addedOn: "2026-03-23" },
       { name: "Reverse", url: "/docs/pipes/reverse", description: "Reverses the characters in a string or the elements in an array.", addedOn: "2026-03-18" },
+      { name: "Sample", url: "/docs/pipes/sample", description: "Randomly picks n items from an array without duplicates.", addedOn: "2026-03-25" },
       { name: "Shuffle", url: "/docs/pipes/shuffle", description: "Randomly reorders array elements using the Fisher-Yates algorithm.", addedOn: "2026-03-22" },
       { name: "Tail", url: "/docs/pipes/tail", description: "Returns all elements except the first n.", addedOn: "2026-03-24" },
       { name: "Truthify", url: "/docs/pipes/truthify", description: "Removes all falsy values from arrays.", addedOn: "2026-03-21" },

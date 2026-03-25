@@ -34,6 +34,7 @@ export * from './lib/pipes/data/time-ago/time-ago';
 export * from './lib/pipes/array/flatten/flatten';
 export * from './lib/pipes/array/initial/initial';
 export * from './lib/pipes/array/reverse/reverse';
+export * from './lib/pipes/array/sample/sample';
 export * from './lib/pipes/array/shuffle/shuffle';
 export * from './lib/pipes/array/tail/tail';
 export * from './lib/pipes/array/truthify/truthify';

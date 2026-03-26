@@ -1,37 +1,37 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { JsonPipe } from '@angular/common';
-import { Flatten } from '@ngx-transforms';
+import { ChunkPipe } from '@ngx-transforms';
 import { CodePreview } from '../../reusables/code-preview/code-preview';
 import { NextPrevNavigation } from '../../reusables/next-prev-navigation/next-prev-navigation';
 import { MacosWindow } from '../../reusables/macos-window/macos-window';
 import { AuthorCredit } from '../../reusables/author-credit/author-credit';
 import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
-import { FlattenPlayground } from '../../examples/flatten-playground/flatten-playground';
+import { ChunkPlayground } from '../../examples/chunk-playground/chunk-playground';
 
 @Component({
-  selector: 'app-flatten-page',
+  selector: 'app-chunk-page',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    Flatten,
+    ChunkPipe,
     JsonPipe,
     CodePreview,
     NextPrevNavigation,
     MacosWindow,
     AuthorCredit,
     Breadcrumb,
-    FlattenPlayground,
+    ChunkPlayground,
   ],
   template: `
     <div class="container mx-auto py-10 px-4 md:px-8 max-w-4xl">
       <app-breadcrumb class="mb-6 block" />
 
       <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-2">
-        Flatten Pipe
+        Chunk Pipe
       </h1>
       <p class="text-lg text-muted-foreground mb-8">
-        Flattens nested arrays to a specified depth. Perfect for normalizing API responses,
-        merging grouped data, and simplifying nested structures for display.
+        Splits an array into smaller groups of a specified size.
+        The last chunk may contain fewer items if the array doesn't divide evenly.
       </p>
 
       <!-- Use Cases -->
@@ -42,8 +42,8 @@ import { FlattenPlayground } from '../../examples/flatten-playground/flatten-pla
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-sm font-bold mt-0.5">1</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">API Response Normalization</h4>
-                <p class="text-sm text-muted-foreground">Flatten paginated or grouped API results into a single list for rendering.</p>
+                <h4 class="font-semibold mb-1">Grid Layouts</h4>
+                <p class="text-sm text-muted-foreground">Split products into rows of 3 or 4 for responsive card grids.</p>
               </div>
             </div>
           </div>
@@ -51,8 +51,8 @@ import { FlattenPlayground } from '../../examples/flatten-playground/flatten-pla
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 text-sm font-bold mt-0.5">2</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Multi-Select Aggregation</h4>
-                <p class="text-sm text-muted-foreground">Merge selections from multiple form groups into one flat permissions list.</p>
+                <h4 class="font-semibold mb-1">Batch Processing</h4>
+                <p class="text-sm text-muted-foreground">Divide items into batches for API calls with rate limits.</p>
               </div>
             </div>
           </div>
@@ -60,8 +60,8 @@ import { FlattenPlayground } from '../../examples/flatten-playground/flatten-pla
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-sm font-bold mt-0.5">3</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Tag Collection</h4>
-                <p class="text-sm text-muted-foreground">Gather tags from multiple posts or products into a single filterable list.</p>
+                <h4 class="font-semibold mb-1">Carousel Slides</h4>
+                <p class="text-sm text-muted-foreground">Group items into slides showing n items each for a carousel component.</p>
               </div>
             </div>
           </div>
@@ -69,8 +69,8 @@ import { FlattenPlayground } from '../../examples/flatten-playground/flatten-pla
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 text-sm font-bold mt-0.5">4</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">File Tree Display</h4>
-                <p class="text-sm text-muted-foreground">Flatten a nested directory structure into a flat list for search or table views.</p>
+                <h4 class="font-semibold mb-1">Pagination</h4>
+                <p class="text-sm text-muted-foreground">Split data into page-sized chunks for client-side pagination.</p>
               </div>
             </div>
           </div>
@@ -78,32 +78,32 @@ import { FlattenPlayground } from '../../examples/flatten-playground/flatten-pla
       </div>
 
       <h2 class="text-2xl font-bold my-8">Interactive Example</h2>
-      <app-macos-window title="Flatten Playground">
-        <app-flatten-playground />
+      <app-macos-window title="Chunk Playground">
+        <app-chunk-playground />
       </app-macos-window>
 
       <h2 class="text-2xl font-bold my-8">Usage</h2>
       <app-code-preview [code]="code" [language]="'typescript'">
         <div class="space-y-6">
           <div>
-            <h3 class="text-xl font-semibold mb-4">Flatten Examples</h3>
+            <h3 class="text-xl font-semibold mb-4">Chunk Examples</h3>
             <div class="rounded-md bg-muted p-6 border border-border space-y-4">
               <div>
-                <div class="text-xs text-muted-foreground mb-2">Full flatten (default)</div>
+                <div class="text-xs text-muted-foreground mb-2">Chunks of 2</div>
                 <div class="rounded-md bg-background p-4">
-                  <p class="text-sm font-mono">{{ nested | flatten | json }}</p>
+                  <p class="text-sm font-mono">{{ numbers | chunk:2 | json }}</p>
                 </div>
               </div>
               <div>
-                <div class="text-xs text-muted-foreground mb-2">Depth 1</div>
+                <div class="text-xs text-muted-foreground mb-2">Chunks of 3</div>
                 <div class="rounded-md bg-background p-4">
-                  <p class="text-sm font-mono">{{ nested | flatten:1 | json }}</p>
+                  <p class="text-sm font-mono">{{ numbers | chunk:3 | json }}</p>
                 </div>
               </div>
               <div>
-                <div class="text-xs text-muted-foreground mb-2">Depth 0 (no change)</div>
+                <div class="text-xs text-muted-foreground mb-2">Chunks of 4</div>
                 <div class="rounded-md bg-background p-4">
-                  <p class="text-sm font-mono">{{ simple | flatten:0 | json }}</p>
+                  <p class="text-sm font-mono">{{ letters | chunk:4 | json }}</p>
                 </div>
               </div>
             </div>
@@ -127,13 +127,13 @@ import { FlattenPlayground } from '../../examples/flatten-playground/flatten-pla
               <td class="px-4 py-3 font-mono text-xs">value</td>
               <td class="px-4 py-3 text-muted-foreground">unknown[]</td>
               <td class="px-4 py-3 font-mono text-xs">-</td>
-              <td class="px-4 py-3 text-muted-foreground">The nested array to flatten</td>
+              <td class="px-4 py-3 text-muted-foreground">The array to split into chunks</td>
             </tr>
             <tr>
-              <td class="px-4 py-3 font-mono text-xs">depth</td>
+              <td class="px-4 py-3 font-mono text-xs">size</td>
               <td class="px-4 py-3 text-muted-foreground">number</td>
-              <td class="px-4 py-3 font-mono text-xs">Infinity</td>
-              <td class="px-4 py-3 text-muted-foreground">How many levels of nesting to remove</td>
+              <td class="px-4 py-3 font-mono text-xs">1</td>
+              <td class="px-4 py-3 text-muted-foreground">Maximum number of items per chunk</td>
             </tr>
           </tbody>
         </table>
@@ -144,29 +144,22 @@ import { FlattenPlayground } from '../../examples/flatten-playground/flatten-pla
         <div class="flex items-start gap-3">
           <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
           <div>
-            <h4 class="font-semibold">Configurable Depth</h4>
-            <p class="text-sm text-muted-foreground">Control exactly how many nesting levels to flatten, from 0 (none) to Infinity (all).</p>
+            <h4 class="font-semibold">Even & Uneven Splits</h4>
+            <p class="text-sm text-muted-foreground">Handles arrays that don't divide evenly — the last chunk contains the remainder.</p>
           </div>
         </div>
         <div class="flex items-start gap-3">
           <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
           <div>
-            <h4 class="font-semibold">Zero Dependencies</h4>
-            <p class="text-sm text-muted-foreground">Uses the native Array.flat() API — no external libraries, no bundle overhead.</p>
+            <h4 class="font-semibold">Boundary Safe</h4>
+            <p class="text-sm text-muted-foreground">Size 0 or negative returns empty. Size larger than array returns one chunk with all items.</p>
           </div>
         </div>
         <div class="flex items-start gap-3">
           <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
           <div>
             <h4 class="font-semibold">Immutable</h4>
-            <p class="text-sm text-muted-foreground">Always returns a new array — the original nested structure is never modified.</p>
-          </div>
-        </div>
-        <div class="flex items-start gap-3">
-          <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
-          <div>
-            <h4 class="font-semibold">Null Safe</h4>
-            <p class="text-sm text-muted-foreground">Gracefully returns an empty array for null, undefined, or non-array inputs.</p>
+            <p class="text-sm text-muted-foreground">Always returns new arrays — the original data is never modified.</p>
           </div>
         </div>
       </div>
@@ -175,7 +168,7 @@ import { FlattenPlayground } from '../../examples/flatten-playground/flatten-pla
         <app-author-credit author="Mofiro Jean" url="https://github.com/mofirojean" />
         <div class="flex gap-4">
           <app-next-prev-navigation
-            [previous]="{ label: 'Chunk', link: '/docs/pipes/chunk' }"
+            [previous]="{ label: 'Flatten', link: '/docs/pipes/flatten' }"
             [next]="{ label: 'Initial', link: '/docs/pipes/initial' }"
           />
         </div>
@@ -183,34 +176,41 @@ import { FlattenPlayground } from '../../examples/flatten-playground/flatten-pla
     </div>
   `,
 })
-export class FlattenPage {
-  nested = [1, [2, [3, [4]]]];
-  simple = [[1, 2], [3, 4]];
+export class ChunkPage {
+  numbers = [1, 2, 3, 4, 5, 6, 7];
+  letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
-  code = `
-import { Component } from '@angular/core';
-import { Flatten } from 'ngx-transforms';
-
-@Component({
-  selector: 'app-example',
-  standalone: true,
-  imports: [Flatten],
-  template: \`
-    <!-- Full flatten (default) -->
-    <p>{{ nested | flatten }}</p>
-    <!-- [1, 2, 3, 4] -->
-
-    <!-- Flatten 1 level -->
-    <p>{{ nested | flatten:1 }}</p>
-    <!-- [1, 2, [3, [4]]] -->
-
-    <!-- Flatten 2 levels -->
-    <p>{{ data | flatten:2 }}</p>
-  \`
-})
-export class ExampleComponent {
-  nested = [1, [2, [3, [4]]]];
-  data = [['a', 'b'], ['c', ['d', 'e']]];
-}
-  `;
+  code = [
+    'import { Component } from \'@angular/core\';',
+    'import { ChunkPipe } from \'ngx-transforms\';',
+    '',
+    '@Component({',
+    '  selector: \'app-example\',',
+    '  standalone: true,',
+    '  imports: [ChunkPipe],',
+    '  template: `',
+    '    <!-- Grid rows of 3 products -->',
+    '    @for (row of products | chunk:3; track $index) {',
+    '      <div class="grid grid-cols-3 gap-4">',
+    '        @for (product of row; track product.id) {',
+    '          <app-product-card [product]="product" />',
+    '        }',
+    '      </div>',
+    '    }',
+    '',
+    '    <!-- Carousel slides of 4 -->',
+    '    @for (slide of images | chunk:4; track $index) {',
+    '      <div class="slide">',
+    '        @for (img of slide; track $index) {',
+    '          <img [src]="img" />',
+    '        }',
+    '      </div>',
+    '    }',
+    '  `',
+    '})',
+    'export class ExampleComponent {',
+    '  products = [...];',
+    '  images = [...];',
+    '}',
+  ].join('\n');
 }

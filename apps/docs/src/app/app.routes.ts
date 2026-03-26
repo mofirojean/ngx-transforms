@@ -25,6 +25,7 @@ import { HtmlSanitizePage } from './pages/pipes/html-sanitize';
 import { TextToSpeechPage } from './pages/pipes/text-to-speech';
 import { DeviceTypePage } from './pages/pipes/device-type';
 import { TimeAgoPage } from './pages/pipes/time-ago';
+import { ChunkPage } from './pages/pipes/chunk';
 import { FlattenPage } from './pages/pipes/flatten';
 import { InitialPage } from './pages/pipes/initial';
 import { SamplePage } from './pages/pipes/sample';
@@ -141,6 +142,10 @@ export const appRoutes: Route[] = [
           {
             path: 'time-ago',
             component: TimeAgoPage,
+          },
+          {
+            path: 'chunk',
+            component: ChunkPage,
           },
           {
             path: 'flatten',

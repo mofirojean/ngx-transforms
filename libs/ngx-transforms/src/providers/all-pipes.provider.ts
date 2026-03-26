@@ -33,6 +33,7 @@ import { TextToSpeechPipe } from '../lib/pipes/data/text-to-speech/text-to-speec
 import { TimeAgoPipePipe } from '../lib/pipes/data/time-ago/time-ago';
 
 // Array
+import { ChunkPipe } from '../lib/pipes/array/chunk/chunk';
 import { Flatten } from '../lib/pipes/array/flatten/flatten';
 import { InitialPipe } from '../lib/pipes/array/initial/initial';
 import { ReversePipe } from '../lib/pipes/array/reverse/reverse';
@@ -76,6 +77,7 @@ export const ALL_PIPES: Provider[] = [
   TimeAgoPipePipe,
 
   // Array
+  ChunkPipe,
   Flatten,
   InitialPipe,
   ReversePipe,

@@ -1,37 +1,37 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { JsonPipe } from '@angular/common';
-import { InitialPipe } from '@ngx-transforms';
+import { RangePipe } from '@ngx-transforms';
 import { CodePreview } from '../../reusables/code-preview/code-preview';
 import { NextPrevNavigation } from '../../reusables/next-prev-navigation/next-prev-navigation';
 import { MacosWindow } from '../../reusables/macos-window/macos-window';
 import { AuthorCredit } from '../../reusables/author-credit/author-credit';
 import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
-import { InitialPlayground } from '../../examples/initial-playground/initial-playground';
+import { RangePlayground } from '../../examples/range-playground/range-playground';
 
 @Component({
-  selector: 'app-initial-page',
+  selector: 'app-range-page',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    InitialPipe,
+    RangePipe,
     JsonPipe,
     CodePreview,
     NextPrevNavigation,
     MacosWindow,
     AuthorCredit,
     Breadcrumb,
-    InitialPlayground,
+    RangePlayground,
   ],
   template: `
     <div class="container mx-auto py-10 px-4 md:px-8 max-w-4xl">
       <app-breadcrumb class="mb-6 block" />
 
       <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-2">
-        Initial Pipe
+        Range Pipe
       </h1>
       <p class="text-lg text-muted-foreground mb-8">
-        Returns all elements of an array except the last n. Perfect for trimming trailing
-        items like pagination controls, summary rows, or "complete" steps.
+        Generates a numeric sequence array from a number. No more
+        Array.from() or spread hacks in your components.
       </p>
 
       <!-- Use Cases -->
@@ -42,8 +42,8 @@ import { InitialPlayground } from '../../examples/initial-playground/initial-pla
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-sm font-bold mt-0.5">1</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Breadcrumbs</h4>
-                <p class="text-sm text-muted-foreground">Show all breadcrumb segments except the current page (the last one).</p>
+                <h4 class="font-semibold mb-1">Pagination</h4>
+                <p class="text-sm text-muted-foreground">Generate page number buttons from a total page count.</p>
               </div>
             </div>
           </div>
@@ -51,8 +51,8 @@ import { InitialPlayground } from '../../examples/initial-playground/initial-pla
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 text-sm font-bold mt-0.5">2</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Stepper Progress</h4>
-                <p class="text-sm text-muted-foreground">Display completed steps without the final "Done" step in a multi-step form.</p>
+                <h4 class="font-semibold mb-1">Star Ratings</h4>
+                <p class="text-sm text-muted-foreground">Render 1-5 stars for rating components without hardcoded arrays.</p>
               </div>
             </div>
           </div>
@@ -60,8 +60,8 @@ import { InitialPlayground } from '../../examples/initial-playground/initial-pla
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-sm font-bold mt-0.5">3</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Leaderboard Trimming</h4>
-                <p class="text-sm text-muted-foreground">Show top performers and exclude bottom n entries from a ranked list.</p>
+                <h4 class="font-semibold mb-1">Skeleton Loaders</h4>
+                <p class="text-sm text-muted-foreground">Repeat placeholder cards while data is loading.</p>
               </div>
             </div>
           </div>
@@ -69,8 +69,8 @@ import { InitialPlayground } from '../../examples/initial-playground/initial-pla
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 text-sm font-bold mt-0.5">4</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Log Trimming</h4>
-                <p class="text-sm text-muted-foreground">Remove the most recent n entries from an activity log for "undo" previews.</p>
+                <h4 class="font-semibold mb-1">Grid Placeholders</h4>
+                <p class="text-sm text-muted-foreground">Fill empty grid slots or generate row/column numbers.</p>
               </div>
             </div>
           </div>
@@ -78,32 +78,32 @@ import { InitialPlayground } from '../../examples/initial-playground/initial-pla
       </div>
 
       <h2 class="text-2xl font-bold my-8">Interactive Example</h2>
-      <app-macos-window title="Initial Playground">
-        <app-initial-playground />
+      <app-macos-window title="Range Playground">
+        <app-range-playground />
       </app-macos-window>
 
       <h2 class="text-2xl font-bold my-8">Usage</h2>
       <app-code-preview [code]="code" [language]="'typescript'">
         <div class="space-y-6">
           <div>
-            <h3 class="text-xl font-semibold mb-4">Initial Examples</h3>
+            <h3 class="text-xl font-semibold mb-4">Range Examples</h3>
             <div class="rounded-md bg-muted p-6 border border-border space-y-4">
               <div>
-                <div class="text-xs text-muted-foreground mb-2">Default (remove last 1)</div>
+                <div class="text-xs text-muted-foreground mb-2">Default (0 to 4)</div>
                 <div class="rounded-md bg-background p-4">
-                  <p class="text-sm font-mono">{{ numbers | initial | json }}</p>
+                  <p class="text-sm font-mono">{{ 5 | range | json }}</p>
                 </div>
               </div>
               <div>
-                <div class="text-xs text-muted-foreground mb-2">Remove last 2</div>
+                <div class="text-xs text-muted-foreground mb-2">Start from 1</div>
                 <div class="rounded-md bg-background p-4">
-                  <p class="text-sm font-mono">{{ numbers | initial:2 | json }}</p>
+                  <p class="text-sm font-mono">{{ 5 | range:1 | json }}</p>
                 </div>
               </div>
               <div>
-                <div class="text-xs text-muted-foreground mb-2">Breadcrumbs without current page</div>
+                <div class="text-xs text-muted-foreground mb-2">Even numbers</div>
                 <div class="rounded-md bg-background p-4">
-                  <p class="text-sm font-mono">{{ breadcrumbs | initial | json }}</p>
+                  <p class="text-sm font-mono">{{ 5 | range:0:2 | json }}</p>
                 </div>
               </div>
             </div>
@@ -125,15 +125,21 @@ import { InitialPlayground } from '../../examples/initial-playground/initial-pla
           <tbody>
             <tr class="border-b border-border">
               <td class="px-4 py-3 font-mono text-xs">value</td>
-              <td class="px-4 py-3 text-muted-foreground">unknown[]</td>
+              <td class="px-4 py-3 text-muted-foreground">number</td>
               <td class="px-4 py-3 font-mono text-xs">-</td>
-              <td class="px-4 py-3 text-muted-foreground">The array to trim from the end</td>
+              <td class="px-4 py-3 text-muted-foreground">How many numbers to generate</td>
+            </tr>
+            <tr class="border-b border-border">
+              <td class="px-4 py-3 font-mono text-xs">start</td>
+              <td class="px-4 py-3 text-muted-foreground">number</td>
+              <td class="px-4 py-3 font-mono text-xs">0</td>
+              <td class="px-4 py-3 text-muted-foreground">The first number in the sequence</td>
             </tr>
             <tr>
-              <td class="px-4 py-3 font-mono text-xs">n</td>
+              <td class="px-4 py-3 font-mono text-xs">step</td>
               <td class="px-4 py-3 text-muted-foreground">number</td>
               <td class="px-4 py-3 font-mono text-xs">1</td>
-              <td class="px-4 py-3 text-muted-foreground">Number of elements to exclude from the end</td>
+              <td class="px-4 py-3 text-muted-foreground">The increment between numbers</td>
             </tr>
           </tbody>
         </table>
@@ -144,22 +150,22 @@ import { InitialPlayground } from '../../examples/initial-playground/initial-pla
         <div class="flex items-start gap-3">
           <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
           <div>
-            <h4 class="font-semibold">Configurable Count</h4>
-            <p class="text-sm text-muted-foreground">Remove 1 element (default) or any number from the end of the array.</p>
+            <h4 class="font-semibold">Flexible Sequences</h4>
+            <p class="text-sm text-muted-foreground">Control start, step, and count to generate any numeric pattern.</p>
           </div>
         </div>
         <div class="flex items-start gap-3">
           <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
           <div>
-            <h4 class="font-semibold">Boundary Safe</h4>
-            <p class="text-sm text-muted-foreground">Gracefully handles n=0 (keeps all), n >= length (returns empty), and negative values.</p>
+            <h4 class="font-semibold">Template-Only</h4>
+            <p class="text-sm text-muted-foreground">No component arrays needed — generate sequences directly in your template.</p>
           </div>
         </div>
         <div class="flex items-start gap-3">
           <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
           <div>
-            <h4 class="font-semibold">Immutable</h4>
-            <p class="text-sm text-muted-foreground">Always returns a new array — the original data is never modified.</p>
+            <h4 class="font-semibold">Pure Pipe</h4>
+            <p class="text-sm text-muted-foreground">Same input always produces the same output — Angular caches the result.</p>
           </div>
         </div>
       </div>
@@ -168,45 +174,46 @@ import { InitialPlayground } from '../../examples/initial-playground/initial-pla
         <app-author-credit author="Mofiro Jean" url="https://github.com/mofirojean" />
         <div class="flex gap-4">
           <app-next-prev-navigation
-            [previous]="{ label: 'Flatten', link: '/docs/pipes/flatten' }"
-            [next]="{ label: 'Range', link: '/docs/pipes/range' }"
+            [previous]="{ label: 'Initial', link: '/docs/pipes/initial' }"
+            [next]="{ label: 'Reverse', link: '/docs/pipes/reverse' }"
           />
         </div>
       </div>
     </div>
   `,
 })
-export class InitialPage {
-  numbers = [1, 2, 3, 4, 5];
-  breadcrumbs = ['Home', 'Products', 'Electronics', 'iPhone 15'];
-
+export class RangePage {
   code = [
     'import { Component } from \'@angular/core\';',
-    'import { InitialPipe } from \'ngx-transforms\';',
+    'import { RangePipe } from \'ngx-transforms\';',
     '',
     '@Component({',
     '  selector: \'app-example\',',
     '  standalone: true,',
-    '  imports: [InitialPipe],',
+    '  imports: [RangePipe],',
     '  template: `',
-    '    <!-- Remove last element (default) -->',
-    '    <p>{{ items | initial }}</p>',
-    '    <!-- [1, 2, 3, 4] -->',
-    '',
-    '    <!-- Remove last 2 elements -->',
-    '    <p>{{ items | initial:2 }}</p>',
-    '    <!-- [1, 2, 3] -->',
-    '',
-    '    <!-- Breadcrumbs without current page -->',
-    '    @for (crumb of breadcrumbs | initial; track $index) {',
-    '      <a>{{ crumb }}</a> <span>/</span>',
+    '    <!-- Star rating -->',
+    '    @for (star of 5 | range:1; track star) {',
+    '      <span [class.filled]="star <= rating">★</span>',
     '    }',
-    '    <span>{{ breadcrumbs[breadcrumbs.length - 1] }}</span>',
+    '',
+    '    <!-- Skeleton loaders -->',
+    '    @for (i of 6 | range; track i) {',
+    '      <div class="skeleton-card"></div>',
+    '    }',
+    '',
+    '    <!-- Pagination -->',
+    '    @for (page of totalPages | range:1; track page) {',
+    '      <button [class.active]="page === currentPage">',
+    '        {{ page }}',
+    '      </button>',
+    '    }',
     '  `',
     '})',
     'export class ExampleComponent {',
-    '  items = [1, 2, 3, 4, 5];',
-    '  breadcrumbs = [\'Home\', \'Products\', \'Electronics\', \'iPhone 15\'];',
+    '  rating = 3;',
+    '  totalPages = 8;',
+    '  currentPage = 1;',
     '}',
   ].join('\n');
 }

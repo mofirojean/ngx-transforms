@@ -36,6 +36,7 @@ import { TimeAgoPipePipe } from '../lib/pipes/data/time-ago/time-ago';
 import { ChunkPipe } from '../lib/pipes/array/chunk/chunk';
 import { Flatten } from '../lib/pipes/array/flatten/flatten';
 import { InitialPipe } from '../lib/pipes/array/initial/initial';
+import { RangePipe } from '../lib/pipes/array/range/range';
 import { ReversePipe } from '../lib/pipes/array/reverse/reverse';
 import { SamplePipe } from '../lib/pipes/array/sample/sample';
 import { ShufflePipe } from '../lib/pipes/array/shuffle/shuffle';
@@ -80,6 +81,7 @@ export const ALL_PIPES: Provider[] = [
   ChunkPipe,
   Flatten,
   InitialPipe,
+  RangePipe,
   ReversePipe,
   SamplePipe,
   ShufflePipe,

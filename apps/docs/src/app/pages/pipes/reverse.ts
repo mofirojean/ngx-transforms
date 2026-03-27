@@ -71,7 +71,7 @@ import {Breadcrumb} from '../../reusables/breadcrumb/breadcrumb';
         <app-author-credit author="John Doe" url="https://github.com/johndoe"/>
         <div class="flex gap-4">
           <app-next-prev-navigation
-            [previous]="{ label: 'Initial', link: '/docs/pipes/initial' }"
+            [previous]="{ label: 'Range', link: '/docs/pipes/range' }"
             [next]="{ label: 'Sample', link: '/docs/pipes/sample' }"
           />
         </div>

@@ -43,6 +43,7 @@ import { ShufflePipe } from '../lib/pipes/array/shuffle/shuffle';
 import { TailPipe } from '../lib/pipes/array/tail/tail';
 import { TruthifyPipe } from '../lib/pipes/array/truthify/truthify';
 import { UniquePipe } from '../lib/pipes/array/unique/unique';
+import { WithoutPipe } from '../lib/pipes/array/without/without';
 
 export const ALL_PIPES: Provider[] = [
   // Text
@@ -88,4 +89,5 @@ export const ALL_PIPES: Provider[] = [
   TailPipe,
   TruthifyPipe,
   UniquePipe,
+  WithoutPipe,
 ];

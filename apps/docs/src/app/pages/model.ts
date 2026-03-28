@@ -78,6 +78,7 @@ export const PIPE_CATEGORIES: PipeCategory[] = [
       { name: "Tail", url: "/docs/pipes/tail", description: "Returns all elements except the first n.", addedOn: "2026-03-24" },
       { name: "Truthify", url: "/docs/pipes/truthify", description: "Removes all falsy values from arrays.", addedOn: "2026-03-21" },
       { name: "Unique", url: "/docs/pipes/unique", description: "Removes duplicates from arrays with support for nested object keys.", addedOn: "2026-03-20" },
+      { name: "Without", url: "/docs/pipes/without", description: "Excludes specified elements from an array by value or object property.", addedOn: "2026-03-28" },
     ],
   },
 ];

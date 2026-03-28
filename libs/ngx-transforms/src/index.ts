@@ -41,6 +41,7 @@ export * from './lib/pipes/array/shuffle/shuffle';
 export * from './lib/pipes/array/tail/tail';
 export * from './lib/pipes/array/truthify/truthify';
 export * from './lib/pipes/array/unique/unique';
+export * from './lib/pipes/array/without/without';
 
 // Providers
 export * from './providers/all-pipes.provider';

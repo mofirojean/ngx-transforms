@@ -28,6 +28,7 @@ import { TimeAgoPage } from './pages/pipes/time-ago';
 import { ChunkPage } from './pages/pipes/chunk';
 import { FlattenPage } from './pages/pipes/flatten';
 import { InitialPage } from './pages/pipes/initial';
+import { PluckPage } from './pages/pipes/pluck';
 import { RangePage } from './pages/pipes/range';
 import { SamplePage } from './pages/pipes/sample';
 import { ShufflePage } from './pages/pipes/shuffle';
@@ -156,6 +157,10 @@ export const appRoutes: Route[] = [
           {
             path: 'initial',
             component: InitialPage,
+          },
+          {
+            path: 'pluck',
+            component: PluckPage,
           },
           {
             path: 'range',

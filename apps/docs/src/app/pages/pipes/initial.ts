@@ -169,7 +169,7 @@ import { InitialPlayground } from '../../examples/initial-playground/initial-pla
         <div class="flex gap-4">
           <app-next-prev-navigation
             [previous]="{ label: 'Flatten', link: '/docs/pipes/flatten' }"
-            [next]="{ label: 'Range', link: '/docs/pipes/range' }"
+            [next]="{ label: 'Pluck', link: '/docs/pipes/pluck' }"
           />
         </div>
       </div>

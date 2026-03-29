@@ -71,6 +71,7 @@ export const PIPE_CATEGORIES: PipeCategory[] = [
       { name: "Chunk", url: "/docs/pipes/chunk", description: "Splits an array into smaller groups of a specified size.", addedOn: "2026-03-26" },
       { name: "Flatten", url: "/docs/pipes/flatten", description: "Flattens nested arrays to a specified depth.", addedOn: "2026-03-19" },
       { name: "Initial", url: "/docs/pipes/initial", description: "Returns all elements except the last n.", addedOn: "2026-03-23" },
+      { name: "Pluck", url: "/docs/pipes/pluck", description: "Extracts a property value from every object in an array.", addedOn: "2026-03-29" },
       { name: "Range", url: "/docs/pipes/range", description: "Generates a numeric sequence array with configurable start and step.", addedOn: "2026-03-27" },
       { name: "Reverse", url: "/docs/pipes/reverse", description: "Reverses the characters in a string or the elements in an array.", addedOn: "2026-03-18" },
       { name: "Sample", url: "/docs/pipes/sample", description: "Randomly picks n items from an array without duplicates.", addedOn: "2026-03-25" },

@@ -175,7 +175,7 @@ import { FlattenPlayground } from '../../examples/flatten-playground/flatten-pla
         <app-author-credit author="Mofiro Jean" url="https://github.com/mofirojean" />
         <div class="flex gap-4">
           <app-next-prev-navigation
-            [previous]="{ label: 'Chunk', link: '/docs/pipes/chunk' }"
+            [previous]="{ label: 'FilterBy', link: '/docs/pipes/filter-by' }"
             [next]="{ label: 'Initial', link: '/docs/pipes/initial' }"
           />
         </div>

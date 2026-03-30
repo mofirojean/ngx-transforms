@@ -43,6 +43,7 @@ export * from './lib/pipes/array/tail/tail';
 export * from './lib/pipes/array/truthify/truthify';
 export * from './lib/pipes/array/unique/unique';
 export * from './lib/pipes/array/without/without';
+export * from './lib/pipes/array/filter-by/filter-by';
 
 // Providers
 export * from './providers/all-pipes.provider';

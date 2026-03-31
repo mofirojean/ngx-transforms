@@ -1,37 +1,35 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { JsonPipe } from '@angular/common';
-import { PluckPipe } from '@ngx-transforms';
+import { OrderByPipe } from '@ngx-transforms';
 import { CodePreview } from '../../reusables/code-preview/code-preview';
 import { NextPrevNavigation } from '../../reusables/next-prev-navigation/next-prev-navigation';
 import { MacosWindow } from '../../reusables/macos-window/macos-window';
 import { AuthorCredit } from '../../reusables/author-credit/author-credit';
 import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
-import { PluckPlayground } from '../../examples/pluck-playground/pluck-playground';
+import { OrderByPlayground } from '../../examples/order-by-playground/order-by-playground';
 
 @Component({
-  selector: 'app-pluck-page',
+  selector: 'app-order-by-page',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    PluckPipe,
-    JsonPipe,
+    OrderByPipe,
     CodePreview,
     NextPrevNavigation,
     MacosWindow,
     AuthorCredit,
     Breadcrumb,
-    PluckPlayground,
+    OrderByPlayground,
   ],
   template: `
     <div class="container mx-auto py-10 px-4 md:px-8 max-w-4xl">
       <app-breadcrumb class="mb-6 block" />
 
       <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-2">
-        Pluck Pipe
+        OrderBy Pipe
       </h1>
       <p class="text-lg text-muted-foreground mb-8">
-        Extracts a single property from every object in an array.
-        Like .map(item => item.key) but directly in your template.
+        Sorts an array by a property value with configurable direction.
+        Handles strings, numbers, nulls, and nested keys automatically.
       </p>
 
       <!-- Use Cases -->
@@ -42,8 +40,8 @@ import { PluckPlayground } from '../../examples/pluck-playground/pluck-playgroun
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-sm font-bold mt-0.5">1</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Email Lists</h4>
-                <p class="text-sm text-muted-foreground">Extract all emails from a contacts list for bulk operations.</p>
+                <h4 class="font-semibold mb-1">Sortable Tables</h4>
+                <p class="text-sm text-muted-foreground">Click column headers to sort data tables by any field.</p>
               </div>
             </div>
           </div>
@@ -51,8 +49,8 @@ import { PluckPlayground } from '../../examples/pluck-playground/pluck-playgroun
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 text-sm font-bold mt-0.5">2</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Batch API Calls</h4>
-                <p class="text-sm text-muted-foreground">Pull all IDs from a selection for batch delete, update, or fetch.</p>
+                <h4 class="font-semibold mb-1">Leaderboards</h4>
+                <p class="text-sm text-muted-foreground">Rank users by score, points, or performance metrics.</p>
               </div>
             </div>
           </div>
@@ -60,8 +58,8 @@ import { PluckPlayground } from '../../examples/pluck-playground/pluck-playgroun
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-sm font-bold mt-0.5">3</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Filter Dropdowns</h4>
-                <p class="text-sm text-muted-foreground">Extract all categories or tags for a filter select component.</p>
+                <h4 class="font-semibold mb-1">Price Sorting</h4>
+                <p class="text-sm text-muted-foreground">Sort products by price low-to-high or high-to-low.</p>
               </div>
             </div>
           </div>
@@ -69,8 +67,8 @@ import { PluckPlayground } from '../../examples/pluck-playground/pluck-playgroun
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 text-sm font-bold mt-0.5">4</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Calculations</h4>
-                <p class="text-sm text-muted-foreground">Extract all prices or scores for sum, average, or chart data.</p>
+                <h4 class="font-semibold mb-1">Alphabetical Lists</h4>
+                <p class="text-sm text-muted-foreground">Sort contacts, categories, or any named items A-Z or Z-A.</p>
               </div>
             </div>
           </div>
@@ -78,32 +76,26 @@ import { PluckPlayground } from '../../examples/pluck-playground/pluck-playgroun
       </div>
 
       <h2 class="text-2xl font-bold my-8">Interactive Example</h2>
-      <app-macos-window title="Pluck Playground">
-        <app-pluck-playground />
+      <app-macos-window title="Sortable Employee Table">
+        <app-order-by-playground />
       </app-macos-window>
 
       <h2 class="text-2xl font-bold my-8">Usage</h2>
       <app-code-preview [code]="code" [language]="'typescript'">
         <div class="space-y-6">
           <div>
-            <h3 class="text-xl font-semibold mb-4">Pluck Examples</h3>
+            <h3 class="text-xl font-semibold mb-4">OrderBy Examples</h3>
             <div class="rounded-md bg-muted p-6 border border-border space-y-4">
               <div>
-                <div class="text-xs text-muted-foreground mb-2">Extract names</div>
+                <div class="text-xs text-muted-foreground mb-2">Sort by name A-Z (default)</div>
                 <div class="rounded-md bg-background p-4">
-                  <p class="text-sm font-mono">{{ users | pluck:'name' | json }}</p>
+                  <p class="text-sm font-mono">{{ sampleUsers | orderBy:'name' }}</p>
                 </div>
               </div>
               <div>
-                <div class="text-xs text-muted-foreground mb-2">Extract prices</div>
+                <div class="text-xs text-muted-foreground mb-2">Sort by age descending</div>
                 <div class="rounded-md bg-background p-4">
-                  <p class="text-sm font-mono">{{ products | pluck:'price' | json }}</p>
-                </div>
-              </div>
-              <div>
-                <div class="text-xs text-muted-foreground mb-2">Nested property</div>
-                <div class="rounded-md bg-background p-4">
-                  <p class="text-sm font-mono">{{ orders | pluck:'customer.name' | json }}</p>
+                  <p class="text-sm font-mono">{{ sampleUsers | orderBy:'age':'desc' }}</p>
                 </div>
               </div>
             </div>
@@ -127,13 +119,19 @@ import { PluckPlayground } from '../../examples/pluck-playground/pluck-playgroun
               <td class="px-4 py-3 font-mono text-xs">value</td>
               <td class="px-4 py-3 text-muted-foreground">unknown[]</td>
               <td class="px-4 py-3 font-mono text-xs">-</td>
-              <td class="px-4 py-3 text-muted-foreground">Array of objects to extract from</td>
+              <td class="px-4 py-3 text-muted-foreground">The array to sort</td>
             </tr>
-            <tr>
+            <tr class="border-b border-border">
               <td class="px-4 py-3 font-mono text-xs">key</td>
               <td class="px-4 py-3 text-muted-foreground">string</td>
               <td class="px-4 py-3 font-mono text-xs">-</td>
-              <td class="px-4 py-3 text-muted-foreground">Property path to extract (supports dot notation)</td>
+              <td class="px-4 py-3 text-muted-foreground">Property path to sort by (supports dot notation)</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-mono text-xs">direction</td>
+              <td class="px-4 py-3 text-muted-foreground">'asc' | 'desc'</td>
+              <td class="px-4 py-3 font-mono text-xs">'asc'</td>
+              <td class="px-4 py-3 text-muted-foreground">Sort direction — ascending or descending</td>
             </tr>
           </tbody>
         </table>
@@ -144,22 +142,29 @@ import { PluckPlayground } from '../../examples/pluck-playground/pluck-playgroun
         <div class="flex items-start gap-3">
           <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
           <div>
+            <h4 class="font-semibold">Smart Type Handling</h4>
+            <p class="text-sm text-muted-foreground">Uses localeCompare for strings and numeric comparison for numbers automatically.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
+          <div>
+            <h4 class="font-semibold">Null-Safe Sorting</h4>
+            <p class="text-sm text-muted-foreground">Null and undefined values are pushed to the end of the list regardless of direction.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
+          <div>
             <h4 class="font-semibold">Dot Notation</h4>
-            <p class="text-sm text-muted-foreground">Access nested properties like 'customer.address.city' with ease.</p>
+            <p class="text-sm text-muted-foreground">Sort by nested properties like 'customer.name' or 'address.city'.</p>
           </div>
         </div>
         <div class="flex items-start gap-3">
           <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
           <div>
-            <h4 class="font-semibold">Missing Key Safe</h4>
-            <p class="text-sm text-muted-foreground">Returns undefined for objects that don't have the property, preserving array length.</p>
-          </div>
-        </div>
-        <div class="flex items-start gap-3">
-          <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
-          <div>
-            <h4 class="font-semibold">Chainable</h4>
-            <p class="text-sm text-muted-foreground">Chain with unique, without, or other array pipes for powerful data extraction.</p>
+            <h4 class="font-semibold">Immutable</h4>
+            <p class="text-sm text-muted-foreground">Always returns a new sorted array — the original is never modified.</p>
           </div>
         </div>
       </div>
@@ -168,61 +173,52 @@ import { PluckPlayground } from '../../examples/pluck-playground/pluck-playgroun
         <app-author-credit author="Mofiro Jean" url="https://github.com/mofirojean" />
         <div class="flex gap-4">
           <app-next-prev-navigation
-            [previous]="{ label: 'OrderBy', link: '/docs/pipes/order-by' }"
-            [next]="{ label: 'Range', link: '/docs/pipes/range' }"
+            [previous]="{ label: 'Initial', link: '/docs/pipes/initial' }"
+            [next]="{ label: 'Pluck', link: '/docs/pipes/pluck' }"
           />
         </div>
       </div>
     </div>
   `,
 })
-export class PluckPage {
-  users = [
+export class OrderByPage {
+  sampleUsers = [
+    { name: 'Carol', age: 28 },
     { name: 'Alice', age: 25 },
     { name: 'Bob', age: 30 },
-    { name: 'Carol', age: 28 },
-  ];
-  products = [
-    { name: 'Laptop', price: 999 },
-    { name: 'Phone', price: 699 },
-    { name: 'Tablet', price: 499 },
-  ];
-  orders = [
-    { id: 1, customer: { name: 'Alice' } },
-    { id: 2, customer: { name: 'Bob' } },
-    { id: 3, customer: { name: 'Carol' } },
   ];
 
   code = [
     'import { Component } from \'@angular/core\';',
-    'import { PluckPipe } from \'ngx-transforms\';',
+    'import { OrderByPipe } from \'ngx-transforms\';',
     '',
     '@Component({',
     '  selector: \'app-example\',',
     '  standalone: true,',
-    '  imports: [PluckPipe],',
+    '  imports: [OrderByPipe],',
     '  template: `',
-    '    <!-- Extract all emails -->',
-    '    <p>{{ contacts | pluck:\'email\' }}</p>',
-    '    <!-- [\'alice@test.com\', \'bob@test.com\'] -->',
+    '    <!-- Sort by name (A-Z default) -->',
+    '    @for (user of users | orderBy:\'name\'; track user.id) {',
+    '      <div>{{ user.name }}</div>',
+    '    }',
     '',
-    '    <!-- Extract IDs for batch operations -->',
-    '    <p>{{ selectedItems | pluck:\'id\' }}</p>',
+    '    <!-- Sort by price descending -->',
+    '    @for (product of products | orderBy:\'price\':\'desc\'; track product.id) {',
+    '      <div>{{ product.name }} - {{ product.price }}</div>',
+    '    }',
     '',
-    '    <!-- Nested property extraction -->',
-    '    <p>{{ orders | pluck:\'customer.name\' }}</p>',
-    '',
-    '    <!-- Chain with unique for filter options -->',
-    '    @for (cat of products | pluck:\'category\' | unique; track cat) {',
-    '      <option>{{ cat }}</option>',
+    '    <!-- Sortable table column -->',
+    '    @for (row of data | orderBy:sortKey:sortDir; track row.id) {',
+    '      <tr>{{ row.name }}</tr>',
     '    }',
     '  `',
     '})',
     'export class ExampleComponent {',
-    '  contacts = [...];',
-    '  selectedItems = [...];',
-    '  orders = [...];',
+    '  sortKey = \'name\';',
+    '  sortDir: \'asc\' | \'desc\' = \'asc\';',
+    '  users = [...];',
     '  products = [...];',
+    '  data = [...];',
     '}',
   ].join('\n');
 }

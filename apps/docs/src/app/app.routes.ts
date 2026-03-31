@@ -29,6 +29,7 @@ import { ChunkPage } from './pages/pipes/chunk';
 import { FilterByPage } from './pages/pipes/filter-by';
 import { FlattenPage } from './pages/pipes/flatten';
 import { InitialPage } from './pages/pipes/initial';
+import { OrderByPage } from './pages/pipes/order-by';
 import { PluckPage } from './pages/pipes/pluck';
 import { RangePage } from './pages/pipes/range';
 import { SamplePage } from './pages/pipes/sample';
@@ -162,6 +163,10 @@ export const appRoutes: Route[] = [
           {
             path: 'initial',
             component: InitialPage,
+          },
+          {
+            path: 'order-by',
+            component: OrderByPage,
           },
           {
             path: 'pluck',

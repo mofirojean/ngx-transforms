@@ -1,37 +1,37 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { JsonPipe } from '@angular/common';
-import { InitialPipe } from '@ngx-transforms';
+import { KeyValuePipe } from '@angular/common';
+import { GroupByPipe } from '@ngx-transforms';
 import { CodePreview } from '../../reusables/code-preview/code-preview';
 import { NextPrevNavigation } from '../../reusables/next-prev-navigation/next-prev-navigation';
 import { MacosWindow } from '../../reusables/macos-window/macos-window';
 import { AuthorCredit } from '../../reusables/author-credit/author-credit';
 import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
-import { InitialPlayground } from '../../examples/initial-playground/initial-playground';
+import { GroupByPlayground } from '../../examples/group-by-playground/group-by-playground';
 
 @Component({
-  selector: 'app-initial-page',
+  selector: 'app-group-by-page',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    InitialPipe,
-    JsonPipe,
+    GroupByPipe,
+    KeyValuePipe,
     CodePreview,
     NextPrevNavigation,
     MacosWindow,
     AuthorCredit,
     Breadcrumb,
-    InitialPlayground,
+    GroupByPlayground,
   ],
   template: `
     <div class="container mx-auto py-10 px-4 md:px-8 max-w-4xl">
       <app-breadcrumb class="mb-6 block" />
 
       <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-2">
-        Initial Pipe
+        GroupBy Pipe
       </h1>
       <p class="text-lg text-muted-foreground mb-8">
-        Returns all elements of an array except the last n. Perfect for trimming trailing
-        items like pagination controls, summary rows, or "complete" steps.
+        Groups array elements by a property value into an object of arrays.
+        Perfect for dashboards, categorized lists, and grouped table views.
       </p>
 
       <!-- Use Cases -->
@@ -42,8 +42,8 @@ import { InitialPlayground } from '../../examples/initial-playground/initial-pla
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-sm font-bold mt-0.5">1</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Breadcrumbs</h4>
-                <p class="text-sm text-muted-foreground">Show all breadcrumb segments except the current page (the last one).</p>
+                <h4 class="font-semibold mb-1">Dashboard Sections</h4>
+                <p class="text-sm text-muted-foreground">Group tickets by status, orders by fulfillment state, or tasks by priority.</p>
               </div>
             </div>
           </div>
@@ -51,8 +51,8 @@ import { InitialPlayground } from '../../examples/initial-playground/initial-pla
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 text-sm font-bold mt-0.5">2</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Stepper Progress</h4>
-                <p class="text-sm text-muted-foreground">Display completed steps without the final "Done" step in a multi-step form.</p>
+                <h4 class="font-semibold mb-1">Categorized Lists</h4>
+                <p class="text-sm text-muted-foreground">Display products by category, contacts by company, or files by type.</p>
               </div>
             </div>
           </div>
@@ -60,8 +60,8 @@ import { InitialPlayground } from '../../examples/initial-playground/initial-pla
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-sm font-bold mt-0.5">3</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Leaderboard Trimming</h4>
-                <p class="text-sm text-muted-foreground">Show top performers and exclude bottom n entries from a ranked list.</p>
+                <h4 class="font-semibold mb-1">Org Charts</h4>
+                <p class="text-sm text-muted-foreground">Group employees by department, team, or location for directory views.</p>
               </div>
             </div>
           </div>
@@ -69,8 +69,8 @@ import { InitialPlayground } from '../../examples/initial-playground/initial-pla
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 text-sm font-bold mt-0.5">4</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Log Trimming</h4>
-                <p class="text-sm text-muted-foreground">Remove the most recent n entries from an activity log for "undo" previews.</p>
+                <h4 class="font-semibold mb-1">Report Aggregation</h4>
+                <p class="text-sm text-muted-foreground">Group sales by region, logs by severity, or events by date for reporting.</p>
               </div>
             </div>
           </div>
@@ -78,32 +78,25 @@ import { InitialPlayground } from '../../examples/initial-playground/initial-pla
       </div>
 
       <h2 class="text-2xl font-bold my-8">Interactive Example</h2>
-      <app-macos-window title="Initial Playground">
-        <app-initial-playground />
+      <app-macos-window title="GroupBy Playground">
+        <app-group-by-playground />
       </app-macos-window>
 
       <h2 class="text-2xl font-bold my-8">Usage</h2>
       <app-code-preview [code]="code" [language]="'typescript'">
         <div class="space-y-6">
           <div>
-            <h3 class="text-xl font-semibold mb-4">Initial Examples</h3>
+            <h3 class="text-xl font-semibold mb-4">GroupBy Examples</h3>
             <div class="rounded-md bg-muted p-6 border border-border space-y-4">
               <div>
-                <div class="text-xs text-muted-foreground mb-2">Default (remove last 1)</div>
+                <div class="text-xs text-muted-foreground mb-2">Group by role</div>
                 <div class="rounded-md bg-background p-4">
-                  <p class="text-sm font-mono">{{ numbers | initial | json }}</p>
-                </div>
-              </div>
-              <div>
-                <div class="text-xs text-muted-foreground mb-2">Remove last 2</div>
-                <div class="rounded-md bg-background p-4">
-                  <p class="text-sm font-mono">{{ numbers | initial:2 | json }}</p>
-                </div>
-              </div>
-              <div>
-                <div class="text-xs text-muted-foreground mb-2">Breadcrumbs without current page</div>
-                <div class="rounded-md bg-background p-4">
-                  <p class="text-sm font-mono">{{ breadcrumbs | initial | json }}</p>
+                  @for (group of sampleUsers | groupBy:'role' | keyvalue; track group.key) {
+                    <div class="mb-2">
+                      <span class="font-bold text-sm text-primary">{{ group.key }}</span>
+                      <span class="text-xs text-muted-foreground ml-2">({{ $any(group.value).length }})</span>
+                    </div>
+                  }
                 </div>
               </div>
             </div>
@@ -127,13 +120,13 @@ import { InitialPlayground } from '../../examples/initial-playground/initial-pla
               <td class="px-4 py-3 font-mono text-xs">value</td>
               <td class="px-4 py-3 text-muted-foreground">unknown[]</td>
               <td class="px-4 py-3 font-mono text-xs">-</td>
-              <td class="px-4 py-3 text-muted-foreground">The array to trim from the end</td>
+              <td class="px-4 py-3 text-muted-foreground">The array to group</td>
             </tr>
             <tr>
-              <td class="px-4 py-3 font-mono text-xs">n</td>
-              <td class="px-4 py-3 text-muted-foreground">number</td>
-              <td class="px-4 py-3 font-mono text-xs">1</td>
-              <td class="px-4 py-3 text-muted-foreground">Number of elements to exclude from the end</td>
+              <td class="px-4 py-3 font-mono text-xs">key</td>
+              <td class="px-4 py-3 text-muted-foreground">string</td>
+              <td class="px-4 py-3 font-mono text-xs">-</td>
+              <td class="px-4 py-3 text-muted-foreground">Property path to group by (supports dot notation)</td>
             </tr>
           </tbody>
         </table>
@@ -144,22 +137,29 @@ import { InitialPlayground } from '../../examples/initial-playground/initial-pla
         <div class="flex items-start gap-3">
           <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
           <div>
-            <h4 class="font-semibold">Configurable Count</h4>
-            <p class="text-sm text-muted-foreground">Remove 1 element (default) or any number from the end of the array.</p>
+            <h4 class="font-semibold">Object Output</h4>
+            <p class="text-sm text-muted-foreground">Returns a keyed object — iterate with Angular's keyvalue pipe for template rendering.</p>
           </div>
         </div>
         <div class="flex items-start gap-3">
           <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
           <div>
-            <h4 class="font-semibold">Boundary Safe</h4>
-            <p class="text-sm text-muted-foreground">Gracefully handles n=0 (keeps all), n >= length (returns empty), and negative values.</p>
+            <h4 class="font-semibold">Dot Notation</h4>
+            <p class="text-sm text-muted-foreground">Group by nested properties like 'customer.city' or 'meta.category'.</p>
           </div>
         </div>
         <div class="flex items-start gap-3">
           <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
           <div>
-            <h4 class="font-semibold">Immutable</h4>
-            <p class="text-sm text-muted-foreground">Always returns a new array — the original data is never modified.</p>
+            <h4 class="font-semibold">Preserves Order</h4>
+            <p class="text-sm text-muted-foreground">Items within each group maintain their original array order.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
+          <div>
+            <h4 class="font-semibold">Missing Key Safe</h4>
+            <p class="text-sm text-muted-foreground">Objects without the key property are grouped under "undefined".</p>
           </div>
         </div>
       </div>
@@ -168,45 +168,54 @@ import { InitialPlayground } from '../../examples/initial-playground/initial-pla
         <app-author-credit author="Mofiro Jean" url="https://github.com/mofirojean" />
         <div class="flex gap-4">
           <app-next-prev-navigation
-            [previous]="{ label: 'GroupBy', link: '/docs/pipes/group-by' }"
-            [next]="{ label: 'OrderBy', link: '/docs/pipes/order-by' }"
+            [previous]="{ label: 'Flatten', link: '/docs/pipes/flatten' }"
+            [next]="{ label: 'Initial', link: '/docs/pipes/initial' }"
           />
         </div>
       </div>
     </div>
   `,
 })
-export class InitialPage {
-  numbers = [1, 2, 3, 4, 5];
-  breadcrumbs = ['Home', 'Products', 'Electronics', 'iPhone 15'];
+export class GroupByPage {
+  sampleUsers = [
+    { name: 'Alice', role: 'admin' },
+    { name: 'Bob', role: 'editor' },
+    { name: 'Carol', role: 'admin' },
+    { name: 'Dave', role: 'viewer' },
+  ];
 
   code = [
     'import { Component } from \'@angular/core\';',
-    'import { InitialPipe } from \'ngx-transforms\';',
+    'import { KeyValuePipe } from \'@angular/common\';',
+    'import { GroupByPipe } from \'ngx-transforms\';',
     '',
     '@Component({',
     '  selector: \'app-example\',',
     '  standalone: true,',
-    '  imports: [InitialPipe],',
+    '  imports: [GroupByPipe, KeyValuePipe],',
     '  template: `',
-    '    <!-- Remove last element (default) -->',
-    '    <p>{{ items | initial }}</p>',
-    '    <!-- [1, 2, 3, 4] -->',
-    '',
-    '    <!-- Remove last 2 elements -->',
-    '    <p>{{ items | initial:2 }}</p>',
-    '    <!-- [1, 2, 3] -->',
-    '',
-    '    <!-- Breadcrumbs without current page -->',
-    '    @for (crumb of breadcrumbs | initial; track $index) {',
-    '      <a>{{ crumb }}</a> <span>/</span>',
+    '    <!-- Group employees by department -->',
+    '    @for (group of employees | groupBy:\'department\' | keyvalue; track group.key) {',
+    '      <h3>{{ group.key }} ({{ group.value.length }})</h3>',
+    '      @for (emp of group.value; track $index) {',
+    '        <div>{{ emp.name }}</div>',
+    '      }',
     '    }',
-    '    <span>{{ breadcrumbs[breadcrumbs.length - 1] }}</span>',
+    '',
+    '    <!-- Group tickets by priority -->',
+    '    @for (group of tickets | groupBy:\'priority\' | keyvalue; track group.key) {',
+    '      <div class="column">',
+    '        <h4>{{ group.key }}</h4>',
+    '        @for (ticket of group.value; track ticket.id) {',
+    '          <app-ticket-card [ticket]="ticket" />',
+    '        }',
+    '      </div>',
+    '    }',
     '  `',
     '})',
     'export class ExampleComponent {',
-    '  items = [1, 2, 3, 4, 5];',
-    '  breadcrumbs = [\'Home\', \'Products\', \'Electronics\', \'iPhone 15\'];',
+    '  employees = [...];',
+    '  tickets = [...];',
     '}',
   ].join('\n');
 }

@@ -176,7 +176,7 @@ import { FlattenPlayground } from '../../examples/flatten-playground/flatten-pla
         <div class="flex gap-4">
           <app-next-prev-navigation
             [previous]="{ label: 'FilterBy', link: '/docs/pipes/filter-by' }"
-            [next]="{ label: 'Initial', link: '/docs/pipes/initial' }"
+            [next]="{ label: 'GroupBy', link: '/docs/pipes/group-by' }"
           />
         </div>
       </div>

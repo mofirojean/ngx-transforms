@@ -71,6 +71,7 @@ export const PIPE_CATEGORIES: PipeCategory[] = [
       { name: "Chunk", url: "/docs/pipes/chunk", description: "Splits an array into smaller groups of a specified size.", addedOn: "2026-03-26" },
       { name: "FilterBy", url: "/docs/pipes/filter-by", description: "Filters arrays by matching a search term against object properties.", addedOn: "2026-03-30" },
       { name: "Flatten", url: "/docs/pipes/flatten", description: "Flattens nested arrays to a specified depth.", addedOn: "2026-03-19" },
+      { name: "GroupBy", url: "/docs/pipes/group-by", description: "Groups array elements by a property value into categorized sections.", addedOn: "2026-04-01" },
       { name: "Initial", url: "/docs/pipes/initial", description: "Returns all elements except the last n.", addedOn: "2026-03-23" },
       { name: "OrderBy", url: "/docs/pipes/order-by", description: "Sorts an array by a property value with configurable direction.", addedOn: "2026-03-31" },
       { name: "Pluck", url: "/docs/pipes/pluck", description: "Extracts a property value from every object in an array.", addedOn: "2026-03-29" },

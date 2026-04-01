@@ -28,6 +28,7 @@ import { TimeAgoPage } from './pages/pipes/time-ago';
 import { ChunkPage } from './pages/pipes/chunk';
 import { FilterByPage } from './pages/pipes/filter-by';
 import { FlattenPage } from './pages/pipes/flatten';
+import { GroupByPage } from './pages/pipes/group-by';
 import { InitialPage } from './pages/pipes/initial';
 import { OrderByPage } from './pages/pipes/order-by';
 import { PluckPage } from './pages/pipes/pluck';
@@ -159,6 +160,10 @@ export const appRoutes: Route[] = [
           {
             path: 'flatten',
             component: FlattenPage,
+          },
+          {
+            path: 'group-by',
+            component: GroupByPage,
           },
           {
             path: 'initial',

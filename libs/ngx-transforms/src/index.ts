@@ -33,6 +33,7 @@ export * from './lib/pipes/data/time-ago/time-ago';
 // Array
 export * from './lib/pipes/array/chunk/chunk';
 export * from './lib/pipes/array/flatten/flatten';
+export * from './lib/pipes/array/group-by/group-by';
 export * from './lib/pipes/array/initial/initial';
 export * from './lib/pipes/array/order-by/order-by';
 export * from './lib/pipes/array/pluck/pluck';

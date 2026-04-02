@@ -34,6 +34,7 @@ import { TimeAgoPipePipe } from '../lib/pipes/data/time-ago/time-ago';
 
 // Array
 import { ChunkPipe } from '../lib/pipes/array/chunk/chunk';
+import { DiffPipe } from '../lib/pipes/array/diff/diff';
 import { Flatten } from '../lib/pipes/array/flatten/flatten';
 import { GroupByPipe } from '../lib/pipes/array/group-by/group-by';
 import { InitialPipe } from '../lib/pipes/array/initial/initial';
@@ -84,6 +85,7 @@ export const ALL_PIPES: Provider[] = [
 
   // Array
   ChunkPipe,
+  DiffPipe,
   Flatten,
   GroupByPipe,
   InitialPipe,

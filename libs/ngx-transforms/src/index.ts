@@ -31,6 +31,7 @@ export * from './lib/pipes/data/text-to-speech/text-to-speech';
 export * from './lib/pipes/data/time-ago/time-ago';
 
 // Array
+export * from './lib/pipes/array/diff/diff';
 export * from './lib/pipes/array/chunk/chunk';
 export * from './lib/pipes/array/flatten/flatten';
 export * from './lib/pipes/array/group-by/group-by';

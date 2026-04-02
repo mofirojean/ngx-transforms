@@ -26,6 +26,7 @@ import { TextToSpeechPage } from './pages/pipes/text-to-speech';
 import { DeviceTypePage } from './pages/pipes/device-type';
 import { TimeAgoPage } from './pages/pipes/time-ago';
 import { ChunkPage } from './pages/pipes/chunk';
+import { DiffPage } from './pages/pipes/diff';
 import { FilterByPage } from './pages/pipes/filter-by';
 import { FlattenPage } from './pages/pipes/flatten';
 import { GroupByPage } from './pages/pipes/group-by';
@@ -152,6 +153,10 @@ export const appRoutes: Route[] = [
           {
             path: 'chunk',
             component: ChunkPage,
+          },
+          {
+            path: 'diff',
+            component: DiffPage,
           },
           {
             path: 'filter-by',

@@ -49,6 +49,7 @@ import { TailPipe } from '../lib/pipes/array/tail/tail';
 import { TruthifyPipe } from '../lib/pipes/array/truthify/truthify';
 import { UniquePipe } from '../lib/pipes/array/unique/unique';
 import { WithoutPipe } from '../lib/pipes/array/without/without';
+import { UnionPipe } from '../lib/pipes/array/union/union';
 import {FilterByPipe} from '../lib/pipes/array/filter-by/filter-by';
 
 export const ALL_PIPES: Provider[] = [
@@ -101,5 +102,6 @@ export const ALL_PIPES: Provider[] = [
   TruthifyPipe,
   UniquePipe,
   WithoutPipe,
+  UnionPipe,
   FilterByPipe
 ];

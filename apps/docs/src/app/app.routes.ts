@@ -40,6 +40,7 @@ import { ShufflePage } from './pages/pipes/shuffle';
 import { TailPage } from './pages/pipes/tail';
 import { TruthifyPage } from './pages/pipes/truthify';
 import { UniquePage } from './pages/pipes/unique';
+import { UnionPage } from './pages/pipes/union';
 import { WithoutPage } from './pages/pipes/without';
 
 export const appRoutes: Route[] = [
@@ -210,6 +211,10 @@ export const appRoutes: Route[] = [
           {
             path: 'unique',
             component: UniquePage,
+          },
+          {
+            path: 'union',
+            component: UnionPage,
           },
           {
             path: 'without',

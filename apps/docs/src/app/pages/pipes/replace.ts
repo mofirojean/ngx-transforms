@@ -40,7 +40,7 @@ import {Breadcrumb} from '../../reusables/breadcrumb/breadcrumb';
       <h2 class="text-2xl font-bold my-8">Usage</h2>
       <app-code-preview [code]="usageCode" language="typescript">
         <div class="rounded-md bg-muted p-6 border border-border">
-          <div>{{ 'Hello World' | replace: 'World':'Angular' }}</div>
+          <div [innerHTML]="'Hello World' | replace: 'World':'Angular'"></div>
         </div>
       </app-code-preview>
 
@@ -60,14 +60,14 @@ export class Replace {
 
   usageCode = `
 import { Component } from '@angular/core';
-import { ReplacePipe } from 'ngx-transforms';
+import { ReplacePipe } from '@ngx-transforms';
 
 @Component({
   selector: 'app-example',
   standalone: true,
   imports: [ReplacePipe],
   template: \`
-    <div>{{ 'Hello World' | replace: 'World':'Angular' }}</div>
+    <div [innerHTML]="'Hello World' | replace: 'World':'Angular'"></div>
   \`
 })
 export class ExampleComponent {}

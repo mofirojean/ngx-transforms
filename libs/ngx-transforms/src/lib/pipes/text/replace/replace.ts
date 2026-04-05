@@ -14,22 +14,6 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
  * @param {boolean} [isReplace=true] - Whether to perform replacement (true) or only highlight matches (false).
  *
  * @returns {string | SafeHtml} - Returns the transformed string or SafeHtml with highlights.
- *
- * @example
- * {{ 'Hello World' | replace:'World':'Universe' }}
- * // Output: Hello Universe
- *
- * {{ 'test123' | replace:/\d+/g:'X':'highlight' }}
- * // Output: test<span class="highlight">X</span>
- *
- * {{ 'Angular is great' | replace:'great':'awesome':'highlight':true }}
- * // Output: Angular is <span class="highlight">awesome</span>
- *
- * {{ 'Angular is great' | replace:'great':'awesome':'highlight':false }}
- * // Output: Angular is <span class="highlight">great</span>
- *
- * <div [innerHTML]="'Angular is great' | replace:'great':'awesome':'highlight':false"></div>
- * // Renders: Angular is <span class="highlight">great</span>
  */
 
 @Pipe({

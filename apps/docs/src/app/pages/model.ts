@@ -70,6 +70,7 @@ export const PIPE_CATEGORIES: PipeCategory[] = [
     pipes: [
       { name: "Chunk", url: "/docs/pipes/chunk", description: "Splits an array into smaller groups of a specified size.", addedOn: "2026-03-26" },
       { name: "Diff", url: "/docs/pipes/diff", description: "Returns elements in the first array that are not in the second.", addedOn: "2026-04-02" },
+      { name: "Every", url: "/docs/pipes/every", description: "Checks if all elements in an array satisfy a condition.", addedOn: "2026-04-04" },
       { name: "Intersection", url: "/docs/pipes/intersection", description: "Returns elements common to both arrays.", addedOn: "2026-04-03" },
       { name: "Union", url: "/docs/pipes/union", description: "Combines two arrays keeping only unique elements.", addedOn: "2026-04-04" },
       { name: "FilterBy", url: "/docs/pipes/filter-by", description: "Filters arrays by matching a search term against object properties.", addedOn: "2026-03-30" },

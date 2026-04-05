@@ -27,6 +27,7 @@ import { DeviceTypePage } from './pages/pipes/device-type';
 import { TimeAgoPage } from './pages/pipes/time-ago';
 import { ChunkPage } from './pages/pipes/chunk';
 import { DiffPage } from './pages/pipes/diff';
+import { EveryPage } from './pages/pipes/every';
 import { IntersectionPage } from './pages/pipes/intersection';
 import { FilterByPage } from './pages/pipes/filter-by';
 import { FlattenPage } from './pages/pipes/flatten';
@@ -159,6 +160,10 @@ export const appRoutes: Route[] = [
           {
             path: 'diff',
             component: DiffPage,
+          },
+          {
+            path: 'every',
+            component: EveryPage,
           },
           {
             path: 'intersection',

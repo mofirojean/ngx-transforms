@@ -72,6 +72,7 @@ export const PIPE_CATEGORIES: PipeCategory[] = [
       { name: "Diff", url: "/docs/pipes/diff", description: "Returns elements in the first array that are not in the second.", addedOn: "2026-04-02" },
       { name: "Every", url: "/docs/pipes/every", description: "Checks if all elements in an array satisfy a condition.", addedOn: "2026-04-04" },
       { name: "Intersection", url: "/docs/pipes/intersection", description: "Returns elements common to both arrays.", addedOn: "2026-04-03" },
+      { name: "Some", url: "/docs/pipes/some", description: "Checks if at least one element in an array satisfies a condition.", addedOn: "2026-04-05" },
       { name: "Union", url: "/docs/pipes/union", description: "Combines two arrays keeping only unique elements.", addedOn: "2026-04-04" },
       { name: "FilterBy", url: "/docs/pipes/filter-by", description: "Filters arrays by matching a search term against object properties.", addedOn: "2026-03-30" },
       { name: "Flatten", url: "/docs/pipes/flatten", description: "Flattens nested arrays to a specified depth.", addedOn: "2026-03-19" },

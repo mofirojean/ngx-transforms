@@ -41,6 +41,7 @@ import { ShufflePage } from './pages/pipes/shuffle';
 import { TailPage } from './pages/pipes/tail';
 import { TruthifyPage } from './pages/pipes/truthify';
 import { UniquePage } from './pages/pipes/unique';
+import { SomePage } from './pages/pipes/some';
 import { UnionPage } from './pages/pipes/union';
 import { WithoutPage } from './pages/pipes/without';
 
@@ -216,6 +217,10 @@ export const appRoutes: Route[] = [
           {
             path: 'unique',
             component: UniquePage,
+          },
+          {
+            path: 'some',
+            component: SomePage,
           },
           {
             path: 'union',

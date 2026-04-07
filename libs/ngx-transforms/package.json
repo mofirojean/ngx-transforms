@@ -1,7 +1,7 @@
 {
   "name": "ngx-transforms",
   "version": "0.1.0",
-  "description": "A collection of 31+ standalone Angular pipes for text, security, media, data, and array transformations.",
+  "description": "A collection of 36 standalone Angular pipes for text, security, media, data, and array transformations.",
   "keywords": [
     "angular",
     "pipes",
@@ -20,7 +20,18 @@
     "shuffle",
     "unique",
     "flatten",
-    "time-ago"
+    "time-ago",
+    "diff",
+    "intersection",
+    "union",
+    "every",
+    "some",
+    "filter-by",
+    "group-by",
+    "order-by",
+    "chunk",
+    "pluck",
+    "range"
   ],
   "license": "MIT",
   "author": "Mofiro Jean <mofirojean@gmail.com>",

@@ -1,3 +1,24 @@
+## 0.2.0 (2026-04-07)
+
+### 🚀 Features
+
+- implement chunk pipe and examples ([1826036](https://github.com/mofirojean/ngx-transforms/commit/1826036))
+- implement range pipe and examples ([6eb979b](https://github.com/mofirojean/ngx-transforms/commit/6eb979b))
+- implement without pipe and examples ([febffd2](https://github.com/mofirojean/ngx-transforms/commit/febffd2))
+- implement pluck pipe and examples ([768ac93](https://github.com/mofirojean/ngx-transforms/commit/768ac93))
+- implement filter-by pipe and examples ([a7d418f](https://github.com/mofirojean/ngx-transforms/commit/a7d418f))
+- implement order-by pipe and examples ([f1ac8f1](https://github.com/mofirojean/ngx-transforms/commit/f1ac8f1))
+- implement group-by pipe and examples ([d638b96](https://github.com/mofirojean/ngx-transforms/commit/d638b96))
+- implement diff pipe and examples ([e5a035c](https://github.com/mofirojean/ngx-transforms/commit/e5a035c))
+- implement intersection pipe and examples ([994a663](https://github.com/mofirojean/ngx-transforms/commit/994a663))
+- implement union pipe and examples ([7e0742c](https://github.com/mofirojean/ngx-transforms/commit/7e0742c))
+- implement every pipe and examples ([331f932](https://github.com/mofirojean/ngx-transforms/commit/331f932))
+- implement some pipe and examples ([01f8349](https://github.com/mofirojean/ngx-transforms/commit/01f8349))
+
+### ❤️ Thank You
+
+- mofirojean
+
 ## 0.1.0 (2026-03-25)
 
 ### 🚀 Features

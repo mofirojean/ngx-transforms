@@ -90,6 +90,12 @@ export const PIPE_CATEGORIES: PipeCategory[] = [
       { name: "Without", url: "/docs/pipes/without", description: "Excludes specified elements from an array by value or object property.", addedOn: "2026-03-28" },
     ],
   },
+  {
+    name: 'Math',
+    pipes: [
+      { name: "Min", url: "/docs/pipes/min", description: "Returns the minimum value from an array of numbers.", addedOn: "2026-04-08" },
+    ],
+  },
 ];
 
 /** Flat list of all pipes (for backward compatibility). */

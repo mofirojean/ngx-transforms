@@ -52,5 +52,8 @@ export * from './lib/pipes/array/some/some';
 export * from './lib/pipes/array/union/union';
 export * from './lib/pipes/array/filter-by/filter-by';
 
+// Math
+export * from './lib/pipes/math/min/min';
+
 // Providers
 export * from './providers/all-pipes.provider';

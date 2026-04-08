@@ -54,6 +54,9 @@ import { SomePipe } from '../lib/pipes/array/some/some';
 import { UnionPipe } from '../lib/pipes/array/union/union';
 import {FilterByPipe} from '../lib/pipes/array/filter-by/filter-by';
 
+// Math
+import { MinPipe } from '../lib/pipes/math/min/min';
+
 export const ALL_PIPES: Provider[] = [
   // Text
   AsciiArtPipe,
@@ -107,5 +110,8 @@ export const ALL_PIPES: Provider[] = [
   WithoutPipe,
   SomePipe,
   UnionPipe,
-  FilterByPipe
+  FilterByPipe,
+
+  // Math
+  MinPipe,
 ];

@@ -8,7 +8,7 @@ import {AuthorCredit} from '../../reusables/author-credit/author-credit';
 import {Breadcrumb} from '../../reusables/breadcrumb/breadcrumb';
 
 @Component({
-  selector: 'ngx-transforms-json-pretty-page',
+  selector: 'app-json-pretty-page',
   standalone: true,
   imports: [
     CodePreview,

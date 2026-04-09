@@ -87,7 +87,7 @@ export class EmailPrivacyShowcase {
       };
     }
 
-    const [local, domain] = email.split('@');
+    const [local] = email.split('@');
 
     if (local.length > 64) {
       return {

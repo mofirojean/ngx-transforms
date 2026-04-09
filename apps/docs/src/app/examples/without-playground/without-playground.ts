@@ -1,7 +1,6 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  computed,
   signal,
 } from '@angular/core';
 import { JsonPipe } from '@angular/common';

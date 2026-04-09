@@ -149,7 +149,7 @@ export class PaymentCardDisplay {
 
   formatCardInput(event: Event): void {
     const input = event.target as HTMLInputElement;
-    let value = input.value.replace(/\s/g, '');
+    const value = input.value.replace(/\s/g, '');
 
     // Add spaces every 4 digits
     const formatted = value.match(/.{1,4}/g)?.join(' ') || value;

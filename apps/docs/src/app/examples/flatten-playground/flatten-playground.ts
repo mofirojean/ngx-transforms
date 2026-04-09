@@ -182,7 +182,7 @@ export class FlattenPlayground {
   flatResult = computed(() => {
     const d = this.data();
     if (d.length === 0) return [];
-    return (d as any[]).flat(this.depth());
+    return (d as unknown[]).flat(this.depth());
   });
 
   nestingDepth = computed(() => {

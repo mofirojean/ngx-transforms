@@ -1,9 +1,10 @@
 <div class="p-6 space-y-6">
   <div class="space-y-4">
     <div>
-      <label hlmLabel class="text-sm font-medium mb-2 block">Search Text</label>
+      <label hlmLabel for="search-text-input" class="text-sm font-medium mb-2 block">Search Text</label>
       <input
         hlmInput
+        id="search-text-input"
         type="text"
         [(ngModel)]="searchTerm"
         placeholder="Type to highlight..."
@@ -12,9 +13,10 @@
     </div>
 
     <div>
-      <label hlmLabel class="text-sm font-medium mb-2 block">Sample Text</label>
+      <label hlmLabel for="sample-text-input" class="text-sm font-medium mb-2 block">Sample Text</label>
       <textarea
         hlmTextarea
+        id="sample-text-input"
         [(ngModel)]="sampleText"
         rows="6"
         class="w-full font-mono text-sm"

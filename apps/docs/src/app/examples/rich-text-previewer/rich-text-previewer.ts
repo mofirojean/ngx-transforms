@@ -62,7 +62,7 @@ interface SanitizeExample {
 
       <!-- Quick Examples -->
       <div>
-        <label hlmLabel class="text-xs text-muted-foreground mb-2 block">Test Scenarios</label>
+        <span hlmLabel class="text-xs text-muted-foreground mb-2 block">Test Scenarios</span>
         <div class="flex flex-wrap gap-2">
           @for (example of examples; track example.label) {
             <button

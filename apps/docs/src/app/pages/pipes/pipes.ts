@@ -75,7 +75,11 @@ import {HlmIcon} from '@spartan-ng/helm/icon';
       <!-- Overlay -->
       @if (isSidebarOpen()) {
         <div class="fixed inset-0 z-40 bg-background/80 backdrop-blur-sm md:hidden"
-             (click)="closeSidebar()"></div>
+             role="button"
+             tabindex="0"
+             (click)="closeSidebar()"
+             (keydown.enter)="closeSidebar()"
+             (keydown.escape)="closeSidebar()"></div>
       }
 
       <!-- Main Content -->

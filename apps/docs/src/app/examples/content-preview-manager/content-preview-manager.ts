@@ -36,7 +36,7 @@ interface PreviewPreset {
 
       <!-- Quick Presets -->
       <div>
-        <label hlmLabel class="text-xs text-muted-foreground mb-2 block">Quick Presets</label>
+        <span hlmLabel class="text-xs text-muted-foreground mb-2 block">Quick Presets</span>
         <div class="flex flex-wrap gap-2">
           @for (preset of presets; track preset.label) {
             <button
@@ -94,7 +94,7 @@ interface PreviewPreset {
           />
         </div>
         <div class="grid gap-1.5">
-          <label hlmLabel>Preserve Words</label>
+          <span hlmLabel>Preserve Words</span>
           <button
             hlmBtn
             [variant]="preserveWords() ? 'default' : 'outline'"
@@ -129,7 +129,7 @@ interface PreviewPreset {
 
       <!-- Visual Cards Preview -->
       <div>
-        <label hlmLabel class="mb-2 block">Card Preview</label>
+        <span hlmLabel class="mb-2 block">Card Preview</span>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div class="rounded-lg border border-border p-4">
             <div class="h-20 rounded-md bg-muted/50 mb-3"></div>

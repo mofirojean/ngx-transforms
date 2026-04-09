@@ -1,7 +1,7 @@
 import { Component, signal, computed, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { AsciiGenerator, CharsetPreset, AsciiConfig } from 'ts-ascii-engine';
+import { AsciiGenerator, CharsetPreset } from 'ts-ascii-engine';
 import { BrnSelectImports } from '@spartan-ng/brain/select';
 import { HlmSelectImports } from '@spartan-ng/helm/select';
 
@@ -36,8 +36,9 @@ interface PresetBanner {
       <div class="grid gap-4 md:grid-cols-2">
         <!-- Text Input -->
         <div class="space-y-2">
-          <label class="text-sm font-medium">Your Text</label>
+          <label for="ascii-text-input" class="text-sm font-medium">Your Text</label>
           <input
+            id="ascii-text-input"
             type="text"
             [(ngModel)]="textValue"
             (ngModelChange)="onTextChange($event)"
@@ -52,8 +53,9 @@ interface PresetBanner {
 
         <!-- Width Control -->
         <div class="space-y-2">
-          <label class="text-sm font-medium">Width (characters)</label>
+          <label for="ascii-width-input" class="text-sm font-medium">Width (characters)</label>
           <input
+            id="ascii-width-input"
             type="range"
             [(ngModel)]="widthValue"
             (ngModelChange)="onConfigChange()"
@@ -68,7 +70,7 @@ interface PresetBanner {
 
       <!-- Charset Selection -->
       <div class="space-y-2">
-        <label class="text-sm font-medium">Character Set</label>
+        <span class="text-sm font-medium">Character Set</span>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
           @for (option of charsetOptions; track option.value) {
             <button
@@ -91,8 +93,9 @@ interface PresetBanner {
         <div class="grid gap-4 md:grid-cols-3">
           <!-- Font Size -->
           <div class="space-y-2">
-            <label class="text-sm font-medium">Font Size</label>
+            <label for="ascii-font-size" class="text-sm font-medium">Font Size</label>
             <input
+              id="ascii-font-size"
               type="range"
               [(ngModel)]="fontSizeValue"
               (ngModelChange)="onConfigChange()"
@@ -106,7 +109,7 @@ interface PresetBanner {
 
           <!-- Inverted -->
           <div class="space-y-2">
-            <label class="text-sm font-medium">Invert Colors</label>
+            <span class="text-sm font-medium">Invert Colors</span>
             <label class="flex items-center space-x-2 cursor-pointer">
               <input
                 type="checkbox"
@@ -120,8 +123,8 @@ interface PresetBanner {
 
           <!-- Font Weight -->
           <div class="space-y-2">
-            <label class="text-sm font-medium">Font Weight</label>
-            <brn-select [(ngModel)]="fontWeightValue" (ngModelChange)="onConfigChange()" class="w-full">
+            <label for="ascii-font-weight" class="text-sm font-medium">Font Weight</label>
+            <brn-select id="ascii-font-weight" [(ngModel)]="fontWeightValue" (ngModelChange)="onConfigChange()" class="w-full">
               <hlm-select-trigger>
                 <hlm-select-value />
               </hlm-select-trigger>

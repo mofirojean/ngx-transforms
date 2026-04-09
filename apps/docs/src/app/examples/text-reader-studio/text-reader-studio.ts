@@ -56,7 +56,7 @@ interface QuickPhrase {
 
       <!-- Quick Phrases -->
       <div>
-        <label hlmLabel class="text-xs text-muted-foreground mb-2 block">Quick Phrases</label>
+        <span hlmLabel class="text-xs text-muted-foreground mb-2 block">Quick Phrases</span>
         <div class="flex flex-wrap gap-2">
           @for (phrase of quickPhrases; track phrase.label) {
             <button
@@ -89,8 +89,8 @@ interface QuickPhrase {
 
       <!-- Language Selector -->
       <div class="grid w-full gap-1.5">
-        <label hlmLabel>Language</label>
-        <brn-select [value]="selectedLang()" (valueChange)="onLangChange($event)">
+        <label hlmLabel for="language-select">Language</label>
+        <brn-select id="language-select" [value]="selectedLang()" (valueChange)="onLangChange($event)">
           <hlm-select-trigger class="w-full">
             <hlm-select-value />
           </hlm-select-trigger>

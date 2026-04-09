@@ -1,9 +1,10 @@
 <div class="p-6 space-y-6">
   <div class="space-y-4">
     <div>
-      <label hlmLabel class="text-sm font-medium mb-2 block">IP Address</label>
+      <label hlmLabel for="ip-address-input" class="text-sm font-medium mb-2 block">IP Address</label>
       <input
         hlmInput
+        id="ip-address-input"
         type="text"
         [(ngModel)]="ipAddress"
         placeholder="Enter IPv4 address (e.g., 192.168.1.1)"

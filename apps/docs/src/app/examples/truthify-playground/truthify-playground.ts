@@ -237,10 +237,10 @@ export class TruthifyPlayground {
 
   falsyCount = computed(() => this.items().filter(i => !i.value).length);
 
-  truthyCount = computed(() => this.items().filter(i => Boolean(i.value)).length);
+  truthyCount = computed(() => this.items().filter(i => !!i.value).length);
 
   isFalsy(value: unknown): boolean {
-    return !Boolean(value);
+    return !value;
   }
 
   displayValue(value: unknown): string {

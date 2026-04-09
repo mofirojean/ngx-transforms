@@ -57,7 +57,7 @@ interface UserAgentPreset {
 
       <!-- UA Presets -->
       <div>
-        <label hlmLabel class="text-xs text-muted-foreground mb-2 block">Test User Agents</label>
+        <span hlmLabel class="text-xs text-muted-foreground mb-2 block">Test User Agents</span>
         <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
           @for (preset of presets; track preset.label) {
             <button

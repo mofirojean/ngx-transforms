@@ -94,6 +94,7 @@ export const PIPE_CATEGORIES: PipeCategory[] = [
     name: 'Math',
     pipes: [
       { name: "Min", url: "/docs/pipes/min", description: "Returns the minimum value from an array of numbers.", addedOn: "2026-04-08" },
+      { name: "Max", url: "/docs/pipes/max", description: "Returns the maximum value from an array of numbers.", addedOn: "2026-04-09" },
     ],
   },
 ];

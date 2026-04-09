@@ -45,6 +45,7 @@ import { SomePage } from './pages/pipes/some';
 import { UnionPage } from './pages/pipes/union';
 import { WithoutPage } from './pages/pipes/without';
 import { MinPage } from './pages/pipes/min';
+import { MaxPage } from './pages/pipes/max';
 
 export const appRoutes: Route[] = [
   {
@@ -234,6 +235,10 @@ export const appRoutes: Route[] = [
           {
             path: 'min',
             component: MinPage,
+          },
+          {
+            path: 'max',
+            component: MaxPage,
           },
         ],
       },

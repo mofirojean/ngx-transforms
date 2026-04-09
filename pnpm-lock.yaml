@@ -114,9 +114,6 @@ importers:
       '@angular/build':
         specifier: ^21.0.4
         version: 21.0.4(cc0a8585e57571424a4c79caed8c775a)
-      '@angular/cli':
-        specifier: ^21.0.4
-        version: 21.0.4(@types/node@20.19.27)(chokidar@4.0.3)
       '@angular/compiler-cli':
         specifier: ^21.1.3
         version: 21.1.3(@angular/compiler@21.1.3)(typescript@5.9.3)

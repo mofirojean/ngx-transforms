@@ -1,34 +1,34 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { MinPipe } from '@ngx-transforms';
+import { MaxPipe } from '@ngx-transforms';
 import { CodePreview } from '../../reusables/code-preview/code-preview';
 import { NextPrevNavigation } from '../../reusables/next-prev-navigation/next-prev-navigation';
 import { MacosWindow } from '../../reusables/macos-window/macos-window';
 import { AuthorCredit } from '../../reusables/author-credit/author-credit';
 import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
-import { MinPlayground } from '../../examples/min-playground/min-playground';
+import { MaxPlayground } from '../../examples/max-playground/max-playground';
 
 @Component({
-  selector: 'app-min-page',
+  selector: 'app-max-page',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    MinPipe,
+    MaxPipe,
     CodePreview,
     NextPrevNavigation,
     MacosWindow,
     AuthorCredit,
     Breadcrumb,
-    MinPlayground,
+    MaxPlayground,
   ],
   template: `
     <div class="container mx-auto py-10 px-4 md:px-8 max-w-4xl">
       <app-breadcrumb class="mb-6 block" />
 
       <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-2">
-        Min Pipe
+        Max Pipe
       </h1>
       <p class="text-lg text-muted-foreground mb-8">
-        Returns the minimum value from an array of numbers. Supports object arrays
+        Returns the maximum value from an array of numbers. Supports object arrays
         with property keys and dot notation for nested values.
       </p>
 
@@ -40,8 +40,8 @@ import { MinPlayground } from '../../examples/min-playground/min-playground';
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-sm font-bold mt-0.5">1</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Cheapest Product</h4>
-                <p class="text-sm text-muted-foreground">Find the lowest price in a product listing.</p>
+                <h4 class="font-semibold mb-1">Most Expensive Product</h4>
+                <p class="text-sm text-muted-foreground">Find the highest price in a product listing.</p>
               </div>
             </div>
           </div>
@@ -49,8 +49,8 @@ import { MinPlayground } from '../../examples/min-playground/min-playground';
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 text-sm font-bold mt-0.5">2</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Lowest Score</h4>
-                <p class="text-sm text-muted-foreground">Display the minimum score in a leaderboard or grading system.</p>
+                <h4 class="font-semibold mb-1">Top Score</h4>
+                <p class="text-sm text-muted-foreground">Display the highest score in a leaderboard or grading system.</p>
               </div>
             </div>
           </div>
@@ -58,8 +58,8 @@ import { MinPlayground } from '../../examples/min-playground/min-playground';
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-sm font-bold mt-0.5">3</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Temperature Lows</h4>
-                <p class="text-sm text-muted-foreground">Show the coldest temperature from a weather dataset.</p>
+                <h4 class="font-semibold mb-1">Temperature Highs</h4>
+                <p class="text-sm text-muted-foreground">Show the hottest temperature from a weather dataset.</p>
               </div>
             </div>
           </div>
@@ -67,8 +67,8 @@ import { MinPlayground } from '../../examples/min-playground/min-playground';
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 text-sm font-bold mt-0.5">4</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Stock Levels</h4>
-                <p class="text-sm text-muted-foreground">Find the item with the lowest inventory count for restocking alerts.</p>
+                <h4 class="font-semibold mb-1">Peak Usage</h4>
+                <p class="text-sm text-muted-foreground">Find the highest resource consumption for capacity planning.</p>
               </div>
             </div>
           </div>
@@ -76,32 +76,32 @@ import { MinPlayground } from '../../examples/min-playground/min-playground';
       </div>
 
       <h2 class="text-2xl font-bold my-8">Interactive Example</h2>
-      <app-macos-window title="Min Playground">
-        <app-min-playground />
+      <app-macos-window title="Max Playground">
+        <app-max-playground />
       </app-macos-window>
 
       <h2 class="text-2xl font-bold my-8">Usage</h2>
       <app-code-preview [code]="code" [language]="'typescript'">
         <div class="space-y-6">
           <div>
-            <h3 class="text-xl font-semibold mb-4">Min Examples</h3>
+            <h3 class="text-xl font-semibold mb-4">Max Examples</h3>
             <div class="rounded-md bg-muted p-6 border border-border space-y-4">
               <div>
-                <div class="text-xs text-muted-foreground mb-2">Minimum number</div>
+                <div class="text-xs text-muted-foreground mb-2">Maximum number</div>
                 <div class="rounded-md bg-background p-4">
-                  <p class="text-sm font-mono">{{ numbers | min }}</p>
+                  <p class="text-sm font-mono">{{ numbers | max }}</p>
                 </div>
               </div>
               <div>
-                <div class="text-xs text-muted-foreground mb-2">Cheapest product (by price)</div>
+                <div class="text-xs text-muted-foreground mb-2">Most expensive product (by price)</div>
                 <div class="rounded-md bg-background p-4">
-                  <p class="text-sm font-mono">{{ products | min:'price' }}</p>
+                  <p class="text-sm font-mono">{{ products | max:'price' }}</p>
                 </div>
               </div>
               <div>
-                <div class="text-xs text-muted-foreground mb-2">Lowest nested value</div>
+                <div class="text-xs text-muted-foreground mb-2">Highest nested value</div>
                 <div class="rounded-md bg-background p-4">
-                  <p class="text-sm font-mono">{{ orders | min:'meta.total' }}</p>
+                  <p class="text-sm font-mono">{{ orders | max:'meta.total' }}</p>
                 </div>
               </div>
             </div>
@@ -143,7 +143,7 @@ import { MinPlayground } from '../../examples/min-playground/min-playground';
           <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
           <div>
             <h4 class="font-semibold">Object Support</h4>
-            <p class="text-sm text-muted-foreground">Find the minimum by any property, including nested paths with dot notation.</p>
+            <p class="text-sm text-muted-foreground">Find the maximum by any property, including nested paths with dot notation.</p>
           </div>
         </div>
         <div class="flex items-start gap-3">
@@ -173,15 +173,14 @@ import { MinPlayground } from '../../examples/min-playground/min-playground';
         <app-author-credit author="Mofiro Jean" url="https://github.com/mofirojean" />
         <div class="flex gap-4">
           <app-next-prev-navigation
-            [previous]="{ label: 'Some', link: '/docs/pipes/some' }"
-            [next]="{ label: 'Max', link: '/docs/pipes/max' }"
+            [previous]="{ label: 'Min', link: '/docs/pipes/min' }"
           />
         </div>
       </div>
     </div>
   `,
 })
-export class MinPage {
+export class MaxPage {
   numbers = [5, 3, 8, 1, 9];
   products = [
     { name: 'Laptop', price: 999 },
@@ -196,21 +195,21 @@ export class MinPage {
 
   code = [
     "import { Component } from '@angular/core';",
-    "import { MinPipe } from 'ngx-transforms';",
+    "import { MaxPipe } from 'ngx-transforms';",
     '',
     '@Component({',
     "  selector: 'app-example',",
     '  standalone: true,',
-    '  imports: [MinPipe],',
+    '  imports: [MaxPipe],',
     '  template: `',
-    '    <!-- Minimum number -->',
-    '    <p>Lowest: {{ scores | min }}</p>',
+    '    <!-- Maximum number -->',
+    '    <p>Highest: {{ scores | max }}</p>',
     '',
-    '    <!-- Cheapest product -->',
-    "    <p>From {{ products | min:'price' }}</p>",
+    '    <!-- Most expensive product -->',
+    "    <p>From {{ products | max:'price' }}</p>",
     '',
     '    <!-- Nested property -->',
-    "    <p>Min total: {{ orders | min:'meta.total' }}</p>",
+    "    <p>Max total: {{ orders | max:'meta.total' }}</p>",
     '  `',
     '})',
     'export class ExampleComponent {',

@@ -56,6 +56,7 @@ import {FilterByPipe} from '../lib/pipes/array/filter-by/filter-by';
 
 // Math
 import { MinPipe } from '../lib/pipes/math/min/min';
+import { MaxPipe } from '../lib/pipes/math/max/max';
 
 export const ALL_PIPES: Provider[] = [
   // Text
@@ -114,4 +115,5 @@ export const ALL_PIPES: Provider[] = [
 
   // Math
   MinPipe,
+  MaxPipe,
 ];

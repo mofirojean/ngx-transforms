@@ -46,6 +46,7 @@ import { UnionPage } from './pages/pipes/union';
 import { WithoutPage } from './pages/pipes/without';
 import { MinPage } from './pages/pipes/min';
 import { MaxPage } from './pages/pipes/max';
+import { SumPage } from './pages/pipes/sum';
 
 export const appRoutes: Route[] = [
   {
@@ -239,6 +240,10 @@ export const appRoutes: Route[] = [
           {
             path: 'max',
             component: MaxPage,
+          },
+          {
+            path: 'sum',
+            component: SumPage,
           },
         ],
       },

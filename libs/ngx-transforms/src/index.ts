@@ -55,6 +55,7 @@ export * from './lib/pipes/array/filter-by/filter-by';
 // Math
 export * from './lib/pipes/math/min/min';
 export * from './lib/pipes/math/max/max';
+export * from './lib/pipes/math/sum/sum';
 
 // Providers
 export * from './providers/all-pipes.provider';

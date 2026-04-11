@@ -47,6 +47,7 @@ import { WithoutPage } from './pages/pipes/without';
 import { MinPage } from './pages/pipes/min';
 import { MaxPage } from './pages/pipes/max';
 import { SumPage } from './pages/pipes/sum';
+import { AveragePage } from './pages/pipes/average';
 
 export const appRoutes: Route[] = [
   {
@@ -244,6 +245,10 @@ export const appRoutes: Route[] = [
           {
             path: 'sum',
             component: SumPage,
+          },
+          {
+            path: 'average',
+            component: AveragePage,
           },
         ],
       },

@@ -58,6 +58,7 @@ import {FilterByPipe} from '../lib/pipes/array/filter-by/filter-by';
 import { MinPipe } from '../lib/pipes/math/min/min';
 import { MaxPipe } from '../lib/pipes/math/max/max';
 import { SumPipe } from '../lib/pipes/math/sum/sum';
+import { AveragePipe } from '../lib/pipes/math/average/average';
 
 export const ALL_PIPES: Provider[] = [
   // Text
@@ -118,4 +119,5 @@ export const ALL_PIPES: Provider[] = [
   MinPipe,
   MaxPipe,
   SumPipe,
+  AveragePipe,
 ];

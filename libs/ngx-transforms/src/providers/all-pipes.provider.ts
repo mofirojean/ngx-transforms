@@ -59,6 +59,7 @@ import { MinPipe } from '../lib/pipes/math/min/min';
 import { MaxPipe } from '../lib/pipes/math/max/max';
 import { SumPipe } from '../lib/pipes/math/sum/sum';
 import { AveragePipe } from '../lib/pipes/math/average/average';
+import { PercentagePipe } from '../lib/pipes/math/percentage/percentage';
 
 export const ALL_PIPES: Provider[] = [
   // Text
@@ -120,4 +121,5 @@ export const ALL_PIPES: Provider[] = [
   MaxPipe,
   SumPipe,
   AveragePipe,
+  PercentagePipe,
 ];

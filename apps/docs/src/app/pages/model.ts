@@ -97,6 +97,7 @@ export const PIPE_CATEGORIES: PipeCategory[] = [
       { name: "Max", url: "/docs/pipes/max", description: "Returns the maximum value from an array of numbers.", addedOn: "2026-04-09" },
       { name: "Sum", url: "/docs/pipes/sum", description: "Returns the sum of all numeric values in an array.", addedOn: "2026-04-10" },
       { name: "Average", url: "/docs/pipes/average", description: "Returns the arithmetic mean of all numeric values in an array.", addedOn: "2026-04-11" },
+      { name: "Percentage", url: "/docs/pipes/percentage", description: "Calculates what percentage a value represents of a total.", addedOn: "2026-04-12" },
     ],
   },
 ];

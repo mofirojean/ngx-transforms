@@ -48,6 +48,7 @@ import { MinPage } from './pages/pipes/min';
 import { MaxPage } from './pages/pipes/max';
 import { SumPage } from './pages/pipes/sum';
 import { AveragePage } from './pages/pipes/average';
+import { PercentagePage } from './pages/pipes/percentage';
 
 export const appRoutes: Route[] = [
   {
@@ -249,6 +250,10 @@ export const appRoutes: Route[] = [
           {
             path: 'average',
             component: AveragePage,
+          },
+          {
+            path: 'percentage',
+            component: PercentagePage,
           },
         ],
       },

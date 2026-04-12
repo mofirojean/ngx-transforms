@@ -57,6 +57,7 @@ export * from './lib/pipes/math/min/min';
 export * from './lib/pipes/math/max/max';
 export * from './lib/pipes/math/sum/sum';
 export * from './lib/pipes/math/average/average';
+export * from './lib/pipes/math/percentage/percentage';
 
 // Providers
 export * from './providers/all-pipes.provider';

@@ -1,35 +1,35 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { PercentagePipe } from '@ngx-transforms';
+import { CeilPipe } from '@ngx-transforms';
 import { CodePreview } from '../../reusables/code-preview/code-preview';
 import { NextPrevNavigation } from '../../reusables/next-prev-navigation/next-prev-navigation';
 import { MacosWindow } from '../../reusables/macos-window/macos-window';
 import { AuthorCredit } from '../../reusables/author-credit/author-credit';
 import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
-import { PercentagePlayground } from '../../examples/percentage-playground/percentage-playground';
+import { CeilPlayground } from '../../examples/ceil-playground/ceil-playground';
 
 @Component({
-  selector: 'app-percentage-page',
+  selector: 'app-ceil-page',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    PercentagePipe,
+    CeilPipe,
     CodePreview,
     NextPrevNavigation,
     MacosWindow,
     AuthorCredit,
     Breadcrumb,
-    PercentagePlayground,
+    CeilPlayground,
   ],
   template: `
     <div class="container mx-auto py-10 px-4 md:px-8 max-w-4xl">
       <app-breadcrumb class="mb-6 block" />
 
       <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-2">
-        Percentage Pipe
+        Ceil Pipe
       </h1>
       <p class="text-lg text-muted-foreground mb-8">
-        Calculates what percentage a value represents of a total. Supports optional
-        decimal precision for rounding the result.
+        Rounds a number up to the specified number of decimal places. Uses Math.ceil
+        internally — always rounds toward positive infinity.
       </p>
 
       <!-- Use Cases -->
@@ -40,8 +40,8 @@ import { PercentagePlayground } from '../../examples/percentage-playground/perce
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-sm font-bold mt-0.5">1</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Progress Bars</h4>
-                <p class="text-sm text-muted-foreground">Show upload, download, or task completion as a percentage.</p>
+                <h4 class="font-semibold mb-1">Pricing</h4>
+                <p class="text-sm text-muted-foreground">Round prices up to the nearest cent so you never undercharge.</p>
               </div>
             </div>
           </div>
@@ -49,8 +49,8 @@ import { PercentagePlayground } from '../../examples/percentage-playground/perce
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 text-sm font-bold mt-0.5">2</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Exam Scores</h4>
-                <p class="text-sm text-muted-foreground">Convert raw marks to a percentage grade.</p>
+                <h4 class="font-semibold mb-1">Page Counts</h4>
+                <p class="text-sm text-muted-foreground">Calculate total pages from item count and page size.</p>
               </div>
             </div>
           </div>
@@ -58,8 +58,8 @@ import { PercentagePlayground } from '../../examples/percentage-playground/perce
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-sm font-bold mt-0.5">3</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Disk / Memory Usage</h4>
-                <p class="text-sm text-muted-foreground">Display used vs total storage as a percentage.</p>
+                <h4 class="font-semibold mb-1">Shipping Weight</h4>
+                <p class="text-sm text-muted-foreground">Round shipping weights up to the next pricing tier.</p>
               </div>
             </div>
           </div>
@@ -67,8 +67,8 @@ import { PercentagePlayground } from '../../examples/percentage-playground/perce
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 text-sm font-bold mt-0.5">4</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Sales Targets</h4>
-                <p class="text-sm text-muted-foreground">Show how close revenue is to hitting a quarterly goal.</p>
+                <h4 class="font-semibold mb-1">Time Buckets</h4>
+                <p class="text-sm text-muted-foreground">Round durations up to the nearest hour, day, or billing unit.</p>
               </div>
             </div>
           </div>
@@ -76,32 +76,32 @@ import { PercentagePlayground } from '../../examples/percentage-playground/perce
       </div>
 
       <h2 class="text-2xl font-bold my-8">Interactive Example</h2>
-      <app-macos-window title="Percentage Playground">
-        <app-percentage-playground />
+      <app-macos-window title="Ceil Playground">
+        <app-ceil-playground />
       </app-macos-window>
 
       <h2 class="text-2xl font-bold my-8">Usage</h2>
       <app-code-preview [code]="code" [language]="'typescript'">
         <div class="space-y-6">
           <div>
-            <h3 class="text-xl font-semibold mb-4">Percentage Examples</h3>
+            <h3 class="text-xl font-semibold mb-4">Ceil Examples</h3>
             <div class="rounded-md bg-muted p-6 border border-border space-y-4">
               <div>
-                <div class="text-xs text-muted-foreground mb-2">Basic percentage</div>
+                <div class="text-xs text-muted-foreground mb-2">Ceil to integer (no precision)</div>
                 <div class="rounded-md bg-background p-4">
-                  <p class="text-sm font-mono">{{ 75 | percentage:200 }}%</p>
+                  <p class="text-sm font-mono">{{ 4.1 | ceil }}</p>
                 </div>
               </div>
               <div>
-                <div class="text-xs text-muted-foreground mb-2">With decimal precision</div>
+                <div class="text-xs text-muted-foreground mb-2">Ceil to 2 decimals</div>
                 <div class="rounded-md bg-background p-4">
-                  <p class="text-sm font-mono">{{ 1 | percentage:3:2 }}%</p>
+                  <p class="text-sm font-mono">{{ 4.123 | ceil:2 }}</p>
                 </div>
               </div>
               <div>
-                <div class="text-xs text-muted-foreground mb-2">Exam score</div>
+                <div class="text-xs text-muted-foreground mb-2">Ceil small fractions up</div>
                 <div class="rounded-md bg-background p-4">
-                  <p class="text-sm font-mono">{{ 42 | percentage:50:1 }}%</p>
+                  <p class="text-sm font-mono">{{ 0.001 | ceil:2 }}</p>
                 </div>
               </div>
             </div>
@@ -125,19 +125,13 @@ import { PercentagePlayground } from '../../examples/percentage-playground/perce
               <td class="px-4 py-3 font-mono text-xs">value</td>
               <td class="px-4 py-3 text-muted-foreground">number</td>
               <td class="px-4 py-3 font-mono text-xs">-</td>
-              <td class="px-4 py-3 text-muted-foreground">The partial value</td>
-            </tr>
-            <tr class="border-b border-border">
-              <td class="px-4 py-3 font-mono text-xs">total</td>
-              <td class="px-4 py-3 text-muted-foreground">number</td>
-              <td class="px-4 py-3 font-mono text-xs">-</td>
-              <td class="px-4 py-3 text-muted-foreground">The total/whole value (must not be zero)</td>
+              <td class="px-4 py-3 text-muted-foreground">The number to round up</td>
             </tr>
             <tr>
-              <td class="px-4 py-3 font-mono text-xs">decimals</td>
+              <td class="px-4 py-3 font-mono text-xs">precision</td>
               <td class="px-4 py-3 text-muted-foreground">number</td>
-              <td class="px-4 py-3 font-mono text-xs">-</td>
-              <td class="px-4 py-3 text-muted-foreground">Optional number of decimal places to round to</td>
+              <td class="px-4 py-3 font-mono text-xs">0</td>
+              <td class="px-4 py-3 text-muted-foreground">Number of decimal places to preserve</td>
             </tr>
           </tbody>
         </table>
@@ -149,28 +143,28 @@ import { PercentagePlayground } from '../../examples/percentage-playground/perce
           <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
           <div>
             <h4 class="font-semibold">Precision Control</h4>
-            <p class="text-sm text-muted-foreground">Round results to any number of decimal places with the optional decimals parameter.</p>
+            <p class="text-sm text-muted-foreground">Round up to any number of decimal places — 0 (integer) through any value you need.</p>
           </div>
         </div>
         <div class="flex items-start gap-3">
           <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
           <div>
-            <h4 class="font-semibold">Division Safe</h4>
-            <p class="text-sm text-muted-foreground">Returns undefined when total is zero — no division-by-zero errors.</p>
+            <h4 class="font-semibold">Handles Negatives</h4>
+            <p class="text-sm text-muted-foreground">Negative numbers round toward positive infinity (toward zero).</p>
           </div>
         </div>
         <div class="flex items-start gap-3">
           <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
           <div>
-            <h4 class="font-semibold">Handles Edge Cases</h4>
-            <p class="text-sm text-muted-foreground">Negative numbers, values exceeding the total, and decimal inputs all work correctly.</p>
+            <h4 class="font-semibold">Preserves Integers</h4>
+            <p class="text-sm text-muted-foreground">Whole numbers and exact decimal values are returned unchanged.</p>
           </div>
         </div>
         <div class="flex items-start gap-3">
           <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
           <div>
             <h4 class="font-semibold">Null Safe</h4>
-            <p class="text-sm text-muted-foreground">Returns undefined for null, undefined, NaN, or non-number inputs.</p>
+            <p class="text-sm text-muted-foreground">Returns undefined for null, undefined, NaN, or invalid precision values.</p>
           </div>
         </div>
       </div>
@@ -179,41 +173,38 @@ import { PercentagePlayground } from '../../examples/percentage-playground/perce
         <app-author-credit author="Mofiro Jean" url="https://github.com/mofirojean" />
         <div class="flex gap-4">
           <app-next-prev-navigation
-            [previous]="{ label: 'Average', link: '/docs/pipes/average' }"
-            [next]="{ label: 'Ceil', link: '/docs/pipes/ceil' }"
+            [previous]="{ label: 'Percentage', link: '/docs/pipes/percentage' }"
           />
         </div>
       </div>
     </div>
   `,
 })
-export class PercentagePage {
+export class CeilPage {
   code = [
     "import { Component } from '@angular/core';",
-    "import { PercentagePipe } from 'ngx-transforms';",
+    "import { CeilPipe } from 'ngx-transforms';",
     '',
     '@Component({',
     "  selector: 'app-example',",
     '  standalone: true,',
-    '  imports: [PercentagePipe],',
+    '  imports: [CeilPipe],',
     '  template: `',
-    '    <!-- Basic percentage -->',
-    '    <p>{{ score | percentage:total }}%</p>',
+    '    <!-- Round up to integer -->',
+    '    <p>Pages: {{ totalItems / pageSize | ceil }}</p>',
     '',
-    '    <!-- With precision -->',
-    '    <p>{{ used | percentage:capacity:1 }}% used</p>',
+    '    <!-- Round price up to 2 decimals -->',
+    '    <p>Price: \${{ rawPrice | ceil:2 }}</p>',
     '',
-    '    <!-- Progress bar width -->',
-    "    <div [style.width.%]=\"done | percentage:goal\"></div>",
+    '    <!-- Round shipping weight up -->',
+    '    <p>{{ weight | ceil:1 }} kg</p>',
     '  `',
     '})',
     'export class ExampleComponent {',
-    '  score = 42;',
-    '  total = 50;',
-    '  used = 750;',
-    '  capacity = 1000;',
-    '  done = 3;',
-    '  goal = 8;',
+    '  totalItems = 47;',
+    '  pageSize = 10;',
+    '  rawPrice = 4.121;',
+    '  weight = 1.23;',
     '}',
   ].join('\n');
 }

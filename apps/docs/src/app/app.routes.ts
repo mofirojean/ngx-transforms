@@ -49,6 +49,7 @@ import { MaxPage } from './pages/pipes/max';
 import { SumPage } from './pages/pipes/sum';
 import { AveragePage } from './pages/pipes/average';
 import { PercentagePage } from './pages/pipes/percentage';
+import { CeilPage } from './pages/pipes/ceil';
 
 export const appRoutes: Route[] = [
   {
@@ -254,6 +255,10 @@ export const appRoutes: Route[] = [
           {
             path: 'percentage',
             component: PercentagePage,
+          },
+          {
+            path: 'ceil',
+            component: CeilPage,
           },
         ],
       },

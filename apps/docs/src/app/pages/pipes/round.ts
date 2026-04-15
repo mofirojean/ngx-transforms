@@ -1,35 +1,35 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { FloorPipe } from '@ngx-transforms';
+import { RoundPipe } from '@ngx-transforms';
 import { CodePreview } from '../../reusables/code-preview/code-preview';
 import { NextPrevNavigation } from '../../reusables/next-prev-navigation/next-prev-navigation';
 import { MacosWindow } from '../../reusables/macos-window/macos-window';
 import { AuthorCredit } from '../../reusables/author-credit/author-credit';
 import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
-import { FloorPlayground } from '../../examples/floor-playground/floor-playground';
+import { RoundPlayground } from '../../examples/round-playground/round-playground';
 
 @Component({
-  selector: 'app-floor-page',
+  selector: 'app-round-page',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    FloorPipe,
+    RoundPipe,
     CodePreview,
     NextPrevNavigation,
     MacosWindow,
     AuthorCredit,
     Breadcrumb,
-    FloorPlayground,
+    RoundPlayground,
   ],
   template: `
     <div class="container mx-auto py-10 px-4 md:px-8 max-w-4xl">
       <app-breadcrumb class="mb-6 block" />
 
       <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-2">
-        Floor Pipe
+        Round Pipe
       </h1>
       <p class="text-lg text-muted-foreground mb-8">
-        Rounds a number down to the specified number of decimal places. Uses Math.floor
-        internally — always rounds toward negative infinity.
+        Rounds a number to the nearest value at the specified number of decimal places.
+        Uses Math.round internally rounds half-up.
       </p>
 
       <!-- Use Cases -->
@@ -40,8 +40,8 @@ import { FloorPlayground } from '../../examples/floor-playground/floor-playgroun
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-sm font-bold mt-0.5">1</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Reward Points</h4>
-                <p class="text-sm text-muted-foreground">Truncate fractional points so users only see earned whole values.</p>
+                <h4 class="font-semibold mb-1">Display Prices</h4>
+                <p class="text-sm text-muted-foreground">Round calculated totals to the nearest cent for clean display.</p>
               </div>
             </div>
           </div>
@@ -49,8 +49,8 @@ import { FloorPlayground } from '../../examples/floor-playground/floor-playgroun
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 text-sm font-bold mt-0.5">2</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Rating Display</h4>
-                <p class="text-sm text-muted-foreground">Show star ratings rounded down to avoid overpromising quality.</p>
+                <h4 class="font-semibold mb-1">Statistics</h4>
+                <p class="text-sm text-muted-foreground">Round averages, means, and computed metrics for readable output.</p>
               </div>
             </div>
           </div>
@@ -58,8 +58,8 @@ import { FloorPlayground } from '../../examples/floor-playground/floor-playgroun
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-sm font-bold mt-0.5">3</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Currency Truncation</h4>
-                <p class="text-sm text-muted-foreground">Floor prices to 2 decimals so you never overcharge customers.</p>
+                <h4 class="font-semibold mb-1">Chart Axis Labels</h4>
+                <p class="text-sm text-muted-foreground">Format numbers on graph tick marks without visual noise.</p>
               </div>
             </div>
           </div>
@@ -67,8 +67,8 @@ import { FloorPlayground } from '../../examples/floor-playground/floor-playgroun
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 text-sm font-bold mt-0.5">4</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Time Display</h4>
-                <p class="text-sm text-muted-foreground">Floor elapsed minutes/hours so partial units are not counted.</p>
+                <h4 class="font-semibold mb-1">Sensor Data</h4>
+                <p class="text-sm text-muted-foreground">Clean up noisy sensor readings to a meaningful precision.</p>
               </div>
             </div>
           </div>
@@ -76,32 +76,32 @@ import { FloorPlayground } from '../../examples/floor-playground/floor-playgroun
       </div>
 
       <h2 class="text-2xl font-bold my-8">Interactive Example</h2>
-      <app-macos-window title="Floor Playground">
-        <app-floor-playground />
+      <app-macos-window title="Round Playground">
+        <app-round-playground />
       </app-macos-window>
 
       <h2 class="text-2xl font-bold my-8">Usage</h2>
       <app-code-preview [code]="code" [language]="'typescript'">
         <div class="space-y-6">
           <div>
-            <h3 class="text-xl font-semibold mb-4">Floor Examples</h3>
+            <h3 class="text-xl font-semibold mb-4">Round Examples</h3>
             <div class="rounded-md bg-muted p-6 border border-border space-y-4">
               <div>
-                <div class="text-xs text-muted-foreground mb-2">Floor to integer (no precision)</div>
+                <div class="text-xs text-muted-foreground mb-2">Round to integer (no precision)</div>
                 <div class="rounded-md bg-background p-4">
-                  <p class="text-sm font-mono">{{ 4.9 | floor }}</p>
+                  <p class="text-sm font-mono">{{ 4.5 | round }}</p>
                 </div>
               </div>
               <div>
-                <div class="text-xs text-muted-foreground mb-2">Floor to 2 decimals</div>
+                <div class="text-xs text-muted-foreground mb-2">Round to 2 decimals</div>
                 <div class="rounded-md bg-background p-4">
-                  <p class="text-sm font-mono">{{ 4.567 | floor:2 }}</p>
+                  <p class="text-sm font-mono">{{ 4.567 | round:2 }}</p>
                 </div>
               </div>
               <div>
-                <div class="text-xs text-muted-foreground mb-2">Floor 0.999 to 1 decimal</div>
+                <div class="text-xs text-muted-foreground mb-2">Round half-up at 2 decimals</div>
                 <div class="rounded-md bg-background p-4">
-                  <p class="text-sm font-mono">{{ 0.999 | floor:1 }}</p>
+                  <p class="text-sm font-mono">{{ 0.125 | round:2 }}</p>
                 </div>
               </div>
             </div>
@@ -125,7 +125,7 @@ import { FloorPlayground } from '../../examples/floor-playground/floor-playgroun
               <td class="px-4 py-3 font-mono text-xs">value</td>
               <td class="px-4 py-3 text-muted-foreground">number</td>
               <td class="px-4 py-3 font-mono text-xs">-</td>
-              <td class="px-4 py-3 text-muted-foreground">The number to round down</td>
+              <td class="px-4 py-3 text-muted-foreground">The number to round</td>
             </tr>
             <tr>
               <td class="px-4 py-3 font-mono text-xs">precision</td>
@@ -143,21 +143,21 @@ import { FloorPlayground } from '../../examples/floor-playground/floor-playgroun
           <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
           <div>
             <h4 class="font-semibold">Precision Control</h4>
-            <p class="text-sm text-muted-foreground">Round down to any number of decimal places — 0 (integer) through any value you need.</p>
+            <p class="text-sm text-muted-foreground">Round to any number of decimal places — 0 (integer) through any value you need.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
+          <div>
+            <h4 class="font-semibold">Half-up Rounding</h4>
+            <p class="text-sm text-muted-foreground">Follows JavaScript's Math.round behavior — halves round up toward positive infinity.</p>
           </div>
         </div>
         <div class="flex items-start gap-3">
           <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
           <div>
             <h4 class="font-semibold">Handles Negatives</h4>
-            <p class="text-sm text-muted-foreground">Negative numbers round toward negative infinity (away from zero).</p>
-          </div>
-        </div>
-        <div class="flex items-start gap-3">
-          <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
-          <div>
-            <h4 class="font-semibold">Preserves Integers</h4>
-            <p class="text-sm text-muted-foreground">Whole numbers and exact decimal values are returned unchanged.</p>
+            <p class="text-sm text-muted-foreground">Negative numbers round to the nearest value correctly.</p>
           </div>
         </div>
         <div class="flex items-start gap-3">
@@ -173,38 +173,37 @@ import { FloorPlayground } from '../../examples/floor-playground/floor-playgroun
         <app-author-credit author="Mofiro Jean" url="https://github.com/mofirojean" />
         <div class="flex gap-4">
           <app-next-prev-navigation
-            [previous]="{ label: 'Ceil', link: '/docs/pipes/ceil' }"
-            [next]="{ label: 'Round', link: '/docs/pipes/round' }"
+            [previous]="{ label: 'Floor', link: '/docs/pipes/floor' }"
           />
         </div>
       </div>
     </div>
   `,
 })
-export class FloorPage {
+export class RoundPage {
   code = [
     "import { Component } from '@angular/core';",
-    "import { FloorPipe } from 'ngx-transforms';",
+    "import { RoundPipe } from 'ngx-transforms';",
     '',
     '@Component({',
     "  selector: 'app-example',",
     '  standalone: true,',
-    '  imports: [FloorPipe],',
+    '  imports: [RoundPipe],',
     '  template: `',
-    '    <!-- Floor to integer -->',
-    '    <p>Points: {{ rawPoints | floor }}</p>',
+    '    <!-- Round to integer -->',
+    '    <p>Score: {{ rawScore | round }}</p>',
     '',
-    '    <!-- Floor price to 2 decimals -->',
-    '    <p>Price: \${{ rawPrice | floor:2 }}</p>',
+    '    <!-- Round price to 2 decimals -->',
+    '    <p>Total: \${{ subtotal | round:2 }}</p>',
     '',
-    '    <!-- Floor rating to 1 decimal -->',
-    '    <p>{{ rating | floor:1 }} stars</p>',
+    '    <!-- Round rating to 1 decimal -->',
+    '    <p>{{ averageRating | round:1 }} stars</p>',
     '  `',
     '})',
     'export class ExampleComponent {',
-    '  rawPoints = 99.7;',
-    '  rawPrice = 19.999;',
-    '  rating = 4.87;',
+    '  rawScore = 87.6;',
+    '  subtotal = 19.995;',
+    '  averageRating = 4.267;',
     '}',
   ].join('\n');
 }

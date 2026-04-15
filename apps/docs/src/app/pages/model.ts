@@ -100,6 +100,7 @@ export const PIPE_CATEGORIES: PipeCategory[] = [
       { name: "Percentage", url: "/docs/pipes/percentage", description: "Calculates what percentage a value represents of a total.", addedOn: "2026-04-12" },
       { name: "Ceil", url: "/docs/pipes/ceil", description: "Rounds a number up to the specified number of decimal places.", addedOn: "2026-04-13" },
       { name: "Floor", url: "/docs/pipes/floor", description: "Rounds a number down to the specified number of decimal places.", addedOn: "2026-04-14" },
+      { name: "Round", url: "/docs/pipes/round", description: "Rounds a number to the nearest value at the specified number of decimal places.", addedOn: "2026-04-15" },
     ],
   },
 ];

@@ -60,6 +60,7 @@ export * from './lib/pipes/math/average/average';
 export * from './lib/pipes/math/percentage/percentage';
 export * from './lib/pipes/math/ceil/ceil';
 export * from './lib/pipes/math/floor/floor';
+export * from './lib/pipes/math/round/round';
 
 // Providers
 export * from './providers/all-pipes.provider';

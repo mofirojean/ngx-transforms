@@ -51,6 +51,7 @@ import { AveragePage } from './pages/pipes/average';
 import { PercentagePage } from './pages/pipes/percentage';
 import { CeilPage } from './pages/pipes/ceil';
 import { FloorPage } from './pages/pipes/floor';
+import { RoundPage } from './pages/pipes/round';
 
 export const appRoutes: Route[] = [
   {
@@ -264,6 +265,10 @@ export const appRoutes: Route[] = [
           {
             path: 'floor',
             component: FloorPage,
+          },
+          {
+            path: 'round',
+            component: RoundPage,
           },
         ],
       },

@@ -63,6 +63,7 @@ import { PercentagePipe } from '../lib/pipes/math/percentage/percentage';
 import { CeilPipe } from '../lib/pipes/math/ceil/ceil';
 import { FloorPipe } from '../lib/pipes/math/floor/floor';
 import { RoundPipe } from '../lib/pipes/math/round/round';
+import { SqrtPipe } from '../lib/pipes/math/sqrt/sqrt';
 
 export const ALL_PIPES: Provider[] = [
   // Text
@@ -128,4 +129,5 @@ export const ALL_PIPES: Provider[] = [
   CeilPipe,
   FloorPipe,
   RoundPipe,
+  SqrtPipe,
 ];

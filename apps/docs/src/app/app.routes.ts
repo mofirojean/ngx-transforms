@@ -52,6 +52,7 @@ import { PercentagePage } from './pages/pipes/percentage';
 import { CeilPage } from './pages/pipes/ceil';
 import { FloorPage } from './pages/pipes/floor';
 import { RoundPage } from './pages/pipes/round';
+import { SqrtPage } from './pages/pipes/sqrt';
 
 export const appRoutes: Route[] = [
   {
@@ -269,6 +270,10 @@ export const appRoutes: Route[] = [
           {
             path: 'round',
             component: RoundPage,
+          },
+          {
+            path: 'sqrt',
+            component: SqrtPage,
           },
         ],
       },

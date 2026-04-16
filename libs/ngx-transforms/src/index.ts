@@ -62,6 +62,7 @@ export * from './lib/pipes/math/ceil/ceil';
 export * from './lib/pipes/math/floor/floor';
 export * from './lib/pipes/math/round/round';
 export * from './lib/pipes/math/sqrt/sqrt';
+export * from './lib/pipes/math/pow/pow';
 
 // Providers
 export * from './providers/all-pipes.provider';

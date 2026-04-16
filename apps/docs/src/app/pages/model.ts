@@ -102,6 +102,7 @@ export const PIPE_CATEGORIES: PipeCategory[] = [
       { name: "Floor", url: "/docs/pipes/floor", description: "Rounds a number down to the specified number of decimal places.", addedOn: "2026-04-14" },
       { name: "Round", url: "/docs/pipes/round", description: "Rounds a number to the nearest value at the specified number of decimal places.", addedOn: "2026-04-15" },
       { name: "Sqrt", url: "/docs/pipes/sqrt", description: "Returns the square root of a number.", addedOn: "2026-04-15" },
+      { name: "Pow", url: "/docs/pipes/pow", description: "Raises a number to the specified power.", addedOn: "2026-04-15" },
     ],
   },
 ];

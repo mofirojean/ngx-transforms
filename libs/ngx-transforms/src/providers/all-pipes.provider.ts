@@ -65,6 +65,8 @@ import { FloorPipe } from '../lib/pipes/math/floor/floor';
 import { RoundPipe } from '../lib/pipes/math/round/round';
 import { SqrtPipe } from '../lib/pipes/math/sqrt/sqrt';
 import { PowPipe } from '../lib/pipes/math/pow/pow';
+import { DegreesPipe } from '../lib/pipes/math/degrees/degrees';
+import { BytesPipe } from '../lib/pipes/math/bytes/bytes';
 
 export const ALL_PIPES: Provider[] = [
   // Text
@@ -132,4 +134,6 @@ export const ALL_PIPES: Provider[] = [
   RoundPipe,
   SqrtPipe,
   PowPipe,
+  DegreesPipe,
+  BytesPipe,
 ];

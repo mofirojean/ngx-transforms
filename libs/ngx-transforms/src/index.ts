@@ -63,6 +63,8 @@ export * from './lib/pipes/math/floor/floor';
 export * from './lib/pipes/math/round/round';
 export * from './lib/pipes/math/sqrt/sqrt';
 export * from './lib/pipes/math/pow/pow';
+export * from './lib/pipes/math/degrees/degrees';
+export * from './lib/pipes/math/bytes/bytes';
 
 // Providers
 export * from './providers/all-pipes.provider';

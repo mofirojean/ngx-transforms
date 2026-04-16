@@ -54,6 +54,8 @@ import { FloorPage } from './pages/pipes/floor';
 import { RoundPage } from './pages/pipes/round';
 import { SqrtPage } from './pages/pipes/sqrt';
 import { PowPage } from './pages/pipes/pow';
+import { DegreesPage } from './pages/pipes/degrees';
+import { BytesPage } from './pages/pipes/bytes';
 
 export const appRoutes: Route[] = [
   {
@@ -279,6 +281,14 @@ export const appRoutes: Route[] = [
           {
             path: 'pow',
             component: PowPage,
+          },
+          {
+            path: 'degrees',
+            component: DegreesPage,
+          },
+          {
+            path: 'bytes',
+            component: BytesPage,
           },
         ],
       },

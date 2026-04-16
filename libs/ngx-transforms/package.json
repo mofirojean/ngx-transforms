@@ -1,6 +1,6 @@
 {
   "name": "ngx-transforms",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A collection of 36 standalone Angular pipes for text, security, media, data, and array transformations.",
   "keywords": [
     "angular",

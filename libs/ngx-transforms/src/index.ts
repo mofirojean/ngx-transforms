@@ -65,6 +65,7 @@ export * from './lib/pipes/math/sqrt/sqrt';
 export * from './lib/pipes/math/pow/pow';
 export * from './lib/pipes/math/degrees/degrees';
 export * from './lib/pipes/math/bytes/bytes';
+export * from './lib/pipes/math/radians/radians';
 
 // Providers
 export * from './providers/all-pipes.provider';

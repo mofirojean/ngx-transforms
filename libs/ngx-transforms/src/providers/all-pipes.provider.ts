@@ -67,6 +67,7 @@ import { SqrtPipe } from '../lib/pipes/math/sqrt/sqrt';
 import { PowPipe } from '../lib/pipes/math/pow/pow';
 import { DegreesPipe } from '../lib/pipes/math/degrees/degrees';
 import { BytesPipe } from '../lib/pipes/math/bytes/bytes';
+import { RadiansPipe } from '../lib/pipes/math/radians/radians';
 
 export const ALL_PIPES: Provider[] = [
   // Text
@@ -136,4 +137,5 @@ export const ALL_PIPES: Provider[] = [
   PowPipe,
   DegreesPipe,
   BytesPipe,
+  RadiansPipe,
 ];

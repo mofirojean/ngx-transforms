@@ -105,6 +105,7 @@ export const PIPE_CATEGORIES: PipeCategory[] = [
       { name: "Pow", url: "/docs/pipes/pow", description: "Raises a number to the specified power.", addedOn: "2026-04-15" },
       { name: "Degrees", url: "/docs/pipes/degrees", description: "Converts a value in radians to degrees.", addedOn: "2026-04-15" },
       { name: "Bytes", url: "/docs/pipes/bytes", description: "Formats numbers with byte units (e.g. 1.5 KB).", addedOn: "2026-04-15" },
+      { name: "Radians", url: "/docs/pipes/radians", description: "Converts a value in degrees to radians.", addedOn: "2026-04-15" },
     ],
   },
 ];

@@ -1,3 +1,29 @@
+## 0.3.0 (2026-04-16)
+
+### 🚀 Features
+
+- implement min pipe and examples ([3fff89c](https://github.com/mofirojean/ngx-transforms/commit/3fff89c))
+- implement max pipe and examples ([fea55f0](https://github.com/mofirojean/ngx-transforms/commit/fea55f0))
+- implement the sum pipe and examples ([ec63eb9](https://github.com/mofirojean/ngx-transforms/commit/ec63eb9))
+- implemented average pipe and examples ([2dc422e](https://github.com/mofirojean/ngx-transforms/commit/2dc422e))
+- implemented percentage pipe and examples ([c7a166f](https://github.com/mofirojean/ngx-transforms/commit/c7a166f))
+- implemented ceil pipe and examples ([fc6932c](https://github.com/mofirojean/ngx-transforms/commit/fc6932c))
+- implemented floor pipe and examples ([6c2f41f](https://github.com/mofirojean/ngx-transforms/commit/6c2f41f))
+- implemented round pipe and examples ([1114874](https://github.com/mofirojean/ngx-transforms/commit/1114874))
+- implemented square root pipe and examples ([b704863](https://github.com/mofirojean/ngx-transforms/commit/b704863))
+- implemented power pipe and examples ([5fe0284](https://github.com/mofirojean/ngx-transforms/commit/5fe0284))
+- implemented degrees and power pipe and examples ([1b7b54f](https://github.com/mofirojean/ngx-transforms/commit/1b7b54f))
+- implemented radians pipe and examples ([4ac55f4](https://github.com/mofirojean/ngx-transforms/commit/4ac55f4))
+
+### 🩹 Fixes
+
+- refactored and fix lint errors ([23252c3](https://github.com/mofirojean/ngx-transforms/commit/23252c3))
+
+### ❤️ Thank You
+
+- Mofiro Jean
+- mofirojean
+
 ## 0.2.0 (2026-04-07)
 
 ### 🚀 Features

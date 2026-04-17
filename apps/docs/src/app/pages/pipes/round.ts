@@ -195,7 +195,7 @@ export class RoundPage {
     '    <p>Score: {{ rawScore | round }}</p>',
     '',
     '    <!-- Round price to 2 decimals -->',
-    '    <p>Total: \${{ subtotal | round:2 }}</p>',
+    '    <p>Total: ${{ subtotal | round:2 }}</p>',
     '',
     '    <!-- Round rating to 1 decimal -->',
     '    <p>{{ averageRating | round:1 }} stars</p>',

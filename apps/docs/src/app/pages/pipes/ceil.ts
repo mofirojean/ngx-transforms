@@ -195,7 +195,7 @@ export class CeilPage {
     '    <p>Pages: {{ totalItems / pageSize | ceil }}</p>',
     '',
     '    <!-- Round price up to 2 decimals -->',
-    '    <p>Price: \${{ rawPrice | ceil:2 }}</p>',
+    '    <p>Price: ${{ rawPrice | ceil:2 }}</p>',
     '',
     '    <!-- Round shipping weight up -->',
     '    <p>{{ weight | ceil:1 }} kg</p>',

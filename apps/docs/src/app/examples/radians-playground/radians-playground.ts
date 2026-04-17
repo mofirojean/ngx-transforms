@@ -77,7 +77,7 @@ interface Preset {
         <p class="text-sm font-medium mb-2">Reference</p>
         <div class="grid grid-cols-3 sm:grid-cols-4 gap-2">
           @for (ref of references; track ref.deg) {
-            <div class="rounded-lg border p-3 text-center transition-colors cursor-pointer"
+            <button type="button" class="rounded-lg border p-3 text-center transition-colors cursor-pointer"
               [class.border-purple-500]="degrees() === ref.deg"
               [class.bg-purple-500/5]="degrees() === ref.deg"
               [class.border-border]="degrees() !== ref.deg"
@@ -85,7 +85,7 @@ interface Preset {
               <div class="text-xs text-muted-foreground mb-1">{{ ref.deg }}</div>
               <div class="text-sm font-bold font-mono"
                 [class.text-purple-500]="degrees() === ref.deg">{{ ref.label }}</div>
-            </div>
+            </button>
           }
         </div>
       </div>

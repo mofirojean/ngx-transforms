@@ -195,7 +195,7 @@ export class FloorPage {
     '    <p>Points: {{ rawPoints | floor }}</p>',
     '',
     '    <!-- Floor price to 2 decimals -->',
-    '    <p>Price: \${{ rawPrice | floor:2 }}</p>',
+    '    <p>Price: ${{ rawPrice | floor:2 }}</p>',
     '',
     '    <!-- Floor rating to 1 decimal -->',
     '    <p>{{ rating | floor:1 }} stars</p>',

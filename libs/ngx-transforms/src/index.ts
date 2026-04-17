@@ -9,6 +9,9 @@ export * from './lib/pipes/text/replace/replace';
 export * from './lib/pipes/text/snake-case/snake-case';
 export * from './lib/pipes/text/title-case/title-case';
 export * from './lib/pipes/text/truncate/truncate';
+export * from './lib/pipes/text/trim/trim';
+export * from './lib/pipes/text/capitalize/capitalize';
+export * from './lib/pipes/text/upper-first/upper-first';
 
 // Security & Privacy
 export * from './lib/pipes/security/credit-card-mask/credit-card-mask';

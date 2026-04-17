@@ -34,6 +34,9 @@ export const PIPE_CATEGORIES: PipeCategory[] = [
       { name: "Replace", url: "/docs/pipes/replace", description: "A pipe to replace parts of a string." },
       { name: "Text Transform", url: "/docs/pipes/text-transform", description: "Transform text to camelCase, snake_case, kebab-case, or Title Case." },
       { name: "Truncate", url: "/docs/pipes/truncate", description: "Truncates strings to a specified length with configurable ellipsis and word preservation." },
+      { name: "Trim", url: "/docs/pipes/trim", description: "Removes whitespace or specified characters from both ends of a string.", addedOn: "2026-04-16" },
+      { name: "Capitalize", url: "/docs/pipes/capitalize", description: "Uppercases the first character and lowercases the rest.", addedOn: "2026-04-16" },
+      { name: "UpperFirst", url: "/docs/pipes/upper-first", description: "Uppercases the first character without altering the rest.", addedOn: "2026-04-16" },
     ],
   },
   {

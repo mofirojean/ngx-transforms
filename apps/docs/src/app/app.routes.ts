@@ -57,6 +57,9 @@ import { PowPage } from './pages/pipes/pow';
 import { DegreesPage } from './pages/pipes/degrees';
 import { BytesPage } from './pages/pipes/bytes';
 import { RadiansPage } from './pages/pipes/radians';
+import { TrimPage } from './pages/pipes/trim';
+import { CapitalizePage } from './pages/pipes/capitalize';
+import { UpperFirstPage } from './pages/pipes/upper-first';
 
 export const appRoutes: Route[] = [
   {
@@ -294,6 +297,18 @@ export const appRoutes: Route[] = [
           {
             path: 'radians',
             component: RadiansPage,
+          },
+          {
+            path: 'trim',
+            component: TrimPage,
+          },
+          {
+            path: 'capitalize',
+            component: CapitalizePage,
+          },
+          {
+            path: 'upper-first',
+            component: UpperFirstPage,
           },
         ],
       },

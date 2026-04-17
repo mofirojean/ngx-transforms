@@ -11,6 +11,9 @@ import { ReplacePipe } from '../lib/pipes/text/replace/replace';
 import { SnakeCasePipe } from '../lib/pipes/text/snake-case/snake-case';
 import { TitleCasePipe } from '../lib/pipes/text/title-case/title-case';
 import { TruncatePipe } from '../lib/pipes/text/truncate/truncate';
+import { TrimPipe } from '../lib/pipes/text/trim/trim';
+import { CapitalizePipe } from '../lib/pipes/text/capitalize/capitalize';
+import { UpperFirstPipe } from '../lib/pipes/text/upper-first/upper-first';
 
 // Security & Privacy
 import { CreditCardMaskPipe } from '../lib/pipes/security/credit-card-mask/credit-card-mask';
@@ -81,6 +84,9 @@ export const ALL_PIPES: Provider[] = [
   SnakeCasePipe,
   TitleCasePipe,
   TruncatePipe,
+  TrimPipe,
+  CapitalizePipe,
+  UpperFirstPipe,
 
   // Security & Privacy
   CreditCardMaskPipe,

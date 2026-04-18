@@ -1,35 +1,35 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { UpperFirstPipe } from '@ngx-transforms';
+import { RightPadPipe } from '@ngx-transforms';
 import { CodePreview } from '../../reusables/code-preview/code-preview';
 import { NextPrevNavigation } from '../../reusables/next-prev-navigation/next-prev-navigation';
 import { MacosWindow } from '../../reusables/macos-window/macos-window';
 import { AuthorCredit } from '../../reusables/author-credit/author-credit';
 import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
-import { UpperFirstPlayground } from '../../examples/upper-first-playground/upper-first-playground';
+import { RightPadPlayground } from '../../examples/right-pad-playground/right-pad-playground';
 
 @Component({
-  selector: 'app-upper-first-page',
+  selector: 'app-right-pad-page',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    UpperFirstPipe,
+    RightPadPipe,
     CodePreview,
     NextPrevNavigation,
     MacosWindow,
     AuthorCredit,
     Breadcrumb,
-    UpperFirstPlayground,
+    RightPadPlayground,
   ],
   template: `
     <div class="container mx-auto py-10 px-4 md:px-8 max-w-4xl">
       <app-breadcrumb class="mb-6 block" />
 
       <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-2">
-        UpperFirst Pipe
+        RightPad Pipe
       </h1>
       <p class="text-lg text-muted-foreground mb-8">
-        Uppercases the first character of a string without altering the rest.
-        Preserves acronyms, camelCase, and existing casing unlike capitalize.
+        Pads a string on the right until it reaches the target length. Defaults
+        to spaces. Accepts strings or numbers.
       </p>
 
       <div class="mb-8">
@@ -39,8 +39,8 @@ import { UpperFirstPlayground } from '../../examples/upper-first-playground/uppe
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-sm font-bold mt-0.5">1</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Preserve Acronyms</h4>
-                <p class="text-sm text-muted-foreground">Display "jSON" as "JSON" — keeps API-style names readable.</p>
+                <h4 class="font-semibold mb-1">Dotted Line Receipts</h4>
+                <p class="text-sm text-muted-foreground">Create "Total.........$99" layouts in monospaced displays.</p>
               </div>
             </div>
           </div>
@@ -48,8 +48,8 @@ import { UpperFirstPlayground } from '../../examples/upper-first-playground/uppe
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 text-sm font-bold mt-0.5">2</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Class Name Display</h4>
-                <p class="text-sm text-muted-foreground">Convert camelCase variable names to display form.</p>
+                <h4 class="font-semibold mb-1">Left-Aligned Columns</h4>
+                <p class="text-sm text-muted-foreground">Align labels in fixed-width table rows.</p>
               </div>
             </div>
           </div>
@@ -57,8 +57,8 @@ import { UpperFirstPlayground } from '../../examples/upper-first-playground/uppe
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-sm font-bold mt-0.5">3</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Sentence Starts</h4>
-                <p class="text-sm text-muted-foreground">Capitalize the first letter of sentences without touching rest.</p>
+                <h4 class="font-semibold mb-1">ASCII Progress Bars</h4>
+                <p class="text-sm text-muted-foreground">Build simple progress indicators using repeated characters.</p>
               </div>
             </div>
           </div>
@@ -66,8 +66,8 @@ import { UpperFirstPlayground } from '../../examples/upper-first-playground/uppe
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 text-sm font-bold mt-0.5">4</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Code Display</h4>
-                <p class="text-sm text-muted-foreground">Preserve code-like strings while normalizing first letter.</p>
+                <h4 class="font-semibold mb-1">Decimal Zeros</h4>
+                <p class="text-sm text-muted-foreground">Append trailing zeros to fixed-precision numeric displays.</p>
               </div>
             </div>
           </div>
@@ -75,32 +75,32 @@ import { UpperFirstPlayground } from '../../examples/upper-first-playground/uppe
       </div>
 
       <h2 class="text-2xl font-bold my-8">Interactive Example</h2>
-      <app-macos-window title="UpperFirst Playground">
-        <app-upper-first-playground />
+      <app-macos-window title="RightPad Playground">
+        <app-right-pad-playground />
       </app-macos-window>
 
       <h2 class="text-2xl font-bold my-8">Usage</h2>
       <app-code-preview [code]="code" [language]="'typescript'">
         <div class="space-y-6">
           <div>
-            <h3 class="text-xl font-semibold mb-4">UpperFirst Examples</h3>
+            <h3 class="text-xl font-semibold mb-4">RightPad Examples</h3>
             <div class="rounded-md bg-muted p-6 border border-border space-y-4">
               <div>
-                <div class="text-xs text-muted-foreground mb-2">camelCase input</div>
+                <div class="text-xs text-muted-foreground mb-2">Ellipsis fill</div>
                 <div class="rounded-md bg-background p-4">
-                  <p class="text-sm font-mono">{{ 'javaScript' | upperFirst }}</p>
+                  <p class="text-sm font-mono">'{{ 'hi' | rightPad:5:'.' }}'</p>
                 </div>
               </div>
               <div>
-                <div class="text-xs text-muted-foreground mb-2">Preserves uppercase rest</div>
+                <div class="text-xs text-muted-foreground mb-2">Default (space)</div>
                 <div class="rounded-md bg-background p-4">
-                  <p class="text-sm font-mono">{{ 'hello WORLD' | upperFirst }}</p>
+                  <p class="text-sm font-mono">'{{ 'name' | rightPad:10 }}'</p>
                 </div>
               </div>
               <div>
-                <div class="text-xs text-muted-foreground mb-2">Acronym</div>
+                <div class="text-xs text-muted-foreground mb-2">Trailing zeros</div>
                 <div class="rounded-md bg-background p-4">
-                  <p class="text-sm font-mono">{{ 'jSON response' | upperFirst }}</p>
+                  <p class="text-sm font-mono">'{{ 42 | rightPad:5:'0' }}'</p>
                 </div>
               </div>
             </div>
@@ -120,11 +120,23 @@ import { UpperFirstPlayground } from '../../examples/upper-first-playground/uppe
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr class="border-b border-border">
               <td class="px-4 py-3 font-mono text-xs">value</td>
-              <td class="px-4 py-3 text-muted-foreground">string</td>
+              <td class="px-4 py-3 text-muted-foreground">string | number</td>
               <td class="px-4 py-3 font-mono text-xs">-</td>
-              <td class="px-4 py-3 text-muted-foreground">The string to transform</td>
+              <td class="px-4 py-3 text-muted-foreground">The string or number to pad</td>
+            </tr>
+            <tr class="border-b border-border">
+              <td class="px-4 py-3 font-mono text-xs">length</td>
+              <td class="px-4 py-3 text-muted-foreground">number</td>
+              <td class="px-4 py-3 font-mono text-xs">-</td>
+              <td class="px-4 py-3 text-muted-foreground">Target length of the resulting string</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-mono text-xs">char</td>
+              <td class="px-4 py-3 text-muted-foreground">string</td>
+              <td class="px-4 py-3 font-mono text-xs">' '</td>
+              <td class="px-4 py-3 text-muted-foreground">Character (or string) to pad with</td>
             </tr>
           </tbody>
         </table>
@@ -135,29 +147,29 @@ import { UpperFirstPlayground } from '../../examples/upper-first-playground/uppe
         <div class="flex items-start gap-3">
           <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
           <div>
-            <h4 class="font-semibold">Preserves Rest</h4>
-            <p class="text-sm text-muted-foreground">Only the first character is modified — rest of the string is untouched.</p>
+            <h4 class="font-semibold">Strings or Numbers</h4>
+            <p class="text-sm text-muted-foreground">Accepts both types — numbers are automatically stringified.</p>
           </div>
         </div>
         <div class="flex items-start gap-3">
           <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
           <div>
-            <h4 class="font-semibold">Acronym Safe</h4>
-            <p class="text-sm text-muted-foreground">Perfect for strings containing acronyms like JSON, API, URL.</p>
+            <h4 class="font-semibold">Safe When Too Long</h4>
+            <p class="text-sm text-muted-foreground">Returns the input unchanged when it is already at or above the target length.</p>
           </div>
         </div>
         <div class="flex items-start gap-3">
           <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
           <div>
-            <h4 class="font-semibold">Pair with capitalize</h4>
-            <p class="text-sm text-muted-foreground">Use capitalize instead if you want to lowercase the rest of the string.</p>
+            <h4 class="font-semibold">Multi-Char Pad</h4>
+            <p class="text-sm text-muted-foreground">Pass multi-character pad strings — they repeat and truncate naturally.</p>
           </div>
         </div>
         <div class="flex items-start gap-3">
           <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
           <div>
             <h4 class="font-semibold">Null Safe</h4>
-            <p class="text-sm text-muted-foreground">Returns empty string for null, undefined, or non-string inputs.</p>
+            <p class="text-sm text-muted-foreground">Returns empty string for null or undefined inputs.</p>
           </div>
         </div>
       </div>
@@ -166,38 +178,40 @@ import { UpperFirstPlayground } from '../../examples/upper-first-playground/uppe
         <app-author-credit author="Mofiro Jean" url="https://github.com/mofirojean" />
         <div class="flex gap-4">
           <app-next-prev-navigation
-            [previous]="{ label: 'Capitalize', link: '/docs/pipes/capitalize' }"
-            [next]="{ label: 'LeftPad', link: '/docs/pipes/left-pad' }"
+            [previous]="{ label: 'LeftPad', link: '/docs/pipes/left-pad' }"
+            [next]="{ label: 'Pad', link: '/docs/pipes/pad' }"
           />
         </div>
       </div>
     </div>
   `,
 })
-export class UpperFirstPage {
+export class RightPadPage {
   code = [
     "import { Component } from '@angular/core';",
-    "import { UpperFirstPipe } from 'ngx-transforms';",
+    "import { RightPadPipe } from 'ngx-transforms';",
     '',
     '@Component({',
     "  selector: 'app-example',",
     '  standalone: true,',
-    '  imports: [UpperFirstPipe],',
+    '  imports: [RightPadPipe],',
     '  template: `',
-    '    <!-- Preserve acronym casing -->',
-    '    <span>{{ apiName | upperFirst }}</span>',
+    '    <!-- Receipt layout -->',
+    "    <pre>{{ item | rightPad:20:'.' }}{{ price }}</pre>",
     '',
-    '    <!-- Sentence start -->',
-    '    <p>{{ message | upperFirst }}</p>',
+    '    <!-- Left-aligned column -->',
+    "    <pre>{{ name | rightPad:15 }} | {{ email }}</pre>",
     '',
-    '    <!-- Class name from variable -->',
-    '    <code>{{ variable | upperFirst }}</code>',
+    '    <!-- Progress bar -->',
+    "    <pre>[{{ '' | rightPad:progressChars:'#' }}]</pre>",
     '  `',
     '})',
     'export class ExampleComponent {',
-    "  apiName = 'jSON parser';",
-    "  message = 'this is an error.';",
-    "  variable = 'userId';",
+    "  item = 'Coffee';",
+    "  price = '$4.50';",
+    "  name = 'Alice';",
+    "  email = 'alice@example.com';",
+    '  progressChars = 7;',
     '}',
   ].join('\n');
 }

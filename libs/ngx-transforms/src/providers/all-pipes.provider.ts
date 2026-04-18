@@ -14,6 +14,9 @@ import { TruncatePipe } from '../lib/pipes/text/truncate/truncate';
 import { TrimPipe } from '../lib/pipes/text/trim/trim';
 import { CapitalizePipe } from '../lib/pipes/text/capitalize/capitalize';
 import { UpperFirstPipe } from '../lib/pipes/text/upper-first/upper-first';
+import { LeftPadPipe } from '../lib/pipes/text/left-pad/left-pad';
+import { RightPadPipe } from '../lib/pipes/text/right-pad/right-pad';
+import { PadPipe } from '../lib/pipes/text/pad/pad';
 
 // Security & Privacy
 import { CreditCardMaskPipe } from '../lib/pipes/security/credit-card-mask/credit-card-mask';
@@ -87,6 +90,9 @@ export const ALL_PIPES: Provider[] = [
   TrimPipe,
   CapitalizePipe,
   UpperFirstPipe,
+  LeftPadPipe,
+  RightPadPipe,
+  PadPipe,
 
   // Security & Privacy
   CreditCardMaskPipe,

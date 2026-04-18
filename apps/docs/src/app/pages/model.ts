@@ -37,6 +37,9 @@ export const PIPE_CATEGORIES: PipeCategory[] = [
       { name: "Trim", url: "/docs/pipes/trim", description: "Removes whitespace or specified characters from both ends of a string.", addedOn: "2026-04-16" },
       { name: "Capitalize", url: "/docs/pipes/capitalize", description: "Uppercases the first character and lowercases the rest.", addedOn: "2026-04-16" },
       { name: "UpperFirst", url: "/docs/pipes/upper-first", description: "Uppercases the first character without altering the rest.", addedOn: "2026-04-16" },
+      { name: "LeftPad", url: "/docs/pipes/left-pad", description: "Pads a string on the left until it reaches the target length.", addedOn: "2026-04-17" },
+      { name: "RightPad", url: "/docs/pipes/right-pad", description: "Pads a string on the right until it reaches the target length.", addedOn: "2026-04-17" },
+      { name: "Pad", url: "/docs/pipes/pad", description: "Centers a string by padding both sides to the target length.", addedOn: "2026-04-17" },
     ],
   },
   {

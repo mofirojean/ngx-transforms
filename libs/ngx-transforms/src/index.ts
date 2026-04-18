@@ -12,6 +12,9 @@ export * from './lib/pipes/text/truncate/truncate';
 export * from './lib/pipes/text/trim/trim';
 export * from './lib/pipes/text/capitalize/capitalize';
 export * from './lib/pipes/text/upper-first/upper-first';
+export * from './lib/pipes/text/left-pad/left-pad';
+export * from './lib/pipes/text/right-pad/right-pad';
+export * from './lib/pipes/text/pad/pad';
 
 // Security & Privacy
 export * from './lib/pipes/security/credit-card-mask/credit-card-mask';

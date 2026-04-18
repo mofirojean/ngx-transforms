@@ -60,6 +60,9 @@ import { RadiansPage } from './pages/pipes/radians';
 import { TrimPage } from './pages/pipes/trim';
 import { CapitalizePage } from './pages/pipes/capitalize';
 import { UpperFirstPage } from './pages/pipes/upper-first';
+import { LeftPadPage } from './pages/pipes/left-pad';
+import { RightPadPage } from './pages/pipes/right-pad';
+import { PadPage } from './pages/pipes/pad';
 
 export const appRoutes: Route[] = [
   {
@@ -309,6 +312,18 @@ export const appRoutes: Route[] = [
           {
             path: 'upper-first',
             component: UpperFirstPage,
+          },
+          {
+            path: 'left-pad',
+            component: LeftPadPage,
+          },
+          {
+            path: 'right-pad',
+            component: RightPadPage,
+          },
+          {
+            path: 'pad',
+            component: PadPage,
           },
         ],
       },

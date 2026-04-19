@@ -40,6 +40,9 @@ export const PIPE_CATEGORIES: PipeCategory[] = [
       { name: "LeftPad", url: "/docs/pipes/left-pad", description: "Pads a string on the left until it reaches the target length.", addedOn: "2026-04-17" },
       { name: "RightPad", url: "/docs/pipes/right-pad", description: "Pads a string on the right until it reaches the target length.", addedOn: "2026-04-17" },
       { name: "Pad", url: "/docs/pipes/pad", description: "Centers a string by padding both sides to the target length.", addedOn: "2026-04-17" },
+      { name: "Repeat", url: "/docs/pipes/repeat", description: "Repeats a string a given number of times with optional separator.", addedOn: "2026-04-18" },
+      { name: "Slugify", url: "/docs/pipes/slugify", description: "Converts a string into a URL-friendly slug.", addedOn: "2026-04-18" },
+      { name: "StripTags", url: "/docs/pipes/strip-tags", description: "Removes HTML tags, with optional allowlist for preserved tags.", addedOn: "2026-04-18" },
     ],
   },
   {

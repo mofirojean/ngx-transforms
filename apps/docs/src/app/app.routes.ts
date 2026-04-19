@@ -63,6 +63,9 @@ import { UpperFirstPage } from './pages/pipes/upper-first';
 import { LeftPadPage } from './pages/pipes/left-pad';
 import { RightPadPage } from './pages/pipes/right-pad';
 import { PadPage } from './pages/pipes/pad';
+import { RepeatPage } from './pages/pipes/repeat';
+import { SlugifyPage } from './pages/pipes/slugify';
+import { StripTagsPage } from './pages/pipes/strip-tags';
 
 export const appRoutes: Route[] = [
   {
@@ -324,6 +327,18 @@ export const appRoutes: Route[] = [
           {
             path: 'pad',
             component: PadPage,
+          },
+          {
+            path: 'repeat',
+            component: RepeatPage,
+          },
+          {
+            path: 'slugify',
+            component: SlugifyPage,
+          },
+          {
+            path: 'strip-tags',
+            component: StripTagsPage,
           },
         ],
       },

@@ -1,35 +1,35 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { PadPipe } from '@ngx-transforms';
+import { StripTagsPipe } from '@ngx-transforms';
 import { CodePreview } from '../../reusables/code-preview/code-preview';
 import { NextPrevNavigation } from '../../reusables/next-prev-navigation/next-prev-navigation';
 import { MacosWindow } from '../../reusables/macos-window/macos-window';
 import { AuthorCredit } from '../../reusables/author-credit/author-credit';
 import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
-import { PadPlayground } from '../../examples/pad-playground/pad-playground';
+import { StripTagsPlayground } from '../../examples/strip-tags-playground/strip-tags-playground';
 
 @Component({
-  selector: 'app-pad-page',
+  selector: 'app-strip-tags-page',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    PadPipe,
+    StripTagsPipe,
     CodePreview,
     NextPrevNavigation,
     MacosWindow,
     AuthorCredit,
     Breadcrumb,
-    PadPlayground,
+    StripTagsPlayground,
   ],
   template: `
     <div class="container mx-auto py-10 px-4 md:px-8 max-w-4xl">
       <app-breadcrumb class="mb-6 block" />
 
       <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-2">
-        Pad Pipe
+        StripTags Pipe
       </h1>
       <p class="text-lg text-muted-foreground mb-8">
-        Pads a string on both sides, centering it within the target length.
-        When the required padding is uneven, the extra character lands on the right.
+        Removes HTML tags from a string. Pass an array of allowed tag names
+        to preserve specific tags. Always strips comments, scripts, and styles.
       </p>
 
       <div class="mb-8">
@@ -39,8 +39,8 @@ import { PadPlayground } from '../../examples/pad-playground/pad-playground';
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-sm font-bold mt-0.5">1</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Section Dividers</h4>
-                <p class="text-sm text-muted-foreground">Create "===== INTRO =====" style banners in logs or terminals.</p>
+                <h4 class="font-semibold mb-1">Plain Text Previews</h4>
+                <p class="text-sm text-muted-foreground">Strip formatting from rich content for list previews or summaries.</p>
               </div>
             </div>
           </div>
@@ -48,8 +48,8 @@ import { PadPlayground } from '../../examples/pad-playground/pad-playground';
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 text-sm font-bold mt-0.5">2</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Decorative Titles</h4>
-                <p class="text-sm text-muted-foreground">Frame titles with asterisks or dashes for emphasis.</p>
+                <h4 class="font-semibold mb-1">Character Counts</h4>
+                <p class="text-sm text-muted-foreground">Get accurate text length without HTML markup skewing the count.</p>
               </div>
             </div>
           </div>
@@ -57,8 +57,8 @@ import { PadPlayground } from '../../examples/pad-playground/pad-playground';
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-sm font-bold mt-0.5">3</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Centered Table Cells</h4>
-                <p class="text-sm text-muted-foreground">Center content in fixed-width ASCII tables.</p>
+                <h4 class="font-semibold mb-1">Limited-Tag Display</h4>
+                <p class="text-sm text-muted-foreground">Allow only basic inline tags (b, i, a) in user-generated comments.</p>
               </div>
             </div>
           </div>
@@ -66,8 +66,8 @@ import { PadPlayground } from '../../examples/pad-playground/pad-playground';
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 text-sm font-bold mt-0.5">4</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Console Banners</h4>
-                <p class="text-sm text-muted-foreground">Generate centered heading lines for console output or logs.</p>
+                <h4 class="font-semibold mb-1">Search Indexing</h4>
+                <p class="text-sm text-muted-foreground">Extract plain text from content before indexing it for search.</p>
               </div>
             </div>
           </div>
@@ -75,32 +75,26 @@ import { PadPlayground } from '../../examples/pad-playground/pad-playground';
       </div>
 
       <h2 class="text-2xl font-bold my-8">Interactive Example</h2>
-      <app-macos-window title="Pad Playground">
-        <app-pad-playground />
+      <app-macos-window title="StripTags Playground">
+        <app-strip-tags-playground />
       </app-macos-window>
 
       <h2 class="text-2xl font-bold my-8">Usage</h2>
       <app-code-preview [code]="code" [language]="'typescript'">
         <div class="space-y-6">
           <div>
-            <h3 class="text-xl font-semibold mb-4">Pad Examples</h3>
+            <h3 class="text-xl font-semibold mb-4">StripTags Examples</h3>
             <div class="rounded-md bg-muted p-6 border border-border space-y-4">
               <div>
-                <div class="text-xs text-muted-foreground mb-2">Centered with dashes</div>
+                <div class="text-xs text-muted-foreground mb-2">Strip all tags</div>
                 <div class="rounded-md bg-background p-4">
-                  <p class="text-sm font-mono">'{{ 'x' | pad:5:'-' }}'</p>
+                  <p class="text-sm font-mono">'{{ html | stripTags }}'</p>
                 </div>
               </div>
               <div>
-                <div class="text-xs text-muted-foreground mb-2">Section banner</div>
+                <div class="text-xs text-muted-foreground mb-2">Keep inline tags</div>
                 <div class="rounded-md bg-background p-4">
-                  <p class="text-sm font-mono">'{{ 'INTRO' | pad:20:'=' }}'</p>
-                </div>
-              </div>
-              <div>
-                <div class="text-xs text-muted-foreground mb-2">Uneven padding (extra on right)</div>
-                <div class="rounded-md bg-background p-4">
-                  <p class="text-sm font-mono">'{{ 'hi' | pad:7:'*' }}'</p>
+                  <p class="text-sm font-mono">'{{ html | stripTags:allowed }}'</p>
                 </div>
               </div>
             </div>
@@ -122,21 +116,15 @@ import { PadPlayground } from '../../examples/pad-playground/pad-playground';
           <tbody>
             <tr class="border-b border-border">
               <td class="px-4 py-3 font-mono text-xs">value</td>
-              <td class="px-4 py-3 text-muted-foreground">string | number</td>
+              <td class="px-4 py-3 text-muted-foreground">string</td>
               <td class="px-4 py-3 font-mono text-xs">-</td>
-              <td class="px-4 py-3 text-muted-foreground">The string or number to pad</td>
-            </tr>
-            <tr class="border-b border-border">
-              <td class="px-4 py-3 font-mono text-xs">length</td>
-              <td class="px-4 py-3 text-muted-foreground">number</td>
-              <td class="px-4 py-3 font-mono text-xs">-</td>
-              <td class="px-4 py-3 text-muted-foreground">Target length of the resulting string</td>
+              <td class="px-4 py-3 text-muted-foreground">The HTML string to strip</td>
             </tr>
             <tr>
-              <td class="px-4 py-3 font-mono text-xs">char</td>
-              <td class="px-4 py-3 text-muted-foreground">string</td>
-              <td class="px-4 py-3 font-mono text-xs">' '</td>
-              <td class="px-4 py-3 text-muted-foreground">Character (or string) to pad with</td>
+              <td class="px-4 py-3 font-mono text-xs">allowedTags</td>
+              <td class="px-4 py-3 text-muted-foreground">string[]</td>
+              <td class="px-4 py-3 font-mono text-xs">-</td>
+              <td class="px-4 py-3 text-muted-foreground">Optional list of tag names to preserve (case-insensitive)</td>
             </tr>
           </tbody>
         </table>
@@ -147,29 +135,29 @@ import { PadPlayground } from '../../examples/pad-playground/pad-playground';
         <div class="flex items-start gap-3">
           <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
           <div>
-            <h4 class="font-semibold">True Centering</h4>
-            <p class="text-sm text-muted-foreground">Distributes padding evenly on both sides.</p>
+            <h4 class="font-semibold">Allowlist Support</h4>
+            <p class="text-sm text-muted-foreground">Preserve specific tags while stripping the rest, with attributes intact.</p>
           </div>
         </div>
         <div class="flex items-start gap-3">
           <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
           <div>
-            <h4 class="font-semibold">Consistent Uneven Policy</h4>
-            <p class="text-sm text-muted-foreground">When padding is odd, the extra character always goes on the right.</p>
+            <h4 class="font-semibold">Always Removes Dangerous Content</h4>
+            <p class="text-sm text-muted-foreground">Scripts, styles, comments, and DOCTYPEs are always stripped.</p>
           </div>
         </div>
         <div class="flex items-start gap-3">
           <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
           <div>
-            <h4 class="font-semibold">Strings or Numbers</h4>
-            <p class="text-sm text-muted-foreground">Accepts both types — numbers are automatically stringified.</p>
+            <h4 class="font-semibold">Case-Insensitive</h4>
+            <p class="text-sm text-muted-foreground">Allowed tag names match regardless of input casing.</p>
           </div>
         </div>
         <div class="flex items-start gap-3">
           <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
           <div>
             <h4 class="font-semibold">Null Safe</h4>
-            <p class="text-sm text-muted-foreground">Returns empty string for null or undefined inputs.</p>
+            <p class="text-sm text-muted-foreground">Returns empty string for null, undefined, or non-string inputs.</p>
           </div>
         </div>
       </div>
@@ -178,38 +166,41 @@ import { PadPlayground } from '../../examples/pad-playground/pad-playground';
         <app-author-credit author="Mofiro Jean" url="https://github.com/mofirojean" />
         <div class="flex gap-4">
           <app-next-prev-navigation
-            [previous]="{ label: 'RightPad', link: '/docs/pipes/right-pad' }"
-            [next]="{ label: 'Repeat', link: '/docs/pipes/repeat' }"
+            [previous]="{ label: 'Slugify', link: '/docs/pipes/slugify' }"
           />
         </div>
       </div>
     </div>
   `,
 })
-export class PadPage {
+export class StripTagsPage {
+  html = '<p>Hello <b>bold</b> and <i>italic</i> world!</p>';
+  allowed = ['b', 'i'];
+
   code = [
     "import { Component } from '@angular/core';",
-    "import { PadPipe } from 'ngx-transforms';",
+    "import { StripTagsPipe } from 'ngx-transforms';",
     '',
     '@Component({',
     "  selector: 'app-example',",
     '  standalone: true,',
-    '  imports: [PadPipe],',
+    '  imports: [StripTagsPipe],',
     '  template: `',
-    '    <!-- Section divider -->',
-    "    <pre>{{ title | pad:30:'=' }}</pre>",
+    '    <!-- Plain text preview -->',
+    '    <p>{{ post.html | stripTags }}</p>',
     '',
-    '    <!-- Decorative marker -->',
-    "    <span>{{ badge | pad:10:'*' }}</span>",
+    '    <!-- Allow only inline formatting -->',
+    "    <div [innerHTML]=\"comment | stripTags:allowedTags\"></div>",
     '',
-    '    <!-- Centered number -->',
-    "    <pre>|{{ score | pad:5:' ' }}|</pre>",
+    '    <!-- Character count without markup -->',
+    '    <span>{{ (content | stripTags).length }} chars</span>',
     '  `',
     '})',
     'export class ExampleComponent {',
-    "  title = ' INTRO ';",
-    "  badge = 'NEW';",
-    '  score = 42;',
+    "  post = { html: '<p>Hello <b>world</b></p>' };",
+    "  comment = 'I think <b>this</b> is <script>alert(1)</script> cool';",
+    "  allowedTags = ['b', 'i', 'a'];",
+    "  content = '<h1>Title</h1><p>Body with <b>bold</b></p>';",
     '}',
   ].join('\n');
 }

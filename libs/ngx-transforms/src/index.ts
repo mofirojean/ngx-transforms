@@ -15,6 +15,9 @@ export * from './lib/pipes/text/upper-first/upper-first';
 export * from './lib/pipes/text/left-pad/left-pad';
 export * from './lib/pipes/text/right-pad/right-pad';
 export * from './lib/pipes/text/pad/pad';
+export * from './lib/pipes/text/repeat/repeat';
+export * from './lib/pipes/text/slugify/slugify';
+export * from './lib/pipes/text/strip-tags/strip-tags';
 
 // Security & Privacy
 export * from './lib/pipes/security/credit-card-mask/credit-card-mask';

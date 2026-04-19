@@ -17,6 +17,9 @@ import { UpperFirstPipe } from '../lib/pipes/text/upper-first/upper-first';
 import { LeftPadPipe } from '../lib/pipes/text/left-pad/left-pad';
 import { RightPadPipe } from '../lib/pipes/text/right-pad/right-pad';
 import { PadPipe } from '../lib/pipes/text/pad/pad';
+import { RepeatPipe } from '../lib/pipes/text/repeat/repeat';
+import { SlugifyPipe } from '../lib/pipes/text/slugify/slugify';
+import { StripTagsPipe } from '../lib/pipes/text/strip-tags/strip-tags';
 
 // Security & Privacy
 import { CreditCardMaskPipe } from '../lib/pipes/security/credit-card-mask/credit-card-mask';
@@ -93,6 +96,9 @@ export const ALL_PIPES: Provider[] = [
   LeftPadPipe,
   RightPadPipe,
   PadPipe,
+  RepeatPipe,
+  SlugifyPipe,
+  StripTagsPipe,
 
   // Security & Privacy
   CreditCardMaskPipe,

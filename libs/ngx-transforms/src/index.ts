@@ -18,6 +18,10 @@ export * from './lib/pipes/text/pad/pad';
 export * from './lib/pipes/text/repeat/repeat';
 export * from './lib/pipes/text/slugify/slugify';
 export * from './lib/pipes/text/strip-tags/strip-tags';
+export * from './lib/pipes/text/encode-uri/encode-uri';
+export * from './lib/pipes/text/encode-uri-component/encode-uri-component';
+export * from './lib/pipes/text/decode-uri/decode-uri';
+export * from './lib/pipes/text/decode-uri-component/decode-uri-component';
 
 // Security & Privacy
 export * from './lib/pipes/security/credit-card-mask/credit-card-mask';

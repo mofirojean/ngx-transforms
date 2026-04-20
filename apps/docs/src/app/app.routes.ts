@@ -66,6 +66,10 @@ import { PadPage } from './pages/pipes/pad';
 import { RepeatPage } from './pages/pipes/repeat';
 import { SlugifyPage } from './pages/pipes/slugify';
 import { StripTagsPage } from './pages/pipes/strip-tags';
+import { EncodeUriPage } from './pages/pipes/encode-uri';
+import { EncodeUriComponentPage } from './pages/pipes/encode-uri-component';
+import { DecodeUriPage } from './pages/pipes/decode-uri';
+import { DecodeUriComponentPage } from './pages/pipes/decode-uri-component';
 
 export const appRoutes: Route[] = [
   {
@@ -339,6 +343,22 @@ export const appRoutes: Route[] = [
           {
             path: 'strip-tags',
             component: StripTagsPage,
+          },
+          {
+            path: 'encode-uri',
+            component: EncodeUriPage,
+          },
+          {
+            path: 'encode-uri-component',
+            component: EncodeUriComponentPage,
+          },
+          {
+            path: 'decode-uri',
+            component: DecodeUriPage,
+          },
+          {
+            path: 'decode-uri-component',
+            component: DecodeUriComponentPage,
           },
         ],
       },

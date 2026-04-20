@@ -20,6 +20,10 @@ import { PadPipe } from '../lib/pipes/text/pad/pad';
 import { RepeatPipe } from '../lib/pipes/text/repeat/repeat';
 import { SlugifyPipe } from '../lib/pipes/text/slugify/slugify';
 import { StripTagsPipe } from '../lib/pipes/text/strip-tags/strip-tags';
+import { EncodeUriPipe } from '../lib/pipes/text/encode-uri/encode-uri';
+import { EncodeUriComponentPipe } from '../lib/pipes/text/encode-uri-component/encode-uri-component';
+import { DecodeUriPipe } from '../lib/pipes/text/decode-uri/decode-uri';
+import { DecodeUriComponentPipe } from '../lib/pipes/text/decode-uri-component/decode-uri-component';
 
 // Security & Privacy
 import { CreditCardMaskPipe } from '../lib/pipes/security/credit-card-mask/credit-card-mask';
@@ -99,6 +103,10 @@ export const ALL_PIPES: Provider[] = [
   RepeatPipe,
   SlugifyPipe,
   StripTagsPipe,
+  EncodeUriPipe,
+  EncodeUriComponentPipe,
+  DecodeUriPipe,
+  DecodeUriComponentPipe,
 
   // Security & Privacy
   CreditCardMaskPipe,

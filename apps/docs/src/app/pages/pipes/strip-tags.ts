@@ -167,6 +167,7 @@ import { StripTagsPlayground } from '../../examples/strip-tags-playground/strip-
         <div class="flex gap-4">
           <app-next-prev-navigation
             [previous]="{ label: 'Slugify', link: '/docs/pipes/slugify' }"
+            [next]="{ label: 'EncodeURI', link: '/docs/pipes/encode-uri' }"
           />
         </div>
       </div>

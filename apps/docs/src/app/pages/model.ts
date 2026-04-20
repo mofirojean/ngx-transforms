@@ -43,6 +43,10 @@ export const PIPE_CATEGORIES: PipeCategory[] = [
       { name: "Repeat", url: "/docs/pipes/repeat", description: "Repeats a string a given number of times with optional separator.", addedOn: "2026-04-18" },
       { name: "Slugify", url: "/docs/pipes/slugify", description: "Converts a string into a URL-friendly slug.", addedOn: "2026-04-18" },
       { name: "StripTags", url: "/docs/pipes/strip-tags", description: "Removes HTML tags, with optional allowlist for preserved tags.", addedOn: "2026-04-18" },
+      { name: "EncodeURI", url: "/docs/pipes/encode-uri", description: "Encodes a full URI, preserving URL structural characters.", addedOn: "2026-04-19" },
+      { name: "EncodeURIComponent", url: "/docs/pipes/encode-uri-component", description: "Encodes a URI component, escaping reserved characters.", addedOn: "2026-04-19" },
+      { name: "DecodeURI", url: "/docs/pipes/decode-uri", description: "Decodes a URI previously encoded with encodeURI.", addedOn: "2026-04-19" },
+      { name: "DecodeURIComponent", url: "/docs/pipes/decode-uri-component", description: "Decodes a URI component previously encoded with encodeURIComponent.", addedOn: "2026-04-19" },
     ],
   },
   {

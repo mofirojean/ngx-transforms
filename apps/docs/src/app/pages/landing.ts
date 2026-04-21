@@ -130,18 +130,20 @@ import { PIPES } from './model';
 
         <!-- Heading -->
         <h1 class="slide-up slide-up-2 text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl max-w-4xl">
-          <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-500 to-pink-500">
+          <span class="sr-only">ngx-transforms — {{ pipeCount }}+ Standalone Angular Pipes for Modern Angular Apps.</span>
+          <span aria-hidden="true" class="bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-500 to-pink-500">
             The Pipe Library
           </span>
-          <br />
-          <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-orange-500">
+          <br aria-hidden="true" />
+          <span aria-hidden="true" class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-orange-500">
             Angular Deserves
           </span>
         </h1>
 
         <p class="slide-up slide-up-3 mt-6 max-w-2xl text-lg text-muted-foreground sm:text-xl leading-relaxed">
-          {{ pipeCount }} standalone, type-safe, tree-shakeable pipes.
-          Zero config. Just import and transform.
+          <strong>{{ pipeCount }} standalone Angular pipes</strong> for text transformation, data masking, math, array utilities, and more.
+          Type-safe, tree-shakeable, and built for Angular 17+.
+          Zero config — just import and transform.
         </p>
 
         <!-- CTA Buttons -->

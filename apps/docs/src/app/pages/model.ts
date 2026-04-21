@@ -47,6 +47,10 @@ export const PIPE_CATEGORIES: PipeCategory[] = [
       { name: "EncodeURIComponent", url: "/docs/pipes/encode-uri-component", description: "Encodes a URI component, escaping reserved characters.", addedOn: "2026-04-19" },
       { name: "DecodeURI", url: "/docs/pipes/decode-uri", description: "Decodes a URI previously encoded with encodeURI.", addedOn: "2026-04-19" },
       { name: "DecodeURIComponent", url: "/docs/pipes/decode-uri-component", description: "Decodes a URI component previously encoded with encodeURIComponent.", addedOn: "2026-04-19" },
+      { name: "Split", url: "/docs/pipes/split", description: "Splits a string into an array using a string or regex separator.", addedOn: "2026-04-20" },
+      { name: "Match", url: "/docs/pipes/match", description: "Returns all regex matches found in a string as an array.", addedOn: "2026-04-20" },
+      { name: "Test", url: "/docs/pipes/test", description: "Returns true when a string matches a regex pattern.", addedOn: "2026-04-20" },
+      { name: "Newlines", url: "/docs/pipes/newlines", description: "Replaces line breaks in a string with a custom replacement.", addedOn: "2026-04-20" },
     ],
   },
   {

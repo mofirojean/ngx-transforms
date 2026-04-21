@@ -24,6 +24,10 @@ import { EncodeUriPipe } from '../lib/pipes/text/encode-uri/encode-uri';
 import { EncodeUriComponentPipe } from '../lib/pipes/text/encode-uri-component/encode-uri-component';
 import { DecodeUriPipe } from '../lib/pipes/text/decode-uri/decode-uri';
 import { DecodeUriComponentPipe } from '../lib/pipes/text/decode-uri-component/decode-uri-component';
+import { SplitPipe } from '../lib/pipes/text/split/split';
+import { MatchPipe } from '../lib/pipes/text/match/match';
+import { TestPipe } from '../lib/pipes/text/test/test';
+import { NewlinesPipe } from '../lib/pipes/text/newlines/newlines';
 
 // Security & Privacy
 import { CreditCardMaskPipe } from '../lib/pipes/security/credit-card-mask/credit-card-mask';
@@ -107,6 +111,10 @@ export const ALL_PIPES: Provider[] = [
   EncodeUriComponentPipe,
   DecodeUriPipe,
   DecodeUriComponentPipe,
+  SplitPipe,
+  MatchPipe,
+  TestPipe,
+  NewlinesPipe,
 
   // Security & Privacy
   CreditCardMaskPipe,

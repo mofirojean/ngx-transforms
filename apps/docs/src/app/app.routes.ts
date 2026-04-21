@@ -70,6 +70,10 @@ import { EncodeUriPage } from './pages/pipes/encode-uri';
 import { EncodeUriComponentPage } from './pages/pipes/encode-uri-component';
 import { DecodeUriPage } from './pages/pipes/decode-uri';
 import { DecodeUriComponentPage } from './pages/pipes/decode-uri-component';
+import { SplitPage } from './pages/pipes/split';
+import { MatchPage } from './pages/pipes/match';
+import { TestPage } from './pages/pipes/test';
+import { NewlinesPage } from './pages/pipes/newlines';
 
 export const appRoutes: Route[] = [
   {
@@ -359,6 +363,22 @@ export const appRoutes: Route[] = [
           {
             path: 'decode-uri-component',
             component: DecodeUriComponentPage,
+          },
+          {
+            path: 'split',
+            component: SplitPage,
+          },
+          {
+            path: 'match',
+            component: MatchPage,
+          },
+          {
+            path: 'test',
+            component: TestPage,
+          },
+          {
+            path: 'newlines',
+            component: NewlinesPage,
           },
         ],
       },

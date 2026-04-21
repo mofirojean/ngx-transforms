@@ -22,6 +22,10 @@ export * from './lib/pipes/text/encode-uri/encode-uri';
 export * from './lib/pipes/text/encode-uri-component/encode-uri-component';
 export * from './lib/pipes/text/decode-uri/decode-uri';
 export * from './lib/pipes/text/decode-uri-component/decode-uri-component';
+export * from './lib/pipes/text/split/split';
+export * from './lib/pipes/text/match/match';
+export * from './lib/pipes/text/test/test';
+export * from './lib/pipes/text/newlines/newlines';
 
 // Security & Privacy
 export * from './lib/pipes/security/credit-card-mask/credit-card-mask';

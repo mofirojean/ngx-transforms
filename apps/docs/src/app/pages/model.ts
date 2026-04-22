@@ -51,6 +51,9 @@ export const PIPE_CATEGORIES: PipeCategory[] = [
       { name: "Match", url: "/docs/pipes/match", description: "Returns all regex matches found in a string as an array.", addedOn: "2026-04-20" },
       { name: "Test", url: "/docs/pipes/test", description: "Returns true when a string matches a regex pattern.", addedOn: "2026-04-20" },
       { name: "Newlines", url: "/docs/pipes/newlines", description: "Replaces line breaks in a string with a custom replacement.", addedOn: "2026-04-20" },
+      { name: "Template", url: "/docs/pipes/template", description: "Replaces {key} placeholders with values from an object, supporting dot notation.", addedOn: "2026-04-21" },
+      { name: "Latinize", url: "/docs/pipes/latinize", description: "Strips diacritics while preserving casing, spaces, and punctuation.", addedOn: "2026-04-21" },
+      { name: "Wrap", url: "/docs/pipes/wrap", description: "Surrounds a string with a prefix and optional suffix.", addedOn: "2026-04-21" },
     ],
   },
   {

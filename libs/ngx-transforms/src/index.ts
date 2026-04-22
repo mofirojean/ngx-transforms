@@ -26,6 +26,9 @@ export * from './lib/pipes/text/split/split';
 export * from './lib/pipes/text/match/match';
 export * from './lib/pipes/text/test/test';
 export * from './lib/pipes/text/newlines/newlines';
+export * from './lib/pipes/text/template/template';
+export * from './lib/pipes/text/latinize/latinize';
+export * from './lib/pipes/text/wrap/wrap';
 
 // Security & Privacy
 export * from './lib/pipes/security/credit-card-mask/credit-card-mask';

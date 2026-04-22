@@ -165,6 +165,7 @@ import { NewlinesPlayground } from '../../examples/newlines-playground/newlines-
         <div class="flex gap-4">
           <app-next-prev-navigation
             [previous]="{ label: 'Test', link: '/docs/pipes/test' }"
+            [next]="{ label: 'Template', link: '/docs/pipes/template' }"
           />
         </div>
       </div>

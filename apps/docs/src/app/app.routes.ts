@@ -74,6 +74,9 @@ import { SplitPage } from './pages/pipes/split';
 import { MatchPage } from './pages/pipes/match';
 import { TestPage } from './pages/pipes/test';
 import { NewlinesPage } from './pages/pipes/newlines';
+import { TemplatePage } from './pages/pipes/template';
+import { LatinizePage } from './pages/pipes/latinize';
+import { WrapPage } from './pages/pipes/wrap';
 
 export const appRoutes: Route[] = [
   {
@@ -379,6 +382,18 @@ export const appRoutes: Route[] = [
           {
             path: 'newlines',
             component: NewlinesPage,
+          },
+          {
+            path: 'template',
+            component: TemplatePage,
+          },
+          {
+            path: 'latinize',
+            component: LatinizePage,
+          },
+          {
+            path: 'wrap',
+            component: WrapPage,
           },
         ],
       },

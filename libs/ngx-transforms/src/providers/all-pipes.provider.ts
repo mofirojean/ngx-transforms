@@ -28,6 +28,9 @@ import { SplitPipe } from '../lib/pipes/text/split/split';
 import { MatchPipe } from '../lib/pipes/text/match/match';
 import { TestPipe } from '../lib/pipes/text/test/test';
 import { NewlinesPipe } from '../lib/pipes/text/newlines/newlines';
+import { TemplatePipe } from '../lib/pipes/text/template/template';
+import { LatinizePipe } from '../lib/pipes/text/latinize/latinize';
+import { WrapPipe } from '../lib/pipes/text/wrap/wrap';
 
 // Security & Privacy
 import { CreditCardMaskPipe } from '../lib/pipes/security/credit-card-mask/credit-card-mask';
@@ -115,6 +118,9 @@ export const ALL_PIPES: Provider[] = [
   MatchPipe,
   TestPipe,
   NewlinesPipe,
+  TemplatePipe,
+  LatinizePipe,
+  WrapPipe,
 
   // Security & Privacy
   CreditCardMaskPipe,

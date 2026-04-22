@@ -8,7 +8,7 @@
     "watch": "nx build --watch --configuration development",
     "test": "nx test",
     "serve:ssr:ngx-transforms": "node dist/ngx-transforms/server/server.mjs",
-    "sitemap:generate": "tsx apps/docs/scripts/generate-sitemap.ts"
+    "sitemap:generate": "npx tsx apps/docs/scripts/generate-sitemap.ts"
   },
   "prettier": {
     "printWidth": 100,

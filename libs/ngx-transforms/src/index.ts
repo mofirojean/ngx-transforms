@@ -30,6 +30,10 @@ export * from './lib/pipes/text/template/template';
 export * from './lib/pipes/text/latinize/latinize';
 export * from './lib/pipes/text/wrap/wrap';
 
+// Object
+export * from './lib/pipes/object/keys/keys';
+export * from './lib/pipes/object/values/values';
+
 // Security & Privacy
 export * from './lib/pipes/security/credit-card-mask/credit-card-mask';
 export * from './lib/pipes/security/email-mask/email-mask';

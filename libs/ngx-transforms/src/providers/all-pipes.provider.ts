@@ -32,6 +32,10 @@ import { TemplatePipe } from '../lib/pipes/text/template/template';
 import { LatinizePipe } from '../lib/pipes/text/latinize/latinize';
 import { WrapPipe } from '../lib/pipes/text/wrap/wrap';
 
+// Object
+import { KeysPipe } from '../lib/pipes/object/keys/keys';
+import { ValuesPipe } from '../lib/pipes/object/values/values';
+
 // Security & Privacy
 import { CreditCardMaskPipe } from '../lib/pipes/security/credit-card-mask/credit-card-mask';
 import { EmailMaskPipe } from '../lib/pipes/security/email-mask/email-mask';
@@ -121,6 +125,10 @@ export const ALL_PIPES: Provider[] = [
   TemplatePipe,
   LatinizePipe,
   WrapPipe,
+
+  // Object
+  KeysPipe,
+  ValuesPipe,
 
   // Security & Privacy
   CreditCardMaskPipe,

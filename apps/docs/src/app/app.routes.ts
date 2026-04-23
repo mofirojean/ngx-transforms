@@ -77,6 +77,8 @@ import { NewlinesPage } from './pages/pipes/newlines';
 import { TemplatePage } from './pages/pipes/template';
 import { LatinizePage } from './pages/pipes/latinize';
 import { WrapPage } from './pages/pipes/wrap';
+import { KeysPage } from './pages/pipes/keys';
+import { ValuesPage } from './pages/pipes/values';
 
 export const appRoutes: Route[] = [
   {
@@ -394,6 +396,14 @@ export const appRoutes: Route[] = [
           {
             path: 'wrap',
             component: WrapPage,
+          },
+          {
+            path: 'keys',
+            component: KeysPage,
+          },
+          {
+            path: 'values',
+            component: ValuesPage,
           },
         ],
       },

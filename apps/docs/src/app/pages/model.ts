@@ -128,6 +128,13 @@ export const PIPE_CATEGORIES: PipeCategory[] = [
       { name: "Radians", url: "/docs/pipes/radians", description: "Converts a value in degrees to radians.", addedOn: "2026-04-15" },
     ],
   },
+  {
+    name: 'Object',
+    pipes: [
+      { name: "Keys", url: "/docs/pipes/keys", description: "Returns the own enumerable property names of an object as an array.", addedOn: "2026-04-22" },
+      { name: "Values", url: "/docs/pipes/values", description: "Returns the own enumerable property values of an object as an array.", addedOn: "2026-04-22" },
+    ],
+  },
 ];
 
 /** Flat list of all pipes (for backward compatibility). */

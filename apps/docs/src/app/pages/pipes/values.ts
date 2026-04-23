@@ -1,36 +1,35 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { WrapPipe } from '@ngx-transforms';
+import { ValuesPipe } from '@ngx-transforms';
 import { CodePreview } from '../../reusables/code-preview/code-preview';
 import { NextPrevNavigation } from '../../reusables/next-prev-navigation/next-prev-navigation';
 import { MacosWindow } from '../../reusables/macos-window/macos-window';
 import { AuthorCredit } from '../../reusables/author-credit/author-credit';
 import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
-import { WrapPlayground } from '../../examples/wrap-playground/wrap-playground';
+import { ValuesPlayground } from '../../examples/values-playground/values-playground';
 
 @Component({
-  selector: 'app-wrap-page',
+  selector: 'app-values-page',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    WrapPipe,
+    ValuesPipe,
     CodePreview,
     NextPrevNavigation,
     MacosWindow,
     AuthorCredit,
     Breadcrumb,
-    WrapPlayground,
+    ValuesPlayground,
   ],
   template: `
     <div class="container mx-auto py-10 px-4 md:px-8 max-w-4xl">
       <app-breadcrumb class="mb-6 block" />
 
       <h1 class="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-2">
-        Wrap Pipe
+        Values Pipe
       </h1>
       <p class="text-lg text-muted-foreground mb-8">
-        Surrounds a string with a prefix and optional suffix. When no suffix
-        is provided, the prefix is used on both sides — perfect for quotes,
-        markdown, or symmetric decorators.
+        Returns the own enumerable property values of an object as an array.
+        Pairs naturally with the keys pipe and works with arrays too.
       </p>
 
       <div class="mb-8">
@@ -40,8 +39,8 @@ import { WrapPlayground } from '../../examples/wrap-playground/wrap-playground';
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 text-sm font-bold mt-0.5">1</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Quoted Values</h4>
-                <p class="text-sm text-muted-foreground">Wrap a value in quotes for display or inline code snippets.</p>
+                <h4 class="font-semibold mb-1">Compute on Map Values</h4>
+                <p class="text-sm text-muted-foreground">Pipe object values into sum, max, average without restructuring.</p>
               </div>
             </div>
           </div>
@@ -49,8 +48,8 @@ import { WrapPlayground } from '../../examples/wrap-playground/wrap-playground';
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 text-sm font-bold mt-0.5">2</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Markdown Formatting</h4>
-                <p class="text-sm text-muted-foreground">Add ** or _ around text for bold or italic markdown output.</p>
+                <h4 class="font-semibold mb-1">Render Stat Cards</h4>
+                <p class="text-sm text-muted-foreground">Iterate the values of a stats object to draw a card per metric.</p>
               </div>
             </div>
           </div>
@@ -58,8 +57,8 @@ import { WrapPlayground } from '../../examples/wrap-playground/wrap-playground';
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-sm font-bold mt-0.5">3</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Tag Labels</h4>
-                <p class="text-sm text-muted-foreground">Render tags like [urgent] or (optional) in a list.</p>
+                <h4 class="font-semibold mb-1">Dropdown Options</h4>
+                <p class="text-sm text-muted-foreground">Enum-like objects expose their values as dropdown choices.</p>
               </div>
             </div>
           </div>
@@ -67,8 +66,8 @@ import { WrapPlayground } from '../../examples/wrap-playground/wrap-playground';
             <div class="flex items-start gap-3">
               <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 text-sm font-bold mt-0.5">4</span>
               <div class="flex-1">
-                <h4 class="font-semibold mb-1">Comment Blocks</h4>
-                <p class="text-sm text-muted-foreground">Wrap text in &lt;!-- --&gt; for HTML comments in generated output.</p>
+                <h4 class="font-semibold mb-1">Inspection</h4>
+                <p class="text-sm text-muted-foreground">Quickly preview object content in debug or admin views.</p>
               </div>
             </div>
           </div>
@@ -76,32 +75,26 @@ import { WrapPlayground } from '../../examples/wrap-playground/wrap-playground';
       </div>
 
       <h2 class="text-2xl font-bold my-8">Interactive Example</h2>
-      <app-macos-window title="Wrap Playground">
-        <app-wrap-playground />
+      <app-macos-window title="Values Playground">
+        <app-values-playground />
       </app-macos-window>
 
       <h2 class="text-2xl font-bold my-8">Usage</h2>
       <app-code-preview [code]="code" [language]="'typescript'">
         <div class="space-y-6">
           <div>
-            <h3 class="text-xl font-semibold mb-4">Wrap Examples</h3>
+            <h3 class="text-xl font-semibold mb-4">Values Examples</h3>
             <div class="rounded-md bg-muted p-6 border border-border space-y-4">
               <div>
-                <div class="text-xs text-muted-foreground mb-2">Brackets</div>
+                <div class="text-xs text-muted-foreground mb-2">Plain object</div>
                 <div class="rounded-md bg-background p-4">
-                  <p class="text-sm font-mono">'{{ 'value' | wrap:'[':']' }}'</p>
+                  <p class="text-sm font-mono">{{ stats | values }}</p>
                 </div>
               </div>
               <div>
-                <div class="text-xs text-muted-foreground mb-2">Symmetric (markdown bold)</div>
+                <div class="text-xs text-muted-foreground mb-2">Pair with sum</div>
                 <div class="rounded-md bg-background p-4">
-                  <p class="text-sm font-mono">'{{ 'bold' | wrap:'**' }}'</p>
-                </div>
-              </div>
-              <div>
-                <div class="text-xs text-muted-foreground mb-2">Angle brackets</div>
-                <div class="rounded-md bg-background p-4">
-                  <p class="text-sm font-mono">'{{ 'tag' | wrap:'<':'>' }}'</p>
+                  <p class="text-sm font-mono">{{ stats | values }}</p>
                 </div>
               </div>
             </div>
@@ -121,23 +114,11 @@ import { WrapPlayground } from '../../examples/wrap-playground/wrap-playground';
             </tr>
           </thead>
           <tbody>
-            <tr class="border-b border-border">
-              <td class="px-4 py-3 font-mono text-xs">value</td>
-              <td class="px-4 py-3 text-muted-foreground">string</td>
-              <td class="px-4 py-3 font-mono text-xs">-</td>
-              <td class="px-4 py-3 text-muted-foreground">The string to wrap</td>
-            </tr>
-            <tr class="border-b border-border">
-              <td class="px-4 py-3 font-mono text-xs">prefix</td>
-              <td class="px-4 py-3 text-muted-foreground">string</td>
-              <td class="px-4 py-3 font-mono text-xs">''</td>
-              <td class="px-4 py-3 text-muted-foreground">Text placed before the value</td>
-            </tr>
             <tr>
-              <td class="px-4 py-3 font-mono text-xs">suffix</td>
-              <td class="px-4 py-3 text-muted-foreground">string</td>
-              <td class="px-4 py-3 font-mono text-xs">prefix</td>
-              <td class="px-4 py-3 text-muted-foreground">Text placed after the value (defaults to prefix)</td>
+              <td class="px-4 py-3 font-mono text-xs">value</td>
+              <td class="px-4 py-3 text-muted-foreground">unknown</td>
+              <td class="px-4 py-3 font-mono text-xs">-</td>
+              <td class="px-4 py-3 text-muted-foreground">The object whose values to extract</td>
             </tr>
           </tbody>
         </table>
@@ -148,29 +129,29 @@ import { WrapPlayground } from '../../examples/wrap-playground/wrap-playground';
         <div class="flex items-start gap-3">
           <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
           <div>
-            <h4 class="font-semibold">Symmetric Defaults</h4>
-            <p class="text-sm text-muted-foreground">Omit the suffix to reuse the prefix — perfect for quotes and markdown.</p>
+            <h4 class="font-semibold">Iterable Output</h4>
+            <p class="text-sm text-muted-foreground">Returns a plain array — chain into &#64;for or other array pipes like sum, average.</p>
           </div>
         </div>
         <div class="flex items-start gap-3">
           <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
           <div>
-            <h4 class="font-semibold">Asymmetric Wrap</h4>
-            <p class="text-sm text-muted-foreground">Pass different prefix and suffix for cases like &lt;tag&gt; or &lt;!-- comment --&gt;.</p>
+            <h4 class="font-semibold">Preserves Types</h4>
+            <p class="text-sm text-muted-foreground">Nested objects, arrays, null and undefined are returned as-is.</p>
           </div>
         </div>
         <div class="flex items-start gap-3">
           <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
           <div>
-            <h4 class="font-semibold">Multi-Char Support</h4>
-            <p class="text-sm text-muted-foreground">Works with any string length — single chars, emoji, or full phrases.</p>
+            <h4 class="font-semibold">Pair With Keys</h4>
+            <p class="text-sm text-muted-foreground">Combine with the keys pipe when both name and content are needed.</p>
           </div>
         </div>
         <div class="flex items-start gap-3">
           <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs font-bold">✓</span>
           <div>
             <h4 class="font-semibold">Null Safe</h4>
-            <p class="text-sm text-muted-foreground">Returns empty string for null, undefined, or non-string input.</p>
+            <p class="text-sm text-muted-foreground">Returns an empty array for null, undefined, or primitive inputs.</p>
           </div>
         </div>
       </div>
@@ -179,38 +160,36 @@ import { WrapPlayground } from '../../examples/wrap-playground/wrap-playground';
         <app-author-credit author="Mofiro Jean" url="https://github.com/mofirojean" />
         <div class="flex gap-4">
           <app-next-prev-navigation
-            [previous]="{ label: 'Latinize', link: '/docs/pipes/latinize' }"
-            [next]="{ label: 'Keys', link: '/docs/pipes/keys' }"
+            [previous]="{ label: 'Keys', link: '/docs/pipes/keys' }"
           />
         </div>
       </div>
     </div>
   `,
 })
-export class WrapPage {
+export class ValuesPage {
+  stats = { min: 1, max: 99, avg: 50 };
+
   code = [
     "import { Component } from '@angular/core';",
-    "import { WrapPipe } from 'ngx-transforms';",
+    "import { ValuesPipe, SumPipe } from 'ngx-transforms';",
     '',
     '@Component({',
     "  selector: 'app-example',",
     '  standalone: true,',
-    '  imports: [WrapPipe],',
+    '  imports: [ValuesPipe, SumPipe],',
     '  template: `',
-    '    <!-- Bracketed tag -->',
-    "    <span>{{ label | wrap:'[':']' }}</span>",
+    '    <!-- Iterate raw values -->',
+    '    @for (val of stats | values; track $index) {',
+    '      <div class="card">{{ val }}</div>',
+    '    }',
     '',
-    '    <!-- Bold markdown -->',
-    "    <code>{{ text | wrap:'**' }}</code>",
-    '',
-    '    <!-- HTML comment -->',
-    "    <pre>{{ note | wrap:'<!-- ':' -->' }}</pre>",
+    '    <!-- Chain into sum -->',
+    '    <p>Total: {{ stats | values | sum }}</p>',
     '  `',
     '})',
     'export class ExampleComponent {',
-    "  label = 'urgent';",
-    "  text = 'important';",
-    "  note = 'TODO: review';",
+    "  stats = { min: 1, max: 99, avg: 50 };",
     '}',
   ].join('\n');
 }

@@ -79,6 +79,7 @@ import { LatinizePage } from './pages/pipes/latinize';
 import { WrapPage } from './pages/pipes/wrap';
 import { KeysPage } from './pages/pipes/keys';
 import { ValuesPage } from './pages/pipes/values';
+import { PairsPage } from './pages/pipes/pairs';
 
 export const appRoutes: Route[] = [
   {
@@ -404,6 +405,10 @@ export const appRoutes: Route[] = [
           {
             path: 'values',
             component: ValuesPage,
+          },
+          {
+            path: 'pairs',
+            component: PairsPage,
           },
         ],
       },

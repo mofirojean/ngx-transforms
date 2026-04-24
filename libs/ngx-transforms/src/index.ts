@@ -33,6 +33,7 @@ export * from './lib/pipes/text/wrap/wrap';
 // Object
 export * from './lib/pipes/object/keys/keys';
 export * from './lib/pipes/object/values/values';
+export * from './lib/pipes/object/pairs/pairs';
 
 // Security & Privacy
 export * from './lib/pipes/security/credit-card-mask/credit-card-mask';

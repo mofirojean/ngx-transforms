@@ -34,6 +34,8 @@ export * from './lib/pipes/text/wrap/wrap';
 export * from './lib/pipes/object/keys/keys';
 export * from './lib/pipes/object/values/values';
 export * from './lib/pipes/object/pairs/pairs';
+export * from './lib/pipes/object/pick/pick';
+export * from './lib/pipes/object/omit/omit';
 
 // Security & Privacy
 export * from './lib/pipes/security/credit-card-mask/credit-card-mask';

@@ -134,6 +134,8 @@ export const PIPE_CATEGORIES: PipeCategory[] = [
       { name: "Keys", url: "/docs/pipes/keys", description: "Returns the own enumerable property names of an object as an array.", addedOn: "2026-04-22" },
       { name: "Values", url: "/docs/pipes/values", description: "Returns the own enumerable property values of an object as an array.", addedOn: "2026-04-22" },
       { name: "Pairs", url: "/docs/pipes/pairs", description: "Returns the own enumerable properties of an object as an array of [key, value] tuples.", addedOn: "2026-04-22" },
+      { name: "Pick", url: "/docs/pipes/pick", description: "Returns a new object containing only the specified keys.", addedOn: "2026-04-23" },
+      { name: "Omit", url: "/docs/pipes/omit", description: "Returns a new object with the specified keys removed.", addedOn: "2026-04-23" },
     ],
   },
 ];

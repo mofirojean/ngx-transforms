@@ -80,6 +80,8 @@ import { WrapPage } from './pages/pipes/wrap';
 import { KeysPage } from './pages/pipes/keys';
 import { ValuesPage } from './pages/pipes/values';
 import { PairsPage } from './pages/pipes/pairs';
+import { PickPage } from './pages/pipes/pick';
+import { OmitPage } from './pages/pipes/omit';
 
 export const appRoutes: Route[] = [
   {
@@ -409,6 +411,14 @@ export const appRoutes: Route[] = [
           {
             path: 'pairs',
             component: PairsPage,
+          },
+          {
+            path: 'pick',
+            component: PickPage,
+          },
+          {
+            path: 'omit',
+            component: OmitPage,
           },
         ],
       },

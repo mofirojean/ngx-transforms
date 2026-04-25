@@ -36,6 +36,8 @@ import { WrapPipe } from '../lib/pipes/text/wrap/wrap';
 import { KeysPipe } from '../lib/pipes/object/keys/keys';
 import { ValuesPipe } from '../lib/pipes/object/values/values';
 import { PairsPipe } from '../lib/pipes/object/pairs/pairs';
+import { PickPipe } from '../lib/pipes/object/pick/pick';
+import { OmitPipe } from '../lib/pipes/object/omit/omit';
 
 // Security & Privacy
 import { CreditCardMaskPipe } from '../lib/pipes/security/credit-card-mask/credit-card-mask';
@@ -131,6 +133,8 @@ export const ALL_PIPES: Provider[] = [
   KeysPipe,
   ValuesPipe,
   PairsPipe,
+  PickPipe,
+  OmitPipe,
 
   // Security & Privacy
   CreditCardMaskPipe,

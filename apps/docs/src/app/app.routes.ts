@@ -82,6 +82,8 @@ import { ValuesPage } from './pages/pipes/values';
 import { PairsPage } from './pages/pipes/pairs';
 import { PickPage } from './pages/pipes/pick';
 import { OmitPage } from './pages/pipes/omit';
+import { InvertPage } from './pages/pipes/invert';
+import { InvertByPage } from './pages/pipes/invert-by';
 
 export const appRoutes: Route[] = [
   {
@@ -419,6 +421,14 @@ export const appRoutes: Route[] = [
           {
             path: 'omit',
             component: OmitPage,
+          },
+          {
+            path: 'invert',
+            component: InvertPage,
+          },
+          {
+            path: 'invert-by',
+            component: InvertByPage,
           },
         ],
       },

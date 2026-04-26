@@ -36,6 +36,8 @@ export * from './lib/pipes/object/values/values';
 export * from './lib/pipes/object/pairs/pairs';
 export * from './lib/pipes/object/pick/pick';
 export * from './lib/pipes/object/omit/omit';
+export * from './lib/pipes/object/invert/invert';
+export * from './lib/pipes/object/invert-by/invert-by';
 
 // Security & Privacy
 export * from './lib/pipes/security/credit-card-mask/credit-card-mask';

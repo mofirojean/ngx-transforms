@@ -40,6 +40,7 @@ import { PickPipe } from '../lib/pipes/object/pick/pick';
 import { OmitPipe } from '../lib/pipes/object/omit/omit';
 import { InvertPipe } from '../lib/pipes/object/invert/invert';
 import { InvertByPipe } from '../lib/pipes/object/invert-by/invert-by';
+import { DiffObjPipe } from '../lib/pipes/object/diff-obj/diff-obj';
 
 // Security & Privacy
 import { CreditCardMaskPipe } from '../lib/pipes/security/credit-card-mask/credit-card-mask';
@@ -139,6 +140,7 @@ export const ALL_PIPES: Provider[] = [
   OmitPipe,
   InvertPipe,
   InvertByPipe,
+  DiffObjPipe,
 
   // Security & Privacy
   CreditCardMaskPipe,

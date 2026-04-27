@@ -138,6 +138,7 @@ export const PIPE_CATEGORIES: PipeCategory[] = [
       { name: "Omit", url: "/docs/pipes/omit", description: "Returns a new object with the specified keys removed.", addedOn: "2026-04-23" },
       { name: "Invert", url: "/docs/pipes/invert", description: "Returns a new object with keys and values swapped (last wins on collision).", addedOn: "2026-04-26" },
       { name: "InvertBy", url: "/docs/pipes/invert-by", description: "Returns a new object with values as keys, grouping the original keys for each value into an array.", addedOn: "2026-04-26" },
+      { name: "DiffObj", url: "/docs/pipes/diff-obj", description: "Returns the slice of an object whose values differ from a compare-to object.", addedOn: "2026-04-26" },
     ],
   },
 ];

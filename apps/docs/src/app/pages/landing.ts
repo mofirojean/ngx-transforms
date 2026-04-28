@@ -131,11 +131,11 @@ import { PIPES } from './model';
         <!-- Heading -->
         <h1 class="slide-up slide-up-2 text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl max-w-4xl">
           <span class="sr-only">ngx-transforms — {{ pipeCount }}+ Standalone Angular Pipes for Modern Angular Apps.</span>
-          <span aria-hidden="true" class="bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-500 to-pink-500">
+          <span aria-hidden="true" class="bg-clip-text text-transparent bg-gradient-to-r from-[#E91E63] via-[#C724B1] to-[#7C4DFF]">
             The Pipe Library
           </span>
           <br aria-hidden="true" />
-          <span aria-hidden="true" class="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-red-500 to-orange-500">
+          <span aria-hidden="true" class="bg-clip-text text-transparent bg-gradient-to-r from-[#E91E63] via-[#C724B1] to-[#7C4DFF]">
             Angular Deserves
           </span>
         </h1>
@@ -261,15 +261,15 @@ import { PIPES } from './model';
         <div class="container mx-auto px-4 md:px-6 py-12">
           <div class="grid grid-cols-3 gap-8 max-w-3xl mx-auto text-center">
             <div class="space-y-1">
-              <div class="text-3xl md:text-4xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-500">{{ pipeCount }}+</div>
+              <div class="text-3xl md:text-4xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-[#E91E63] to-[#C724B1]">{{ pipeCount }}+</div>
               <div class="text-sm text-muted-foreground">Pipes</div>
             </div>
             <div class="space-y-1">
-              <div class="text-3xl md:text-4xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-pink-500">100%</div>
+              <div class="text-3xl md:text-4xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-[#E91E63] via-[#C724B1] to-[#7C4DFF]">100%</div>
               <div class="text-sm text-muted-foreground">Type Safe</div>
             </div>
             <div class="space-y-1">
-              <div class="text-3xl md:text-4xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-orange-500">100+</div>
+              <div class="text-3xl md:text-4xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-[#C724B1] to-[#7C4DFF]">100+</div>
               <div class="text-sm text-muted-foreground">Locales</div>
             </div>
           </div>
@@ -280,7 +280,7 @@ import { PIPES } from './model';
       <section class="container mx-auto px-4 md:px-6 py-20 md:py-28">
         <div class="text-center mb-16">
           <h2 class="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-            Why <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-500 to-pink-500">NgxTransforms</span>?
+            Why <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#E91E63] via-[#C724B1] to-[#7C4DFF]">NgxTransforms</span>?
           </h2>
           <p class="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
             Stop rewriting utility pipes in every project. Import, use, ship.
@@ -290,7 +290,7 @@ import { PIPES } from './model';
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
           @for (feature of features; track feature.title) {
             <div class="group relative rounded-xl border border-border bg-card/50 p-6 hover:border-primary/50 hover:bg-card/80 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1">
-              <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-primary/20 to-purple-500/20 text-primary mb-4 group-hover:from-primary/30 group-hover:to-purple-500/30 transition-all">
+              <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-[#E91E63]/20 to-[#7C4DFF]/20 text-[#C724B1] mb-4 group-hover:from-[#E91E63]/30 group-hover:to-[#7C4DFF]/30 transition-all">
                 <ng-icon [name]="feature.icon" class="h-5 w-5"></ng-icon>
               </div>
               <h3 class="font-semibold text-lg mb-2">{{ feature.title }}</h3>
@@ -308,11 +308,11 @@ import { PIPES } from './model';
         <div class="container relative z-10 mx-auto px-4 md:px-6 py-20 md:py-28">
           <div class="text-center mb-14">
             <div class="inline-flex items-center gap-2 rounded-full border border-border bg-card/50 px-4 py-1.5 text-sm backdrop-blur-sm mb-6">
-              <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-500 font-semibold">{{ pipeCount }} pipes</span>
+              <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#E91E63] via-[#C724B1] to-[#7C4DFF] font-semibold">{{ pipeCount }} pipes</span>
               <span class="text-muted-foreground">and counting</span>
             </div>
             <h2 class="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-              Explore the <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-500">Collection</span>
+              Explore the <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#E91E63] via-[#C724B1] to-[#7C4DFF]">Collection</span>
             </h2>
             <p class="mt-4 text-lg text-muted-foreground max-w-xl mx-auto">
               Click any pipe to see what it does. Each one is standalone — import only what you need.
@@ -327,13 +327,13 @@ import { PIPES } from './model';
                 class="group relative rounded-xl border border-border bg-card/80 backdrop-blur-sm p-5 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1 transition-all duration-300 cursor-pointer overflow-hidden">
 
                 <!-- Hover gradient overlay -->
-                <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div class="absolute inset-0 bg-gradient-to-br from-[#E91E63]/5 via-[#C724B1]/5 to-[#7C4DFF]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                 <div class="relative z-10">
                   <!-- Header -->
                   <div class="flex items-center justify-between mb-3">
                     <div class="flex items-center gap-2">
-                      <div class="flex h-7 w-7 items-center justify-center rounded-md bg-gradient-to-br from-primary/15 to-purple-500/15 text-primary group-hover:from-primary/25 group-hover:to-purple-500/25 transition-all">
+                      <div class="flex h-7 w-7 items-center justify-center rounded-md bg-gradient-to-br from-[#E91E63]/15 to-[#7C4DFF]/15 text-[#C724B1] group-hover:from-[#E91E63]/25 group-hover:to-[#7C4DFF]/25 transition-all">
                         <ng-icon [name]="pipe.icon" class="h-3.5 w-3.5"></ng-icon>
                       </div>
                       <h3 class="font-semibold text-sm">{{ pipe.name }}</h3>
@@ -348,7 +348,7 @@ import { PIPES } from './model';
                       <span class="text-foreground/70 truncate">{{ pipe.input }}</span>
                     </div>
                     <div class="flex items-center gap-2">
-                      <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-500 font-bold shrink-0">| {{ pipe.pipeName }}</span>
+                      <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#E91E63] to-[#C724B1] font-bold shrink-0">| {{ pipe.pipeName }}</span>
                     </div>
                     <div class="flex items-center gap-2 pt-1 border-t border-border/50">
                       <span class="text-muted-foreground shrink-0">out</span>
@@ -377,11 +377,11 @@ import { PIPES } from './model';
       <section class="container mx-auto px-4 md:px-6 py-20 md:py-28">
         <div class="relative rounded-2xl max-w-4xl mx-auto overflow-hidden">
           <!-- Animated gradient border -->
-          <div class="absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-primary via-purple-500 to-pink-500 opacity-20"></div>
+          <div class="absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-[#E91E63] via-[#C724B1] to-[#7C4DFF] opacity-20"></div>
 
           <div class="relative rounded-2xl bg-card/95 backdrop-blur-xl p-10 md:p-16 overflow-hidden">
             <!-- Background effects -->
-            <div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-purple-500/5"></div>
+            <div class="absolute inset-0 bg-gradient-to-br from-[#E91E63]/5 via-transparent to-[#7C4DFF]/5"></div>
             <div class="absolute -top-32 -right-32 w-64 h-64 bg-primary/8 rounded-full blur-3xl"></div>
             <div class="absolute -bottom-32 -left-32 w-64 h-64 bg-purple-500/8 rounded-full blur-3xl"></div>
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-500/5 rounded-full blur-3xl"></div>
@@ -396,7 +396,7 @@ import { PIPES } from './model';
               </div>
 
               <h2 class="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl mb-4">
-                Start <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-500 to-pink-500">transforming</span> today
+                Start <span class="bg-clip-text text-transparent bg-gradient-to-r from-[#E91E63] via-[#C724B1] to-[#7C4DFF]">transforming</span> today
               </h2>
               <p class="text-muted-foreground text-lg mb-10 max-w-xl mx-auto leading-relaxed">
                 One install. {{ pipeCount }} pipes. Zero config.
@@ -407,15 +407,15 @@ import { PIPES } from './model';
               <!-- Steps -->
               <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10 max-w-2xl mx-auto">
                 <div class="rounded-xl border border-border/50 bg-muted/30 p-4 text-center">
-                  <div class="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-primary/20 to-purple-500/20 text-primary text-sm font-bold mx-auto mb-2">1</div>
+                  <div class="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-[#E91E63]/20 to-[#E91E63]/10 text-[#E91E63] text-sm font-bold mx-auto mb-2">1</div>
                   <div class="font-mono text-xs text-muted-foreground">npm install</div>
                 </div>
                 <div class="rounded-xl border border-border/50 bg-muted/30 p-4 text-center">
-                  <div class="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-purple-500/20 to-pink-500/20 text-purple-500 text-sm font-bold mx-auto mb-2">2</div>
+                  <div class="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-[#C724B1]/20 to-[#C724B1]/10 text-[#C724B1] text-sm font-bold mx-auto mb-2">2</div>
                   <div class="font-mono text-xs text-muted-foreground">import pipe</div>
                 </div>
                 <div class="rounded-xl border border-border/50 bg-muted/30 p-4 text-center">
-                  <div class="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-pink-500/20 to-orange-500/20 text-pink-500 text-sm font-bold mx-auto mb-2">3</div>
+                  <div class="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-[#7C4DFF]/20 to-[#7C4DFF]/10 text-[#7C4DFF] text-sm font-bold mx-auto mb-2">3</div>
                   <div class="font-mono text-xs text-muted-foreground">use in template</div>
                 </div>
               </div>

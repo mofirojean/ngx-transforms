@@ -1,4 +1,4 @@
-import { Component, signal, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { HlmButtonImports } from '@spartan-ng/helm/button';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import {
@@ -25,12 +25,24 @@ import {
 } from '@ng-icons/lucide';
 import { Footer } from '../reusables/footer';
 import { RouterLink } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { ReversePipe, TitleCasePipe, SlugifyPipe, MorseCodePipe } from '@ngx-transforms';
 import { PIPES } from './model';
 
 @Component({
   selector: 'app-landing-page',
   standalone: true,
-  imports: [HlmButtonImports, NgIconComponent, Footer, RouterLink],
+  imports: [
+    HlmButtonImports,
+    NgIconComponent,
+    Footer,
+    RouterLink,
+    FormsModule,
+    ReversePipe,
+    TitleCasePipe,
+    SlugifyPipe,
+    MorseCodePipe,
+  ],
   providers: [
     provideIcons({
       lucideArrowRight,
@@ -77,10 +89,23 @@ import { PIPES } from './model';
         0%, 100% { opacity: 1; }
         50% { opacity: 0; }
       }
+      /* Marquee — infinite horizontal scroll for the pipe-name strip. */
+      @keyframes marquee {
+        from { transform: translateX(0); }
+        to   { transform: translateX(-50%); }
+      }
+      /* Result fade-in when the live demo updates. */
+      @keyframes result-pop {
+        from { opacity: 0; transform: translateY(4px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
       .float-slow { animation: float 6s ease-in-out infinite; }
       .float-medium { animation: float 4s ease-in-out infinite; }
       .float-fast { animation: float 3s ease-in-out infinite; }
       .pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+      .marquee-track { animation: marquee 60s linear infinite; }
+      .result-pop { animation: result-pop 200ms ease-out both; }
+      .cursor-blink { animation: blink 1s step-end infinite; }
       .slide-up { animation: slide-up 0.6s ease-out both; }
       .slide-up-1 { animation-delay: 0.1s; }
       .slide-up-2 { animation-delay: 0.2s; }
@@ -89,6 +114,12 @@ import { PIPES } from './model';
       .slide-up-5 { animation-delay: 0.5s; }
       .slide-up-6 { animation-delay: 0.7s; }
       .slide-up-7 { animation-delay: 0.9s; }
+      @media (prefers-reduced-motion: reduce) {
+        .marquee-track, .result-pop, .cursor-blink,
+        .float-slow, .float-medium, .float-fast, .pulse-glow {
+          animation: none;
+        }
+      }
     </style>
 
     <main class="relative flex flex-col items-center overflow-hidden">
@@ -97,9 +128,9 @@ import { PIPES } from './model';
       <div class="absolute inset-0 -z-10">
         <div class="absolute inset-0 bg-background"></div>
         <div class="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-primary/5 rounded-full blur-3xl pulse-glow"></div>
-        <div class="absolute top-20 right-1/4 w-[400px] h-[400px] bg-purple-500/5 rounded-full blur-3xl pulse-glow" style="animation-delay: 1s;"></div>
-        <div class="absolute top-40 left-1/4 w-[300px] h-[300px] bg-blue-500/5 rounded-full blur-3xl pulse-glow" style="animation-delay: 2s;"></div>
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[#E91E63]/5 rounded-full blur-3xl pulse-glow"></div>
+        <div class="absolute top-20 right-1/4 w-[400px] h-[400px] bg-[#C724B1]/5 rounded-full blur-3xl pulse-glow" style="animation-delay: 1s;"></div>
+        <div class="absolute top-40 left-1/4 w-[300px] h-[300px] bg-[#7C4DFF]/5 rounded-full blur-3xl pulse-glow" style="animation-delay: 2s;"></div>
       </div>
 
       <!-- Floating pipe badges (decorative) -->
@@ -122,10 +153,17 @@ import { PIPES } from './model';
       <!-- Hero Section -->
       <section class="container relative z-10 flex flex-col items-center text-center px-4 md:px-6 pt-20 md:pt-32 lg:pt-40 pb-16">
 
-        <!-- Badge -->
-        <div class="slide-up slide-up-1 inline-flex items-center gap-2 rounded-full border border-border bg-card/50 px-4 py-1.5 text-sm backdrop-blur-sm mb-8 hover:border-primary/50 transition-colors cursor-default">
-          <span class="flex h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
-          <span class="text-muted-foreground">v{{ version }} — {{ pipeCount }} pipes and growing</span>
+        <!-- Live typewriter — rotates through what the library does. -->
+        <div class="slide-up slide-up-1 mb-8 inline-flex items-center gap-2 rounded-full border border-[#C724B1]/30 bg-card/60 backdrop-blur-sm px-5 py-2 text-sm sm:text-base font-mono shadow-lg shadow-[#C724B1]/5">
+          <span class="flex h-2 w-2 rounded-full bg-[#C724B1] animate-pulse" aria-hidden="true"></span>
+          <span class="text-muted-foreground">ngx-transforms can</span>
+          <span
+            class="bg-clip-text text-transparent bg-gradient-to-r from-[#E91E63] via-[#C724B1] to-[#7C4DFF] font-semibold min-w-[1ch]"
+            aria-live="polite"
+            [attr.aria-label]="'currently demonstrating: ' + typedText()">
+            {{ typedText() }}
+          </span>
+          <span class="text-[#C724B1] font-bold cursor-blink" aria-hidden="true">|</span>
         </div>
 
         <!-- Heading -->
@@ -143,7 +181,7 @@ import { PIPES } from './model';
         <p class="slide-up slide-up-3 mt-6 max-w-2xl text-lg text-muted-foreground sm:text-xl leading-relaxed">
           <strong>{{ pipeCount }} standalone Angular pipes</strong> for text transformation, data masking, math, array utilities, and more.
           Type-safe, tree-shakeable, and built for Angular 17+.
-          Zero config — just import and transform.
+          Zero config, just import and transform.
         </p>
 
         <!-- CTA Buttons -->
@@ -187,9 +225,11 @@ import { PIPES } from './model';
       </section>
 
       <!-- Live Demo Section -->
+      <!-- Live Playground (the hero IS the demo) -->
       <section class="container relative z-10 px-4 md:px-6 pb-20 slide-up slide-up-6">
         <div class="mx-auto max-w-4xl">
-          <div class="rounded-xl border border-primary/20 bg-card/80 backdrop-blur-sm shadow-2xl shadow-primary/10 overflow-hidden">
+          <div class="rounded-xl border border-[#C724B1]/20 bg-card/80 backdrop-blur-sm shadow-2xl shadow-[#C724B1]/10 overflow-hidden">
+
             <!-- Window chrome -->
             <div class="flex items-center justify-between border-b border-border bg-muted/50 px-4 py-2.5">
               <div class="flex space-x-2">
@@ -197,61 +237,83 @@ import { PIPES } from './model';
                 <div class="h-3 w-3 rounded-full bg-yellow-500/80"></div>
                 <div class="h-3 w-3 rounded-full bg-green-500/80"></div>
               </div>
-              <div class="text-xs font-medium text-muted-foreground font-mono">live-demo.component.html</div>
+              <div class="text-xs font-medium text-muted-foreground font-mono">type below — pipes update live</div>
               <div class="w-12"></div>
             </div>
 
-            <!-- Interactive demo -->
-            <div class="p-6 md:p-8">
-              <div class="flex flex-col md:flex-row items-stretch gap-6">
-                <!-- Input side -->
-                <div class="flex-1 space-y-3">
-                  <div class="flex items-center gap-2 mb-4">
-                    <span class="text-xs px-2.5 py-1 rounded-full bg-blue-500/10 text-blue-500 font-medium">Input</span>
-                  </div>
-                  <div class="rounded-lg bg-muted/50 p-4 font-mono text-sm space-y-1">
-                    <span class="text-muted-foreground">value = </span>
-                    <span class="text-green-400">"{{ demoInput() }}"</span>
-                  </div>
-                  <div class="flex flex-wrap gap-2">
-                    @for (example of demoExamples; track example.label) {
-                      <button
-                        hlmBtn
-                        variant="ghost"
-                        size="sm"
-                        class="text-xs h-7"
-                        [class.bg-primary/10]="selectedDemo() === example.label"
-                        (click)="selectDemo(example)">
-                        {{ example.label }}
-                      </button>
-                    }
-                  </div>
-                </div>
+            <!-- The actual interactive playground -->
+            <div class="p-6 md:p-8 space-y-6">
 
-                <!-- Arrow -->
-                <div class="hidden md:flex items-center justify-center">
-                  <div class="flex flex-col items-center gap-1">
-                    <div class="h-8 w-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lg shadow-primary/25">
-                      <ng-icon name="lucideChevronRight" class="h-4 w-4"></ng-icon>
-                    </div>
-                    <span class="text-[10px] font-mono text-primary font-bold">| {{ demoPipe() }}</span>
-                  </div>
-                </div>
-                <div class="flex md:hidden items-center justify-center">
-                  <span class="text-xs font-mono text-primary font-bold px-3 py-1 rounded-full bg-primary/10">| {{ demoPipe() }}</span>
-                </div>
+              <!-- Input -->
+              <div>
+                <label for="hero-live-input" class="text-xs uppercase tracking-wider text-muted-foreground font-medium mb-2 block">Try it — type anything</label>
+                <input
+                  id="hero-live-input"
+                  type="text"
+                  [ngModel]="liveInput()"
+                  (ngModelChange)="liveInput.set($event)"
+                  class="w-full bg-muted/50 border border-border focus:border-[#C724B1]/50 focus:ring-2 focus:ring-[#C724B1]/20 outline-none rounded-lg px-4 py-3 font-mono text-base transition-colors"
+                  placeholder="Hello ngx-transforms"
+                  autocomplete="off"
+                  spellcheck="false" />
+              </div>
 
-                <!-- Output side -->
-                <div class="flex-1 space-y-3">
-                  <div class="flex items-center gap-2 mb-4">
-                    <span class="text-xs px-2.5 py-1 rounded-full bg-green-500/10 text-green-500 font-medium">Output</span>
-                  </div>
-                  <div class="rounded-lg bg-muted/50 p-4 font-mono text-sm border border-primary/20">
-                    <span class="text-foreground font-bold">{{ demoOutput() }}</span>
-                  </div>
+              <!-- 4 live transformations stacked -->
+              <div class="space-y-2">
+                <div class="grid grid-cols-[auto_1fr] gap-3 items-center rounded-md bg-muted/30 px-3 py-2.5 hover:bg-muted/60 transition-colors">
+                  <span class="text-xs font-mono text-[#E91E63] font-semibold whitespace-nowrap">| reverse</span>
+                  <span class="font-mono text-sm break-all result-pop" [attr.data-key]="liveInput()">{{ liveInput() | reverse }}</span>
+                </div>
+                <div class="grid grid-cols-[auto_1fr] gap-3 items-center rounded-md bg-muted/30 px-3 py-2.5 hover:bg-muted/60 transition-colors">
+                  <span class="text-xs font-mono text-[#C724B1] font-semibold whitespace-nowrap">| titleCase</span>
+                  <span class="font-mono text-sm break-all result-pop" [attr.data-key]="liveInput()">{{ liveInput() | titleCase }}</span>
+                </div>
+                <div class="grid grid-cols-[auto_1fr] gap-3 items-center rounded-md bg-muted/30 px-3 py-2.5 hover:bg-muted/60 transition-colors">
+                  <span class="text-xs font-mono text-[#9C30C7] font-semibold whitespace-nowrap">| slugify</span>
+                  <span class="font-mono text-sm break-all result-pop" [attr.data-key]="liveInput()">{{ liveInput() | slugify }}</span>
+                </div>
+                <div class="grid grid-cols-[auto_1fr] gap-3 items-center rounded-md bg-muted/30 px-3 py-2.5 hover:bg-muted/60 transition-colors">
+                  <span class="text-xs font-mono text-[#7C4DFF] font-semibold whitespace-nowrap">| morseCode</span>
+                  <span class="font-mono text-sm break-all result-pop" [attr.data-key]="liveInput()">{{ liveInput() | morseCode }}</span>
                 </div>
               </div>
+
+              <!-- Quick-fill chips -->
+              <div class="flex flex-wrap gap-2 pt-2 border-t border-border/50">
+                <span class="text-xs text-muted-foreground self-center mr-1">try:</span>
+                @for (preset of livePresets; track preset) {
+                  <button
+                    hlmBtn
+                    variant="ghost"
+                    size="sm"
+                    class="text-xs h-7 font-mono"
+                    (click)="liveInput.set(preset)">
+                    {{ preset }}
+                  </button>
+                }
+              </div>
+
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pipe-name marquee — shows the breadth of the library at a glance -->
+      <section class="relative w-full overflow-hidden border-y border-border/50 py-4 bg-card/30 backdrop-blur-sm" aria-label="ngx-transforms pipe catalog">
+        <!-- Edge fade masks -->
+        <div class="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent z-10"></div>
+        <div class="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent z-10"></div>
+
+        <div class="flex marquee-track whitespace-nowrap">
+          <div class="flex shrink-0 gap-8 pr-8">
+            @for (name of marqueeNames; track $index) {
+              <span class="text-sm font-mono text-muted-foreground">| {{ name }}</span>
+            }
+          </div>
+          <div class="flex shrink-0 gap-8 pr-8" aria-hidden="true">
+            @for (name of marqueeNames; track $index) {
+              <span class="text-sm font-mono text-muted-foreground">| {{ name }}</span>
+            }
           </div>
         </div>
       </section>
@@ -452,6 +514,28 @@ import { PIPES } from './model';
 export class Landing implements OnInit, OnDestroy {
   pipes = PIPES;
   pipeCount = PIPES.length;
+  marqueeNames = PIPES.map(p => p.name);
+
+  liveInput = signal('Hello ngx-transforms');
+  livePresets = ['Hello World', 'angular pipes are great', 'SOS', 'ngx-transforms rocks'];
+
+  typedText = signal('');
+  private readonly typedPhrases = [
+    'reverse strings',
+    'mask credit cards',
+    'render QR codes',
+    'format dates',
+    'slugify URLs',
+    'strip HTML safely',
+    'morse-encode text',
+    'shuffle arrays',
+    'group by property',
+    'mask emails',
+    'compute averages',
+    'truncate text',
+  ];
+  private typedIndex = 0;
+  private typedTimer: ReturnType<typeof setTimeout> | null = null;
   showcasePipes = [
     { name: 'Reverse', pipeName: 'reverse', input: '"Hello World"', output: '"dlroW olleH"', icon: 'lucideArrowLeftRight', url: '/docs/pipes/reverse' },
     { name: 'Truncate', pipeName: 'truncate:15', input: '"A very long sentence"', output: '"A very long..."', icon: 'lucideScissors', url: '/docs/pipes/truncate' },
@@ -463,26 +547,8 @@ export class Landing implements OnInit, OnDestroy {
     { name: 'Count', pipeName: 'count', input: '[1, 2, 3, 4, 5]', output: '5', icon: 'lucideHash', url: '/docs/pipes/count' },
     { name: 'Text Transform', pipeName: 'camelCase', input: '"hello world"', output: '"helloWorld"', icon: 'lucideType', url: '/docs/pipes/text-transform' },
   ];
-  version = '0.0.5';
+  version = '0.3.0';
   copied = signal(false);
-
-  // Demo state
-  selectedDemo = signal('Reverse');
-  demoInput = signal('Hello World');
-  demoPipe = signal('reverse');
-  demoOutput = signal('dlroW olleH');
-  private rotateInterval: ReturnType<typeof setInterval> | null = null;
-
-  demoExamples = [
-    { label: 'Reverse', input: 'Hello World', pipe: 'reverse', output: 'dlroW olleH' },
-    { label: 'Truncate', input: 'Angular is a powerful framework for building apps', pipe: 'truncate:20', output: 'Angular is a powe...' },
-    { label: 'CamelCase', input: 'hello world pipe', pipe: 'camelCase', output: 'helloWorldPipe' },
-    { label: 'SnakeCase', input: 'ngxTransforms', pipe: 'snakeCase', output: 'ngx_transforms' },
-    { label: 'KebabCase', input: 'ngxTransforms', pipe: 'kebabCase', output: 'ngx-transforms' },
-    { label: 'Initials', input: 'Mofiro Jean', pipe: 'initials', output: 'MJ' },
-    { label: 'Count', input: '[1, 2, 3, 4, 5]', pipe: 'count', output: '5' },
-    { label: 'MorseCode', input: 'SOS', pipe: 'morseCode', output: '... --- ...' },
-  ];
 
   features = [
     {
@@ -517,40 +583,39 @@ export class Landing implements OnInit, OnDestroy {
     },
   ];
 
-  ngOnInit() {
-    let index = 0;
-    this.rotateInterval = setInterval(() => {
-      index = (index + 1) % this.demoExamples.length;
-      this.selectDemo(this.demoExamples[index]);
-    }, 4000);
-  }
-
-  ngOnDestroy() {
-    if (this.rotateInterval) {
-      clearInterval(this.rotateInterval);
-    }
-  }
-
-  selectDemo(example: typeof this.demoExamples[0]) {
-    this.selectedDemo.set(example.label);
-    this.demoInput.set(example.input);
-    this.demoPipe.set(example.pipe);
-    this.demoOutput.set(example.output);
-
-    // Reset auto-rotate timer
-    if (this.rotateInterval) {
-      clearInterval(this.rotateInterval);
-    }
-    let index = this.demoExamples.findIndex(e => e.label === example.label);
-    this.rotateInterval = setInterval(() => {
-      index = (index + 1) % this.demoExamples.length;
-      this.selectDemo(this.demoExamples[index]);
-    }, 4000);
-  }
-
   copyInstall() {
     navigator.clipboard.writeText('npm i ngx-transforms');
     this.copied.set(true);
     setTimeout(() => this.copied.set(false), 2000);
+  }
+
+  ngOnInit(): void {
+    this.typeTick('typing');
+  }
+
+  ngOnDestroy(): void {
+    if (this.typedTimer) clearTimeout(this.typedTimer);
+  }
+
+  private typeTick(state: 'typing' | 'erasing'): void {
+    const phrase = this.typedPhrases[this.typedIndex];
+    const current = this.typedText();
+
+    if (state === 'typing') {
+      if (current.length < phrase.length) {
+        this.typedText.set(phrase.slice(0, current.length + 1));
+        this.typedTimer = setTimeout(() => this.typeTick('typing'), 55 + Math.random() * 45);
+      } else {
+        this.typedTimer = setTimeout(() => this.typeTick('erasing'), 1600);
+      }
+    } else {
+      if (current.length > 0) {
+        this.typedText.set(current.slice(0, -1));
+        this.typedTimer = setTimeout(() => this.typeTick('erasing'), 28);
+      } else {
+        this.typedIndex = (this.typedIndex + 1) % this.typedPhrases.length;
+        this.typedTimer = setTimeout(() => this.typeTick('typing'), 240);
+      }
+    }
   }
 }

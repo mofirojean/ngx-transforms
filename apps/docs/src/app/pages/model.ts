@@ -141,6 +141,13 @@ export const PIPE_CATEGORIES: PipeCategory[] = [
       { name: "DiffObj", url: "/docs/pipes/diff-obj", description: "Returns the slice of an object whose values differ from a compare-to object.", addedOn: "2026-04-26" },
     ],
   },
+  {
+    name: 'Boolean',
+    pipes: [
+      { name: "IsDefined", url: "/docs/pipes/is-defined", description: "Returns true when the value is neither null nor undefined.", addedOn: "2026-04-29" },
+      { name: "IsNull", url: "/docs/pipes/is-null", description: "Returns true only when the value is exactly null.", addedOn: "2026-04-29" },
+    ],
+  },
 ];
 
 /** Flat list of all pipes (for backward compatibility). */

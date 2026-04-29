@@ -42,6 +42,10 @@ import { InvertPipe } from '../lib/pipes/object/invert/invert';
 import { InvertByPipe } from '../lib/pipes/object/invert-by/invert-by';
 import { DiffObjPipe } from '../lib/pipes/object/diff-obj/diff-obj';
 
+// Boolean
+import { IsDefinedPipe } from '../lib/pipes/boolean/is-defined/is-defined';
+import { IsNullPipe } from '../lib/pipes/boolean/is-null/is-null';
+
 // Security & Privacy
 import { CreditCardMaskPipe } from '../lib/pipes/security/credit-card-mask/credit-card-mask';
 import { EmailMaskPipe } from '../lib/pipes/security/email-mask/email-mask';
@@ -141,6 +145,10 @@ export const ALL_PIPES: Provider[] = [
   InvertPipe,
   InvertByPipe,
   DiffObjPipe,
+
+  // Boolean
+  IsDefinedPipe,
+  IsNullPipe,
 
   // Security & Privacy
   CreditCardMaskPipe,

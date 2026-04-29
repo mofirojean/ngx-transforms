@@ -85,6 +85,8 @@ import { OmitPage } from './pages/pipes/omit';
 import { InvertPage } from './pages/pipes/invert';
 import { InvertByPage } from './pages/pipes/invert-by';
 import { DiffObjPage } from './pages/pipes/diff-obj';
+import { IsDefinedPage } from './pages/pipes/is-defined';
+import { IsNullPage } from './pages/pipes/is-null';
 
 export const appRoutes: Route[] = [
   {
@@ -434,6 +436,14 @@ export const appRoutes: Route[] = [
           {
             path: 'diff-obj',
             component: DiffObjPage,
+          },
+          {
+            path: 'is-defined',
+            component: IsDefinedPage,
+          },
+          {
+            path: 'is-null',
+            component: IsNullPage,
           },
         ],
       },

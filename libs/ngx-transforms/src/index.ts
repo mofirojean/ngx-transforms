@@ -40,6 +40,10 @@ export * from './lib/pipes/object/invert/invert';
 export * from './lib/pipes/object/invert-by/invert-by';
 export * from './lib/pipes/object/diff-obj/diff-obj';
 
+// Boolean
+export * from './lib/pipes/boolean/is-defined/is-defined';
+export * from './lib/pipes/boolean/is-null/is-null';
+
 // Security & Privacy
 export * from './lib/pipes/security/credit-card-mask/credit-card-mask';
 export * from './lib/pipes/security/email-mask/email-mask';

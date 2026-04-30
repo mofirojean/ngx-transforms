@@ -146,6 +146,8 @@ export const PIPE_CATEGORIES: PipeCategory[] = [
     pipes: [
       { name: "IsDefined", url: "/docs/pipes/is-defined", description: "Returns true when the value is neither null nor undefined.", addedOn: "2026-04-29" },
       { name: "IsNull", url: "/docs/pipes/is-null", description: "Returns true only when the value is exactly null.", addedOn: "2026-04-29" },
+      { name: "IsString", url: "/docs/pipes/is-string", description: "Returns true when the value is a primitive string.", addedOn: "2026-04-30" },
+      { name: "IsNumber", url: "/docs/pipes/is-number", description: "Returns true when the value is a primitive number.", addedOn: "2026-04-30" },
     ],
   },
 ];

@@ -87,6 +87,8 @@ import { InvertByPage } from './pages/pipes/invert-by';
 import { DiffObjPage } from './pages/pipes/diff-obj';
 import { IsDefinedPage } from './pages/pipes/is-defined';
 import { IsNullPage } from './pages/pipes/is-null';
+import { IsStringPage } from './pages/pipes/is-string';
+import { IsNumberPage } from './pages/pipes/is-number';
 
 export const appRoutes: Route[] = [
   {
@@ -444,6 +446,14 @@ export const appRoutes: Route[] = [
           {
             path: 'is-null',
             component: IsNullPage,
+          },
+          {
+            path: 'is-string',
+            component: IsStringPage,
+          },
+          {
+            path: 'is-number',
+            component: IsNumberPage,
           },
         ],
       },

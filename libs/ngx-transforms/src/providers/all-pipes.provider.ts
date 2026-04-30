@@ -45,6 +45,8 @@ import { DiffObjPipe } from '../lib/pipes/object/diff-obj/diff-obj';
 // Boolean
 import { IsDefinedPipe } from '../lib/pipes/boolean/is-defined/is-defined';
 import { IsNullPipe } from '../lib/pipes/boolean/is-null/is-null';
+import { IsStringPipe } from '../lib/pipes/boolean/is-string/is-string';
+import { IsNumberPipe } from '../lib/pipes/boolean/is-number/is-number';
 
 // Security & Privacy
 import { CreditCardMaskPipe } from '../lib/pipes/security/credit-card-mask/credit-card-mask';
@@ -149,6 +151,8 @@ export const ALL_PIPES: Provider[] = [
   // Boolean
   IsDefinedPipe,
   IsNullPipe,
+  IsStringPipe,
+  IsNumberPipe,
 
   // Security & Privacy
   CreditCardMaskPipe,

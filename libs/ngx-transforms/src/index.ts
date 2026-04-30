@@ -43,6 +43,8 @@ export * from './lib/pipes/object/diff-obj/diff-obj';
 // Boolean
 export * from './lib/pipes/boolean/is-defined/is-defined';
 export * from './lib/pipes/boolean/is-null/is-null';
+export * from './lib/pipes/boolean/is-string/is-string';
+export * from './lib/pipes/boolean/is-number/is-number';
 
 // Security & Privacy
 export * from './lib/pipes/security/credit-card-mask/credit-card-mask';

@@ -1,114 +1,84 @@
 # ngx-transforms
 
-[![npm version](https://img.shields.io/npm/v/ngx-transforms.svg)](https://www.npmjs.com/package/ngx-transforms)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Angular](https://img.shields.io/badge/Angular-21+-dd0031.svg)](https://angular.dev)
+[![npm](https://img.shields.io/npm/v/ngx-transforms.svg)](https://www.npmjs.com/package/ngx-transforms)
+[![Angular](https://img.shields.io/badge/Angular-17+-dd0031.svg)](https://angular.dev)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![CI](https://github.com/mofirojean/ngx-transforms/actions/workflows/ci.yml/badge.svg)](https://github.com/mofirojean/ngx-transforms/actions/workflows/ci.yml)
 
-A comprehensive collection of modern, type-safe, and performant standalone Angular pipes for common data transformations.
+> 86+ standalone, tree-shakable Angular pipes for text, arrays, math, objects, and more.
 
-## Features
+**[Docs & live playground](https://ngx-transforms.vercel.app)** · **[Library README](libs/ngx-transforms/README.md)**
 
-- **Pure and Performant** -- All pipes are pure by default, ensuring optimal change detection performance.
-- **Type-Safe** -- Written in TypeScript with strict type checking to catch errors at compile time.
-- **Standalone** -- Fully compatible with Angular's standalone components API.
-- **Tree-Shakeable** -- Import only what you need, keeping your bundle size small.
-- **Modern** -- Built for Angular 21+ with zoneless architecture support.
+---
 
-## Installation
+## Install
 
 ```bash
 npm install ngx-transforms
 ```
 
-## Usage
-
-Import the pipe you need directly into your component:
-
-```typescript
-import { Component } from '@angular/core';
-import { CamelCasePipe, CountPipe } from 'ngx-transforms';
+```ts
+import { TruncatePipe } from 'ngx-transforms';
 
 @Component({
-  selector: 'app-root',
   standalone: true,
-  imports: [CamelCasePipe, CountPipe],
-  template: `
-    <p>{{ 'hello world' | camelCase }}</p>
-    <p>Array length: {{ items | count }}</p>
-  `,
+  imports: [TruncatePipe],
+  template: `<p>{{ post.body | truncate:80 }}</p>`,
 })
-export class AppComponent {
-  items = [1, 2, 3, 4, 5];
-}
+export class PostCard {}
 ```
 
-For the full list of available pipes, see the [library README](libs/ngx-transforms/README.md).
+See the [library README](libs/ngx-transforms/README.md) for the full pipe catalog.
 
-## Documentation
-
-For full documentation and live examples, visit the [documentation site](https://ngx-transforms.vercel.app).
+---
 
 ## Contributing
 
-Contributions are welcome. Please follow the process below to submit changes.
+This is an [Nx](https://nx.dev/) monorepo with the published library in `libs/ngx-transforms/` and the docs site in `apps/docs/`.
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) v22+
-- [pnpm](https://pnpm.io/) v10+
-- Familiarity with [Nx](https://nx.dev/) monorepo tooling
+- Node.js **v22+**
+- pnpm **v10+**
 
-### Development Setup
+### Setup
 
 ```bash
-# Clone the repository
 git clone https://github.com/mofirojean/ngx-transforms.git
 cd ngx-transforms
-
-# Install dependencies
 pnpm install
-
-# Start the docs app in development mode
-pnpm nx serve docs
-
-# Run library tests
-pnpm nx test ngx-transforms
-
-# Lint the library
-pnpm nx lint ngx-transforms
-
-# Build the library
-pnpm nx build ngx-transforms
 ```
 
-### Submitting Changes
+### Common commands
 
-1. Fork the repository
-2. Create a feature branch from `master` (`git checkout -b feature/your-feature`)
-3. Make your changes and ensure all tests pass
-4. Commit your changes with a descriptive message following [Conventional Commits](https://www.conventionalcommits.org/) (e.g., `feat: add new pipe`, `fix: resolve edge case`)
-5. Push to your branch (`git push origin feature/your-feature`)
-6. Open a Pull Request against `master`
+```bash
+pnpm nx serve docs              # run docs site at localhost:4200
+pnpm nx test ngx-transforms     # run library unit tests (Vitest)
+pnpm nx lint ngx-transforms     # lint the library
+pnpm nx build ngx-transforms    # produce dist/libs/ngx-transforms
+```
 
-All pull requests must pass the CI pipeline (lint, test, build) before they can be merged.
+### Submitting changes
 
-### Project Structure
+1. Branch from `master` (`feature/...` or `fix/...`)
+2. Add tests for any new pipe — every pipe needs a `.spec.ts`
+3. Keep commits in [Conventional Commits](https://www.conventionalcommits.org/) form (`feat:`, `fix:`, `docs:`, etc.)
+4. Open a PR against `master` CI must be green (lint + test + build)
+
+### Project layout
 
 ```
-ngx-transforms/
-  apps/
-    docs/               Documentation site (Angular)
-    docs-e2e/           End-to-end tests (Playwright)
-  libs/
-    ngx-transforms/     Pipe library (published to npm)
-      src/lib/pipes/    Individual pipe implementations
+apps/
+  docs/                          Documentation site (Angular)
+  docs-e2e/                      Playwright E2E tests
+libs/
+  ngx-transforms/
+    src/lib/pipes/<category>/    Individual pipe implementations + specs
+    src/providers/               ALL_PIPES provider
 ```
+
+---
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](libs/ngx-transforms/LICENSE) file for details.
-
-## Author
-
-Built and maintained by [Mofiro Jean](https://github.com/mofirojean).
+[MIT](libs/ngx-transforms/LICENSE) © [Mofiro Jean](https://github.com/mofirojean)

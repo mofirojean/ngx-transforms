@@ -44,8 +44,8 @@
     "url": "https://github.com/mofirojean/ngx-transforms/issues"
   },
   "peerDependencies": {
-    "@angular/core": "^21.0.0",
-    "@angular/platform-browser": "^21.0.0"
+    "@angular/core": ">=17.0.0 <22.0.0",
+    "@angular/platform-browser": ">=17.0.0 <22.0.0"
   },
   "dependencies": {
     "tslib": "^2.3.0",

@@ -89,6 +89,8 @@ import { IsDefinedPage } from './pages/pipes/is-defined';
 import { IsNullPage } from './pages/pipes/is-null';
 import { IsStringPage } from './pages/pipes/is-string';
 import { IsNumberPage } from './pages/pipes/is-number';
+import { IsArrayPage } from './pages/pipes/is-array';
+import { IsObjectPage } from './pages/pipes/is-object';
 
 export const appRoutes: Route[] = [
   {
@@ -454,6 +456,14 @@ export const appRoutes: Route[] = [
           {
             path: 'is-number',
             component: IsNumberPage,
+          },
+          {
+            path: 'is-array',
+            component: IsArrayPage,
+          },
+          {
+            path: 'is-object',
+            component: IsObjectPage,
           },
         ],
       },

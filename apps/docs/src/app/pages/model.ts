@@ -148,6 +148,8 @@ export const PIPE_CATEGORIES: PipeCategory[] = [
       { name: "IsNull", url: "/docs/pipes/is-null", description: "Returns true only when the value is exactly null.", addedOn: "2026-04-29" },
       { name: "IsString", url: "/docs/pipes/is-string", description: "Returns true when the value is a primitive string.", addedOn: "2026-04-30" },
       { name: "IsNumber", url: "/docs/pipes/is-number", description: "Returns true when the value is a primitive number.", addedOn: "2026-04-30" },
+      { name: "IsArray", url: "/docs/pipes/is-array", description: "Returns true when the value is a real Array (Array.isArray).", addedOn: "2026-05-01" },
+      { name: "IsObject", url: "/docs/pipes/is-object", description: "Returns true when the value is a non-null, non-array object.", addedOn: "2026-05-01" },
     ],
   },
 ];

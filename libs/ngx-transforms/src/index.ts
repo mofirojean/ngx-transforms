@@ -47,6 +47,8 @@ export * from './lib/pipes/boolean/is-string/is-string';
 export * from './lib/pipes/boolean/is-number/is-number';
 export * from './lib/pipes/boolean/is-array/is-array';
 export * from './lib/pipes/boolean/is-object/is-object';
+export * from './lib/pipes/boolean/is-function/is-function';
+export * from './lib/pipes/boolean/is-empty/is-empty';
 
 // Security & Privacy
 export * from './lib/pipes/security/credit-card-mask/credit-card-mask';

@@ -150,6 +150,8 @@ export const PIPE_CATEGORIES: PipeCategory[] = [
       { name: "IsNumber", url: "/docs/pipes/is-number", description: "Returns true when the value is a primitive number.", addedOn: "2026-04-30" },
       { name: "IsArray", url: "/docs/pipes/is-array", description: "Returns true when the value is a real Array (Array.isArray).", addedOn: "2026-05-01" },
       { name: "IsObject", url: "/docs/pipes/is-object", description: "Returns true when the value is a non-null, non-array object.", addedOn: "2026-05-01" },
+      { name: "IsFunction", url: "/docs/pipes/is-function", description: "Returns true when the value is callable (typeof 'function').", addedOn: "2026-05-03" },
+      { name: "IsEmpty", url: "/docs/pipes/is-empty", description: "Returns true for null, undefined, empty strings, arrays, objects, Maps, and Sets.", addedOn: "2026-05-03" },
     ],
   },
 ];

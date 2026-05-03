@@ -49,6 +49,8 @@ import { IsStringPipe } from '../lib/pipes/boolean/is-string/is-string';
 import { IsNumberPipe } from '../lib/pipes/boolean/is-number/is-number';
 import { IsArrayPipe } from '../lib/pipes/boolean/is-array/is-array';
 import { IsObjectPipe } from '../lib/pipes/boolean/is-object/is-object';
+import { IsFunctionPipe } from '../lib/pipes/boolean/is-function/is-function';
+import { IsEmptyPipe } from '../lib/pipes/boolean/is-empty/is-empty';
 
 // Security & Privacy
 import { CreditCardMaskPipe } from '../lib/pipes/security/credit-card-mask/credit-card-mask';
@@ -157,6 +159,8 @@ export const ALL_PIPES: Provider[] = [
   IsNumberPipe,
   IsArrayPipe,
   IsObjectPipe,
+  IsFunctionPipe,
+  IsEmptyPipe,
 
   // Security & Privacy
   CreditCardMaskPipe,

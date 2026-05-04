@@ -1,3 +1,50 @@
+## 0.3.1 (2026-05-04)
+
+### 🚀 Features
+
+- implemented capitalize pipe and examples ([caada70](https://github.com/mofirojean/ngx-transforms/commit/caada70))
+- implemented trim pipe and examples ([3a704c4](https://github.com/mofirojean/ngx-transforms/commit/3a704c4))
+- implemented upper-first pipe and examples ([771ba3f](https://github.com/mofirojean/ngx-transforms/commit/771ba3f))
+- implement left-pad pipe and examples ([a910779](https://github.com/mofirojean/ngx-transforms/commit/a910779))
+- implement pad pipe and examples ([3326f33](https://github.com/mofirojean/ngx-transforms/commit/3326f33))
+- implement right-pad pipe and examples ([b4fe7bd](https://github.com/mofirojean/ngx-transforms/commit/b4fe7bd))
+- implement repeat pipe and examples ([6b999dd](https://github.com/mofirojean/ngx-transforms/commit/6b999dd))
+- implement slugify pipe and examples ([da81dc6](https://github.com/mofirojean/ngx-transforms/commit/da81dc6))
+- implement strip-tags pipe and examples ([c7da815](https://github.com/mofirojean/ngx-transforms/commit/c7da815))
+- implement decode-uri pipe and examples ([f8de4c2](https://github.com/mofirojean/ngx-transforms/commit/f8de4c2))
+- implement decode-uri component pipe and examples ([b2139fb](https://github.com/mofirojean/ngx-transforms/commit/b2139fb))
+- implement encode-uri pipe and examples ([c7c37d6](https://github.com/mofirojean/ngx-transforms/commit/c7c37d6))
+- implement encode-uri component pipe and examples ([3238b68](https://github.com/mofirojean/ngx-transforms/commit/3238b68))
+- implement URI encode/decode pipes ([20d94ef](https://github.com/mofirojean/ngx-transforms/commit/20d94ef))
+- implement match pipes and examples ([75626b3](https://github.com/mofirojean/ngx-transforms/commit/75626b3))
+- implement newlines pipes and examples ([9089577](https://github.com/mofirojean/ngx-transforms/commit/9089577))
+- implement split pipes and examples ([c30af68](https://github.com/mofirojean/ngx-transforms/commit/c30af68))
+- implement test pipes and examples ([10adead](https://github.com/mofirojean/ngx-transforms/commit/10adead))
+- implement latinize pipe and examples ([dcfd8dd](https://github.com/mofirojean/ngx-transforms/commit/dcfd8dd))
+- implement template pipe and examples ([000ec00](https://github.com/mofirojean/ngx-transforms/commit/000ec00))
+- implement wrap pipe and examples ([bb7f713](https://github.com/mofirojean/ngx-transforms/commit/bb7f713))
+- complete string pipes with seo on documentation ([e38541c](https://github.com/mofirojean/ngx-transforms/commit/e38541c))
+- implement keys pipe and examples ([8f23e37](https://github.com/mofirojean/ngx-transforms/commit/8f23e37))
+- implement values pipe and examples ([5356151](https://github.com/mofirojean/ngx-transforms/commit/5356151))
+- implement pairs pipe and examples ([3b64926](https://github.com/mofirojean/ngx-transforms/commit/3b64926))
+- implement omit pipes and examples ([c880113](https://github.com/mofirojean/ngx-transforms/commit/c880113))
+- implement pick pipes and examples ([cd2b937](https://github.com/mofirojean/ngx-transforms/commit/cd2b937))
+- implement invert pipes and examples ([0d5fa33](https://github.com/mofirojean/ngx-transforms/commit/0d5fa33))
+- implement invert-by pipes and examples ([e14485b](https://github.com/mofirojean/ngx-transforms/commit/e14485b))
+- implement diff-obj pipes and examples ([db61b8f](https://github.com/mofirojean/ngx-transforms/commit/db61b8f))
+- implement is-defined pipe and examples ([0e884fe](https://github.com/mofirojean/ngx-transforms/commit/0e884fe))
+- implement is-null pipe and examples ([be19c78](https://github.com/mofirojean/ngx-transforms/commit/be19c78))
+- implement is-number pipe and examples ([0c43180](https://github.com/mofirojean/ngx-transforms/commit/0c43180))
+- implement is-string pipe and examples ([17a833d](https://github.com/mofirojean/ngx-transforms/commit/17a833d))
+- implement is-array pipe and examples ([3ea73ef](https://github.com/mofirojean/ngx-transforms/commit/3ea73ef))
+- implement is-object pipe and examples ([038f739](https://github.com/mofirojean/ngx-transforms/commit/038f739))
+- implement is-function pipe and examples ([1d9167e](https://github.com/mofirojean/ngx-transforms/commit/1d9167e))
+- implement is-empty pipe and examples ([9182ed3](https://github.com/mofirojean/ngx-transforms/commit/9182ed3))
+
+### ❤️ Thank You
+
+- Mofiro Jean
+
 ## 0.3.0 (2026-04-16)
 
 ### 🚀 Features

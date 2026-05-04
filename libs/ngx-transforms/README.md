@@ -4,7 +4,7 @@
 [![Angular](https://img.shields.io/badge/Angular-17+-dd0031.svg)](https://angular.dev)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-> 86+ standalone, tree-shakable Angular pipes for text, arrays, math, objects, and more.
+> 90+ standalone, tree-shakable Angular pipes for text, arrays, math, objects, and more.
 
 **[Docs & live playground →](https://ngx-transforms.vercel.app)**
 

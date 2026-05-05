@@ -1,7 +1,7 @@
 {
   "name": "ngx-transforms",
   "version": "0.3.1",
-  "description": "A collection of 36 standalone Angular pipes for text, security, media, data, and array transformations.",
+  "description": "90+ standalone, tree-shakable Angular pipes for text, arrays, math, objects, booleans, and more.",
   "keywords": [
     "angular",
     "pipes",
@@ -34,10 +34,11 @@
     "range"
   ],
   "license": "MIT",
+  "type": "module",
   "author": "Mofiro Jean <mofirojean@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mofirojean/ngx-transforms"
+    "url": "git+https://github.com/mofirojean/ngx-transforms.git"
   },
   "homepage": "https://github.com/mofirojean/ngx-transforms#readme",
   "bugs": {

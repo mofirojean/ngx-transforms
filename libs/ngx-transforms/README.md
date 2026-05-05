@@ -2,9 +2,10 @@
 
 [![npm](https://img.shields.io/npm/v/ngx-transforms.svg)](https://www.npmjs.com/package/ngx-transforms)
 [![Angular](https://img.shields.io/badge/Angular-17+-dd0031.svg)](https://angular.dev)
+[![gzip](https://img.shields.io/badge/gzip-28_KB-success.svg)](#bundle-size)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-> 90+ standalone, tree-shakable Angular pipes for text, arrays, math, objects, and more.
+> 90 standalone, tree-shakable Angular pipes for text, arrays, math, objects, and more.
 
 **[Docs & live playground →](https://ngx-transforms.vercel.app)**
 
@@ -33,7 +34,7 @@ import { TruncatePipe, TimeAgoPipePipe } from 'ngx-transforms';
 export class PostCard {}
 ```
 
-Every pipe is standalone — import only what you use, the rest is tree-shaken.
+Every pipe is standalone meaning you import only what you use, the rest is tree-shaken.
 
 ## What's inside
 
@@ -43,12 +44,29 @@ Every pipe is standalone — import only what you use, the rest is tree-shaken.
 | **Array**    | 20    | `groupBy`, `orderBy`, `unique`, `chunk`, `intersection`        |
 | **Math**     | 13    | `min`, `max`, `sum`, `average`, `bytes`, `percentage`          |
 | **Object**   | 8     | `keys`, `pairs`, `pick`, `omit`, `invert`, `diffObj`           |
+| **Boolean**  | 8     | `isDefined`, `isString`, `isArray`, `isObject`, `isEmpty`      |
 | **Data**     | 5     | `count`, `timeAgo`, `jsonPretty`, `device`, `textToSpeech`     |
 | **Security** | 5     | `htmlSanitize`, `creditCardMask`, `emailMask`, `ipAddressMask` |
 | **Media**    | 4     | `qrCode`, `barcode`, `gravatar`, `colorConvert`                |
-| **Boolean**  | 4     | `isDefined`, `isNull`, `isString`, `isNumber`                  |
 
 Full API reference at **[ngx-transforms.vercel.app](https://ngx-transforms.vercel.app)**.
+
+## Bundle size
+
+The complete library includes all 90 pipes, and it is **27.9 KB gzipped** / **23.3 KB brotli**. What you actually ship is much smaller, because Angular's CLI tree-shakes any pipe you don't import.
+
+| Measure              | Size     |
+| -------------------- | -------- |
+| FESM bundle (raw)    | 169 KB   |
+| FESM bundle (gzip)   | 27.9 KB  |
+| FESM bundle (brotli) | 23.3 KB  |
+
+```ts
+// Only TruncatePipe and its transitive imports lands in your bundle.
+import { TruncatePipe } from 'ngx-transforms';
+```
+
+A handful of pipes pull their own dependencies — `qrCode` (qrcode), `barcode` (jsbarcode), `gravatar` (js-md5), `asciiArt` (ts-ascii-engine). If you skip those, the rest of the library is pure standalone-pipe code.
 
 ## Provide all at once
 

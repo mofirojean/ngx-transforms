@@ -1,0 +1,21 @@
+[
+  {
+    "name": "FESM bundle (raw, on disk)",
+    "path": "dist/libs/ngx-transforms/fesm2022/ngx-transforms.mjs",
+    "limit": "200 KB",
+    "gzip": false,
+    "brotli": false
+  },
+  {
+    "name": "FESM bundle (gzipped)",
+    "path": "dist/libs/ngx-transforms/fesm2022/ngx-transforms.mjs",
+    "limit": "30 KB",
+    "gzip": true
+  },
+  {
+    "name": "FESM bundle (brotli)",
+    "path": "dist/libs/ngx-transforms/fesm2022/ngx-transforms.mjs",
+    "limit": "25 KB",
+    "brotli": true
+  }
+]

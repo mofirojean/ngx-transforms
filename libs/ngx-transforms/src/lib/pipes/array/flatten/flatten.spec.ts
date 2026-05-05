@@ -1,11 +1,11 @@
-import { Flatten } from './flatten';
+import { FlattenPipe } from './flatten';
 import { describe, it, expect, beforeEach } from 'vitest';
 
-describe('Flatten', () => {
-  let pipe: Flatten;
+describe('FlattenPipe', () => {
+  let pipe: FlattenPipe;
 
   beforeEach(() => {
-    pipe = new Flatten();
+    pipe = new FlattenPipe();
   });
 
   it('should create an instance', () => {

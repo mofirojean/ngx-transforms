@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class CountPipe implements PipeTransform {
 
-  transform(value: any): number {
+  transform(value: unknown): number {
     if (value === null || value === undefined) {
       return 0;
     }
@@ -14,7 +14,7 @@ export class CountPipe implements PipeTransform {
       return value.length;
     }
     if (typeof value === 'object') {
-      return Object.keys(value).length;
+      return Object.keys(value as object).length;
     }
     return 0;
   }

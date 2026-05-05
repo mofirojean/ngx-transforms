@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { JsonPipe } from '@angular/common';
-import { Flatten } from '@ngx-transforms';
+import { FlattenPipe } from '@ngx-transforms';
 import { CodePreview } from '../../reusables/code-preview/code-preview';
 import { NextPrevNavigation } from '../../reusables/next-prev-navigation/next-prev-navigation';
 import { MacosWindow } from '../../reusables/macos-window/macos-window';
@@ -13,7 +13,7 @@ import { FlattenPlayground } from '../../examples/flatten-playground/flatten-pla
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    Flatten,
+    FlattenPipe,
     JsonPipe,
     CodePreview,
     NextPrevNavigation,
@@ -189,12 +189,12 @@ export class FlattenPage {
 
   code = `
 import { Component } from '@angular/core';
-import { Flatten } from 'ngx-transforms';
+import { FlattenPipe } from 'ngx-transforms';
 
 @Component({
   selector: 'app-example',
   standalone: true,
-  imports: [Flatten],
+  imports: [FlattenPipe],
   template: \`
     <!-- Full flatten (default) -->
     <p>{{ nested | flatten }}</p>

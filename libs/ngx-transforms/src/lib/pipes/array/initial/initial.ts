@@ -19,7 +19,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class InitialPipe implements PipeTransform {
 
-  transform(value: unknown, n = 1): unknown[] {
+  transform(value: unknown[], n = 1): unknown[] {
     if (!Array.isArray(value)) {
       return [];
     }

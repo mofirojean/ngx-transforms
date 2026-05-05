@@ -70,14 +70,14 @@ import { CountPipe } from '../lib/pipes/data/count/count';
 import { DeviceTypePipe } from '../lib/pipes/data/device-type/device-type';
 import { JsonPrettyPipe } from '../lib/pipes/data/json-pretty/json-pretty';
 import { TextToSpeechPipe } from '../lib/pipes/data/text-to-speech/text-to-speech';
-import { TimeAgoPipePipe } from '../lib/pipes/data/time-ago/time-ago';
+import { TimeAgoPipe } from '../lib/pipes/data/time-ago/time-ago';
 
 // Array
 import { ChunkPipe } from '../lib/pipes/array/chunk/chunk';
 import { DiffPipe } from '../lib/pipes/array/diff/diff';
 import { EveryPipe } from '../lib/pipes/array/every/every';
 import { IntersectionPipe } from '../lib/pipes/array/intersection/intersection';
-import { Flatten } from '../lib/pipes/array/flatten/flatten';
+import { FlattenPipe } from '../lib/pipes/array/flatten/flatten';
 import { GroupByPipe } from '../lib/pipes/array/group-by/group-by';
 import { InitialPipe } from '../lib/pipes/array/initial/initial';
 import { OrderByPipe } from '../lib/pipes/array/order-by/order-by';
@@ -180,14 +180,14 @@ export const ALL_PIPES: Provider[] = [
   DeviceTypePipe,
   JsonPrettyPipe,
   TextToSpeechPipe,
-  TimeAgoPipePipe,
+  TimeAgoPipe,
 
   // Array
   ChunkPipe,
   DiffPipe,
   EveryPipe,
   IntersectionPipe,
-  Flatten,
+  FlattenPipe,
   GroupByPipe,
   InitialPipe,
   OrderByPipe,

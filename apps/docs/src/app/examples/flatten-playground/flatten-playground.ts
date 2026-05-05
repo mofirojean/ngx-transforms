@@ -5,13 +5,13 @@ import {
   signal,
 } from '@angular/core';
 import { JsonPipe } from '@angular/common';
-import { Flatten } from '@ngx-transforms';
+import { FlattenPipe } from '@ngx-transforms';
 import { HlmButtonImports } from '@spartan-ng/helm/button';
 
 @Component({
   selector: 'app-flatten-playground',
   standalone: true,
-  imports: [HlmButtonImports, Flatten, JsonPipe],
+  imports: [HlmButtonImports, FlattenPipe, JsonPipe],
   template: `
     <style>
       @keyframes pop-in {

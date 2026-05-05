@@ -17,7 +17,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'flatten',
   standalone: true
 })
-export class Flatten implements PipeTransform {
+export class FlattenPipe implements PipeTransform {
 
   transform(value: unknown[], depth = Infinity): unknown[] {
     if (!Array.isArray(value)) {

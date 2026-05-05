@@ -22,11 +22,11 @@ export type DeviceType = 'mobile' | 'tablet' | 'desktop' | 'unknown';
  * @returns {'mobile' | 'tablet' | 'desktop' | 'unknown'} - The detected device type.
  *
  * @example
- * {{ '' | device }} // Outputs: 'mobile' (on a mobile device)
- * <div *ngIf="'' | device === 'desktop'">Desktop-only content</div>
+ * {{ '' | deviceType }} // Outputs: 'mobile' (on a mobile device)
+ * <div *ngIf="'' | deviceType === 'desktop'">Desktop-only content</div>
  */
 @Pipe({
-  name: 'device',
+  name: 'deviceType',
   standalone: true
 })
 export class DeviceTypePipe implements PipeTransform {

@@ -1,11 +1,11 @@
-import { TimeAgoPipePipe } from './time-ago';
+import { TimeAgoPipe } from './time-ago';
 import { describe, it, expect, beforeEach } from 'vitest';
 
-describe('TimeAgoPipePipe', () => {
-  let pipe: TimeAgoPipePipe;
+describe('TimeAgoPipe', () => {
+  let pipe: TimeAgoPipe;
 
   beforeEach(() => {
-    pipe = new TimeAgoPipePipe();
+    pipe = new TimeAgoPipe();
   });
 
   it('should create an instance', () => {

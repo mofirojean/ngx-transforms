@@ -11,7 +11,8 @@
     "sitemap:generate": "npx tsx apps/docs/scripts/generate-sitemap.ts",
     "size": "size-limit",
     "validate:package": "publint dist/libs/ngx-transforms",
-    "verify:lib": "nx build ngx-transforms && publint dist/libs/ngx-transforms && size-limit"
+    "build:lib": "nx build ngx-transforms && node libs/ngx-transforms/scripts/finalize-dist-package.mjs",
+    "verify:lib": "pnpm build:lib && publint dist/libs/ngx-transforms && size-limit"
   },
   "prettier": {
     "printWidth": 100,

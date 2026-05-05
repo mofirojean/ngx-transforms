@@ -90,7 +90,7 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
                 <div class="rounded-md bg-background p-4">
                   <p class="text-sm">
                     Current device:
-                    <span class="font-mono font-bold text-primary capitalize">{{ '' | device }}</span>
+                    <span class="font-mono font-bold text-primary capitalize">{{ '' | deviceType }}</span>
                   </p>
                 </div>
               </div>
@@ -99,7 +99,7 @@ import { Breadcrumb } from '../../reusables/breadcrumb/breadcrumb';
                 <div class="rounded-md bg-background p-4">
                   <p class="text-sm">
                     iPhone UA:
-                    <span class="font-mono font-bold text-primary">{{ iphoneUA | device }}</span>
+                    <span class="font-mono font-bold text-primary">{{ iphoneUA | deviceType }}</span>
                   </p>
                 </div>
               </div>
@@ -200,11 +200,11 @@ import { DeviceTypePipe } from 'ngx-transforms';
   imports: [DeviceTypePipe],
   template: \`
     <!-- Auto-detect current device -->
-    <p>Device: {{ '' | device }}</p>
+    <p>Device: {{ '' | deviceType }}</p>
 
     <!-- Conditional rendering -->
-    @if ('' | device; as deviceType) {
-      @if (deviceType === 'mobile') {
+    @if ('' | deviceType; as kind) {
+      @if (kind === 'mobile') {
         <app-mobile-nav />
       } @else {
         <app-desktop-nav />
@@ -212,7 +212,7 @@ import { DeviceTypePipe } from 'ngx-transforms';
     }
 
     <!-- With custom user agent (e.g., from analytics) -->
-    <p>{{ userAgentString | device }}</p>
+    <p>{{ userAgentString | deviceType }}</p>
   \`
 })
 export class ExampleComponent {

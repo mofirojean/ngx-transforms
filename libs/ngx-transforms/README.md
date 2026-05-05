@@ -21,11 +21,11 @@ npm install ngx-transforms
 
 ```ts
 import { Component } from '@angular/core';
-import { TruncatePipe, TimeAgoPipePipe } from 'ngx-transforms';
+import { TruncatePipe, TimeAgoPipe } from 'ngx-transforms';
 
 @Component({
   standalone: true,
-  imports: [TruncatePipe, TimeAgoPipePipe],
+  imports: [TruncatePipe, TimeAgoPipe],
   template: `
     <p>{{ post.body | truncate:80 }}</p>
     <small>{{ post.createdAt | timeAgo }}</small>

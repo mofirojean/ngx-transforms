@@ -23,7 +23,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'timeAgo',
   standalone: true
 })
-export class TimeAgoPipePipe implements PipeTransform {
+export class TimeAgoPipe implements PipeTransform {
 
   private static readonly THRESHOLDS: [number, number, Intl.RelativeTimeFormatUnit][] = [
     [60, 1, 'second'],
@@ -56,7 +56,7 @@ export class TimeAgoPipePipe implements PipeTransform {
     const seconds = Math.floor((date.getTime() - Date.now()) / 1000);
 
 
-    for (const [max, divisor, unit] of TimeAgoPipePipe.THRESHOLDS) {
+    for (const [max, divisor, unit] of TimeAgoPipe.THRESHOLDS) {
       if (Math.abs(seconds) < max) {
         return this.rtf.format(Math.round(seconds / divisor), unit);
       }

@@ -60,6 +60,9 @@ jobs:
       - name: Build library
         run: pnpm nx build ngx-transforms --skip-nx-cache
 
+      - name: Finalize dist package.json
+        run: node libs/ngx-transforms/scripts/finalize-dist-package.mjs
+
       - name: Publish to npm
         run: npm publish dist/libs/ngx-transforms --access public
         env:
@@ -68,10 +71,11 @@ jobs:
       - name: Publish to GitHub Packages
         run: |
           cd dist/libs/ngx-transforms
-          node -e "
-            const pkg = require('./package.json');
+          node --input-type=module -e "
+            import { readFileSync, writeFileSync } from 'node:fs';
+            const pkg = JSON.parse(readFileSync('./package.json', 'utf8'));
             pkg.name = '@mofirojean/ngx-transforms';
-            require('fs').writeFileSync('package.json', JSON.stringify(pkg, null, 2));
+            writeFileSync('./package.json', JSON.stringify(pkg, null, 2));
           "
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > .npmrc
           npm publish --access public --registry https://npm.pkg.github.com

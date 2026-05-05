@@ -40,7 +40,13 @@ jobs:
         run: pnpm nx test ngx-transforms
 
       - name: Build library
-        run: pnpm nx build ngx-transforms
+        run: pnpm build:lib
+
+      - name: Validate published package shape
+        run: pnpm validate:package
+
+      - name: Bundle size guard
+        run: pnpm size
 
       - name: Build docs
         run: pnpm nx build docs --configuration=production

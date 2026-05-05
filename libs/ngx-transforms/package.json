@@ -1,6 +1,6 @@
 {
   "name": "ngx-transforms",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "90+ standalone, tree-shakable Angular pipes for text, arrays, math, objects, booleans, and more.",
   "keywords": [
     "angular",

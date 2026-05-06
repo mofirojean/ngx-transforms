@@ -1,0 +1,100 @@
+name: Angular Compatibility
+
+# Verifies the Angular 17–21 peer-dep claim.
+# Slow (~10–15 min total) — runs on a daily cron, not per-PR.
+on:
+  schedule:
+    - cron: '0 6 * * *'  # 06:00 UTC daily
+  workflow_dispatch:
+
+concurrency:
+  group: compat-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-lib:
+    name: Build & pack ngx-transforms
+    runs-on: ubuntu-latest
+    outputs:
+      tarball: ${{ steps.pack.outputs.tarball }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install workspace deps
+        run: pnpm install --frozen-lockfile
+
+      - name: Build library (with finalize)
+        run: pnpm build:lib
+
+      - name: Pack library
+        id: pack
+        run: |
+          cd dist/libs/ngx-transforms
+          TARBALL=$(npm pack --json | node -p "JSON.parse(require('fs').readFileSync(0,'utf8'))[0].filename")
+          echo "tarball=$TARBALL" >> "$GITHUB_OUTPUT"
+          echo "Packed: $TARBALL"
+
+      - name: Upload tarball
+        uses: actions/upload-artifact@v4
+        with:
+          name: ngx-transforms-tarball
+          path: dist/libs/ngx-transforms/*.tgz
+          retention-days: 1
+
+  compat:
+    name: Angular ${{ matrix.angular }} smoke test
+    needs: build-lib
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        angular: [17, 19, 21]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            tools/compat-test
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Download lib tarball
+        uses: actions/download-artifact@v4
+        with:
+          name: ngx-transforms-tarball
+          path: ./tarball
+
+      - name: Scaffold Angular ${{ matrix.angular }} consumer
+        run: |
+          npx -y -p "@angular/cli@${{ matrix.angular }}" ng new compat-app \
+            --skip-install \
+            --skip-git \
+            --routing=false \
+            --style=css \
+            --inline-style \
+            --inline-template \
+            --defaults
+
+      - name: Apply smoke test
+        run: cp tools/compat-test/smoke.ts compat-app/src/main.ts
+
+      - name: Install consumer deps + lib tarball
+        working-directory: compat-app
+        run: |
+          npm install
+          npm install ../tarball/$(ls ../tarball | head -1)
+
+      - name: Build consumer
+        working-directory: compat-app
+        run: npx ng build --configuration=production

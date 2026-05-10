@@ -93,6 +93,8 @@ import { IsArrayPage } from './pages/pipes/is-array';
 import { IsObjectPage } from './pages/pipes/is-object';
 import { IsFunctionPage } from './pages/pipes/is-function';
 import { IsEmptyPage } from './pages/pipes/is-empty';
+import { RecipesList } from './pages/recipes/recipes-list';
+import { JsonTreeViewerRecipe } from './pages/recipes/json-tree-viewer';
 
 export const appRoutes: Route[] = [
   {
@@ -107,6 +109,19 @@ export const appRoutes: Route[] = [
       {
         path: 'introduction',
         component: Introduction,
+      },
+      {
+        path: 'recipes',
+        children: [
+          {
+            path: '',
+            component: RecipesList,
+          },
+          {
+            path: 'json-tree-viewer',
+            component: JsonTreeViewerRecipe,
+          },
+        ],
       },
       {
         path: 'pipes',

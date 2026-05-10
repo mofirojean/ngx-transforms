@@ -1,6 +1,6 @@
 import { writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { PIPES, PIPE_CATEGORIES } from '../src/app/pages/model';
+import { PIPES, PIPE_CATEGORIES, RECIPES } from '../src/app/pages/model';
 
 const SITE_ORIGIN = 'https://ngx-transforms.vercel.app';
 const OUTPUT = resolve(__dirname, '../public/sitemap.xml');
@@ -17,6 +17,7 @@ const staticRoutes: UrlEntry[] = [
   { loc: '/', priority: '1.0', changefreq: 'weekly', lastmod: TODAY },
   { loc: '/docs/introduction', priority: '0.9', changefreq: 'monthly', lastmod: TODAY },
   { loc: '/docs/pipes', priority: '0.9', changefreq: 'weekly', lastmod: TODAY },
+  { loc: '/docs/recipes', priority: '0.9', changefreq: 'weekly', lastmod: TODAY },
 ];
 
 const pipeRoutes: UrlEntry[] = PIPES.map((pipe) => ({
@@ -26,7 +27,14 @@ const pipeRoutes: UrlEntry[] = PIPES.map((pipe) => ({
   lastmod: pipe.addedOn ?? TODAY,
 }));
 
-const allRoutes = [...staticRoutes, ...pipeRoutes];
+const recipeRoutes: UrlEntry[] = RECIPES.map((recipe) => ({
+  loc: recipe.url,
+  priority: '0.85',
+  changefreq: 'monthly',
+  lastmod: recipe.addedOn ?? TODAY,
+}));
+
+const allRoutes = [...staticRoutes, ...pipeRoutes, ...recipeRoutes];
 
 const xml = [
   '<?xml version="1.0" encoding="UTF-8"?>',
@@ -49,4 +57,4 @@ const xml = [
 writeFileSync(OUTPUT, xml, 'utf8');
 
 const totalPipes = PIPE_CATEGORIES.reduce((sum, c) => sum + c.pipes.length, 0);
-console.log(`✓ Wrote sitemap.xml — ${allRoutes.length} URLs (${totalPipes} pipes across ${PIPE_CATEGORIES.length} categories)`);
+console.log(`✓ Wrote sitemap.xml — ${allRoutes.length} URLs (${totalPipes} pipes across ${PIPE_CATEGORIES.length} categories, ${RECIPES.length} recipes)`);

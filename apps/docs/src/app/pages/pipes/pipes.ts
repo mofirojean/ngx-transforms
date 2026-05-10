@@ -3,7 +3,7 @@ import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {HlmButton} from '@spartan-ng/helm/button';
 import {NgIcon, provideIcons} from '@ng-icons/core';
 import {lucideMenu, lucideX, lucidePipette} from '@ng-icons/lucide';
-import {PIPE_CATEGORIES, isNewPipe} from '../model';
+import {PIPE_CATEGORIES, RECIPES, isNewPipe, isNewRecipe} from '../model';
 import {SidebarService} from '../../reusables/services/sidebar.service';
 import {HlmIcon} from '@spartan-ng/helm/icon';
 
@@ -47,6 +47,34 @@ import {HlmIcon} from '@spartan-ng/helm/icon';
             >
               Introduction
             </a>
+          </div>
+
+          <h4 class="mb-2 mt-6 text-xs font-semibold uppercase tracking-wider text-muted-foreground/70">
+            Recipes
+          </h4>
+          <div class="grid grid-flow-row auto-rows-max text-sm mb-8">
+            <a
+              routerLink="/docs/recipes"
+              [routerLinkActiveOptions]="{exact: true}"
+              routerLinkActive="font-medium text-primary bg-primary/10"
+              (click)="closeSidebar()"
+              class="group flex w-full items-center rounded-md border border-transparent px-2 py-1.5 hover:bg-primary/10 text-muted-foreground hover:text-foreground transition-colors"
+            >
+              All recipes
+            </a>
+            @for (recipe of recipes; track recipe.name) {
+              <a
+                [routerLink]="recipe.url"
+                routerLinkActive="font-medium text-primary bg-primary/10"
+                (click)="closeSidebar()"
+                class="group flex w-full items-center rounded-md border border-transparent px-2 py-1.5 hover:bg-primary/10 text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {{ recipe.name }}
+                @if (isNewRecipe(recipe)) {
+                  <span class="ml-auto inline-flex items-center rounded-full bg-green-500/10 px-1.5 py-0.5 text-[10px] font-medium text-green-600 dark:text-green-400 ring-1 ring-inset ring-green-500/20">New</span>
+                }
+              </a>
+            }
           </div>
 
           @for (category of categories; track category.name) {
@@ -93,7 +121,9 @@ export class PipesPage {
   private sidebarService = inject(SidebarService);
   isSidebarOpen = this.sidebarService.isOpen;
   protected categories = PIPE_CATEGORIES;
+  protected recipes = RECIPES;
   protected isNew = isNewPipe;
+  protected isNewRecipe = isNewRecipe;
 
   closeSidebar() {
     this.sidebarService.close();

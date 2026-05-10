@@ -14,12 +14,34 @@ export interface PipeCategory {
   pipes: Pipe[];
 }
 
+/**
+ * Represents a recipe which is a real-world pattern that combines two or more pipes
+ * to solve a specific problem. Recipes are linked from the docs sidebar
+ * alongside the pipe categories.
+ */
+export interface Recipe {
+  name: string;
+  url: string;
+  description: string;
+  /** Pipes the recipe combines — used for cross-linking. */
+  uses: string[];
+  /** ISO date string (YYYY-MM-DD) when the recipe was added. */
+  addedOn?: string;
+}
+
 const ONE_WEEK_MS = 7 * 24 * 60 * 60 * 1000;
 
 /** Returns true if the pipe was added within the last 2 weeks. */
 export function isNewPipe(pipe: Pipe): boolean {
   if (!pipe.addedOn) return false;
   const addedDate = new Date(pipe.addedOn).getTime();
+  return Date.now() - addedDate < ONE_WEEK_MS;
+}
+
+/** Returns true if the recipe was added within the last 2 weeks. */
+export function isNewRecipe(recipe: Recipe): boolean {
+  if (!recipe.addedOn) return false;
+  const addedDate = new Date(recipe.addedOn).getTime();
   return Date.now() - addedDate < ONE_WEEK_MS;
 }
 
@@ -158,3 +180,17 @@ export const PIPE_CATEGORIES: PipeCategory[] = [
 
 /** Flat list of all pipes (for backward compatibility). */
 export const PIPES: Pipe[] = PIPE_CATEGORIES.flatMap(c => c.pipes);
+
+/**
+ * Recipes — real-world patterns that compose multiple pipes.
+ * Linked from the docs sidebar above the pipe categories.
+ */
+export const RECIPES: Recipe[] = [
+  {
+    name: 'JSON Tree Viewer',
+    url: '/docs/recipes/json-tree-viewer',
+    description: 'Render unknown JSON as an expandable tree by branching on isArray / isObject and walking pairs.',
+    uses: ['isArray', 'isObject', 'pairs'],
+    addedOn: '2026-05-10',
+  },
+];

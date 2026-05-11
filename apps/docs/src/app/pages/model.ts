@@ -193,4 +193,11 @@ export const RECIPES: Recipe[] = [
     uses: ['isArray', 'isObject', 'pairs'],
     addedOn: '2026-05-10',
   },
+  {
+    name: 'Smart Slug Builder',
+    url: '/docs/recipes/smart-slug-builder',
+    description: 'Turn any title accents, emoji, run-on length into a clean URL slug by chaining truncate, latinize, and slugify.',
+    uses: ['truncate', 'latinize', 'slugify'],
+    addedOn: '2026-05-11',
+  },
 ];

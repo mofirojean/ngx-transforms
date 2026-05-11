@@ -95,6 +95,7 @@ import { IsFunctionPage } from './pages/pipes/is-function';
 import { IsEmptyPage } from './pages/pipes/is-empty';
 import { RecipesList } from './pages/recipes/recipes-list';
 import { JsonTreeViewerRecipe } from './pages/recipes/json-tree-viewer';
+import { SmartSlugBuilderRecipe } from './pages/recipes/smart-slug-builder';
 
 export const appRoutes: Route[] = [
   {
@@ -120,6 +121,10 @@ export const appRoutes: Route[] = [
           {
             path: 'json-tree-viewer',
             component: JsonTreeViewerRecipe,
+          },
+          {
+            path: 'smart-slug-builder',
+            component: SmartSlugBuilderRecipe,
           },
         ],
       },

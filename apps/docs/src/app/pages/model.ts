@@ -200,4 +200,11 @@ export const RECIPES: Recipe[] = [
     uses: ['truncate', 'latinize', 'slugify'],
     addedOn: '2026-05-11',
   },
+  {
+    name: 'Dashboard Stats Card',
+    url: '/docs/recipes/dashboard-stats-card',
+    description: 'Build a live KPI dashboard from one array by fanning out into parallel aggregations such as sum, average, max, percentage, bytes, each in pure templates.',
+    uses: ['sum', 'average', 'max', 'percentage', 'bytes'],
+    addedOn: '2026-05-13',
+  },
 ];

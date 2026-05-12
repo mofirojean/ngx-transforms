@@ -96,6 +96,7 @@ import { IsEmptyPage } from './pages/pipes/is-empty';
 import { RecipesList } from './pages/recipes/recipes-list';
 import { JsonTreeViewerRecipe } from './pages/recipes/json-tree-viewer';
 import { SmartSlugBuilderRecipe } from './pages/recipes/smart-slug-builder';
+import { DashboardStatsCardRecipe } from './pages/recipes/dashboard-stats-card';
 
 export const appRoutes: Route[] = [
   {
@@ -125,6 +126,10 @@ export const appRoutes: Route[] = [
           {
             path: 'smart-slug-builder',
             component: SmartSlugBuilderRecipe,
+          },
+          {
+            path: 'dashboard-stats-card',
+            component: DashboardStatsCardRecipe,
           },
         ],
       },

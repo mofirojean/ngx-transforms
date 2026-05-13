@@ -207,4 +207,11 @@ export const RECIPES: Recipe[] = [
     uses: ['sum', 'average', 'max', 'percentage', 'bytes'],
     addedOn: '2026-05-13',
   },
+  {
+    name: 'Avatar Fallback Chain',
+    url: '/docs/recipes/avatar-fallback-chain',
+    description: 'Try gravatar first, fall back to initials, then a generic placeholder for any graceful avatar rendering for any user shape.',
+    uses: ['gravatar', 'initials', 'isEmpty'],
+    addedOn: '2026-05-14',
+  },
 ];

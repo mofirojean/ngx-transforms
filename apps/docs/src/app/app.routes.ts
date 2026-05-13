@@ -97,6 +97,7 @@ import { RecipesList } from './pages/recipes/recipes-list';
 import { JsonTreeViewerRecipe } from './pages/recipes/json-tree-viewer';
 import { SmartSlugBuilderRecipe } from './pages/recipes/smart-slug-builder';
 import { DashboardStatsCardRecipe } from './pages/recipes/dashboard-stats-card';
+import { AvatarFallbackChainRecipe } from './pages/recipes/avatar-fallback-chain';
 
 export const appRoutes: Route[] = [
   {
@@ -130,6 +131,10 @@ export const appRoutes: Route[] = [
           {
             path: 'dashboard-stats-card',
             component: DashboardStatsCardRecipe,
+          },
+          {
+            path: 'avatar-fallback-chain',
+            component: AvatarFallbackChainRecipe,
           },
         ],
       },

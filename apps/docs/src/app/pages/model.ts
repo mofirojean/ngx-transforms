@@ -214,4 +214,18 @@ export const RECIPES: Recipe[] = [
     uses: ['gravatar', 'initials', 'isEmpty'],
     addedOn: '2026-05-14',
   },
+  {
+    name: 'PII Leak Detector',
+    url: '/docs/recipes/search-and-mask',
+    description: 'Scan unstructured text for sensitive patterns such as credit cards, emails, IPs, then render each detection through its masking pipe.',
+    uses: ['match', 'creditCardMask', 'emailMask', 'ipAddressMask'],
+    addedOn: '2026-05-15',
+  },
+  {
+    name: 'Dirty-Form Tracking',
+    url: '/docs/recipes/dirty-form-tracking',
+    description: 'Compare a form against its original snapshot with diffObj, gate the Save button with isEmpty, and ship only the changed fields.',
+    uses: ['diffObj', 'isEmpty'],
+    addedOn: '2026-05-15',
+  },
 ];
